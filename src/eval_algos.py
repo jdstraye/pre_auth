@@ -1,256 +1,398 @@
 """
-This code is for step 2 in the plan to 
-find the best hyperparameters for the model
+Evaluates machine learning models for status and tier classification using SMOTE,
+category grouping, and StratifiedKFold. Saves top 100 models per phase and tier target encoder.
 """
-
-import os
+from cmath import phase
+import sys
 import numpy as np
 import pandas as pd
-from pathlib import Path
-from datetime import datetime
-import joblib
-from sklearn.model_selection import train_test_split, RandomizedSearchCV, KFold
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.linear_model import LogisticRegression
-from sklearn.svm import SVC
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.preprocessing import LabelEncoder
-from sklearn.pipeline import Pipeline
-from xgboost import XGBClassifier
-from lightgbm import LGBMClassifier
-from catboost import CatBoostClassifier
-from scipy.stats import randint, uniform
-from CustomLogger import CustomRotatingFileHandler
 import logging
+import joblib
+import json
+import argparse
+from pathlib import Path
+from typing import Tuple, Optional, List, Union, Sequence, Any, Dict, cast, TypedDict
+from sklearn.model_selection import RandomizedSearchCV, StratifiedKFold
+from sklearn.feature_selection import SelectKBest, mutual_info_classif
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import classification_report   
+from xgboost import XGBClassifier
+from lightgbm import LGBMClassifier  # type: ignore
+from catboost import CatBoostClassifier  # type: ignore
+from imblearn.over_sampling import SMOTENC  # type: ignore
+from imblearn.pipeline import Pipeline as ImbPipeline
+#2020830 from sklearn.preprocessing import LabelEncoder
+from sklearn.base import clone
+from utils import check_df_columns, sanitize_column_name, CustomRotatingFileHandler
 
-# --- Logging Setup ---
+# Logging Setup
 Path("logs").mkdir(exist_ok=True)
-handler = CustomRotatingFileHandler("logs/pre_auth_train", maxBytes=10*1024*1024, backupCount=5)
+handler = CustomRotatingFileHandler("logs/pre_auth_eval_algos.log", maxBytes=10*1024*1024, backupCount=5)
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 handler.setFormatter(formatter)
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 logger.addHandler(handler)
-logger.info("Logger initialized with rotating file handler.")
+logger.info("Logger initialized for eval_algos.py.")
 
-# --- Helper Functions (from previous code) ---
-def preprocess_data(df, feature_cols, categorical_cols=None):
-    """
-    Preprocess data: handle categorical variables and missing values.
-    """
-    df = df.copy()
-    if categorical_cols:
-        for col in categorical_cols:
-            if col in df.columns:
-                le = LabelEncoder()
-                df[col] = le.fit_transform(df[col].astype(str))
-                logger.info(f"Encoded categorical column: {col}")
-    for col in feature_cols:
-        if col in df.columns:
-            if df[col].dtype in [np.float64, np.int64]:
-                df[col] = df[col].fillna(df[col].mean())
-            else:
-                df[col] = df[col].fillna(df[col].mode()[0])
-    return df
+"""
+Evaluates machine learning models for status and tier classification using SMOTE,
+category grouping, and StratifiedKFold. Saves top 100 models per phase and tier target encoder.
+"""
 
-# --- Main Execution Block ---
-try:
-    data_path = Path("data/splits")
-    train_path = data_path / "train_latest.csv"
-    test_path = data_path / "test_latest.csv"
-    train_file = os.path.realpath(train_path)
-    test_file = os.path.realpath(test_path)
-    train_df = pd.read_csv(train_file)
-    test_df = pd.read_csv(test_file)
-    logger.info(f"Loaded and split data. Training set size: {len(train_df)}, Test set size: {len(test_df)}")
-except FileNotFoundError as e:
-    logger.error(f"Error loading data: {e}. Please ensure {test_file} and {train_file} exist.")
-    raise
+# Helper Functions
+#20250830 def group_rare_classes(y: Union[np.ndarray, Sequence[int]], min_samples: int = 5, phase: str = 'tier') -> Tuple[np.ndarray, Optional[LabelEncoder]]:
+#20250830     """Group classes with < min_samples into 'other' for tier phase."""
+#20250830     if phase != 'tier':
+#20250830         return np.array(y, dtype=int), None  # No grouping for status
+#20250830     class_counts = pd.Series(list(y)).value_counts()
+#20250830     logger.info(f"Original {phase} class counts: {class_counts.to_dict()}")
+#20250830     # Group based on sample counts: low (0,2,3,5,9,10), medium (1,4), high (6,7,8)
+#20250830     group_dict = {
+#20250830         0: 'low', 2: 'low', 3: 'low', 5: 'low', 9: 'low', 10: 'low',
+#20250830         1: 'medium', 4: 'medium',
+#20250830         6: 'high', 7: 'high', 8: 'high'
+#20250830     }
+#20250830     y_grouped = np.array([group_dict.get(x, 'low') for x in y])
+#20250830     le = LabelEncoder()
+#20250830     y_grouped = le.fit_transform(y_grouped)
+#20250830     logger.info(f"Grouped {phase} classes: New unique {len(np.unique(y_grouped))}")
+#20250830     y_list: List[Any] = np.array(y_grouped).tolist()
+#20250830     logger.info(f"New class counts: {pd.Series(y_list).value_counts().to_dict()}")
+#20250830     return np.array(y_grouped, dtype=int), le
 
-feature_cols = [
-    "user_initials", "DebtToIncome", "Automatic Financing_Score",
-    "Automatic Financing_below_600?", "Automatic Financing_Status_Approved?",
-    "Automatic Financing_Status_Declined?", "Automatic Financing_Amount",
-    "Automatic Financing_Details_in_the_wallet?", "Automatic Financing_Details_just_available?",
-    "Automatic Financing_DebtToIncome", "0% Unsecured Funding_missing?",
-    "0% Unsecured Funding_Score", "0% Unsecured Funding_below_600?",
-    "Unsecured Funding_Status_As_is?", "Unsecured Funding_Status_Declined?",
-    "Unsecured Funding_Status_if_Fixed?", "Unsecured Funding_Status_NA?",
-    "0% Unsecured Funding_Amount", "0% Unsecured Funding_Details_To_book?",
-    "0% Unsecured Funding_Details_just_CL?", "0% Unsecured Funding_Details_NA?",
-    "0% Unsecured Funding_Collections", "0% Unsecured Funding_Contingencies",
-    "0% Unsecured Funding_DebtToIncome", "Debt Resolution_missing?",
-    "Debt Resolution_Score", "Debt Resolution_score_missing?",
-    "Debt Resolution_below_600?", "Debt Resolution_Status_Approved?",
-    "Debt Resolution_Status_Declined?", "Debt Resolution_Status_NA?",
-    "Debt Resolution_Amount", "Debt Resolution_DebtToIncome",
-]
-categorical_cols = ["user_initials"]
+class ParamDict(TypedDict, total=False):
+    select__k: int
+    smote__categorical_features: List[int]
 
-logger.debug(train_df.columns)
-missing_cols = [col for col in feature_cols if col not in train_df.columns]
-if missing_cols:
-    logger.debug(f"Missing columns: {missing_cols}")
-try:
-    train_df = preprocess_data(train_df, feature_cols, categorical_cols)
-    test_df = preprocess_data(test_df, feature_cols, categorical_cols)
-except Exception as e:
-    logger.error(f"Error preprocessing data: {e}")
-    raise
-
-# --- Step 2: Multi-Algorithm Optimization with RandomizedSearchCV ---
-logger.info("\n--- Step 2: Optimizing Multiple Models with RandomizedSearchCV ---")
-
-pipeline = Pipeline([
-    ('classifier', RandomForestClassifier())
-])
-
-# Define the hyperparameter search space
-param_distributions = {
-    'RandomForestClassifier': {
-        'n_estimators': [100, 200, 300, 400, 500],
-        'max_depth': [None, 3, 5, 10],
-        'min_samples_split': [2, 5, 10],
-        'min_samples_leaf': [1, 5, 10]
-    },
-    'XGBClassifier': {
-        'n_estimators': [100, 200, 300, 400, 500],
-        'max_depth': [3, 5, 10],
-        'learning_rate': [0.01, 0.1, 0.5],
-        'gamma': [0, 0.1, 0.5]
-    },
-    'LGBMClassifier': {
-        'n_estimators': [100, 200, 300, 400, 500],
-        'num_leaves': [31, 62, 127],
-        'learning_rate': [0.01, 0.1, 0.5],
-        'reg_alpha': [0, 0.1, 0.5],
-        'reg_lambda': [0, 0.1, 0.5]
-    },
-    'CatBoostClassifier': {
-        'iterations': [100, 200, 300, 400, 500],
-        'depth': [3, 5, 10],
-        'learning_rate': [0.01, 0.1, 0.5],
-        'l2_leaf_reg': [1, 3, 5]
-    },
-    'LogisticRegression': {
-        'C': [0.1, 1, 10],
-        'penalty': ['l1', 'l2'],
-        'solver': ['liblinear', 'saga']
-    },
-    'SVC': {
-        'C': [0.1, 1, 10],
-        'kernel': ['linear', 'rbf', 'poly']
-    },
-    'KNeighborsClassifier': {
-        'n_neighbors': [3, 5, 10],
-        'weights': ['uniform', 'distance']
-    }
-}
-
-# Define the models
-models = {
-    'RandomForestClassifier': RandomForestClassifier(random_state=42),
-    'XGBClassifier': XGBClassifier(random_state=42, use_label_encoder=False, eval_metric='logloss'),
-    'LGBMClassifier': LGBMClassifier(random_state=42),
-    'CatBoostClassifier': CatBoostClassifier(random_state=42, verbose=0),
-    'LogisticRegression': LogisticRegression(random_state=42),
-    'SVC': SVC(random_state=42),
-    'KNeighborsClassifier': KNeighborsClassifier()
-}
-
-def hyperparameter_search(X, y, model_name, param_dist):
-    logger.info(f"Performing hyperparameter search for {model_name}...")
-    model = models[model_name]
-    random_search = RandomizedSearchCV(model, param_dist, cv=KFold(n_splits=5, shuffle=True, random_state=42), n_iter=20, random_state=42)
-    random_search.fit(X, y)
-    logger.info(f"Hyperparameter search completed for {model_name}. Best parameters: {random_search.best_params_}")
-    logger.info(f"Best cross-validation accuracy score: {random_search.best_score_:.4f}")
-    return random_search.best_estimator_, random_search.best_score_
-
-def get_top_models(X, y, n_top):
-    all_models = []
-    total_iterations = sum(len(param_dist) for param_dist in param_distributions.values())
-    current_iteration = 0
-    for model_name, param_dist in param_distributions.items():
-        model = models[model_name]
-        #20250822a n_iter = len(param_dist)
-        #20250822b n_iter = 50
-        n_iter = sum(len(value) for value in param_dist.values())
-        random_search = RandomizedSearchCV(model, param_dist, cv=KFold(n_splits=5, shuffle=True, random_state=42), n_iter=n_iter, random_state=42)
-        random_search.fit(X, y)
-        current_iteration += len(param_dist)
-        logger.info(f"Completed {current_iteration} out of {total_iterations} iterations ({current_iteration/total_iterations*100:.2f}%)")
-        for i in range(len(random_search.cv_results_['params'])):
-            all_models.append((model_name, random_search.cv_results_['params'][i], random_search.cv_results_['mean_test_score'][i]))
-    all_models.sort(key=lambda x: x[2], reverse=True)
-    return all_models[:n_top]
-
-def log_feature_importance(model, feature_names):
+def log_feature_importance(model, feature_names: List[str]) -> None:
     if hasattr(model, 'feature_importances_'):
-        feature_importances = model.feature_importances_
-        if feature_importances.ndim > 0:
+        importances = model.feature_importances_
+        if importances.ndim > 0:
             logger.info("Feature importances:")
-            for feature_name, importance in zip(feature_names, feature_importances):
-                logger.info(f"{feature_name}: {importance:.4f}")
-        else:
-            logger.info("Feature importances are not available in a format that can be logged.")
-    elif hasattr(model, 'coef_'):
-        feature_coefficients = model.coef_[0]
-        logger.info("Feature coefficients:")
-        for feature_name, coefficient in zip(feature_names, feature_coefficients):
-            logger.info(f"{feature_name}: {coefficient:.4f}")
+            for name, imp in sorted(zip(feature_names, importances), key=lambda x: x[1], reverse=True):
+                logger.info(f"{name}: {imp:.4f}")
     else:
         logger.info("Feature importances not available for this model.")
 
-def log_class_imbalance(y):
-    class_counts = np.bincount(y)
-    logger.info("Class imbalance:")
-    for class_label, count in enumerate(class_counts):
-        logger.info(f"Class {class_label}: {count} samples")
+def log_class_imbalance(y: Union[np.ndarray, Sequence[int]], phase: str) -> None:
+    counts = pd.Series(list(y)).value_counts().sort_index()
+    logger.info(f"{phase} class imbalance:")
+    for label, count in counts.items():
+        logger.info(f"Class {label}: {count} samples")
+    if any(count < 5 for count in counts):
+        logger.warning(f"{phase}: Some classes have fewer than 5 samples, which may cause issues with StratifiedKFold or SMOTENC.")
 
-# Setup
-train_path = Path(__name__).parent.parent / "data" / "splits" / "train_latest.csv"
+def load_column_headers(column_headers_json: Path, df: pd.DataFrame) -> Tuple[List[str], List[str], List[str]]:
+    """Load feature, categorical, and target columns from column_headers.json."""
+    try:
+        with open(column_headers_json, 'r', encoding='utf-8') as f:
+            header_data = json.load(f)
+        feature_cols = [sanitize_column_name(col['name']) for col in header_data if col.get('X') == 'True']
+        check_df_columns(df, feature_cols)
+        categorical_cols = [col['name'] for col in header_data if col.get('categorical') == 'True']
+        target_cols = [col['name'] for col in header_data if col.get('Y') == 'True']
+        logger.info(f"Loaded {len(feature_cols)} feature columns, {len(categorical_cols)} categorical columns, and {len(target_cols)} target columns from column_headers.json")
+        return feature_cols, categorical_cols, target_cols
+    except FileNotFoundError:
+        logger.error("Error: 'data/column_headers.json' not found.")
+        raise
+    except json.JSONDecodeError:
+        logger.error("Error: Could not decode 'data/column_headers.json'. Check for syntax errors.")
+        raise
 
-# Train the model for phase 1 - status
-train_df = pd.read_csv(train_path)
-train_status_df = train_df
-#20250821a X_status = train_status_df.drop("final_contract_status_label", axis=1)
-X_train_status = train_status_df[feature_cols]
-y_train_status = train_status_df["final_contract_status_label"]
-X_train_status = preprocess_data(X_train_status, feature_cols, categorical_cols)
+# Models and Hyperparameters
+models = {
+    'RandomForestClassifier': RandomForestClassifier(random_state=42, class_weight='balanced'),
+    'XGBClassifier': XGBClassifier(random_state=42, eval_metric='mlogloss'),
+    'LGBMClassifier': LGBMClassifier(random_state=42, class_weight='balanced'),  # type: ignore
+    'CatBoostClassifier': CatBoostClassifier(random_state=42, verbose=0, auto_class_weights='Balanced')  # type: ignore
+}
 
-# Logging and Saving the top models for phase 2 - tier
-top_models = get_top_models(X_train_status, y_train_status, 100)
-for i, (model_name, params, score) in enumerate(top_models):
-    logger.info(f"Model {i+1}: {model_name}, Params: {params}, Score: {score:.4f}")
-    model = models[model_name]
-    model.set_params(**params)
-#20250822a    model.fit(X_train_status, y_train_status)
-    log_feature_importance(model, X_train_status.columns)
-    log_class_imbalance(y_train_status)
-    joblib.dump(model, f"status_model_{i+1}.pkl")
-    logger.info(f"Status model {i+1} saved.")
+param_distributions: Dict[str, Dict[str, List[Union[int, float, str, None]]]] = {
+    'RandomForestClassifier': {
+        'select__k': [10, 15, 20, 25],
+        'smote__k_neighbors': [1, 3, 5, 7],
+        'classifier__n_estimators': [100, 200, 300],
+        'classifier__max_depth': [None, 5, 10],
+        'classifier__min_samples_split': [2, 5],
+        'classifier__min_samples_leaf': [1, 5]
+    },
+    'XGBClassifier': {
+        'select__k': [10, 15, 20, 25],
+        'smote__k_neighbors': [1, 3, 5, 7],
+        'classifier__n_estimators': [100, 200, 300],
+        'classifier__max_depth': [3, 5],
+        'classifier__learning_rate': [0.01, 0.1],
+        'classifier__gamma': [0, 0.1]
+    },
+    'LGBMClassifier': {
+        'select__k': [10, 15, 20, 25],
+        'smote__k_neighbors': [1, 3, 5, 7],
+        'classifier__n_estimators': [100, 200, 300],
+        'classifier__num_leaves': [31, 62],
+        'classifier__learning_rate': [0.01, 0.1],
+        'classifier__reg_alpha': [0, 0.1],
+        'classifier__reg_lambda': [0, 0.1]
+    },
+    'CatBoostClassifier': {
+        'select__k': [10, 15, 20, 25],
+        'smote__k_neighbors': [1, 3, 5, 7],
+        'classifier__iterations': [100, 200, 300],
+        'classifier__depth': [3, 5],
+        'classifier__learning_rate': [0.01, 0.1],
+        'classifier__l2_leaf_reg': [1, 3]
+    }
+}
 
-# Train the model for phase 2 - tier
-train_approved_df = train_df[train_df["final_contract_status_label"] == 0]
-X_train_tier = train_approved_df[feature_cols]
-y_train_tier = train_approved_df["final_contract_tier_label"]
-X_train_tier = preprocess_data(X_train_tier, feature_cols, categorical_cols)
+def get_top_models(X: pd.DataFrame, y: Union[np.ndarray, Sequence[int]], n_top: int, phase: str = 'status', column_headers_json: Path = Path("src/column_headers.json")) -> List[Tuple[str, dict, float]]:
 
-# Encode y_train_tier if it's categorical
-if not pd.api.types.is_numeric_dtype(y_train_tier):
-    le = LabelEncoder()
-    y_train_tier = le.fit_transform(y_train_tier)
+    # Helper Functions
+    # Adjust categorical indices after feature selection
+    def adjust_categorical_indices(selected_features: List[str], 
+                                   original_categorical_indices: List[int], 
+                                   original_columns: pd.Index) -> List[int]:
+        """
+        Map categorical feature indices after feature selection.
 
-logger.info(f"Training tier model...")
-top_models = get_top_models(X_train_tier, y_train_tier, 100)
-# Logging and Saving the top models for phase 2 - tier
-for i, (model_name, params, score) in enumerate(top_models):
-    logger.info(f"Model {i+1}: {model_name}, Params: {params}, Score: {score:.4f}")
-    model = models[model_name]
-    model.set_params(**params)
-#20250822a    model.fit(X_train_tier, y_train_tier)
-    log_feature_importance(model, X_train_tier.columns)
-    log_class_imbalance(y_train_tier)
-    joblib.dump(model, f"tier_model_{i+1}.pkl")
-    logger.info(f"Tier model {i+1} saved.")
+        Parameters
+        ----------
+        selected_features : list of str
+            The feature names selected by SelectKBest.
+        original_categorical_indices : list of int
+            The categorical feature indices in the original dataset.
+        original_columns : pd.Index
+            All original column names.
+
+        Returns
+        -------
+        list of int
+            The indices of categorical features within the selected feature set,
+            expressed relative to the selected features' order.
+        """
+        # Convert categorical indices -> categorical column names
+        original_categorical_cols = [original_columns[i] for i in original_categorical_indices]
+
+        # Now only keep those categorical cols that survived feature selection
+        return [i for i, col in enumerate(selected_features) if col in original_categorical_cols]
+    
+    feature_cols, categorical_cols, _ = load_column_headers(column_headers_json, X)
+    categorical_indices = [X.columns.get_loc(col) for col in categorical_cols if col in X.columns]
+    original_categorical_cols = categorical_cols
+    all_models = []
+    total_iterations = sum(len(dist) for param_dist in param_distributions.values() for dist in param_dist.values())
+    current_iteration = 0
+    logger.info(f"Using {len(categorical_indices)} categorical indices: {categorical_indices}")
+
+    # Group rare classes
+#20250830    y_grouped, le = group_rare_classes(y, min_samples=round(0.02 * len(y)), phase=phase)
+    y_grouped = np.array(y, dtype=int)
+    cv = StratifiedKFold(n_splits=3 if phase == 'tier' else 3, shuffle=True, random_state=42)
+    for model_name, param_dist in param_distributions.items():
+        # Clone the model to get a fresh, unfitted instance
+        model = clone(models[model_name])
+        pipeline = ImbPipeline([
+            ('select', SelectKBest(score_func=mutual_info_classif)),
+            ('smote', SMOTENC(
+                categorical_features=[], # will be set dynamically
+                random_state=42,
+                sampling_strategy='not majority'
+                )),
+                ('classifier', model)
+        ])
+        # Dynamically adjust categorical indices in param_dist
+        new_params = {}
+        for param_name, param_values in param_dist.items():
+            if param_name == 'select__k':
+                for raw_k in param_values:
+                    if raw_k is None:
+                        continue  # skip invalid
+                    k = int(raw_k)
+                    selected_features = X.columns[:k].tolist()
+                    smote_features = adjust_categorical_indices(selected_features, categorical_indices, X.columns)
+                    # assign list[int], not list[list[int]]
+                    new_params['smote__categorical_features'] = cast(List[Union[int, float, str, None]], smote_features)
+        param_dist.update(new_params)
+
+        # Debug for XGB
+        if model_name == 'XGBClassifier':
+            logger.info(f"Debug XGB {phase}: Unique classes in y_grouped: {np.unique(y_grouped)}")
+            logger.debug(f"BIN01: {phase = }\n{y_grouped = }")
+            logger.info(f"Debug XGB {phase}: Class counts: {np.bincount(y_grouped)}")
+        random_search = RandomizedSearchCV(
+            pipeline,
+            param_dist,
+            cv=cv,
+            n_iter = sum(len(v) for v in param_dist.values()),
+            scoring='f1_macro',
+            random_state=42,
+            verbose=1,
+            n_jobs=2,
+            error_score='raise'
+        )
+        try:
+            if model_name == 'XGBClassifier':
+                for fold, (train_idx, val_idx) in enumerate(cv.split(X, y_grouped)):
+                    y_fold_train = y_grouped[train_idx]
+                    y_fold_val = y_grouped[val_idx]
+                    logger.info(f"Debug XGB {phase} Fold {fold}: Train classes {np.unique(y_fold_train)}, counts {np.bincount(y_fold_train)}")
+                    logger.info(f"Debug XGB {phase} Fold {fold}: Val classes {np.unique(y_fold_val)}, counts {np.bincount(y_fold_val)}")
+            random_search.fit(X, y_grouped)
+
+
+            # Print the top features for the best model
+            best_k = random_search.best_params_['select__k']
+            selected_features = X.columns[:best_k].tolist()
+            logger.info(f"\nTop {best_k} features for {model_name}:")
+            logger.info(selected_features)
+
+            for i in range(len(random_search.cv_results_['params'])):
+                params = {k.replace('classifier__', ''): v for k, v in random_search.cv_results_['params'][i].items()}
+                all_models.append((model_name, params, random_search.cv_results_['mean_test_score'][i]))
+            current_iteration += len(random_search.cv_results_['params'])
+            logger.info(f"Completed {current_iteration}/{total_iterations} iterations ({current_iteration/total_iterations*100:.2f}%)")
+        except Exception as e:
+            logger.critical(f"Error in {model_name} for {phase}: {str(e)}")
+            raise ValueError(f"Error in {model_name} for {phase}: {str(e)}")
+
+    all_models.sort(key=lambda x: x[2], reverse=True)
+    logger.info(f"Top {n_top} models for {phase}:")
+    for i, (model_name, params, score) in enumerate(all_models[:n_top]):
+        logger.info(f"Model {i+1}: {model_name}, Params: {params}, Score: {score:.4f}")
+    return all_models[:n_top]
+
+# Main Execution
+def main(args):
+    try:
+        train_df = pd.read_csv(args.train_csv)
+        test_df = pd.read_csv(args.test_csv)
+        logger.info(f"Loaded preprocessed data. Training size: {len(train_df)}, Test size: {len(test_df)}")
+    except FileNotFoundError as e:
+        logger.error(f"Error loading preprocessed data: {e}")
+        raise
+
+    feature_cols, categorical_cols, target_cols = load_column_headers(args.column_headers_json, train_df)
+
+    # Filter available columns
+    available_cols = [col for col in feature_cols if col in train_df.columns]
+    missing_cols = [col for col in feature_cols if col not in train_df.columns]
+    if missing_cols:
+        logger.warning(f"Missing columns in train_df: {missing_cols}")
+    logger.info(f"Using available columns: {available_cols}")
+    
+    # Validate target columns
+    status_target = 'final_contract_status_label'
+    tier_target = 'final_contract_tier_label'
+    if status_target not in target_cols or tier_target not in target_cols:
+        logger.error(f"Target columns {status_target} or {tier_target} not found in column_headers.json Y=True columns")
+        raise ValueError(f"Target columns {status_target} or {tier_target} not found in column_headers.json")
+    
+    # Phase 1: Status
+    X_train_status = train_df[feature_cols]
+    y_train_status = train_df[status_target].to_numpy()
+    logger.debug(f"BIN00- {status_target = }\n{train_df[status_target] = }\n{y_train_status = }")
+    for c in X_train_status.columns:
+        if X_train_status[c].isnull().any():
+            logger.debug(f"BIN01- {c = }, {X_train_status[c] = }")
+    log_class_imbalance(y_train_status, "Status")
+    
+    top_models_status = get_top_models(X_train_status, y_train_status, 100, phase='status')
+    for i, (model_name, params, score) in enumerate(top_models_status):
+        logger.info(f"Status Model {i+1}: {model_name}, Params: {params}, Score: {score:.4f}")
+        model = clone(models[model_name]) # Create a fresh clone of the model
+        model.set_params(**params)
+        model.fit(X_train_status, y_train_status)
+        y_pred = model.predict(X_train_status)
+        logger.info(f"Status Classification Report for {model_name}:")
+        report: Dict[str, Dict[str, Any]] = cast(Dict[str, Dict[str, Any]], classification_report(y_train_status, y_pred, output_dict=True))    
+        for class_name, metrics in report.items():
+            if isinstance(metrics, dict) and 'precision' in metrics:
+                logger.info(f"Class {class_name}:")
+                logger.info(f"  Precision: {metrics['precision']:.4f}")
+                logger.info(f"  Recall: {metrics['recall']:.4f}")
+                logger.info(f"  F1-score: {metrics['f1-score']:.4f}")
+                if 'support' in metrics:
+                    logger.info(f"  Support: {metrics['support']}")
+        if 'macro avg' in report and isinstance(report['macro avg'], dict):
+            logger.info("Macro Average Metrics:")
+            logger.info(f"  Precision: {report['macro avg'].get('precision', 0):.4f}")
+            logger.info(f"  Recall: {report['macro avg'].get('recall', 0):.4f}")
+            logger.info(f"  F1-score: {report['macro avg'].get('f1-score', 0):.4f}")
+        if 'weighted avg' in report and isinstance(report['weighted avg'], dict):
+            logger.info("Weighted Average Metrics:")
+            logger.info(f"  Precision: {report['weighted avg'].get('precision', 0):.4f}")
+            logger.info(f"  Recall: {report['weighted avg'].get('recall', 0):.4f}")
+            logger.info(f"  F1-score: {report['weighted avg'].get('f1-score', 0):.4f}")
+        report_path = Path("logs")
+        report_path.mkdir(parents=True, exist_ok=True)
+        df_report = pd.DataFrame(report).transpose()
+        report_file = report_path / "status_classification_report.csv"
+        df_report.to_csv(report_file)
+        logger.info(f"Saved Status classification report to {report_file}")
+
+        log_feature_importance(model, available_cols)
+        joblib.dump(model, f"models/status_model_{i+1}.pkl")
+        logger.info(f"Status model {i+1} saved.")
+    
+    # Phase 2: Tier
+    # Only consider approved contracts with valid tier labels. For now, 'rejected' is status_label = 0 but no tier assignment.
+    train_approved_df = train_df[
+        (train_df[status_target] == 0) & 
+        (~train_df[tier_target].isin(["NA", "-1", "", "null", np.nan])) & 
+        (train_df[tier_target].notnull())
+    ]
+    X_train_tier = train_approved_df[available_cols]
+    y_train_tier = train_approved_df[tier_target].to_numpy()
+    logger.debug(f"Tier00 - {status_target = }\n{train_approved_df[tier_target] = }\n{y_train_tier = }")
+    log_class_imbalance(y_train_tier, "Tier")
+    
+    top_models_tier = get_top_models(X_train_tier, y_train_tier, 100, phase='tier')
+    for i, (model_name, params, score) in enumerate(top_models_tier):
+        logger.info(f"Tier Model {i+1}: {model_name}, Params: {params}, Score: {score:.4f}")
+        model = clone(models[model_name]) # Create a fresh clone of the model
+        model.set_params(**params)
+        model.fit(X_train_tier, y_train_tier)
+        y_pred = model.predict(X_train_tier)
+        logger.info(f"Tier Classification Report for {model_name}:")
+        report: Dict[str, Dict[str, Any]] = cast(Dict[str, Dict[str, Any]], classification_report(y_train_tier, y_pred, output_dict=True))    
+        for class_name, metrics in report.items():
+            if isinstance(metrics, dict) and 'precision' in metrics:
+                logger.info(f"Class {class_name}:")
+                logger.info(f"  Precision: {metrics['precision']:.4f}")
+                logger.info(f"  Recall: {metrics['recall']:.4f}")
+                logger.info(f"  F1-score: {metrics['f1-score']:.4f}")
+                if 'support' in metrics:
+                    logger.info(f"  Support: {metrics['support']}")
+        if 'macro avg' in report and isinstance(report['macro avg'], dict):
+            logger.info("Macro Average Metrics:")
+            logger.info(f"  Precision: {report['macro avg'].get('precision', 0):.4f}")
+            logger.info(f"  Recall: {report['macro avg'].get('recall', 0):.4f}")
+            logger.info(f"  F1-score: {report['macro avg'].get('f1-score', 0):.4f}")
+        if 'weighted avg' in report and isinstance(report['weighted avg'], dict):
+            logger.info("Weighted Average Metrics:")
+            logger.info(f"  Precision: {report['weighted avg'].get('precision', 0):.4f}")
+            logger.info(f"  Recall: {report['weighted avg'].get('recall', 0):.4f}")
+            logger.info(f"  F1-score: {report['weighted avg'].get('f1-score', 0):.4f}")
+        report_path = Path("logs")
+        report_path.mkdir(parents=True, exist_ok=True)
+        df_report = pd.DataFrame(report).transpose()
+        report_file = report_path / "tier_classification_report.csv"
+        df_report.to_csv(report_file)
+        logger.info(f"Saved Tier classification report to {report_file}")
+        log_feature_importance(model, available_cols)
+        joblib.dump(model, f"models/tier_model_{i+1}.pkl")
+        logger.info(f"Tier model {i+1} saved.")
+    
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Evaluate various models for best fit to the data.")
+    parser.add_argument("--train_csv", type=Path)
+    parser.add_argument("--test_csv", type=Path)
+    parser.add_argument("--column_headers_json", required=True, type=Path)
+    args = parser.parse_args()
+
+    Path("models/encoders").mkdir(parents=True, exist_ok=True)
+    main(args)
+    logger.info("Evaluation complete.")
+    sys.exit(0)
