@@ -3,7 +3,7 @@
 # Immediately terminate the script if any command fails
 set -e
 set -o pipefail
-
+source .venv_pre_auth/bin/activate
 
 input="data/prefi_weaviate_clean-1_modified.json"
 imported="data/$(basename ${input} .json)_import_processed.csv"
@@ -21,3 +21,5 @@ xterm -e '/usr/bin/bash -c "tail -f /tmp/log logs/pre_auth_train_latest.log 2>&1
 echo "========" | tee -a /tmp/log
 echo "== Evaluating Algorithms" | tee -a /tmp/log
 python src/eval_algos.py --column_headers_json src/column_headers.json --train_csv data/splits/train_latest.csv --test_csv data/splits/test_latest.csv 2>&1 | tee -a /tmp/log
+
+deactivate

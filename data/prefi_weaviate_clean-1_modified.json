@@ -22219,7 +22219,7 @@
                     "contract_id": "891bf6551789d76ad476a54a5d8a1e922bd58c5a17b09fecb690d132e31be4f6",
                     "status": "approved",
                     "amount": "4897.00",
-                    "tier": 0.095,
+                    "tier": "0.095",
                     "tier_assigned_at": "2025-08-25T17:37:43-04:00",
                     "created_at": "2025-08-14T17:37:43-04:00",
                     "merchant_id": "ec9e8e5961fbd42d968ccc8d4e7a089efd5c05a44f110608811f8bcfa5437b22"
