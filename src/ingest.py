@@ -11,7 +11,7 @@ import logging
 import pandas as pd
 from pathlib import Path
 from typing import Dict, Any, Optional, List, Tuple
-from utils import check_df_columns, sanitize_column_name, logger
+from src.utils import check_df_columns, sanitize_column_name, logger
 import re
 import numpy as np
 from sklearn.preprocessing import LabelEncoder
@@ -291,12 +291,14 @@ def _get_final_columns(schema: List[Dict[str, Any]]) -> List[str]:
 
 
 # --- Main ---
-
 def flatten_weaviate_data(file_path: Path, schema: List[Dict[str, Any]]) -> pd.DataFrame:
     """Flatten Weaviate JSON data into a DataFrame."""
-    with open(file_path, 'r', encoding='utf-8') as f:
-        full_data = json.load(f)
-#20250826     logger.debug(f"here0: (raw, so spaces) {full_data = }")
+    try:
+        with open(file_path, 'r', encoding='utf-8') as f:
+            full_data = json.load(f)
+    except Exception as e:
+        logger.error(f"Error reading {file_path}: {e}")
+        raise ValueError(f"Could not read or parse JSON file {file_path}: {e}")
     records = full_data.get("data", [])
 #20250826     logger.debug(f"here1: (raw, so spaces) {records = }")
     flattened_records: List[Dict[str, Any]] = []

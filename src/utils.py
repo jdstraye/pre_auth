@@ -112,6 +112,7 @@ def check_df_columns(df: pd.DataFrame, column_headers: List[str]) -> bool:
         
     # Only check existing columns for NaN values
     existing_columns = set(column_headers) & set(df.columns)
+    logger.debug(f"{df.to_string() = }")
 
     for c in existing_columns:
         try:
@@ -123,7 +124,7 @@ def check_df_columns(df: pd.DataFrame, column_headers: List[str]) -> bool:
 
                 # Get indices of rows with NaN in this column
                 nan_indices = NaN_column[NaN_column].index
-                logger.debug(f"NaN indices for column {c}: {list(nan_indices)}")
+                logger.debug(f"NaN indices for column '{c}': {list(nan_indices)}")
 
                 # Print the entire rows for these bad indices
                 for i in nan_indices:
@@ -134,5 +135,5 @@ def check_df_columns(df: pd.DataFrame, column_headers: List[str]) -> bool:
             bad_df = True
 
     if bad_df:
-            raise ValueError("The DataFrame is not suitable for ML model fitting. Please address these before proceeding.")
+            raise ValueError("The DataFrame is not suitable for ML model fitting. Address the errors before proceeding.")
     return not bad_df

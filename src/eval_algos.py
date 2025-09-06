@@ -17,12 +17,13 @@ from sklearn import pipeline
 from sklearn.model_selection import RandomizedSearchCV, StratifiedKFold
 from sklearn.feature_selection import SelectKBest, mutual_info_classif
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import classification_report
-
+from sklearn.metrics import classification_report, log_loss
+from sklearn.calibration import CalibratedClassifierCV
+from sklearn.preprocessing import FunctionTransformer
 from xgboost import XGBClassifier
 from lightgbm import LGBMClassifier
 from catboost import CatBoostClassifier
-from imblearn.over_sampling import SMOTENC
+from imblearn.over_sampling import SMOTENC, SMOTE
 from imblearn.pipeline import Pipeline as ImbPipeline
 #2020830 from sklearn.preprocessing import LabelEncoder
 from sklearn.base import clone
@@ -66,7 +67,7 @@ logger.info("Logger initialized for eval_algos.py.")
 def log_feature_importance(model, feature_names: List[str]) -> None:
     if hasattr(model, 'feature_importances_'):
         importances = model.feature_importances_
-        if importances.ndim > 0:
+        if getattr(importances, "ndim", 0) >= 0:
             logger.info("Feature importances:")
             for name, imp in sorted(zip(feature_names, importances), key=lambda x: x[1], reverse=True):
                 logger.info(f"{name}: {imp:.4f}")
@@ -99,6 +100,16 @@ def load_column_headers(column_headers_json: Path, df: pd.DataFrame) -> Tuple[Li
         logger.error("Error: Could not decode 'data/column_headers.json'. Check for syntax errors.")
         raise
 
+def select_smote(smote_feature_indices: List[int]) -> Union[SMOTENC, SMOTE]:
+    if len(smote_feature_indices) > 0:
+        smote = SMOTENC(
+            categorical_features=smote_feature_indices,
+            random_state=RANDOM_STATE
+        )
+    else:
+        smote = SMOTE(random_state=RANDOM_STATE)
+    return smote
+            
 def save_report(y_true, y_pred, prefix: str):
     report_dict = classification_report(y_true, y_pred, output_dict=True)
     df_report = pd.DataFrame(report_dict).transpose()
@@ -315,10 +326,7 @@ def get_top_models(X: pd.DataFrame, y: Union[np.ndarray, Sequence[int]], n_top: 
             # build pipeline for this k
             candidate_pipeline = ImbPipeline([
                 ('select', SelectKBest(score_func=mutual_info_classif, k=k)),
-                ('smote', SMOTENC(categorical_features=[],
-                    random_state=RANDOM_STATE,
-                    sampling_strategy='not majority'
-                    )),
+                ('smote', FunctionTransformer(validate=False)),  # placeholder, will set categorical_features later
                 ('classifier', model)
             ])
 
@@ -350,7 +358,7 @@ def get_top_models(X: pd.DataFrame, y: Union[np.ndarray, Sequence[int]], n_top: 
             logger.info(f"Model {model_name} {k = }: {len(selected_features) = }\n {len(smote_feature_indices) = } {smote_feature_indices = }")
 
             # set SMOTE categorical indices as fixed pipeline params (do not include in RandomizedSearch candidates - do NOT put in param_distributions)
-            candidate_pipeline.set_params(smote__categorical_features=smote_feature_indices)
+            candidate_pipeline.set_params(smote=select_smote(smote_feature_indices))
 
             # n_iter for RandomizedSearch on 'other' dims
             n_iter_rs = n_iter_for_model(param_dist)
@@ -467,24 +475,19 @@ def main(args):
     # Report all the top models
     for i, (model_name, params, score) in enumerate(top_models_status):
         logger.info(f"Status Model {i+1}: {model_name}, Params: {params}, Score: {score:.4f}")
-        pipeline = ImbPipeline([
+        pipeline_inst = ImbPipeline([
             ('select', SelectKBest(score_func=mutual_info_classif, k=params['select__k'])),
-            ('smote', SMOTENC(
-                categorical_features=params['smote__categorical_features'],
-                random_state=42,
-                sampling_strategy='not majority'
-            )),
+            ('smote', select_smote(params['smote__categorical_features'])),
             ('classifier', clone(models[model_name]))
         ])
-        pipeline.set_params(**params)
-        pipeline.fit(X_train_status, y_train_status)
-        y_pred = pipeline.predict(X_train_status)
+        pipeline_inst.set_params(**params)
+        pipeline_inst.fit(X_train_status, y_train_status)
+        y_pred = pipeline_inst.predict(X_train_status)
         logger.info(f"Status Classification Report for {model_name}:")
-        report: Dict[str, Dict[str, Any]] = cast(Dict[str, Dict[str, Any]], classification_report(y_train_status, y_pred, output_dict=True))    
+        report: Dict[str, Dict[str, Any]] = cast(Dict[str, Dict[str, Any]], classification_report(y_train_status, y_pred, output_dict=True))
         for class_name, metrics in report.items():
             logger.info(f"***** {model_name = } {params = } *****")
             if isinstance(metrics, dict) and 'precision' in metrics:
-            
                 logger.info(f"  Class {class_name}:")
                 logger.info(f"    Precision: {metrics['precision']:.4f}")
                 logger.info(f"    Recall: {metrics['recall']:.4f}")
@@ -505,20 +508,49 @@ def main(args):
         report_path.mkdir(parents=True, exist_ok=True)
         df_report = pd.DataFrame(report).transpose()
 
-        log_feature_importance(pipeline.named_steps['classifier'], available_cols)
+        # Note: for feature importance we inspect the fitted classifier inside pipeline_inst
+        try:
+            log_feature_importance(pipeline_inst.named_steps['classifier'], available_cols)
+        except Exception:
+            logger.debug(f"Could not log feature importances for {model_name = }, {params = }.")
 
-    # Build the pipeline with the best k-fold score parameters
+    # Build the pipeline with the best k-fold score parameters (Status)
     best_status_pipeline = ImbPipeline([
         ('select', SelectKBest(score_func=mutual_info_classif, k=best_status['params']['select__k'])),
-        ('smote', SMOTENC(categorical_features=best_status['params']['smote__categorical_features'], random_state=RANDOM_STATE, sampling_strategy='not majority')),
+        ('smote', select_smote(best_status['params']['smote__categorical_features'])),
         ('classifier', clone(models[best_status['model']]))
     ])
     best_status_pipeline.set_params(**best_status['params'])
+
+    # Fit pipeline on training data (so we can inspect the classifier, FI, etc.)
     best_status_pipeline.fit(X_train_status, y_train_status)
-    y_test_pred = best_status_pipeline.predict(test_df[feature_cols])
+
+    # Log feature importance from fitted classifier before calibration
+    try:
+        log_feature_importance(best_status_pipeline.named_steps['classifier'], available_cols)
+    except Exception:
+        logger.debug(f"Could not log feature importances for best status pipeline - {model_name = }, {params = }.")
+
+    # Calibrate: wrap a CLONE of the fitted pipeline with CalibratedClassifierCV
+    # (we use a clone so CalibratedClassifierCV can perform its internal CV properly)
+    calibrated_status_pipeline = CalibratedClassifierCV(estimator=clone(best_status_pipeline), cv=3, method='sigmoid')
+
+    # Fit calibrated pipeline (this will fit the internal pipeline across CV folds and then calibrate)
+    calibrated_status_pipeline.fit(X_train_status, y_train_status)
+
+    # Evaluate calibrated pipeline on test set
+    y_test_pred = calibrated_status_pipeline.predict(test_df[feature_cols])
+    try:
+        y_test_proba = calibrated_status_pipeline.predict_proba(test_df[feature_cols])
+        ll = log_loss(test_df[status_target], y_test_proba)
+        logger.info(f"Status calibrated model log-loss on test: {ll:.4f}")
+    except Exception:
+        logger.debug("Could not compute predict_proba/log_loss for calibrated status model.")
     save_report(test_df[status_target], y_test_pred, "status_test")
-    joblib.dump(best_status_pipeline, "models/status_best.pkl")
-    logger.info(f"Best Status Model: {best_status}")
+
+    # Save calibrated pipeline
+    joblib.dump(calibrated_status_pipeline, "models/status_best.pkl")
+    logger.info(f"Saved calibrated best status model: {best_status}")
     pd.DataFrame(worst_case_report).transpose().to_csv("logs/status_cv_worstcase_report.csv")
 
     # --- Phase 2: Tier ---
@@ -536,20 +568,16 @@ def main(args):
         clean_params = params.copy()
         clean_k = clean_params.pop('select__k', None)
         smote_cats = clean_params.pop('smote__categorical_features', None)
-        pipeline = ImbPipeline([
+        pipeline_inst = ImbPipeline([
             ('select', SelectKBest(score_func=mutual_info_classif, k=clean_k)),
-            ('smote', SMOTENC(
-                categorical_features=smote_cats,
-                random_state=42,
-                sampling_strategy='not majority'
-            )),
+            ('smote', select_smote(smote_cats)),
             ('classifier', clone(models[model_name]))
         ])
-        pipeline.set_params(**clean_params)
-        pipeline.fit(X_train_tier, y_train_tier)
-        y_pred = pipeline.predict(X_train_tier)
+        pipeline_inst.set_params(**clean_params)
+        pipeline_inst.fit(X_train_tier, y_train_tier)
+        y_pred = pipeline_inst.predict(X_train_tier)
         logger.info(f"Tier Classification Report for {model_name} / {params = }:")
-        report: Dict[str, Dict[str, Any]] = cast(Dict[str, Dict[str, Any]], classification_report(y_train_tier, y_pred, output_dict=True))    
+        report: Dict[str, Dict[str, Any]] = cast(Dict[str, Dict[str, Any]], classification_report(y_train_tier, y_pred, output_dict=True))
         for class_name, metrics in report.items():
             if isinstance(metrics, dict) and 'precision' in metrics:
                 logger.info(f"Class {class_name}:")
@@ -570,19 +598,43 @@ def main(args):
             logger.info(f"  F1-score: {report['weighted avg'].get('f1-score', 0):.4f}")
         report_path = Path("logs")
         report_path.mkdir(parents=True, exist_ok=True)
-        log_feature_importance(pipeline.named_steps['classifier'], available_cols)
+        try:
+            log_feature_importance(pipeline_inst.named_steps['classifier'], available_cols)
+        except Exception:
+            logger.debug(f"Could not log feature importances for tier {model_name = }, {params = }.")
 
+    # Build the best tier pipeline and fit on training data
     best_tier_pipeline = ImbPipeline([
         ('select', SelectKBest(score_func=mutual_info_classif, k=best_tier['params']['select__k'])),
-        ('smote', SMOTENC(categorical_features=best_tier['params']['smote__categorical_features'], random_state=RANDOM_STATE, sampling_strategy='not majority')),
+        ('smote', select_smote(best_tier['params']['smote__categorical_features'])),
         ('classifier', clone(models[best_tier['model']]))
     ])
     best_tier_pipeline.set_params(**best_tier['params'])
     best_tier_pipeline.fit(X_train_tier, y_train_tier)
+
+    # Log FI before calibration
+    try:
+        log_feature_importance(best_tier_pipeline.named_steps['classifier'], available_cols)
+    except Exception:
+        logger.debug("Could not log feature importances for best tier pipeline.")
+
+    # Calibrate the best tier pipeline (wrap clone so internal CV is done properly)
+    calibrated_tier_pipeline = CalibratedClassifierCV(estimator=clone(best_tier_pipeline), cv=3, method='sigmoid')
+    calibrated_tier_pipeline.fit(X_train_tier, y_train_tier)
+
+    # Evaluate on test tier set
     test_tier_df = extract_valid_tier_records(test_df)
-    y_test_pred_tier = best_tier_pipeline.predict(test_tier_df[feature_cols])
+    y_test_pred_tier = calibrated_tier_pipeline.predict(test_tier_df[feature_cols])
+    try:
+        y_test_proba_tier = calibrated_tier_pipeline.predict_proba(test_tier_df[feature_cols])
+        ll_tier = log_loss(test_tier_df[tier_target], y_test_proba_tier)
+        logger.info(f"Tier calibrated model log-loss on test: {ll_tier:.4f}")
+    except Exception:
+        logger.debug("Could not compute predict_proba/log_loss for calibrated tier model.")
     save_report(test_tier_df[tier_target], y_test_pred_tier, "tier_test")
-    joblib.dump(best_tier_pipeline, "models/tier_best.pkl")
+
+    # Save calibrated tier pipeline
+    joblib.dump(calibrated_tier_pipeline, "models/tier_best.pkl")
     pd.DataFrame(worst_tier_report).transpose().to_csv("logs/tier_cv_worstcase_report.csv")
     logger.info(f"Best Tier Model: {best_tier}")
 
