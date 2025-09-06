@@ -9,7 +9,7 @@ input="data/prefi_weaviate_clean-1_modified.json"
 imported="data/$(basename ${input} .json)_import_processed.csv"
 echo "========" | tee /tmp/log
 echo "== Importing JSON: ${input} ==" | tee -a /tmp/log
-python src/ingest.py ${input} --column_headers_json src/column_headers.json -o ${imported} 2>&1 | tee -a /tmp/log
+python -m src.ingest ${input} --column_headers_json src/column_headers.json -o ${imported} 2>&1 | tee -a /tmp/log
 echo "========" | tee -a /tmp/log
 echo "== Allocating data to data/test*.csv and data/train*.csv ==" | tee -a /tmp/log
 python src/allocate.py --input_csv ${imported} --out_train data/splits/train.csv --out_test data/splits/test.csv --add_date --create_links 2>&1 | tee -a /tmp/log
@@ -22,4 +22,6 @@ echo "========" | tee -a /tmp/log
 echo "== Evaluating Algorithms" | tee -a /tmp/log
 python src/eval_algos.py --column_headers_json src/column_headers.json --train_csv data/splits/train_latest.csv --test_csv data/splits/test_latest.csv 2>&1 | tee -a /tmp/log
 
-deactivate
+echo "========" | tee -a /tmp/log
+echo "== Copying final models to build/preauth_project/models" | tee -a /tmp/log
+cp models/*_best.pkl build/preauth_project/models/
