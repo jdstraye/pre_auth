@@ -17,6 +17,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
+import xgboost
 
 def main() -> None:
     root_dir = Path(__file__).resolve().parent
@@ -85,7 +86,7 @@ def build_executable():
     if not verify_structure():
         sys.exit(1)
     
-    print("Building preauth.exe...")
+    print("Building preauth executable ...")
     
     # Clean previous builds
     clean_build()
@@ -98,7 +99,21 @@ def build_executable():
         '--clean',
         '--noconfirm',
         '--console',
-        '--log-level=TRACE',
+        '--log-level=WARN',
+
+        # Library specifics
+        '--collect-binaries=xgboost', 
+        '--collect-data', 'imblearn',
+        '--collect-data', 'xgboost',
+        '--copy-metadata=xgboost',
+        '--hidden-import=xgboost.core',
+        '--hidden-import=xgboost.sklearn',
+        '--hidden-import=xgboost.tracker',
+        '--hidden-import=xgboost.training',
+
+        # Your custom classes
+        '--hidden-import=src.for_build',
+        '--add-data=src/for_build.py:src',
         
         # Data files - using clean paths
         '--add-data=models:models',
@@ -110,6 +125,9 @@ def build_executable():
         '--hidden-import=sklearn.neighbors.typedefs', 
         '--hidden-import=sklearn.neighbors.quad_tree',
         '--hidden-import=sklearn.tree._utils',
+        '--hidden-import=sklearn.calibration',
+        '--hidden-import=sklearn.ensemble._forest',
+        '--hidden-import=imblearn.pipeline',
         '--hidden-import=xgboost',
         '--hidden-import=lightgbm',
         '--hidden-import=catboost',
@@ -133,7 +151,7 @@ def build_executable():
 
     try:
 
-        print("Running PyInstaller...")
+        print(f"Running PyInstaller...{cmd = }")
         result = subprocess.run(cmd, check=True, capture_output=True, text=True)
         
         print("Build successful!")
