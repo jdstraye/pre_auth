@@ -1,0 +1,89 @@
+{
+    "generated_at": "2025-09-02T10:45:38-04:00",
+    "summary": {
+        "total_records": 426,
+        "successful": 426,
+        "failed": 0,
+        "with_offers": 426,
+        "without_offers": 0,
+        "by_contract_status": {
+            "approved": 273,
+            "declined": 98,
+            "rejected": 51,
+            "pending": 0,
+            "no_contract": 4
+        }
+    },
+    "data": [
+        {
+            "record_id": "dabb908ea50b7a4d2aacaeb809f3887eb8563c10cf8b544d756959d806146749",
+            "user_initials": "VD",
+            "prefi_data": {
+                "Status": "Success",
+                "Code": "200",
+                "PreQualificationID": 1457977,
+                "Offers": [
+                    {
+                        "Name": "Automatic Financing",
+                        "Score": 653,
+                        "Status": "Approved",
+                        "Amount": "$12,000",
+                        "Details": "Financing Automatically and Instantly Available",
+                        "Contingencies": "",
+                        "DebtToIncome": 17,
+                        "Term": null,
+                        "MonthlyPayment": null,
+                        "APR": null,
+                        "LoanType": null
+                    },
+                    {
+                        "Name": "0% Unsecured Funding",
+                        "Score": 653,
+                        "Status": "If Fixed",
+                        "Amount": "$45,000",
+                        "Details": "Unsecured Revolving Credit Lines - 0% for 12-21 months - To book: [URL_REMOVED]",
+                        "Contingencies": "PayD-$1,000",
+                        "DebtToIncome": 17,
+                        "Term": null,
+                        "MonthlyPayment": null,
+                        "APR": null,
+                        "LoanType": null
+                    },
+                    {
+                        "Name": "Debt Resolution",
+                        "Score": 653,
+                        "Status": "Approved",
+                        "Amount": "$4,393",
+                        "Details": "Debt Resolution",
+                        "Contingencies": "",
+                        "DebtToIncome": 17,
+                        "Term": null,
+                        "MonthlyPayment": null,
+                        "APR": null,
+                        "LoanType": null
+                    }
+                ],
+                "DataEnhance": {
+                    "DebtToIncome": 17
+                }
+            },
+            "credit_summary_pdf_url": "https:\/\/shifi-app-assets.s3.us-east-2.amazonaws.com\/prefi-credit-summaries\/2025\/09\/user_588_credit_summary_2025-09-01_100644.pdf",
+            "primary_contract_status": "approved",
+            "contracts": [
+                {
+                    "contract_id": "472c19837553778121e91a03c79ec10f8bf06ca0f6646d364e1bcd24dd6eebbe",
+                    "status": "approved",
+                    "amount": "12000.00",
+                    "tier": "0.24",
+                    "tier_assigned_at": null,
+                    "created_at": "2024-11-19T00:00:00-05:00",
+                    "merchant_id": "b1b7fd26c04484e7ae5557941db3c7458235df5d5ca7c87c17e6411ed0853ed4"
+                }
+            ],
+            "metadata": {
+                "data_age_days": -15.068736687835647,
+                "is_expired": false
+            }
+        }        
+    ]
+}
