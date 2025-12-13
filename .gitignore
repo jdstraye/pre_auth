@@ -8,5 +8,14 @@ data/*.pdf
 *~
 dist/
 *.pkg
-
+data/splits/*.csv
+*.~lock.*
+build/
+logs/
+models/
+output/
+catboost_info/
+data/splits/
+src/*.py.bak
+data/*.csv
 
