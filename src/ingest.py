@@ -11,10 +11,12 @@ import logging
 import pandas as pd
 from pathlib import Path
 from typing import Dict, Any, Optional, List, Tuple
-from src.utils import check_df_columns, sanitize_column_name, logger
+from src.utils import check_df_columns, sanitize_column_name
 import re
 import numpy as np
 from sklearn.preprocessing import LabelEncoder
+
+logger = logging.getLogger(__name__)
 
 # --- Helpers ---
 def clean_and_normalize_numeric(value: Any) -> Optional[float]:
@@ -370,7 +372,43 @@ def preprocess_dataframe(df: pd.DataFrame, schema: List[Dict[str, Any]], column_
     final_cols = _get_final_columns(schema)
 #20250826     logger.debug(f"here10 - *_flag_ - {final_cols = }")
 #20250826     logger.debug(f"here11 - *_flag? - {processed.columns = }")
-    return processed.reindex(columns=final_cols, fill_value=0)
+    # Reindex to the final schema and fill numeric-style missing values with 0
+    processed = processed.reindex(columns=final_cols, fill_value=0)
+
+    # Ensure string-like derived columns (names, details, contingencies, status)
+    # do not contain NaNs or numeric sentinels. Fill with 'NA' and coerce to object.
+    string_like_keys = ('Name', 'Details', 'Contingencies', 'Status')
+
+    # Only apply string-like cleanup to 'source' columns (e.g., AutomaticFinancing_Status)
+    for col in final_cols:
+        if any(col.endswith(f"_{k}") or col == k for k in string_like_keys) and col in processed.columns:
+            if processed[col].isnull().any() or processed[col].dtype.kind in ('f', 'i'):
+                # Replace common numeric sentinel values with 'NA' as well
+                processed[col] = processed[col].replace({-1: 'NA', -999.0: 'NA', 0: 'NA'})
+                processed[col] = processed[col].fillna('NA').astype(object)
+
+    # Enforce OHE dtypes: convert OHE generated columns to integers (0/1) and replace 'NA' string sentinels with 0
+    ohe_cols = []
+    for item in schema:
+        if 'ohe' in item and isinstance(item['ohe'], dict):
+            for _, derived_col in item['ohe'].items():
+                ohe_cols.append(derived_col)
+        if 'ohe_from' in item and 'ohe_key' in item:
+            ohe_cols.append(item['name'])
+
+    for col in set(ohe_cols):
+        if col in processed.columns:
+            try:
+                # Replace string sentinels with 0 and cast to int
+                processed[col] = processed[col].replace({'NA': 0})
+                processed[col] = processed[col].fillna(0)
+                # Attempt to coerce numeric values to ints
+                processed[col] = pd.to_numeric(processed[col], errors='coerce').fillna(0).astype(int)
+            except Exception:
+                # As a fallback, ensure 0/1 by comparing to strings
+                processed[col] = (processed[col].astype(str) == 'True').astype(int)
+
+    return processed
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Convert a nested JSON file to preprocessed CSV.")

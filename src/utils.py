@@ -7,11 +7,49 @@ Creates a custom log handler that creates a fresh log file with a date in the na
 import logging
 import re
 import pandas as pd
-from typing import List
+from typing import List, Tuple, Union, Sequence, Dict
+import json
 from logging.handlers import RotatingFileHandler
 from pathlib import Path
 from datetime import datetime
 import os
+import sys
+
+# --------------------------
+# Global Setup: Constants, Paths, & Logging
+# --------------------------
+class GlobalConfig:
+    def __init__(self):
+        # Constants
+        ## Random Seed
+        self.RANDOM_STATE = 42
+
+        ## Number multiplier to define how many samples to try (heuristic, per-model)
+        self.RANDOM_SEARCH_ITER_MULT = 0.1
+
+        ## Defaults for SMOTE sanity check (minimum delta in minority share after resampling)
+        self.DEFAULT_SMOTE_MIN_IMPROVEMENT = 0.01
+
+        ## Logging Levels
+        self.DEBUG_MODE = True  # Set to False to disable debug checks and critical error raising
+        self.FILE_LOG_LEVEL = "DEBUG"  # Options: DEBUG, INFO, WARN, ERROR, CRITICAL
+        self.CONSOLE_LOG_LEVEL = "DEBUG"  # Options: DEBUG, INFO, WARN, ERROR, CRITICAL
+#        self.CONSOLE_LOG_LEVEL = "INFO"  # Options: DEBUG, INFO, WARN, ERROR, CRITICAL
+
+        # Paths
+        self.BASE_DIR = Path(__file__).resolve().parent.parent
+        self.LOG_DIR = self.BASE_DIR / "logs"
+        self.MODELS_DIR = self.BASE_DIR / "models"
+        self.REPORTS_DIR = self.LOG_DIR / "reports"
+        self.PROBA_DIR = self.LOG_DIR / "proba"
+        self.DEFAULT_SCHEMA_PATH = Path("src/column_headers.json")
+
+        ## Path Setup
+        for d in [self.LOG_DIR, self.MODELS_DIR, self.REPORTS_DIR, self.PROBA_DIR]:
+            d.mkdir(parents=True, exist_ok=True)
+
+gv = GlobalConfig()
+
 # --- Custom Log Handler & Logging Setup (from previous code) ---
 class CustomRotatingFileHandler(RotatingFileHandler):
     """
@@ -53,9 +91,196 @@ class CustomRotatingFileHandler(RotatingFileHandler):
 
 
 # --- Logging ---
-logging.basicConfig(level=logging.INFO, format='%(filename)s:%(lineno)d - %(asctime)s - %(levelname)s - %(message)s')
+def debug_setup_logging():
+    logging.basicConfig(
+        level=logging.DEBUG,
+        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+        handlers=[
+            logging.StreamHandler(),  # Log to console
+        ]
+    )
+
+def setup_logging(log_file: Path):
+    """
+    Modifies the root logger to setup a rotating file handler and a console handler for logging. 
+    It needs to be called once at the start of the program to setup 
+    the file location and log levels.
+
+    Args:
+        log_file (Path): The path to the log file.
+
+    After that initial call, it can be used by just calling
+     logger = logging.getLogger(__name__)
+    as usual to get a logger in that module.
+    The file handler also creates/updates a symlink to the latest log file.
+    The log levels for file and console are set in utils.py as part of the GlobalConfig class,
+    FILE_LOG_LEVEL and CONSOLE_LOG_LEVEL.
+    """
+    
+    print("DEBUG: setup_logging() was called!")  # <-- Add this
+
+    root_logger = logging.getLogger()
+    root_logger.setLevel(logging.DEBUG)
+
+    # Clean up existing handlers
+    if root_logger.hasHandlers():
+        root_logger.handlers.clear()
+
+    # Prepare formatters
+    file_formatter = logging.Formatter('%(filename)s:%(lineno)d - %(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    console_formatter = logging.Formatter('%(filename)s:%(lineno)d - %(name)s - %(levelname)s - %(message)s')
+
+    # Valid log levels
+    valid_levels = ["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"]
+
+    # File handler
+    ## Check if a file handler for this log_file already exists
+    file_handler_exists = any(
+        isinstance(h, CustomRotatingFileHandler) and h.baseFilename == str(log_file)
+        for h in root_logger.handlers
+    )
+    if not file_handler_exists:
+        file_handler = CustomRotatingFileHandler(log_file, maxBytes=10*1024*1024, backupCount=5)
+        file_level = gv.FILE_LOG_LEVEL.upper()
+        if file_level not in valid_levels:
+            raise ValueError(f"Invalid file log level: {gv.FILE_LOG_LEVEL}. Must be one of {valid_levels}")
+    file_handler.setLevel(file_level)
+    file_handler.setFormatter(file_formatter)
+    root_logger.addHandler(file_handler)
+
+    # Console handler
+    ## Check if a console handler already exists
+    console_handler = None
+    console_handler_exists = any(
+        isinstance(h, logging.StreamHandler) and not isinstance(h, logging.FileHandler) for h in root_logger.handlers
+        #isinstance(type(h), logging.StreamHandler) for h in root_logger.handlers
+    )
+    print(f"DEBUG: {console_handler_exists = }, {root_logger.handlers = }")  # <-- Add this
+    print("DEBUG: root_logger.handlers = [")
+    for i, handler in enumerate(root_logger.handlers):
+        print(f"  {i}: {type(handler).__name__} - {handler}")
+    print("]")
+
+    if not console_handler_exists:
+        console_handler = logging.StreamHandler()
+        console_level = gv.CONSOLE_LOG_LEVEL.upper()
+        if console_level not in valid_levels:
+            raise ValueError(f"Invalid console log level: {gv.CONSOLE_LOG_LEVEL}. Must be one of {valid_levels}")
+        console_handler.setLevel(console_level)
+        console_handler.setFormatter(console_formatter)
+        root_logger.addHandler(console_handler)
+        print(f"DEBUG: Logging configured for: {log_file}")  # <-- Add this
+
+# Picklable get_logger for every class/module
+def get_logger(name: str) -> logging.Logger:
+    """
+    Centralized logger setup for all classes. Unlike setup_logging(), this can be 
+    pickled because it does not use a FileHandler or store the Logger object on 
+    the instance.
+    Args:
+        name: Logger name (e.g., f"{__name__}.{ClassName}").
+    Returns:
+        logging.Logger: Configured logger with handlers.
+    """
+    lg = logging.getLogger(name)
+    if lg.level == logging.NOTSET:
+        lg.setLevel(gv.CONSOLE_LOG_LEVEL.upper())
+    lg.propagate = False
+
+    # Attach handlers if missing
+    if not lg.handlers:
+        # Console handler
+        ch = logging.StreamHandler(sys.stdout)
+        if ch.level == logging.NOTSET:
+            ch.setLevel(gv.CONSOLE_LOG_LEVEL.upper())
+        ch.setFormatter(logging.Formatter(
+            "%(filename)s:%(lineno)d - %(name)s - %(levelname)s - %(message)s"
+        ))
+        lg.addHandler(ch)
+
+    return lg
+
 logger = logging.getLogger(__name__)
 
+def load_column_headers(column_headers_json: Path, df: pd.DataFrame) -> Dict[str, List[str]]:
+    """
+    Loads feature, categorical, and target column names from a JSON schema file
+    and validates that feature columns exist in the DataFrame.
+
+    Args:
+        column_headers_json (Path): Path to the JSON file containing column definitions.
+        df (pd.DataFrame): The DataFrame to check for column existence.
+
+    Returns:
+        Dict:
+            "feature_cols": List of sanitized names for feature columns ('X' == 'True').
+            "categorical_cols": List of names for categorical columns ('categorical' == 'True').
+            "target_cols": List of names for target columns ('Y' == 'True').
+            "ohe_cols": List of names for columns that are one-hot encoded ('ohe_from' exists).
+
+    Raises:
+        FileNotFoundError: If the schema JSON file is not found.
+        json.JSONDecodeError: If the schema file is not valid JSON.
+        ValueError: If a required feature column from the schema is not found in the DataFrame.
+    """
+    logger.info(f"Loading column headers from: {column_headers_json}")
+    try:
+        with open(column_headers_json, 'r', encoding='utf-8') as f:
+            header_data = json.load(f)
+        feature_cols = [sanitize_column_name(col['name']) for col in header_data if col.get('X') == 'True']
+        categorical_cols = [col['name'] for col in header_data if col.get('categorical') == 'True']
+        target_cols = [col['name'] for col in header_data if col.get('Y') == 'True']
+        # Collect derived OHE columns and the source columns that produce OHEs.
+        # Include sanitized variations and both 'ohe' dict values and 'ohe_from' derived names to handle schema inconsistencies.
+        ohe_cols = []
+        ohe_source_cols = []
+        for col in header_data:
+            if 'ohe' in col and isinstance(col['ohe'], dict):
+                for raw_val, ohe_col in col['ohe'].items():
+                    sanitized = sanitize_column_name(ohe_col)
+                    if ohe_col not in ohe_cols:
+                        ohe_cols.append(ohe_col)
+                    if sanitized not in ohe_cols:
+                        ohe_cols.append(sanitized)
+                if col['name'] not in ohe_source_cols:
+                    ohe_source_cols.append(col['name'])
+            if 'ohe_from' in col and 'ohe_key' in col:
+                sanitized_name = sanitize_column_name(col['name'])
+                if col['name'] not in ohe_cols:
+                    ohe_cols.append(col['name'])
+                if sanitized_name not in ohe_cols:
+                    ohe_cols.append(sanitized_name)
+                if col['ohe_from'] not in ohe_source_cols:
+                    ohe_source_cols.append(col['ohe_from'])
+
+        logger.info(f"Schema loaded: {len(feature_cols)} features, {len(categorical_cols)} categorical, {len(target_cols)} targets.")
+
+        # Validate that all defined feature columns exist in the DataFrame
+        check_df_columns(df, feature_cols)
+
+        # Filter OHE columns to those that actually exist in the DataFrame (normalize names)
+        ohe_cols_present = [c for c in ohe_cols if c in df.columns]
+        if len(ohe_cols_present) < len(ohe_cols):
+            missing_ohe = set(ohe_cols) - set(ohe_cols_present)
+            logger.debug(f"Some OHE columns from schema did not appear in the DataFrame and will be ignored: {missing_ohe}")
+
+        return {
+            "feature_cols": feature_cols, 
+            "categorical_cols": categorical_cols, 
+            "target_cols": target_cols,
+            "ohe_cols": ohe_cols_present,
+            "ohe_source_cols": ohe_source_cols
+        }
+
+    except FileNotFoundError as e:
+        logger.error(f"Error: Column header .json file not found at '{column_headers_json}, {e}'.")
+        raise
+    except json.JSONDecodeError as e:
+        logger.error(f"Error: Could not decode JSON from '{column_headers_json}'. Check for syntax errors.")
+        raise
+    except ValueError as e: # Raised by check_df_columns
+        logger.error(f"Error validating DataFrame columns against schema: {e}")
+        raise
 
 def sanitize_column_name(col: str) -> str:
     """
@@ -137,3 +362,5 @@ def check_df_columns(df: pd.DataFrame, column_headers: List[str]) -> bool:
     if bad_df:
             raise ValueError("The DataFrame is not suitable for ML model fitting. Address the errors before proceeding.")
     return not bad_df
+
+

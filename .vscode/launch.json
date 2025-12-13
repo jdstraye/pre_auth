@@ -1,16 +1,74 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+
+        
         {
-            "name": "Python Debugger: Current File with Arguments",
+            "name": "Debug eval_algos.py",
             "type": "debugpy",
             "request": "launch",
-            "program": "${file}",
+            "program": "${workspaceFolder}/src/eval_algos.py",
             "console": "integratedTerminal",
-            "args": ["data/prefi_weaviate_clean-1.json"]
+            "args": [
+                "--train_csv", "data/splits/train_latest.csv",
+                "--test_csv", "data/splits/test_latest.csv", 
+                "--column_headers_json", "src/column_headers.json"
+            ],
+            "cwd": "${workspaceFolder}",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            }
+        },
+        {
+            "name": "Debug eval_algos.py (module)",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "src.eval_algos",
+            "console": "integratedTerminal",
+            "args": [
+                "--train_csv", "data/splits/train_latest.csv",
+                "--test_csv",  "data/splits/test_latest.csv",
+                "--column_headers_json", "src/column_headers.json"
+            ],
+            "cwd": "${workspaceFolder}",
+            "justMyCode": false,
+            "stopOnEntry": true
+        },
+        {
+            "name": "Debug test_smote_sampler.py (pytest module)",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "pytest",
+            "console": "integratedTerminal",
+            "args": [
+                "tests/test_smote_sampler.py",
+                "--verbose",
+                "--log-cli-level=DEBUG"
+            ],
+            "cwd": "${workspaceFolder}",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}:${workspaceFolder}/src"                
+            },
+            "justMyCode": false,
+            "stopOnEntry": true
+        },
+        {
+            "name": "Debug test_feature_selector.py (pytest module)",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "pytest",
+            "console": "integratedTerminal",
+            "args": [
+                "tests/test_feature_selector.py",
+                "--verbose",
+                "--log-cli-level=DEBUG"
+            ],
+            "cwd": "${workspaceFolder}",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}:${workspaceFolder}/src"                
+            },
+            "justMyCode": false,
+            "stopOnEntry": true
         }
     ]
 }

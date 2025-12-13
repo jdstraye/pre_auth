@@ -20,8 +20,4 @@ python src/compare_columns.py -csv ${imported} -csv data/splits/train_latest.csv
 xterm -e '/usr/bin/bash -c "tail -f /tmp/log logs/pre_auth_train_latest.log 2>&1 | grep --line-buffered -i -E \"complete|error|critical\"; bash"' &
 echo "========" | tee -a /tmp/log
 echo "== Evaluating Algorithms" | tee -a /tmp/log
-python src/eval_algos.py --column_headers_json src/column_headers.json --train_csv data/splits/train_latest.csv --test_csv data/splits/test_latest.csv 2>&1 | tee -a /tmp/log
-
-echo "========" | tee -a /tmp/log
-echo "== Copying final models to build/preauth_project/models" | tee -a /tmp/log
-cp models/*_best.pkl build/preauth_project/models/
+python -m src.eval_algos --column_headers_json src/column_headers.json --train_csv data/splits/train_latest.csv --test_csv data/splits/test_latest.csv 2>&1 | tee -a /tmp/log

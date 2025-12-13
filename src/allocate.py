@@ -20,7 +20,6 @@ from pathlib import Path
 from datetime import datetime
 import logging
 
-logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
 def parse_args():
@@ -48,7 +47,9 @@ def main():
 
     # Load your CSV file
     input_path = Path(args.input_csv)
-    df: DataFrame = pd.read_csv(input_path)
+    # When the CSV contains sentinel strings like 'NA' we must not coerce
+    # them to NaN so downstream validators see the intended sentinel values.
+    df: DataFrame = pd.read_csv(input_path, keep_default_na=False)
     logger.info("Loaded dataset with %d rows and %d columns", df.shape[0], df.shape[1])
 
     # Make sure the required columns exist

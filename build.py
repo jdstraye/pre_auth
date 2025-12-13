@@ -2,6 +2,7 @@
 """
 Proper build script for preauth.exe
 Run from project root directory.
+Embeds models and schema files so they don't need to be provided as parameters.
 """
 
 from __future__ import annotations
@@ -81,17 +82,17 @@ def clean_build():
             print(f"Cleaned {file}")
 
 def build_executable():
-    """Build the executable using PyInstaller."""
+    """Build the executable using PyInstaller with embedded resources."""
     
     if not verify_structure():
         sys.exit(1)
     
-    print("Building preauth executable ...")
+    print("Building preauth executable with embedded models and schema...")
     
     # Clean previous builds
     clean_build()
     
-    # PyInstaller command - much cleaner now
+    # PyInstaller command with embedded data files
     cmd = [
         'pyinstaller',
         '--onefile',
@@ -99,7 +100,8 @@ def build_executable():
         '--clean',
         '--noconfirm',
         '--console',
-        '--log-level=WARN',
+
+        '--log-level=INFO',
 
         # Library specifics
         '--collect-binaries=xgboost', 
@@ -115,8 +117,9 @@ def build_executable():
         '--hidden-import=src.for_build',
         '--add-data=src/for_build.py:src',
         
-        # Data files - using clean paths
-        '--add-data=models:models',
+        # Embed data files into the executable
+        '--add-data=models/status_best.pkl:models',
+        '--add-data=models/tier_best.pkl:models', 
         '--add-data=src/column_headers.json:src',
         
         # Hidden imports for ML libraries
@@ -135,19 +138,20 @@ def build_executable():
         '--hidden-import=imblearn.over_sampling',
         '--hidden-import=imblearn.pipeline',
         
-        # Entry point - now a proper module
+        # Exclude unnecessary modules to reduce size
+        '--exclude-module=matplotlib',
+        '--exclude-module=tkinter',
+        '--exclude-module=PyQt5',
+        '--exclude-module=PyQt6',
+        '--exclude-module=PySide2',
+        '--exclude-module=PySide6',
+        '--exclude-module=scipy.spatial.distance',
+        '--exclude-module=IPython',
+        '--exclude-module=jupyter',
+        
+        # Entry point
         'src/predict.py'
     ]
-    # In build_executable():
-    data_files = [
-        ('models', ['models/status_best.pkl', 'models/tier_best.pkl']),
-        ('src', ['src/column_headers.json']),
-    ]
-
-    # Add to the PyInstaller command:
-    for src, files in data_files:
-        for file in files:
-            cmd.extend(['--add-data', f'{file}:{src}'])
 
     try:
 
@@ -165,15 +169,33 @@ def build_executable():
             print(f"Created: {exe_path}")
             print(f"Size: {size_mb:.1f} MB")
 
-            # Quick test
+            # Quick test with embedded resources (no external files needed)
             print("\nTesting executable...")
             test_result = subprocess.run([str(exe_path), '--help'], 
                                        capture_output=True, text=True, timeout=10)
             
             if test_result.returncode == 0:
-                print("Test passed!")
+                print("✓ Help test passed!")
+                
+                # Test with actual prediction if test data exists
+                test_file = Path("data/prefi_single_record_test.json")
+                if test_file.exists():
+                    print("Testing prediction with embedded models...")
+                    pred_result = subprocess.run([
+                        str(exe_path), 
+                        '--input', str(test_file)
+                    ], capture_output=True, text=True, timeout=30)
+                    
+                    if pred_result.returncode == 0:
+                        print("✓ Prediction test passed!")
+                        print("✓ Models and schema successfully embedded!")
+                    else:
+                        print(f"✗ Prediction test failed: {pred_result.stderr}")
+                else:
+                    print("ℹ No test data file found for prediction test")
+                    
             else:
-                print(f"Test failed: {test_result.stderr}")
+                print(f"✗ Help test failed: {test_result.stderr}")
         else:
             print("Warning: Executable not found")
             
@@ -182,6 +204,9 @@ def build_executable():
         if e.stderr:
             print("Error output:")
             print(e.stderr)
+        sys.exit(1)
+    except subprocess.TimeoutExpired:
+        print("Test timed out - executable may have issues")
         sys.exit(1)
     except FileNotFoundError:
         print("PyInstaller not found. Install with: pip install pyinstaller")

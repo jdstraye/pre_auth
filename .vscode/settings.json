@@ -4,6 +4,7 @@
     "reportUnknownParameterType": "none",
     "reportUnknownMemberType": "none",
     "reportUnknownArgumentType": "none"
-}
+},
+"python.REPL.enableREPLSmartSend": false
 
 }

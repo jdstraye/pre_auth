@@ -7,7 +7,7 @@
   },
   {
     "name": "user_initials",
-    "categorical": "True",
+    "categorical": "False",
     "X": "False",
     "Y": "False",
     "labels":"auto-generated",
@@ -15,7 +15,7 @@
   },
   {
     "name": "user_initials_label",
-    "categorical": "True",
+    "categorical": "False",
     "X": "False",
     "Y": "False",
     "labels_from": "user_initials"
@@ -28,7 +28,7 @@
   },
   {
     "name": "final_contract_status",
-    "categorical": "True",
+    "categorical": "False",
     "X": "False",
     "Y": "False",
     "labels":{
@@ -46,7 +46,7 @@
   },
   {
     "name": "final_contract_tier",
-    "categorical": "True",
+    "categorical": "False",
     "X": "False",
     "Y": "False",
     "labels":{  
@@ -80,7 +80,7 @@
   },
   {
     "name": "final_contract_tier_name",
-    "categorical": "True",
+    "categorical": "False",
     "X": "False",
     "Y": "False",
     "mapped_from": "final_contract_tier"
@@ -124,7 +124,7 @@
   },
   {
     "name": "AutomaticFinancing_Status",
-    "categorical": "True",
+    "categorical": "False",
     "X": "False",
     "Y": "False",
     "ohe":{
@@ -135,6 +135,7 @@
   },
   {
     "name": "AutomaticFinancing_Status_Approved",
+    "categorical": "True",
     "X": "True",
     "Y": "False",
     "ohe_from":"AutomaticFinancing_Status",
@@ -142,6 +143,7 @@
   },
   {
     "name": "AutomaticFinancing_Status_Declined",
+    "categorical": "True",
     "X": "True",
     "Y": "False",
     "ohe_from":"AutomaticFinancing_Status",
@@ -149,6 +151,7 @@
   },
   {
     "name": "AutomaticFinancing_Status_NA_",
+    "categorical": "True",
     "X": "True",
     "Y": "False",
     "ohe_from":"AutomaticFinancing_Status",
@@ -162,7 +165,7 @@
   },
   {
     "name": "AutomaticFinancing_Details",
-    "categorical": "True",
+    "categorical": "False",
     "X": "False",
     "Y": "False",
     "ohe": {
@@ -227,35 +230,35 @@
   },
   {
     "name": "0UnsecuredFunding_Status",
-    "categorical": "True",
+    "categorical": "False",
     "X": "False",
     "Y": "False",
     "ohe": {
-      "As Is": "0UnsecuredFunding_status_As_Is",
-      "If Fixed": "0UnsecuredFunding_status_If_Fixed",
-      "Declined": "0UnsecuredFunding_status_Declined",
-      "NA": "0UnsecuredFunding_status_NA_"
+      "As Is": "0UnsecuredFunding_Status_As_Is",
+      "If Fixed": "0UnsecuredFunding_Status_If_Fixed",
+      "Declined": "0UnsecuredFunding_Status_Declined",
+      "NA": "0UnsecuredFunding_Status_NA_"
     }
   },
-  {"name": "0UnsecuredFunding_status_As_Is",
+  {"name": "0UnsecuredFunding_Status_As_Is",
     "X":"True",
     "Y":"False",
     "ohe_from":"0UnsecuredFunding_Status",
     "ohe_key":"As Is"
   },
-  {"name": "0UnsecuredFunding_status_If_Fixed",
+  {"name": "0UnsecuredFunding_Status_If_Fixed",
     "X":"True",
     "Y":"False",
     "ohe_from":"0UnsecuredFunding_Status",
     "ohe_key":"If Fixed"
   },
-  {"name": "0UnsecuredFunding_status_Declined",
+  {"name": "0UnsecuredFunding_Status_Declined",
     "X":"True",
     "Y":"False",
     "ohe_from":"0UnsecuredFunding_Status",
     "ohe_key":"Declined"
   },
-  {"name": "0UnsecuredFunding_status_NA_",
+  {"name": "0UnsecuredFunding_Status_NA_",
     "X":"True",
     "Y":"False",
     "ohe_from":"0UnsecuredFunding_Status",
@@ -269,7 +272,7 @@
   },
   {
     "name": "0UnsecuredFunding_Details",
-    "categorical": "True",
+    "categorical": "False",
     "X": "False",
     "Y": "False",
     "ohe":{
@@ -289,7 +292,7 @@
   {
     "name": "0UnsecuredFunding_Details_just_CL_",
     "categorical": "True",
-    "X": "False",
+    "X": "True",
     "Y": "False",
     "ohe_from":"0UnsecuredFunding_Details",
     "ohe_key":"Unsecured Revolving Credit Lines - 0% for 12-21 months"
@@ -358,27 +361,36 @@
   },
   {
     "name": "DebtResolution_Status",
-    "categorical": "True",
+    "categorical": "False",
     "X": "False",
     "Y": "False",
     "ohe":{
-      "Approved": "DebtResolution_status_Approved_",
-      "Declined": "DebtResolution_status_Declined_",
-      "NA": "DebtResolution_status_NA_"
+      "Approved": "DebtResolution_Status_Approved",
+      "Declined": "DebtResolution_Status_Declined_",
+      "NA": "DebtResolution_Status_NA_"
     }
   },
   {
     "name":"DebtResolution_Status_Approved",
+    "categorical": "True",
+    "X": "True",
+    "Y": "False",
     "ohe_from":"DebtResolution_Status",
     "ohe_key":"Approved"
   },
   {
-    "ohe_from":"DebtResolution_Status",
     "name":"DebtResolution_Status_Declined",
+    "categorical": "True",
+    "X": "True",
+    "Y": "False",
+    "ohe_from":"DebtResolution_Status",
     "ohe_key":"Declined"
   },
   {
     "name":"DebtResolution_Status_NA",
+    "categorical": "True",
+    "X": "True",
+    "Y": "False",
     "ohe_from":"DebtResolution_Status",
     "ohe_key":"NA"
   },
@@ -396,7 +408,7 @@
   },
   {
     "name": "DebtResolution_Details",
-    "categorical": "True",
+    "categorical": "False",
     "X": "False",
     "Y": "False"
   },
