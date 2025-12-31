@@ -1,0 +1,20 @@
+{"phrase": "No", "hex": "#202429", "rgb": [32, 36, 41], "cat": "neutral", "bbox": [178, 152, 213, 174]}
+{"phrase": "No", "hex": "#202429", "rgb": [32, 36, 41], "cat": "neutral", "bbox": [405, 152, 439, 174]}
+{"phrase": "t Freeze", "hex": "#4f5356", "rgb": [79, 83, 86], "cat": "neutral", "bbox": [2, 195, 82, 212]}
+{"phrase": "Fraud Alert", "hex": "#53565a", "rgb": [83, 86, 90], "cat": "neutral", "bbox": [178, 195, 284, 212]}
+{"phrase": "Deceased", "hex": "#56595d", "rgb": [86, 89, 93], "cat": "neutral", "bbox": [405, 195, 501, 212]}
+{"phrase": "Credit Factors", "hex": "#202429", "rgb": [32, 36, 41], "cat": "neutral", "bbox": [155, 272, 329, 292]}
+{"phrase": "2 Over Limit Accnt", "hex": "#72ab7b", "rgb": [114, 171, 123], "cat": "green", "bbox": [154, 339, 333, 355]}
+{"phrase": "Total Rev Usage > 55%", "hex": "#75ad7e", "rgb": [117, 173, 126], "cat": "green", "bbox": [154, 373, 386, 394]}
+{"phrase": "Pay $7246 so Accts < 40%", "hex": "#e46874", "rgb": [228, 104, 116], "cat": "red", "bbox": [155, 406, 416, 428]}
+{"phrase": "4 Rev Lates in 2-4 yrs", "hex": "#e46572", "rgb": [228, 101, 114], "cat": "red", "bbox": [154, 441, 366, 462]}
+{"phrase": "No Closed Rev Depth", "hex": "#e4636f", "rgb": [228, 99, 111], "cat": "red", "bbox": [155, 475, 365, 496]}
+{"phrase": "D APT E506", "hex": "#686b6e", "rgb": [104, 107, 110], "cat": "neutral", "bbox": [0, 486, 104, 499]}
+{"phrase": "4 Rev Lates in 4+ yrs", "hex": "#e56d78", "rgb": [229, 109, 120], "cat": "red", "bbox": [154, 509, 360, 530]}
+{"phrase": "10k+ lines", "hex": "#5d9f67", "rgb": [93, 159, 103], "cat": "green", "bbox": [156, 543, 252, 559]}
+{"phrase": "Ok Open Rev Depth", "hex": "#6ca876", "rgb": [108, 168, 118], "cat": "green", "bbox": [154, 577, 350, 598]}
+{"phrase": "2+ Closed Rev Accnts", "hex": "#68a571", "rgb": [104, 165, 113], "cat": "green", "bbox": [154, 611, 370, 627]}
+{"phrase": "Seasoned Closed Accounts", "hex": "#6ca876", "rgb": [108, 168, 118], "cat": "green", "bbox": [154, 645, 423, 661]}
+{"phrase": "No Open Mortgage", "hex": "#585b5f", "rgb": [88, 91, 95], "cat": "neutral", "bbox": [155, 679, 340, 700]}
+{"phrase": "Drop Bad Auth User (BEST BUY/CBNA)", "hex": "#4c4f53", "rgb": [76, 79, 83], "cat": "neutral", "bbox": [155, 713, 545, 734]}
+{"phrase": "No Rev Acct Open 10K 2yr", "hex": "#53565a", "rgb": [83, 86, 90], "cat": "neutral", "bbox": [155, 747, 417, 768]}

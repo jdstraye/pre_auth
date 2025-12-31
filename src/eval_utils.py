@@ -206,9 +206,22 @@ def generate_parameter_samples(param_dist: Dict[str, List[Any]],
     samples = list(sampler_maxf) + list(sampler_thresh)
     np.random.shuffle(samples)
 
-    logger.info(f"Generated {len(samples[:n_samples])} valid parameter samples.")
-    logger.debug(f"Parameter samples: {samples[:n_samples] = }")
-    return samples[:n_samples]
+    # Filter incompatible combinations (e.g., OHE encoding incompatible with SMOTENC)
+    def is_valid_candidate(candidate: Dict[str, Any]) -> bool:
+        enc = candidate.get('encoding', None)
+        smm = candidate.get('smote__method', None)
+        # OHE cannot be used with SMOTENC (which requires ordinal encoding)
+        if enc == 'ohe' and smm == 'smotenc':
+            return False
+        return True
+
+    filtered = [s for s in samples if is_valid_candidate(s)]
+    if len(filtered) < n_samples:
+        logger.info(f"Requested {n_samples} samples but only {len(filtered)} compatible samples available after filtering.")
+
+    logger.info(f"Generated {len(filtered[:int(n_samples)])} valid parameter samples.")
+    logger.debug(f"Parameter samples: {filtered[:int(n_samples)] = }")
+    return filtered[:int(n_samples)]
 
 def write_csv_and_symlink(df: pd.DataFrame, dest_dir: Path, basename: str, timestamp: str):
     """

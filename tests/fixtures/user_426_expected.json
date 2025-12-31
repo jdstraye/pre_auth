@@ -1,0 +1,15 @@
+{
+  "address": "4575 S ARGONAUT DR Saratoga Springs, UT. 84045",
+  "revolving_open_count": 2,
+  "revolving_open_total": 1104,
+  "installment_open_count": 3,
+  "installment_open_total": 26491,
+  "public_records": 0,
+  "expected_factors": [
+    "no closed rev depth",
+    "ok open rev depth",
+    "no rev acct open 10k 2yr",
+    "1 rev late in 0-3 mo",
+    "2 re lates in 6-12 mo"
+  ]
+}

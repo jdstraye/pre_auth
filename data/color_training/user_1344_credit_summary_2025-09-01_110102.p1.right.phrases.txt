@@ -1,0 +1,38 @@
+{"phrase": "No", "hex": "#202429", "rgb": [32, 36, 41], "cat": "neutral", "bbox": [178, 152, 213, 174]}
+{"phrase": "No", "hex": "#202429", "rgb": [32, 36, 41], "cat": "neutral", "bbox": [405, 152, 439, 174]}
+{"phrase": "t Freeze", "hex": "#4f5356", "rgb": [79, 83, 86], "cat": "neutral", "bbox": [2, 195, 82, 212]}
+{"phrase": "Fraud Alert", "hex": "#54575b", "rgb": [84, 87, 91], "cat": "neutral", "bbox": [178, 195, 285, 212]}
+{"phrase": "Deceased", "hex": "#56595d", "rgb": [86, 89, 93], "cat": "neutral", "bbox": [405, 195, 501, 212]}
+{"phrase": "Credit Factors", "hex": "#202429", "rgb": [32, 36, 41], "cat": "neutral", "bbox": [154, 272, 329, 292]}
+{"phrase": "1", "hex": "#559a60", "rgb": [85, 154, 96], "cat": "green", "bbox": [156, 339, 161, 355]}
+{"phrase": "Unpaid Collection", "hex": "#70aa79", "rgb": [112, 170, 121], "cat": "green", "bbox": [174, 339, 343, 360]}
+{"phrase": "$11410 Unpaid Collection(s)", "hex": "#74ad7d", "rgb": [116, 173, 125], "cat": "green", "bbox": [154, 372, 429, 394]}
+{"phrase": "3 RE Lates in 6-12 mo", "hex": "#6da876", "rgb": [109, 168, 118], "cat": "green", "bbox": [154, 407, 371, 424]}
+{"phrase": "Current Lates (SYNOVUS/FIRST PROGRE)", "hex": "#6ba774", "rgb": [107, 167, 116], "cat": "green", "bbox": [154, 441, 584, 462]}
+{"phrase": "5 Rev Lates in 12-24 mo", "hex": "#6da876", "rgb": [109, 168, 118], "cat": "green", "bbox": [154, 475, 392, 492]}
+{"phrase": "Total Rev Usage > 55%", "hex": "#75ad7e", "rgb": [117, 173, 126], "cat": "green", "bbox": [154, 509, 386, 530]}
+{"phrase": "Past Due Not Late", "hex": "#70aa79", "rgb": [112, 170, 121], "cat": "green", "bbox": [155, 543, 332, 560]}
+{"phrase": "Pay $2692 so Accts < 40%", "hex": "#e46672", "rgb": [228, 102, 114], "cat": "red", "bbox": [155, 576, 416, 598]}
+{"phrase": "1", "hex": "#df4a58", "rgb": [223, 74, 88], "cat": "red", "bbox": [155, 611, 161, 627]}
+{"phrase": "Rev Late in 0-3 mo", "hex": "#e4636f", "rgb": [228, 99, 111], "cat": "red", "bbox": [174, 611, 357, 628]}
+{"phrase": "3 Rev Lates in 4-6 mo", "hex": "#e4636f", "rgb": [228, 99, 111], "cat": "red", "bbox": [154, 645, 368, 662]}
+{"phrase": "1 Chrgd Off Rev Acct", "hex": "#e4636f", "rgb": [228, 99, 111], "cat": "red", "bbox": [155, 679, 361, 700]}
+{"phrase": "1 Charged Off Accts", "hex": "#e35e6b", "rgb": [227, 94, 107], "cat": "red", "bbox": [155, 713, 351, 734]}
+{"phrase": "$4448 Unpaid Collections", "hex": "#e3616d", "rgb": [227, 97, 109], "cat": "red", "bbox": [154, 746, 403, 768]}
+{"phrase": "4 RE Lates in 12-24 mo", "hex": "#e4636f", "rgb": [228, 99, 111], "cat": "red", "bbox": [154, 781, 384, 798]}
+{"phrase": "Too Few Open Rev Accounts", "hex": "#e4636f", "rgb": [228, 99, 111], "cat": "red", "bbox": [154, 815, 440, 836]}
+{"phrase": "1", "hex": "#df4a58", "rgb": [223, 74, 88], "cat": "red", "bbox": [155, 850, 161, 866]}
+{"phrase": "RE Late in 4-6 mo", "hex": "#e3606c", "rgb": [227, 96, 108], "cat": "red", "bbox": [174, 850, 348, 867]}
+{"phrase": "1", "hex": "#df4a58", "rgb": [223, 74, 88], "cat": "red", "bbox": [155, 884, 161, 900]}
+{"phrase": "Rev Late in 2-4 yrs", "hex": "#e3616e", "rgb": [227, 97, 110], "cat": "red", "bbox": [174, 884, 355, 905]}
+{"phrase": "7k+ line for 8+yrs", "hex": "#6fa978", "rgb": [111, 169, 120], "cat": "green", "bbox": [154, 918, 321, 939]}
+{"phrase": "Seasoned Closed Accounts", "hex": "#77ae80", "rgb": [119, 174, 128], "cat": "green", "bbox": [154, 952, 423, 969]}
+{"phrase": "Great Closed Rev Depth", "hex": "#67a571", "rgb": [103, 165, 113], "cat": "green", "bbox": [154, 986, 391, 1007]}
+{"phrase": "Ok Open Rev Depth", "hex": "#6ca876", "rgb": [108, 168, 118], "cat": "green", "bbox": [154, 1020, 350, 1041]}
+{"phrase": "3+ Closed Rev Accnts", "hex": "#6fa978", "rgb": [111, 169, 120], "cat": "green", "bbox": [154, 1054, 370, 1071]}
+{"phrase": "7+ Closed RE Accounts", "hex": "#6da876", "rgb": [109, 168, 118], "cat": "green", "bbox": [154, 1088, 385, 1105]}
+{"phrase": "Paid Off 200k+ RE/RE", "hex": "#6da876", "rgb": [109, 168, 118], "cat": "green", "bbox": [155, 1122, 372, 1139]}
+{"phrase": "No Open Mortgage", "hex": "#585b5f", "rgb": [88, 91, 95], "cat": "neutral", "bbox": [155, 1156, 340, 1177]}
+{"phrase": "1", "hex": "#373b3f", "rgb": [55, 59, 63], "cat": "neutral", "bbox": [155, 1190, 161, 1206]}
+{"phrase": "Inq Last 4-5 mo", "hex": "#5a5d61", "rgb": [90, 93, 97], "cat": "neutral", "bbox": [174, 1190, 324, 1211]}
+{"phrase": "1 Total Ings 4-5 mo", "hex": "#56595d", "rgb": [86, 89, 93], "cat": "neutral", "bbox": [155, 1224, 342, 1245]}

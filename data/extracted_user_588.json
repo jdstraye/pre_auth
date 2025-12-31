@@ -1,0 +1,141 @@
+{
+  "summary": {
+    "credit_score": 653,
+    "monthly_payments": 715,
+    "credit_freeze": false,
+    "fraud_alert": false,
+    "deceased": false
+  },
+  "personal_info": {
+    "name": "Venitia Dickerson",
+    "age": 50,
+    "report_date": "09/01/2025"
+  },
+  "categories": {
+    "revolving_open": {
+      "count": 5,
+      "balance": 4393
+    },
+    "real_estate_open": {
+      "count": 0,
+      "balance": 0
+    },
+    "line_of_credit_open": {
+      "count": 0,
+      "balance": 0
+    },
+    "installment_open": {
+      "count": 7,
+      "balance": 55220
+    },
+    "miscellaneous_open": {
+      "count": 1,
+      "balance": 0
+    }
+  },
+  "credit_alerts": {},
+  "credit_factors": [
+    "2 Over Limit Accnt",
+    "Report Date: 09/01/2025 Credit Report",
+    "Light Open Rev Depth",
+    "Name: Venitia Dickerson VENITIA OSHANTIA DICKERSON",
+    "Avg Age Open",
+    "Age: 50 5 RE Lates in 2-4 yrs",
+    "2 Rev Lates in 2-4 yrs",
+    "7350 Jefferson Hwy 7350 JEFFERSON HWY #485-33",
+    "10k+ lines",
+    "Baton Rouge, LA. 70806 BATON ROUGE, LA. 70806",
+    "Seasoned Closed Accounts",
+    "Good Closed Rev Depth",
+    "Categories # / Balance 1+ Closed Rev Accnts",
+    "10+ Closed RE Accounts",
+    "Revolving Accounts (Open) 5 / $4,393",
+    "No Open Mortgage",
+    "Real Estate (Open) 0 / $0",
+    "No Rev Acct Open 10K 2yr",
+    "Line of Credit Accounts (Open) 0 / $0",
+    "Installment Accounts (Open) 7 / $55,220",
+    "Miscellaneous Accounts (Open) 1 / $0",
+    "Credit Alerts #",
+    "Public Records 0",
+    "Collections (Open/Closed) 0 / 0",
+    "Inquires (Last 6 Months) 0",
+    "Late Pays (Last 2/2+ Years) 1 / 7Credit Alerts",
+    "Late Pays Account Status Past Due",
+    "30 - 09/23",
+    "LEAD BANK Open",
+    "Lates +2yr: 1/30, 1/60",
+    "Lates +2yr: 5/90+ DEPT OF ED Open"
+  ],
+  "open_accounts": {
+    "revolving": [],
+    "line_of_credit": [],
+    "real_estate": [],
+    "installment": [
+      {
+        "creditor": "WESTLAKE FINANCIAL",
+        "balance": 10883,
+        "limit": 12000,
+        "payment": 334,
+        "responsibility": "I",
+        "year_opened": 2024
+      },
+      {
+        "creditor": "LEAD BANK",
+        "balance": 233,
+        "limit": 511,
+        "payment": 25,
+        "responsibility": "I",
+        "year_opened": 2024
+      },
+      {
+        "creditor": "DEPT OF ED",
+        "balance": 10840,
+        "limit": 10248,
+        "payment": 0,
+        "responsibility": "I",
+        "year_opened": 2024
+      },
+      {
+        "creditor": "DEPT OF ED",
+        "balance": 11128,
+        "limit": 10252,
+        "payment": 0,
+        "responsibility": "I",
+        "year_opened": 2024
+      },
+      {
+        "creditor": "IN",
+        "balance": 2076,
+        "limit": 3161,
+        "payment": 165,
+        "responsibility": "I",
+        "year_opened": 2024
+      },
+      {
+        "creditor": "DEPT OF ED",
+        "balance": 15381,
+        "limit": 13668,
+        "payment": 0,
+        "responsibility": "I",
+        "year_opened": 2022
+      },
+      {
+        "creditor": "DEPT OF ED",
+        "balance": 4679,
+        "limit": 4279,
+        "payment": 0,
+        "responsibility": "I",
+        "year_opened": 2018
+      }
+    ],
+    "miscellaneous": []
+  },
+  "closed_accounts": {
+    "revolving": [],
+    "line_of_credit": [],
+    "real_estate": [],
+    "installment": [],
+    "miscellaneous": []
+  }
+}

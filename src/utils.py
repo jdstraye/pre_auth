@@ -228,8 +228,11 @@ def load_column_headers(column_headers_json: Path, df: pd.DataFrame) -> Dict[str
         with open(column_headers_json, 'r', encoding='utf-8') as f:
             header_data = json.load(f)
         feature_cols = [sanitize_column_name(col['name']) for col in header_data if col.get('X') == 'True']
-        categorical_cols = [col['name'] for col in header_data if col.get('categorical') == 'True']
-        target_cols = [col['name'] for col in header_data if col.get('Y') == 'True']
+        # sanitize categorical and target names to match DataFrame columns
+        categorical_cols = [sanitize_column_name(col['name']) for col in header_data if col.get('categorical') == 'True' and col.get('X') == 'True']
+        target_cols = [sanitize_column_name(col['name']) for col in header_data if col.get('Y') == 'True']
+        # ordinal/mapped columns (derived with labels_from or mapped_from and intended as categorical X)
+        ordinal_cols = [sanitize_column_name(col['name']) for col in header_data if (col.get('labels_from') or col.get('mapped_from')) and col.get('categorical') == 'True' and col.get('X') == 'True']
         # Collect derived OHE columns and the source columns that produce OHEs.
         # Include sanitized variations and both 'ohe' dict values and 'ohe_from' derived names to handle schema inconsistencies.
         ohe_cols = []
@@ -253,23 +256,30 @@ def load_column_headers(column_headers_json: Path, df: pd.DataFrame) -> Dict[str
                 if col['ohe_from'] not in ohe_source_cols:
                     ohe_source_cols.append(col['ohe_from'])
 
-        logger.info(f"Schema loaded: {len(feature_cols)} features, {len(categorical_cols)} categorical, {len(target_cols)} targets.")
+        # filter lists to only columns actually present in df (df column names are sanitized elsewhere)
+        # Note: feature_cols should NOT be silently filtered here; we want missing features to raise.
+        categorical_cols = [c for c in categorical_cols if c in df.columns]
+        target_cols = [c for c in target_cols if c in df.columns]
+        ordinal_cols = [c for c in ordinal_cols if c in df.columns]
+
+        logger.info(f"Schema loaded: {len(feature_cols)} features, {len(categorical_cols)} categorical, {len(target_cols)} targets, {len(ordinal_cols)} ordinal-mapped cols.")
 
         # Validate that all defined feature columns exist in the DataFrame
         check_df_columns(df, feature_cols)
-
         # Filter OHE columns to those that actually exist in the DataFrame (normalize names)
         ohe_cols_present = [c for c in ohe_cols if c in df.columns]
         if len(ohe_cols_present) < len(ohe_cols):
             missing_ohe = set(ohe_cols) - set(ohe_cols_present)
             logger.debug(f"Some OHE columns from schema did not appear in the DataFrame and will be ignored: {missing_ohe}")
 
+        # return ordinal/mapped columns as well for callers that need explicit ordinal mapping
         return {
-            "feature_cols": feature_cols, 
-            "categorical_cols": categorical_cols, 
-            "target_cols": target_cols,
-            "ohe_cols": ohe_cols_present,
-            "ohe_source_cols": ohe_source_cols
+            'feature_cols': feature_cols,
+            'categorical_cols': categorical_cols,
+            'target_cols': target_cols,
+            'ohe_cols': ohe_cols_present,
+            'ohe_source_cols': ohe_source_cols,
+            'ordinal_cols': ordinal_cols
         }
 
     except FileNotFoundError as e:
@@ -339,8 +349,18 @@ def check_df_columns(df: pd.DataFrame, column_headers: List[str]) -> bool:
     existing_columns = set(column_headers) & set(df.columns)
     logger.debug(f"{df.to_string() = }")
 
+    # Columns that are allowed to contain NaN values because the underlying
+    # offer may be missing. For these we will not treat NaN as fatal here; they
+    # should be handled by downstream preprocessing (e.g., imputation or filtering).
+    allowed_nan_suffixes = (
+        '_Score', '_Amount', '_DebtToIncome', '_below_600_', '_PayD', '_Collections', '_Contingencies', '_Details', '_score_missing_'
+    )
+
     for c in existing_columns:
         try:
+            # If column is allowed to have NaNs, skip the NaN critical check
+            if any(str(c).endswith(sfx) for sfx in allowed_nan_suffixes):
+                continue
             column_data = df[c]
             NaN_column = column_data.isna()
             if NaN_column.any():

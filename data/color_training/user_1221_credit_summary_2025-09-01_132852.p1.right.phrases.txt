@@ -1,0 +1,20 @@
+{"phrase": "No", "hex": "#202429", "rgb": [32, 36, 41], "cat": "neutral", "bbox": [178, 152, 213, 174]}
+{"phrase": "No", "hex": "#202429", "rgb": [32, 36, 41], "cat": "neutral", "bbox": [405, 152, 439, 174]}
+{"phrase": "t Freeze", "hex": "#4f5356", "rgb": [79, 83, 86], "cat": "neutral", "bbox": [2, 195, 82, 212]}
+{"phrase": "Fraud Alert", "hex": "#53565a", "rgb": [83, 86, 90], "cat": "neutral", "bbox": [178, 195, 284, 212]}
+{"phrase": "Deceased", "hex": "#56595d", "rgb": [86, 89, 93], "cat": "neutral", "bbox": [405, 195, 501, 212]}
+{"phrase": "Credit Factors", "hex": "#202429", "rgb": [32, 36, 41], "cat": "neutral", "bbox": [155, 272, 329, 292]}
+{"phrase": "1 Over Limit Accnt", "hex": "#6faa78", "rgb": [111, 170, 120], "cat": "green", "bbox": [156, 339, 333, 355]}
+{"phrase": "Total Rev Usage > 75%", "hex": "#76ae7f", "rgb": [118, 174, 127], "cat": "green", "bbox": [154, 373, 386, 394]}
+{"phrase": "Pay $24051 so Accts < 40%", "hex": "#e46672", "rgb": [228, 102, 114], "cat": "red", "bbox": [155, 406, 428, 428]}
+{"phrase": "2 Rev Lates in 2-4 yrs", "hex": "#e3626f", "rgb": [227, 98, 111], "cat": "red", "bbox": [154, 441, 366, 462]}
+{"phrase": "7k+ line for 4+yrs", "hex": "#6da876", "rgb": [109, 168, 118], "cat": "green", "bbox": [154, 475, 321, 496]}
+{"phrase": "Great Closed Rev Depth", "hex": "#67a571", "rgb": [103, 165, 113], "cat": "green", "bbox": [154, 509, 391, 530]}
+{"phrase": "Ok Open Rev Depth", "hex": "#6ca876", "rgb": [108, 168, 118], "cat": "green", "bbox": [154, 543, 350, 564]}
+{"phrase": "3+ Closed Rev Accnts", "hex": "#69a673", "rgb": [105, 166, 115], "cat": "green", "bbox": [154, 577, 370, 593]}
+{"phrase": "Seasoned Closed Accounts", "hex": "#6ca876", "rgb": [108, 168, 118], "cat": "green", "bbox": [154, 611, 423, 627]}
+{"phrase": "8+ Rev Accnts with Balances", "hex": "#5d6064", "rgb": [93, 96, 100], "cat": "neutral", "bbox": [154, 645, 437, 662]}
+{"phrase": "1", "hex": "#373b3f", "rgb": [55, 59, 63], "cat": "neutral", "bbox": [155, 679, 161, 695]}
+{"phrase": "RE Late in 4+ yrs", "hex": "#53565a", "rgb": [83, 86, 90], "cat": "neutral", "bbox": [174, 679, 340, 700]}
+{"phrase": "Drop Bad Auth User (JPMCB CARD SERVICE:", "hex": "#484c50", "rgb": [72, 76, 80], "cat": "neutral", "bbox": [155, 713, 612, 734]}
+{"phrase": "No Rev Acct Open 10K 2yr", "hex": "#53565a", "rgb": [83, 86, 90], "cat": "neutral", "bbox": [155, 747, 417, 768]}

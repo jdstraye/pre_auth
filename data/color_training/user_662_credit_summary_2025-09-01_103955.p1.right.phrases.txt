@@ -1,0 +1,18 @@
+{"phrase": "No", "hex": "#202429", "rgb": [32, 36, 41], "cat": "neutral", "bbox": [178, 152, 213, 174]}
+{"phrase": "No", "hex": "#202429", "rgb": [32, 36, 41], "cat": "neutral", "bbox": [405, 152, 439, 174]}
+{"phrase": "t Freeze", "hex": "#4f5356", "rgb": [79, 83, 86], "cat": "neutral", "bbox": [2, 195, 82, 212]}
+{"phrase": "Fraud Alert", "hex": "#53565a", "rgb": [83, 86, 90], "cat": "neutral", "bbox": [178, 195, 284, 212]}
+{"phrase": "Deceased", "hex": "#56595d", "rgb": [86, 89, 93], "cat": "neutral", "bbox": [405, 195, 501, 212]}
+{"phrase": "Credit Factors", "hex": "#202429", "rgb": [32, 36, 41], "cat": "neutral", "bbox": [155, 272, 329, 292]}
+{"phrase": "Total Rev Usage > 90%", "hex": "#74ad7d", "rgb": [116, 173, 125], "cat": "green", "bbox": [154, 339, 386, 360]}
+{"phrase": "Pay $2842 so Accts < 40%", "hex": "#e46672", "rgb": [228, 102, 114], "cat": "red", "bbox": [155, 372, 416, 394]}
+{"phrase": "2 Inq Last 4 Mo", "hex": "#e25d6a", "rgb": [226, 93, 106], "cat": "red", "bbox": [154, 407, 304, 428]}
+{"phrase": "No Closed Rev Depth", "hex": "#e4636f", "rgb": [228, 99, 111], "cat": "red", "bbox": [155, 441, 365, 462]}
+{"phrase": "No 5k+ Lines", "hex": "#e56a76", "rgb": [229, 106, 118], "cat": "red", "bbox": [155, 475, 281, 492]}
+{"phrase": "2 Ings last 2 Months", "hex": "#e56975", "rgb": [229, 105, 117], "cat": "red", "bbox": [154, 509, 349, 530]}
+{"phrase": "44022", "hex": "#d9dde2", "rgb": [217, 221, 226], "cat": "neutral", "bbox": [4, 531, 53, 544]}
+{"phrase": "Less than 5 yrs", "hex": "#e6707c", "rgb": [230, 112, 124], "cat": "red", "bbox": [155, 543, 302, 564]}
+{"phrase": "2 Total Inq 0-2 Mo", "hex": "#e25a67", "rgb": [226, 90, 103], "cat": "red", "bbox": [154, 577, 331, 598]}
+{"phrase": "Ok Open Rev Depth", "hex": "#6ca876", "rgb": [108, 168, 118], "cat": "green", "bbox": [154, 611, 350, 632]}
+{"phrase": "No Open Mortgage", "hex": "#585b5f", "rgb": [88, 91, 95], "cat": "neutral", "bbox": [155, 645, 340, 666]}
+{"phrase": "No Rev Acct Open 10K 2yr", "hex": "#53565a", "rgb": [83, 86, 90], "cat": "neutral", "bbox": [155, 679, 417, 700]}

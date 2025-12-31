@@ -1,0 +1,122 @@
+[
+  {
+    "factor": "No No",
+    "color": "green",
+    "hex": "#a4a5a7"
+  },
+  {
+    "factor": "t Freeze Fraud Alert Deceased",
+    "color": "green",
+    "hex": "#8a8c8f"
+  },
+  {
+    "factor": "Credit Factors",
+    "color": "neutral",
+    "hex": "#202429"
+  },
+  {
+    "factor": "2 Unpaid Collection(s)",
+    "color": "green",
+    "hex": "#e1ede3"
+  },
+  {
+    "factor": "$5167 Unpaid Collection(s)",
+    "color": "green",
+    "hex": "#b5d3b9"
+  },
+  {
+    "factor": "KENZIE",
+    "color": "neutral",
+    "hex": ""
+  },
+  {
+    "factor": "3 RE Lates in 6-12 mo",
+    "color": "green",
+    "hex": "#cbe0cf"
+  },
+  {
+    "factor": "2 Over Limit Accnt",
+    "color": "green",
+    "hex": "#cce0cf"
+  },
+  {
+    "factor": "Total Rev Usage > 90%",
+    "color": "green",
+    "hex": "#cde1d0"
+  },
+  {
+    "factor": "Past Due Not Late",
+    "color": "green",
+    "hex": "#a5c9aa"
+  },
+  {
+    "factor": "Pay $3447 so Accts < 40%",
+    "color": "red",
+    "hex": "#f1b4ba"
+  },
+  {
+    "factor": "2 Chrgd Off Rev Accts",
+    "color": "red",
+    "hex": "#f5c8cd"
+  },
+  {
+    "factor": "2 Rev Lates in 6-12 mo",
+    "color": "red",
+    "hex": "#f2b7bd"
+  },
+  {
+    "factor": "$4648 Unpaid Collections",
+    "color": "red",
+    "hex": "#dc3545"
+  },
+  {
+    "factor": "1 RE Late in 0-3 mo",
+    "color": "red",
+    "hex": "#f5c7cc"
+  },
+  {
+    "factor": "No Closed Rev Depth",
+    "color": "red",
+    "hex": "#efa5ac"
+  },
+  {
+    "factor": "1 RE Late in 4-6 mo",
+    "color": "red",
+    "hex": "#f5c7cc"
+  },
+  {
+    "factor": "1 Rev Late in 12-24 mo",
+    "color": "red",
+    "hex": "#eea4ab"
+  },
+  {
+    "factor": "No 5k+ Lines",
+    "color": "red",
+    "hex": "#efa6ad"
+  },
+  {
+    "factor": "1 RE Late in 2-4 yrs",
+    "color": "red",
+    "hex": "#f5c7cb"
+  },
+  {
+    "factor": "Less than 5 yrs",
+    "color": "red",
+    "hex": "#f6ced2"
+  },
+  {
+    "factor": "Ok Open Rev Depth",
+    "color": "green",
+    "hex": "#c3dbc6"
+  },
+  {
+    "factor": "No Open Mortgage",
+    "color": "neutral",
+    "hex": ""
+  },
+  {
+    "factor": "No Rev Acct Open 10K 2yr",
+    "color": "neutral",
+    "hex": "#202429"
+  }
+]

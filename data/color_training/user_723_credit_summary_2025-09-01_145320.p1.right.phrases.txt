@@ -1,0 +1,18 @@
+{"phrase": "No", "hex": "#202429", "rgb": [32, 36, 41], "cat": "neutral", "bbox": [178, 152, 213, 174]}
+{"phrase": "No", "hex": "#202429", "rgb": [32, 36, 41], "cat": "neutral", "bbox": [405, 152, 439, 174]}
+{"phrase": "t Freeze", "hex": "#4f5356", "rgb": [79, 83, 86], "cat": "neutral", "bbox": [2, 195, 82, 212]}
+{"phrase": "Fraud Alert", "hex": "#53565a", "rgb": [83, 86, 90], "cat": "neutral", "bbox": [178, 195, 284, 212]}
+{"phrase": "Deceased", "hex": "#56595d", "rgb": [86, 89, 93], "cat": "neutral", "bbox": [405, 195, 501, 212]}
+{"phrase": "Credit Factors", "hex": "#202429", "rgb": [32, 36, 41], "cat": "neutral", "bbox": [155, 272, 329, 292]}
+{"phrase": "1 Over Limit Accnt", "hex": "#6faa78", "rgb": [111, 170, 120], "cat": "green", "bbox": [156, 339, 333, 355]}
+{"phrase": "Total Rev Usage > 90%", "hex": "#74ad7d", "rgb": [116, 173, 125], "cat": "green", "bbox": [154, 373, 386, 394]}
+{"phrase": "Pay $12836 so Accts < 40%", "hex": "#e46672", "rgb": [228, 102, 114], "cat": "red", "bbox": [155, 406, 428, 428]}
+{"phrase": "3 Inq Last", "hex": "#e46470", "rgb": [228, 100, 112], "cat": "red", "bbox": [154, 441, 249, 462]}
+{"phrase": "4 Mo", "hex": "#e25a67", "rgb": [226, 90, 103], "cat": "red", "bbox": [263, 441, 304, 458]}
+{"phrase": "No Closed Rev Depth", "hex": "#e4636f", "rgb": [228, 99, 111], "cat": "red", "bbox": [155, 475, 365, 496]}
+{"phrase": "3 Ings last 2-4 Mo", "hex": "#e4636f", "rgb": [228, 99, 111], "cat": "red", "bbox": [154, 509, 327, 530]}
+{"phrase": "3 Total Inq 2-4 Mo", "hex": "#e25c69", "rgb": [226, 92, 105], "cat": "red", "bbox": [154, 543, 331, 564]}
+{"phrase": "Less than 5 yrs", "hex": "#e6707c", "rgb": [230, 112, 124], "cat": "red", "bbox": [155, 577, 302, 598]}
+{"phrase": "10k+ lines", "hex": "#62a26c", "rgb": [98, 162, 108], "cat": "green", "bbox": [156, 611, 252, 628]}
+{"phrase": "Ok Open Rev Depth", "hex": "#6ca876", "rgb": [108, 168, 118], "cat": "green", "bbox": [154, 645, 350, 666]}
+{"phrase": "Paid Off 200k+ RE/RE", "hex": "#6da876", "rgb": [109, 168, 118], "cat": "green", "bbox": [155, 679, 372, 696]}

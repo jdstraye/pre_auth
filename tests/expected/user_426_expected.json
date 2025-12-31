@@ -1,0 +1,18 @@
+{
+  "installment_open_count": 3,
+  "installment_open_total": 26491,
+  "revolving_open_count": 2,
+  "revolving_open_total": 1104,
+  "inquiries_6mo": 0,
+  "late_pays_recent": 7,
+  "late_pays_prior": 0,
+  "monthly_payment": 552,
+  "public_records": 0,
+  "expected_canonical_factors": [
+    "no_closed_rev_depth",
+    "ok_open_rev_depth",
+    "rev_late",
+    "re_lates",
+    "past_due_not_late"
+  ]
+}

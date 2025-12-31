@@ -1,0 +1,1 @@
+{"data": [{"record_id": "r1", "user_initials": "AA", "contracts": [{"contract_id": "c1", "created_at": "2024-11-19T00:00:00-05:00", "status": "approved", "amount": "1000", "tier": "0.24"}], "prefi_data": {"Offers": [], "DataEnhance": {"DebtToIncome": 10}}}]}

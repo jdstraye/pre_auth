@@ -1,0 +1,20 @@
+{"phrase": "No", "hex": "#202429", "rgb": [32, 36, 41], "cat": "neutral", "bbox": [178, 152, 213, 174]}
+{"phrase": "No", "hex": "#202429", "rgb": [32, 36, 41], "cat": "neutral", "bbox": [405, 152, 439, 174]}
+{"phrase": "t Freeze", "hex": "#4f5356", "rgb": [79, 83, 86], "cat": "neutral", "bbox": [2, 195, 82, 212]}
+{"phrase": "Fraud Alert", "hex": "#53565a", "rgb": [83, 86, 90], "cat": "neutral", "bbox": [178, 195, 284, 212]}
+{"phrase": "Deceased", "hex": "#53565a", "rgb": [83, 86, 90], "cat": "neutral", "bbox": [405, 195, 500, 212]}
+{"phrase": "Credit Factors", "hex": "#202429", "rgb": [32, 36, 41], "cat": "neutral", "bbox": [155, 272, 329, 292]}
+{"phrase": "Light Open Rev Depth", "hex": "#e4636f", "rgb": [228, 99, 111], "cat": "red", "bbox": [155, 339, 370, 360]}
+{"phrase": "2 New Accnts Last 60 Days", "hex": "#e3616d", "rgb": [227, 97, 109], "cat": "red", "bbox": [154, 373, 421, 394]}
+{"phrase": "Avg Age Open", "hex": "#e3606c", "rgb": [227, 96, 108], "cat": "red", "bbox": [154, 407, 295, 428]}
+{"phrase": "No Closed Rev Depth", "hex": "#e4636f", "rgb": [228, 99, 111], "cat": "red", "bbox": [155, 441, 365, 462]}
+{"phrase": "No 5k+ Lines", "hex": "#e56a76", "rgb": [229, 106, 118], "cat": "red", "bbox": [155, 475, 281, 492]}
+{"phrase": "1", "hex": "#df4a58", "rgb": [223, 74, 88], "cat": "red", "bbox": [156, 509, 161, 525]}
+{"phrase": "Ing Last 4 Mo", "hex": "#e35f6c", "rgb": [227, 95, 108], "cat": "red", "bbox": [174, 509, 304, 530]}
+{"phrase": "Accounts Too New", "hex": "#e46672", "rgb": [228, 102, 114], "cat": "red", "bbox": [154, 543, 337, 560]}
+{"phrase": "1", "hex": "#df4a58", "rgb": [223, 74, 88], "cat": "red", "bbox": [156, 577, 161, 593]}
+{"phrase": "RE Late in 2-4 yrs", "hex": "#e35f6c", "rgb": [227, 95, 108], "cat": "red", "bbox": [174, 577, 347, 598]}
+{"phrase": "1+ Closed Rev Accnts", "hex": "#67a571", "rgb": [103, 165, 113], "cat": "green", "bbox": [156, 611, 370, 627]}
+{"phrase": "No Open Mortgage", "hex": "#585b5f", "rgb": [88, 91, 95], "cat": "neutral", "bbox": [155, 645, 340, 666]}
+{"phrase": "No Rev Acct Open 10K 2yr", "hex": "#53565a", "rgb": [83, 86, 90], "cat": "neutral", "bbox": [155, 679, 417, 700]}
+{"phrase": "1 Total Inq 0-2 Mo", "hex": "#4c4f53", "rgb": [76, 79, 83], "cat": "neutral", "bbox": [156, 713, 331, 734]}

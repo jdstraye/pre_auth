@@ -1,0 +1,11 @@
+{
+  "include": ["src"],
+  "exclude": ["tests", "build", "dist"],
+  "executionEnvironments": [
+    {
+      "root": ".",
+      "pythonVersion": "3.11",
+      "extraPaths": ["src", "scripts"]
+    }
+  ]
+}

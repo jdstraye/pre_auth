@@ -9,7 +9,7 @@ import sys
 import traceback
 from typing import List, Optional, Union, Tuple, Dict, Any, Sequence, cast
 from imblearn.base import SamplerMixin, BaseSampler
-from imblearn.over_sampling import SMOTE, SMOTENC
+from imblearn.over_sampling import SMOTE, SMOTENC, RandomOverSampler
 from scipy import sparse
 from scipy.sparse import csr_matrix
 from sklearn.base import BaseEstimator
@@ -228,6 +228,7 @@ class MaybeSMOTESampler(BaseNamedSamplerMixin, BaseSampler):
                  sampling_strategy = 'auto',
                  random_state: Optional[int] = gv.RANDOM_STATE,
                  min_improvement: Optional[float] = gv.DEFAULT_SMOTE_MIN_IMPROVEMENT,
+                 allow_fallback: bool = True,
                  *args,
                  **kwargs
                 ):
@@ -254,6 +255,16 @@ class MaybeSMOTESampler(BaseNamedSamplerMixin, BaseSampler):
         self.sampling_strategy = sampling_strategy
         self.random_state = random_state
         self.min_improvement = float(min_improvement or 0.0)
+        # Whether the sampler should gracefully fallback to a safe oversampler
+        # (RandomOverSampler) when SMOTE cannot be applied due to too-few
+        # minority examples or incompatible encoding.
+        self.allow_fallback = bool(allow_fallback)
+
+        # Tracking attributes for diagnostics (set per-call)
+        self.last_min_class_count: Optional[int] = None
+        self.last_smote_applied: bool = False
+        self.last_fallback_used: bool = False
+        self.last_used_sampler: Optional[str] = None
         #20251004self._validator = DataValidator("MaybeSMOTESampler", X=X, y=y, categorical_feature_names=self.categorical_feature_names, ohe_column_names=self.ohe_column_names)
 
     # scikit-learn compatibility
@@ -543,7 +554,7 @@ class MaybeSMOTESampler(BaseNamedSamplerMixin, BaseSampler):
         return X_final, y_final
 
     @debug_pipeline_step("MaybeSMOTESampler-_fit_resample")
-    def _fit_resample(self, X, y) -> Tuple[pd.DataFrame, np.ndarray]:
+    def _fit_resample(self, X: Any, y: Any) -> Tuple[Any, Any]:
         """
         Internal method to perform SMOTE resampling with standardized output format.
 
@@ -677,51 +688,36 @@ class MaybeSMOTESampler(BaseNamedSamplerMixin, BaseSampler):
             raise ValueError(f"X and y length mismatch: {X_df.shape[0] = } vs {len(y_series) = }")
 
         # Build concrete sampler (explicit delegation)
-        # Use your NamedSMOTE / NamedSMOTENC if present; otherwise adapt to SMOTE/SMOTENC.
-        if self.categorical_feature_names:
-
-#debug20250918            # Validate categorical indices
-#debug20250918            valid_indices = [i for i in cat_indices if 0 <= i < X_df.shape[1]]
-#debug20250918            if len(valid_indices) != len(cat_indices):
-#debug20250918                self._get_logger().warning(f"WARNING: Invalid categorical indices. Original: {cat_indices}, Valid: {valid_indices}")
-#debug20250918
-#debug20250918            sampler = SMOTENC(
-#debug20250918                categorical_features=valid_indices,
-#debug20250918                k_neighbors=safe_k,
-#debug20250918                sampling_strategy=self.sampling_strategy,
-#debug20250918                random_state=self.random_state,
-#debug20250918            )
-#debug20250918        else:
-#debug20250918            # Same validation for SMOTE
-#debug20250918            min_class_size = pd.Series(y_series).value_counts().min()
-#debug20250918            safe_k = self.k_neighbors if self.k_neighbors < min_class_size else max(1, min_class_size - 1)
-#debug20250918
-#debug20250918            sampler = SMOTE(
-#debug20250918                k_neighbors=safe_k,
-#debug20250918                sampling_strategy=self.sampling_strategy,
-#debug20250918                random_state=self.random_state,
-#debug20250918            )
-#debug20250917            cat_indices = [X_df.columns.get_loc(c) for c in cats_present if c in X_df.columns]
-#debug20250917            sampler = SMOTENC(
-#debug20250917                categorical_features=cat_indices,  # Use indices, not names
-#debug20250917                k_neighbors=int(self.k_neighbors),
-#debug20250917                sampling_strategy=self.sampling_strategy,
-#debug20250917                random_state=self.random_state,
-#debug20250917            )
-            sampler = NamedSMOTENC(
-                feature_names=self.feature_names,
-                categorical_feature_names=self.categorical_feature_names,
-                k_neighbors=int(self.k_neighbors),
-                sampling_strategy=self.sampling_strategy,
-                random_state=self.random_state,
-            )
+        # Decide whether to use SMOTE/SMOTENC or fallback to RandomOverSampler.
+        # If minority class size is too small relative to k_neighbors, prefer fallback
+        orig_counts_pre = self._class_counts(y_series)
+        min_class_size_pre = min(orig_counts_pre.values()) if orig_counts_pre else 0
+        if self.allow_fallback and (min_class_size_pre <= 1 or min_class_size_pre <= int(self.k_neighbors)):
+            self._get_logger().warning(f"Using RandomOverSampler fallback: min_class_size={min_class_size_pre}, k_neighbors={self.k_neighbors}")
+            sampler = RandomOverSampler(random_state=self.random_state)
+            self.last_fallback_used = True
+            self.last_used_sampler = 'RandomOverSampler'
+            self.last_smote_applied = False
         else:
-            sampler = NamedSMOTE(
-                feature_names=self.feature_names,
-                k_neighbors=int(self.k_neighbors),
-                sampling_strategy=str(self.sampling_strategy),
-                random_state=self.random_state,
-            )
+            if self.categorical_feature_names:
+                sampler = NamedSMOTENC(
+                    feature_names=self.feature_names,
+                    categorical_feature_names=self.categorical_feature_names,
+                    k_neighbors=int(self.k_neighbors),
+                    sampling_strategy=self.sampling_strategy,
+                    random_state=self.random_state,
+                )
+                self.last_used_sampler = 'NamedSMOTENC'
+                self.last_smote_applied = True
+            else:
+                sampler = NamedSMOTE(
+                    feature_names=self.feature_names,
+                    k_neighbors=int(self.k_neighbors),
+                    sampling_strategy=str(self.sampling_strategy),
+                    random_state=self.random_state,
+                )
+                self.last_used_sampler = 'NamedSMOTE'
+                self.last_smote_applied = True
 #debug20250917            sampler = NamedSMOTE(
 #debug20250917                categorical_feature_names=[],
 #debug20250917                k_neighbors=int(self.k_neighbors),
@@ -960,7 +956,7 @@ class NamedSMOTE(BaseNamedSamplerMixin, SMOTE):
         # initialize with placeholder; we'll set indices at fit_resample
         self.feature_names = feature_names or []
 
-    def _fit_resample(self, X, y) -> tuple[pd.DataFrame, np.ndarray]:
+    def _fit_resample(self, X: Any, y: Any) -> Tuple[Any, Any]:
         """
         Resamples the dataset, mapping categorical feature names to indices.
 
@@ -1065,10 +1061,9 @@ class NamedSMOTENC(BaseNamedSamplerMixin, SMOTENC):
         categorical_feature_names : list of str
             A list of column names corresponding to the categorical features.
             This argument is mandatory and must not be empty.
-            
         **kwargs : dict
             Additional keyword arguments to be passed to the parent `SMOTENC` class.
-            
+
         Raises
         ------
         ValueError
@@ -1079,48 +1074,12 @@ class NamedSMOTENC(BaseNamedSamplerMixin, SMOTENC):
         BaseNamedSamplerMixin.__init__(self, **kwargs)
         SMOTENC.__init__(self, categorical_features = [], **kwargs)
 
-        # Store provided feature names
-        self.feature_names = feature_names or [] 
-        
+        # Store provided feature names and categorical metadata
+        self.feature_names = feature_names or []
         if not categorical_feature_names:
             raise ValueError("NamedSMOTENC requires non-empty categorical_feature_names.")
-        # initialize with placeholder; we'll set indices at fit_resample
-        super().__init__(categorical_features=[], **kwargs)
         self.categorical_feature_names = list(categorical_feature_names)
         self.categorical_features_indices: List[int] = []
-
-    def _fit_resample(self, X, y) -> tuple[pd.DataFrame, np.ndarray]:
-        """
-        Resamples the dataset, mapping categorical feature names to indices.
-
-        This method ensures the input `X` is a pandas DataFrame, then maps the
-        provided `categorical_feature_names` to their integer column indices.
-        These indices are then passed to the parent `SMOTENC` class for
-        resampling. The method also handles the reconstruction of the output
-        into a DataFrame with the original column names, ensuring metadata
-        is preserved.
-
-        Parameters
-        ----------
-        X : pandas.DataFrame
-            The input data, which must be a DataFrame.
-        y : array-like of shape (n_samples,)
-            The target labels.
-
-        Returns
-        -------
-        X_resampled : pandas.DataFrame
-            The resampled feature matrix.
-        y_resampled : array-like of shape (n_samples_new,)
-            The corresponding resampled target labels.
-
-        Raises
-        ------
-        TypeError
-            If the input `X` is not a pandas DataFrame.
-        ValueError
-            If a column name maps to multiple columns or an unexpected location type.
-        """
         self._get_logger().debug(f"DBG:SMOTERECUR00 - ENTER {self.__class__.__name__}.fit_resample")
 
         if not self.categorical_features_indices:

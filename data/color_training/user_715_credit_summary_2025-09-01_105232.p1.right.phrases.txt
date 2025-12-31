@@ -1,0 +1,14 @@
+{"phrase": "No", "hex": "#202429", "rgb": [32, 36, 41], "cat": "neutral", "bbox": [178, 152, 213, 174]}
+{"phrase": "No", "hex": "#202429", "rgb": [32, 36, 41], "cat": "neutral", "bbox": [405, 152, 439, 174]}
+{"phrase": "t Freeze", "hex": "#4f5356", "rgb": [79, 83, 86], "cat": "neutral", "bbox": [2, 195, 82, 212]}
+{"phrase": "Fraud Alert", "hex": "#53565a", "rgb": [83, 86, 90], "cat": "neutral", "bbox": [178, 195, 284, 212]}
+{"phrase": "Deceased", "hex": "#53565a", "rgb": [83, 86, 90], "cat": "neutral", "bbox": [405, 195, 500, 212]}
+{"phrase": "Credit Factors", "hex": "#202429", "rgb": [32, 36, 41], "cat": "neutral", "bbox": [155, 272, 329, 292]}
+{"phrase": "No Closed Rev Depth", "hex": "#e4636f", "rgb": [228, 99, 111], "cat": "red", "bbox": [155, 339, 365, 360]}
+{"phrase": "Avg Age Open", "hex": "#e3606c", "rgb": [227, 96, 108], "cat": "red", "bbox": [154, 373, 295, 394]}
+{"phrase": "20k+ lines", "hex": "#62a26c", "rgb": [98, 162, 108], "cat": "green", "bbox": [154, 407, 252, 423]}
+{"phrase": "Ok Open Rev Depth", "hex": "#6ca876", "rgb": [108, 168, 118], "cat": "green", "bbox": [154, 441, 350, 462]}
+{"phrase": "1", "hex": "#373b3f", "rgb": [55, 59, 63], "cat": "neutral", "bbox": [156, 475, 161, 491]}
+{"phrase": "Inq Last 4-5 mo", "hex": "#5a5d61", "rgb": [90, 93, 97], "cat": "neutral", "bbox": [174, 475, 324, 496]}
+{"phrase": "1 Total Ings 4-5 mo", "hex": "#56595d", "rgb": [86, 89, 93], "cat": "neutral", "bbox": [156, 509, 342, 530]}
+{"phrase": "37189", "hex": "#e4e8ed", "rgb": [228, 232, 237], "cat": "neutral", "bbox": [0, 531, 44, 544]}

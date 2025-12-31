@@ -14,7 +14,10 @@ from typing import Dict, Any, Optional, List, Tuple
 from src.utils import check_df_columns, sanitize_column_name
 import re
 import numpy as np
-from sklearn.preprocessing import LabelEncoder
+try:
+    from sklearn.preprocessing import LabelEncoder
+except Exception:  # pragma: no cover - sklearn may not be installed in test env
+    LabelEncoder = None
 
 logger = logging.getLogger(__name__)
 
@@ -111,18 +114,19 @@ def _process_offers(offers: List[Dict[str, Any]]) -> Dict[str, Any]:
         new_features[f"{sanitized_name}_Name"] = name if not is_missing else 'NA'
 
         if is_missing:
-            new_features[f"{sanitized_name}_Score"] = -1
-            new_features[f"{sanitized_name}_below_600_"] = -1
+            # Represent missing offer numerics as NaN, keep missing flag and Name/Status indicators
+            new_features[f"{sanitized_name}_Score"] = np.nan
+            new_features[f"{sanitized_name}_below_600_"] = np.nan
             new_features[f"{sanitized_name}_Status"] = 'NA'
-            new_features[f"{sanitized_name}_Amount"] = -1
-            new_features[f"{sanitized_name}_DebtToIncome"] = -1
+            new_features[f"{sanitized_name}_Amount"] = np.nan
+            new_features[f"{sanitized_name}_DebtToIncome"] = np.nan
             new_features[f"{sanitized_name}_Details"] = defaults['Details']
             new_features[f"{sanitized_name}_Contingencies"] = defaults['Contingencies']
             if sanitized_name == 'DebtResolution':
                 new_features[f"{sanitized_name}_score_missing?"] = 1
-            new_features[f"{sanitized_name}_PayD"] = -1
-            new_features[f"{sanitized_name}_Collections"] = -1
-            new_features[f"{sanitized_name}_score_missing_"] = -1
+            new_features[f"{sanitized_name}_PayD"] = np.nan
+            new_features[f"{sanitized_name}_Collections"] = np.nan
+            new_features[f"{sanitized_name}_score_missing_"] = np.nan
             continue
 #20250826        logger.debug(f"0ufs03: /ok, strings/{offer = }")
 
@@ -330,6 +334,9 @@ def flatten_weaviate_data(file_path: Path, schema: List[Dict[str, Any]]) -> pd.D
             amount = clean_and_normalize_numeric(most_recent.get('amount'))
             flat['final_contract_amount'] = amount if amount is not None else -1
 
+            # Capture contract created_at timestamp (keep original string for now)
+            flat['final_contract_created_at'] = most_recent.get('created_at')
+
         # Process offers
         offers = record.get('prefi_data', {}).get('Offers', [])
         flat.update(_process_offers(offers))
@@ -375,6 +382,15 @@ def preprocess_dataframe(df: pd.DataFrame, schema: List[Dict[str, Any]], column_
     # Reindex to the final schema and fill numeric-style missing values with 0
     processed = processed.reindex(columns=final_cols, fill_value=0)
 
+    # Convert any datetime-like columns (e.g., *_created_at) to pandas datetime dtype
+    for col in processed.columns:
+        if col.endswith('_created_at') and col in processed.columns:
+            try:
+                processed[col] = pd.to_datetime(processed[col], errors='coerce')
+            except Exception:
+                # leave as-is if conversion fails
+                pass
+
     # Ensure string-like derived columns (names, details, contingencies, status)
     # do not contain NaNs or numeric sentinels. Fill with 'NA' and coerce to object.
     string_like_keys = ('Name', 'Details', 'Contingencies', 'Status')
@@ -408,7 +424,77 @@ def preprocess_dataframe(df: pd.DataFrame, schema: List[Dict[str, Any]], column_
                 # As a fallback, ensure 0/1 by comparing to strings
                 processed[col] = (processed[col].astype(str) == 'True').astype(int)
 
+    # Coerce numeric-like feature columns to numeric types where appropriate
+    for item in schema:
+        name = item.get('name')
+        if item.get('X') == 'True' and item.get('categorical') == 'False' and name in processed.columns:
+            # If column appears object-like (strings with currency or commas), try to normalize
+            if processed[name].dtype == object:
+                try:
+                    processed[name] = processed[name].apply(lambda v: clean_and_normalize_numeric(v) if v is not None else None)
+                    processed[name] = pd.to_numeric(processed[name], errors='coerce').fillna(-1)
+                except Exception:
+                    # If coercion fails, leave as-is
+                    pass
+
+    # Final sweep to ensure no NaN/inf values remain according to schema rules
+    processed = ensure_no_nans(processed, schema)
+
     return processed
+
+
+def ensure_no_nans(df: pd.DataFrame, schema: List[Dict[str, Any]]) -> pd.DataFrame:
+    """Ensure no NaN/inf values remain in a preprocessed DataFrame.
+
+    - Numeric columns: replace NaN/inf with -1
+    - Object/string columns: replace NaN with 'NA'
+    - OHE columns: replace NaN with 0 and coerce to int
+    Returns the cleaned DataFrame and logs replacements.
+    """
+    cleaned = df.copy()
+    # Identify OHE columns from schema
+    ohe_cols = set()
+    for item in schema:
+        if 'ohe' in item and isinstance(item['ohe'], dict):
+            for _, derived_col in item['ohe'].items():
+                ohe_cols.add(derived_col)
+        if 'ohe_from' in item and 'ohe_key' in item:
+            ohe_cols.add(item['name'])
+
+    # Replace numeric NaNs/infs
+    num_cols = cleaned.select_dtypes(include=['number']).columns
+    for c in num_cols:
+        before_na = int(cleaned[c].isnull().sum() + np.isinf(cleaned[c]).sum())
+        if before_na:
+            cleaned[c] = pd.to_numeric(cleaned[c], errors='coerce')
+            cleaned[c] = cleaned[c].replace([np.inf, -np.inf], np.nan).fillna(-1)
+            logger.info(f"Replaced {before_na} NaN/inf(s) in numeric column '{c}' with -1")
+
+    # Replace object NaNs
+    obj_cols = cleaned.select_dtypes(include=['object']).columns
+    for c in obj_cols:
+        before_na = int(cleaned[c].isnull().sum())
+        if before_na:
+            cleaned[c] = cleaned[c].fillna('NA')
+            logger.info(f"Replaced {before_na} NaN(s) in object column '{c}' with 'NA'")
+
+    # Enforce OHE columns are 0/1 ints
+    for c in ohe_cols:
+        if c in cleaned.columns:
+            before_na = int(cleaned[c].isnull().sum())
+            if before_na:
+                cleaned[c] = cleaned[c].fillna(0)
+                logger.info(f"Replaced {before_na} NaN(s) in OHE column '{c}' with 0")
+            # Replace common sentinels with 0 (e.g., -1, 'NA') then coerce to 0/1 ints
+            cleaned[c] = cleaned[c].replace({-1: 0, '-1': 0, 'NA': 0})
+            try:
+                cleaned[c] = pd.to_numeric(cleaned[c], errors='coerce').fillna(0).astype(int)
+                # Clamp values to 0/1
+                cleaned[c] = cleaned[c].apply(lambda v: 1 if v else 0).astype(int)
+            except Exception:
+                cleaned[c] = (cleaned[c].astype(str) == 'True').astype(int)
+
+    return cleaned
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Convert a nested JSON file to preprocessed CSV.")

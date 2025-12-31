@@ -1,0 +1,21 @@
+{"phrase": "No", "hex": "#202429", "rgb": [32, 36, 41], "cat": "neutral", "bbox": [178, 153, 213, 174]}
+{"phrase": "No", "hex": "#202429", "rgb": [32, 36, 41], "cat": "neutral", "bbox": [405, 153, 439, 174]}
+{"phrase": "t Freeze", "hex": "#4f5356", "rgb": [79, 83, 86], "cat": "neutral", "bbox": [2, 195, 82, 212]}
+{"phrase": "Fraud Alert", "hex": "#53565a", "rgb": [83, 86, 90], "cat": "neutral", "bbox": [178, 195, 284, 212]}
+{"phrase": "Deceased", "hex": "#53565a", "rgb": [83, 86, 90], "cat": "neutral", "bbox": [405, 195, 500, 212]}
+{"phrase": "Credit Factors", "hex": "#202429", "rgb": [32, 36, 41], "cat": "neutral", "bbox": [155, 272, 329, 292]}
+{"phrase": "No Open Rev Credit Lines", "hex": "#e35e6b", "rgb": [227, 94, 107], "cat": "red", "bbox": [155, 339, 409, 360]}
+{"phrase": "No 3k+ Lines", "hex": "#e46572", "rgb": [228, 101, 114], "cat": "red", "bbox": [155, 373, 281, 390]}
+{"phrase": "Too Few Open Rev Accounts", "hex": "#e4636f", "rgb": [228, 99, 111], "cat": "red", "bbox": [154, 407, 440, 428]}
+{"phrase": "No Closed Rev Depth", "hex": "#e4636f", "rgb": [228, 99, 111], "cat": "red", "bbox": [155, 441, 364, 462]}
+{"phrase": "Avg Age Open", "hex": "#e3606c", "rgb": [227, 96, 108], "cat": "red", "bbox": [154, 475, 295, 496]}
+{"phrase": "APTM", "hex": "#6f7175", "rgb": [111, 113, 117], "cat": "neutral", "bbox": [3, 486, 56, 499]}
+{"phrase": "Accounts Too New", "hex": "#e46672", "rgb": [228, 102, 114], "cat": "red", "bbox": [154, 509, 337, 526]}
+{"phrase": "No Open Mortgage", "hex": "#585b5f", "rgb": [88, 91, 95], "cat": "neutral", "bbox": [155, 543, 340, 564]}
+{"phrase": "No Rev Acct Open 10K 2yr", "hex": "#53565a", "rgb": [83, 86, 90], "cat": "neutral", "bbox": [155, 577, 417, 598]}
+{"phrase": "1", "hex": "#373b3f", "rgb": [55, 59, 63], "cat": "neutral", "bbox": [156, 611, 161, 627]}
+{"phrase": "Inq Last 4-5 mo", "hex": "#5a5d61", "rgb": [90, 93, 97], "cat": "neutral", "bbox": [174, 611, 324, 632]}
+{"phrase": "1", "hex": "#373b3f", "rgb": [55, 59, 63], "cat": "neutral", "bbox": [156, 645, 161, 661]}
+{"phrase": "Ings Fall Off In 30 Days", "hex": "#53565a", "rgb": [83, 86, 90], "cat": "neutral", "bbox": [174, 645, 401, 666]}
+{"phrase": "1 Total Ings 4-5 mo", "hex": "#56595d", "rgb": [86, 89, 93], "cat": "neutral", "bbox": [156, 679, 342, 700]}
+{"phrase": "1 Total Ings 5-6 mo", "hex": "#56595d", "rgb": [86, 89, 93], "cat": "neutral", "bbox": [156, 713, 342, 734]}

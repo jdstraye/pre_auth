@@ -1,0 +1,25 @@
+{"phrase": "No", "hex": "#202429", "rgb": [32, 36, 41], "cat": "neutral", "bbox": [178, 152, 213, 174]}
+{"phrase": "No", "hex": "#202429", "rgb": [32, 36, 41], "cat": "neutral", "bbox": [405, 152, 439, 174]}
+{"phrase": "t Freeze", "hex": "#4f5356", "rgb": [79, 83, 86], "cat": "neutral", "bbox": [2, 195, 82, 212]}
+{"phrase": "Fraud Alert", "hex": "#53565a", "rgb": [83, 86, 90], "cat": "neutral", "bbox": [178, 195, 284, 212]}
+{"phrase": "Deceased", "hex": "#56595d", "rgb": [86, 89, 93], "cat": "neutral", "bbox": [405, 195, 501, 212]}
+{"phrase": "Credit Factors", "hex": "#202429", "rgb": [32, 36, 41], "cat": "neutral", "bbox": [155, 272, 329, 292]}
+{"phrase": "2 Over Limit Accnt", "hex": "#72ab7b", "rgb": [114, 171, 123], "cat": "green", "bbox": [154, 339, 333, 355]}
+{"phrase": "Total Rev Usage > 55%", "hex": "#75ad7e", "rgb": [117, 173, 126], "cat": "green", "bbox": [154, 373, 386, 394]}
+{"phrase": "Pay $30848 so Accts < 40%", "hex": "#e56974", "rgb": [229, 105, 116], "cat": "red", "bbox": [155, 406, 428, 428]}
+{"phrase": "12 RE Lates in 2-4 yrs", "hex": "#e25d6a", "rgb": [226, 93, 106], "cat": "red", "bbox": [156, 441, 370, 462]}
+{"phrase": "Rev Bal", "hex": "#e3606c", "rgb": [227, 96, 108], "cat": "red", "bbox": [155, 475, 229, 492]}
+{"phrase": "$60,000", "hex": "#e46672", "rgb": [228, 102, 114], "cat": "red", "bbox": [256, 474, 334, 494]}
+{"phrase": "A", "hex": "#676a6d", "rgb": [103, 106, 109], "cat": "neutral", "bbox": [0, 486, 19, 499]}
+{"phrase": ">", "hex": "#e6727d", "rgb": [230, 114, 125], "cat": "red", "bbox": [237, 481, 248, 491]}
+{"phrase": "Less than 5 yrs", "hex": "#e6707c", "rgb": [230, 112, 124], "cat": "red", "bbox": [155, 509, 302, 530]}
+{"phrase": "7k+ line for 4+yrs", "hex": "#6da876", "rgb": [109, 168, 118], "cat": "green", "bbox": [154, 543, 321, 564]}
+{"phrase": "Ok Open Rev Depth", "hex": "#6ca876", "rgb": [108, 168, 118], "cat": "green", "bbox": [154, 577, 350, 598]}
+{"phrase": "3+ Closed Rev Accnts", "hex": "#69a673", "rgb": [105, 166, 115], "cat": "green", "bbox": [154, 611, 370, 627]}
+{"phrase": "Good Closed Rev Depth", "hex": "#6ba774", "rgb": [107, 167, 116], "cat": "green", "bbox": [154, 645, 390, 666]}
+{"phrase": "7+ Closed RE Accounts", "hex": "#69a672", "rgb": [105, 166, 114], "cat": "green", "bbox": [154, 679, 385, 695]}
+{"phrase": "Paid Off 200k+ RE/RE", "hex": "#6da876", "rgb": [109, 168, 118], "cat": "green", "bbox": [155, 713, 372, 729]}
+{"phrase": "8+ Rev Accnts with Balances", "hex": "#5d6064", "rgb": [93, 96, 100], "cat": "neutral", "bbox": [154, 747, 437, 764]}
+{"phrase": "Seasoned Closed Accounts", "hex": "#616467", "rgb": [97, 100, 103], "cat": "neutral", "bbox": [154, 781, 423, 798]}
+{"phrase": "Drop Bad Auth User (BARCLAYS BANK DELA", "hex": "#4a4d51", "rgb": [74, 77, 81], "cat": "neutral", "bbox": [155, 815, 610, 836]}
+{"phrase": "No Rev Acct Open 10K 2yr", "hex": "#53565a", "rgb": [83, 86, 90], "cat": "neutral", "bbox": [155, 850, 417, 871]}

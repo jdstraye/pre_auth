@@ -1,0 +1,149 @@
+{
+  "record": "1314",
+  "items": [
+    {
+      "img": "PRIOR_01_qa_user_1314_credit_summary_2025-09-01_092724.pdf_p1_6_charged_off_accts.png",
+      "phrase": "6 Charged Off Accts",
+      "expected": "green",
+      "sampled": "neutral"
+    },
+    {
+      "img": "PRIOR_02_qa_user_1314_credit_summary_2025-09-01_092724.pdf_p1_3_charged_off_accts.png",
+      "phrase": "3 Charged Off Accts",
+      "expected": "green",
+      "sampled": "neutral"
+    },
+    {
+      "img": "PRIOR_03_qa_user_1314_credit_summary_2025-09-01_092724.pdf_p1_4_charged_off_accts.png",
+      "phrase": "4 Charged Off Accts",
+      "expected": "green",
+      "sampled": "neutral"
+    },
+    {
+      "img": "PRIOR_04_qa_user_1314_credit_summary_2025-09-01_092724.pdf_p1_4_unpaid_collection_s_.png",
+      "phrase": "4 Unpaid Collection(s)",
+      "expected": "green",
+      "sampled": "neutral"
+    },
+    {
+      "img": "PRIOR_05_qa_user_1314_credit_summary_2025-09-01_092724.pdf_p1__16320_unpaid_collection_s_.png",
+      "phrase": "$16320 Unpaid Collection(s)",
+      "expected": "green",
+      "sampled": "neutral"
+    },
+    {
+      "img": "PRIOR_06_qa_user_1314_credit_summary_2025-09-01_092724.pdf_p1_total_rev_usage___90_.png",
+      "phrase": "Total Rev Usage > 90%",
+      "expected": "green",
+      "sampled": "neutral"
+    },
+    {
+      "img": "PRIOR_07_qa_user_1314_credit_summary_2025-09-01_092724.pdf_p1_past_due_not_late.png",
+      "phrase": "Past Due Not Late",
+      "expected": "green",
+      "sampled": "neutral"
+    },
+    {
+      "img": "PRIOR_08_qa_user_1314_credit_summary_2025-09-01_092724.pdf_p1_pay__12355_so_accts___40_.png",
+      "phrase": "Pay $12355 so Accts < 40%",
+      "expected": "red",
+      "sampled": "neutral"
+    },
+    {
+      "img": "PRIOR_09_qa_user_1314_credit_summary_2025-09-01_092724.pdf_p1__3029_unpaid_collections.png",
+      "phrase": "$3029 Unpaid Collections",
+      "expected": "red",
+      "sampled": "neutral"
+    },
+    {
+      "img": "PRIOR_10_qa_user_1314_credit_summary_2025-09-01_092724.pdf_p1_no_5k__lines.png",
+      "phrase": "No 5k+ Lines",
+      "expected": "red",
+      "sampled": "neutral"
+    },
+    {
+      "img": "PRIOR_11_qa_user_1314_credit_summary_2025-09-01_092724.pdf_p1_1_inq_last_4_mo.png",
+      "phrase": "1 Inq Last 4 Mo",
+      "expected": "red",
+      "sampled": "neutral"
+    },
+    {
+      "img": "PRIOR_12_qa_user_1314_credit_summary_2025-09-01_092724.pdf_p1_less_than_5_yrs.png",
+      "phrase": "Less than 5 yrs",
+      "expected": "red",
+      "sampled": "neutral"
+    },
+    {
+      "img": "PRIOR_13_qa_user_1314_credit_summary_2025-09-01_092724.pdf_p1_great_closed_rev_depth.png",
+      "phrase": "Great Closed Rev Depth",
+      "expected": "green",
+      "sampled": "neutral"
+    },
+    {
+      "img": "PRIOR_14_qa_user_1314_credit_summary_2025-09-01_092724.pdf_p1_ok_open_rev_depth.png",
+      "phrase": "Ok Open Rev Depth",
+      "expected": "green",
+      "sampled": "neutral"
+    },
+    {
+      "img": "PRIOR_15_qa_user_1314_credit_summary_2025-09-01_092724.pdf_p1_military_affiliated.png",
+      "phrase": "Military Affiliated",
+      "expected": "green",
+      "sampled": "neutral"
+    },
+    {
+      "img": "PRIOR_16_qa_user_1314_credit_summary_2025-09-01_092724.pdf_p1_seasoned_closed_accounts.png",
+      "phrase": "Seasoned Closed Accounts",
+      "expected": "green",
+      "sampled": "neutral"
+    },
+    {
+      "img": "PRIOR_17_qa_user_1314_credit_summary_2025-09-01_092724.pdf_p1_closed_accnts_over_5k.png",
+      "phrase": "Closed Accnts Over 5k",
+      "expected": "green",
+      "sampled": "neutral"
+    },
+    {
+      "img": "PRIOR_18_qa_user_1314_credit_summary_2025-09-01_092724.pdf_p1_in_credit_counseling.png",
+      "phrase": "In Credit Counseling",
+      "expected": "black",
+      "sampled": "neutral"
+    },
+    {
+      "img": "PRIOR_19_qa_user_1314_credit_summary_2025-09-01_092724.pdf_p1_no_open_mortgage.png",
+      "phrase": "No Open Mortgage",
+      "expected": "black",
+      "sampled": "neutral"
+    },
+    {
+      "img": "PRIOR_20_qa_user_1314_credit_summary_2025-09-01_092724.pdf_p1_1_rev_late_in_4__yrs.png",
+      "phrase": "1 Rev Late in 4+ yrs",
+      "expected": "black",
+      "sampled": "neutral"
+    },
+    {
+      "img": "PRIOR_21_qa_user_1314_credit_summary_2025-09-01_092724.pdf_p1_drop_bad_auth_user__best_buy_cbna__and_c.png",
+      "phrase": "Drop Bad Auth User (BEST BUY/CBNA, and C",
+      "expected": "black",
+      "sampled": "neutral"
+    },
+    {
+      "img": "PRIOR_22_qa_user_1314_credit_summary_2025-09-01_092724.pdf_p1_no_rev_acct_open_10k_2yr.png",
+      "phrase": "No Rev Acct Open 10K 2yr",
+      "expected": "black",
+      "sampled": "neutral"
+    },
+    {
+      "img": "PRIOR_23_qa_user_1314_credit_summary_2025-09-01_092724.pdf_p2_1_total_inq_2_4_mo.png",
+      "phrase": "1 Total Inq 2-4 Mo",
+      "expected": "black",
+      "sampled": "neutral"
+    },
+    {
+      "img": "PRIOR_24_qa_user_1314_credit_summary_2025-09-01_092724.pdf_p3_1_total_inqs_4_5_mo.png",
+      "phrase": "1 Total Inqs 4-5 Mo",
+      "expected": "black",
+      "sampled": "neutral"
+    }
+  ]
+}

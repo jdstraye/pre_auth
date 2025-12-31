@@ -1,0 +1,35 @@
+{"phrase": "No", "hex": "#202429", "rgb": [32, 36, 41], "cat": "neutral", "bbox": [178, 152, 213, 174]}
+{"phrase": "No", "hex": "#202429", "rgb": [32, 36, 41], "cat": "neutral", "bbox": [405, 152, 439, 174]}
+{"phrase": "t Freeze", "hex": "#4f5356", "rgb": [79, 83, 86], "cat": "neutral", "bbox": [2, 195, 82, 212]}
+{"phrase": "Fraud Alert", "hex": "#54575b", "rgb": [84, 87, 91], "cat": "neutral", "bbox": [178, 195, 285, 212]}
+{"phrase": "Deceased", "hex": "#56595d", "rgb": [86, 89, 93], "cat": "neutral", "bbox": [405, 195, 501, 212]}
+{"phrase": "Credit Factors", "hex": "#202429", "rgb": [32, 36, 41], "cat": "neutral", "bbox": [154, 272, 329, 292]}
+{"phrase": "2 Charged Off Accts", "hex": "#69a673", "rgb": [105, 166, 115], "cat": "green", "bbox": [154, 339, 351, 360]}
+{"phrase": "$30770 Unpaid Collection(s)", "hex": "#77ae80", "rgb": [119, 174, 128], "cat": "green", "bbox": [154, 372, 429, 394]}
+{"phrase": "11", "hex": "#559a60", "rgb": [85, 154, 96], "cat": "green", "bbox": [156, 407, 173, 423]}
+{"phrase": "Rev Lates in 4-6 mo", "hex": "#6ea977", "rgb": [110, 169, 119], "cat": "green", "bbox": [186, 407, 380, 424]}
+{"phrase": "Current Lates (SYNCB/LOWES)", "hex": "#67a571", "rgb": [103, 165, 113], "cat": "green", "bbox": [154, 441, 467, 462]}
+{"phrase": "5 Over Limit Accnt", "hex": "#76ae7f", "rgb": [118, 174, 127], "cat": "green", "bbox": [154, 475, 333, 492]}
+{"phrase": "\"1703", "hex": "#636569", "rgb": [99, 101, 105], "cat": "neutral", "bbox": [0, 486, 48, 500]}
+{"phrase": "Current Lates (COMENITYCAPITAL/AAAR)", "hex": "#6ca775", "rgb": [108, 167, 117], "cat": "green", "bbox": [154, 509, 580, 530]}
+{"phrase": "Total Rev Usage > 90%", "hex": "#74ad7d", "rgb": [116, 173, 125], "cat": "green", "bbox": [154, 543, 386, 564]}
+{"phrase": "Past Due Not Late", "hex": "#70aa79", "rgb": [112, 170, 121], "cat": "green", "bbox": [155, 577, 332, 594]}
+{"phrase": "Pay $23396 so Accts < 40%", "hex": "#e56975", "rgb": [229, 105, 117], "cat": "red", "bbox": [155, 610, 428, 632]}
+{"phrase": "3 Rev Lates in 0-3 mo", "hex": "#e4636f", "rgb": [228, 99, 111], "cat": "red", "bbox": [154, 645, 368, 662]}
+{"phrase": "2 Chrgd Off Rev Accts", "hex": "#e4636f", "rgb": [228, 99, 111], "cat": "red", "bbox": [154, 679, 371, 700]}
+{"phrase": "4 Rev Lates in 6-12 mo", "hex": "#e46572", "rgb": [228, 101, 114], "cat": "red", "bbox": [154, 713, 380, 730]}
+{"phrase": "1", "hex": "#df4a58", "rgb": [223, 74, 88], "cat": "red", "bbox": [155, 747, 161, 763]}
+{"phrase": "RE Late in 0-3 mo", "hex": "#e3616e", "rgb": [227, 97, 110], "cat": "red", "bbox": [174, 747, 348, 764]}
+{"phrase": "1", "hex": "#df4a58", "rgb": [223, 74, 88], "cat": "red", "bbox": [155, 781, 161, 797]}
+{"phrase": "RE Late in 6-12 mo", "hex": "#e35f6c", "rgb": [227, 95, 108], "cat": "red", "bbox": [174, 781, 360, 798]}
+{"phrase": "No 7.5k+ Lines", "hex": "#e46773", "rgb": [228, 103, 115], "cat": "red", "bbox": [155, 815, 300, 832]}
+{"phrase": "7k+ lines", "hex": "#6ba774", "rgb": [107, 167, 116], "cat": "green", "bbox": [154, 850, 240, 867]}
+{"phrase": "Great Closed Rev Depth", "hex": "#67a571", "rgb": [103, 165, 113], "cat": "green", "bbox": [154, 884, 391, 905]}
+{"phrase": "Ok Open Rev Depth", "hex": "#6ca876", "rgb": [108, 168, 118], "cat": "green", "bbox": [154, 918, 350, 939]}
+{"phrase": "3+ Closed Rev Accnts", "hex": "#6fa978", "rgb": [111, 169, 120], "cat": "green", "bbox": [154, 952, 370, 969]}
+{"phrase": "Seasoned Closed Accounts", "hex": "#77ae80", "rgb": [119, 174, 128], "cat": "green", "bbox": [154, 986, 423, 1003]}
+{"phrase": "Closed Accnts Over 7.5k", "hex": "#77ae80", "rgb": [119, 174, 128], "cat": "green", "bbox": [154, 1020, 395, 1037]}
+{"phrase": "1", "hex": "#373b3f", "rgb": [55, 59, 63], "cat": "neutral", "bbox": [155, 1054, 161, 1070]}
+{"phrase": "RE Late in 4+ yrs", "hex": "#53565a", "rgb": [83, 86, 90], "cat": "neutral", "bbox": [174, 1054, 340, 1075]}
+{"phrase": "No Open Mortgage", "hex": "#585b5f", "rgb": [88, 91, 95], "cat": "neutral", "bbox": [155, 1088, 340, 1109]}
+{"phrase": "No Rev Acct Open 10K 2yr", "hex": "#53565a", "rgb": [83, 86, 90], "cat": "neutral", "bbox": [155, 1122, 417, 1143]}

@@ -1,0 +1,17 @@
+{"phrase": "No", "hex": "#202429", "rgb": [32, 36, 41], "cat": "neutral", "bbox": [178, 152, 213, 174]}
+{"phrase": "No", "hex": "#202429", "rgb": [32, 36, 41], "cat": "neutral", "bbox": [405, 152, 439, 174]}
+{"phrase": "t Freeze", "hex": "#4f5356", "rgb": [79, 83, 86], "cat": "neutral", "bbox": [2, 195, 82, 212]}
+{"phrase": "Fraud Alert", "hex": "#53565a", "rgb": [83, 86, 90], "cat": "neutral", "bbox": [178, 195, 284, 212]}
+{"phrase": "Deceased", "hex": "#56595d", "rgb": [86, 89, 93], "cat": "neutral", "bbox": [405, 195, 501, 212]}
+{"phrase": "Credit Factors", "hex": "#202429", "rgb": [32, 36, 41], "cat": "neutral", "bbox": [155, 272, 329, 292]}
+{"phrase": "2 Inq Last", "hex": "#e25d6a", "rgb": [226, 93, 106], "cat": "red", "bbox": [154, 339, 249, 360]}
+{"phrase": "4 Mo", "hex": "#e25a67", "rgb": [226, 90, 103], "cat": "red", "bbox": [262, 339, 304, 356]}
+{"phrase": "2 Ings last 2 Months", "hex": "#e56975", "rgb": [229, 105, 117], "cat": "red", "bbox": [154, 373, 349, 394]}
+{"phrase": "No Closed Rev Depth", "hex": "#e4636f", "rgb": [228, 99, 111], "cat": "red", "bbox": [155, 407, 365, 428]}
+{"phrase": "2 Total Ing 0-2 Mo", "hex": "#e25a67", "rgb": [226, 90, 103], "cat": "red", "bbox": [154, 441, 331, 462]}
+{"phrase": "7k+ line for 12+yrs", "hex": "#6da876", "rgb": [109, 168, 118], "cat": "green", "bbox": [154, 475, 333, 496]}
+{"phrase": "2", "hex": "#727477", "rgb": [114, 116, 119], "cat": "neutral", "bbox": [0, 486, 12, 499]}
+{"phrase": "Ok Open Rev Depth", "hex": "#6ca876", "rgb": [108, 168, 118], "cat": "green", "bbox": [154, 509, 350, 530]}
+{"phrase": "3+ Closed Rev Accnts", "hex": "#6fa978", "rgb": [111, 169, 120], "cat": "green", "bbox": [154, 543, 370, 560]}
+{"phrase": "Closed Accnts Over 10k", "hex": "#74ac7d", "rgb": [116, 172, 125], "cat": "green", "bbox": [154, 577, 389, 594]}
+{"phrase": "Paid Off 100k+ RE/RE", "hex": "#70aa79", "rgb": [112, 170, 121], "cat": "green", "bbox": [155, 611, 372, 628]}

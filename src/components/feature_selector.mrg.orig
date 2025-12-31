@@ -1,0 +1,423 @@
+"""
+Feature Selection and Classification with DataFrame Support
+
+This module provides two classes for feature selection and classification,
+built to be highly compatible with pandas DataFrames and scikit-learn pipelines.
+It leverages SelectFromModel for model-based feature selection and SelectKBest
+for filter-based selection, ensuring data integrity checks using the DataValidator
+in debug_library.py.
+
+Classes:
+- FeatureSelector: A DataFrame-aware transformer inheriting from SelectFromModel,
+  capable of model-based or filter-based selection.
+- FeatureSelectingClassifier: A classifier wrapper that manages the feature
+  selection process internally before training the final estimator.  It uses 
+  `FeatureSelector` internally to ensure the same features are used for feature selection,
+  training, and prediction, maintaining consistency.
+
+Key Features:
+- **DataFrame Support**: Both classes handle pandas DataFrames natively, preserving
+  column names and indices.
+- **Validation**: Uses `DataValidator` in debug_library to check for data corruption,
+  missing values, and other issues.
+- **Flexibility**: Supports model-based selection (estimator/threshold) and
+  filter-based selection (score_func/max_features).
+"""
+
+import sys
+import pandas as pd
+import numpy as np
+import logging
+from typing import Optional, Union, List, Dict, Any, Tuple
+from sklearn.base import BaseEstimator, TransformerMixin, ClassifierMixin, clone
+from sklearn.feature_selection import SelectFromModel, SelectKBest, chi2
+from sklearn.utils.validation import check_is_fitted, check_X_y
+# NOTE: Assumes src.debug_library is correctly set up in the environment
+from src.debug_library import debug_pipeline_step, DataValidator, DEBUG_MODE
+from src.utils import setup_logging
+
+# Standard logging configuration for the module
+logger = logging.getLogger(__name__)
+
+class FeatureSelector(SelectFromModel, TransformerMixin):
+    """
+    DataFrame-aware feature selector supporting both model-based and filter-based selection.
+
+    This transformer performs feature selection while preserving pandas DataFrame
+    metadata, such as column names and index. It delegates to SelectFromModel or SelectKBest based on the
+    presence of `score_func`.
+
+    Parameters
+    ----------
+    estimator : estimator object, optional
+        The base estimator from which to select features (used only if `score_func`
+        is None). Must have `feature_importances_` or `coef_` attribute.
+    
+    threshold : str or float, default='median'
+        The threshold value for model-based selection (used only if `score_func`
+        is None).
+    
+    max_features : int, optional
+        The maximum number of features to select (k). **Required if `score_func`
+        is specified.** Takes precedence over `threshold` when used with a model.
+        
+    prefit : bool, default=False
+        Whether a prefit estimator is passed.
+
+    score_func : callable, optional
+        A scoring function (e.g., `chi2`). If provided, `SelectKBest` is used.
+
+    Attributes
+    ----------
+    feature_names_in_ : ndarray of str
+        Names of features seen during :term:`fit`.
+
+    selected_features_ : list of str
+        The names of the features that were selected.
+
+    _internal_selector : SelectFromModel or SelectKBest
+        The active fitted selector instance used for transformation.
+    """
+
+    def __init__(self,
+                 estimator: Optional[BaseEstimator],
+                 max_features: Optional[int] = None,
+                 threshold: Optional[Union[str, float]] = "median",
+                 prefit: bool = False,
+                 score_func: Optional[callable] = None):
+
+        # Call parent constructor (SelectFromModel) for core attributes
+        super().__init__(
+            estimator=estimator,
+            threshold=threshold,
+            max_features=max_features,
+            prefit=prefit
+        )
+
+        # Store additional parameters
+        self.score_func = score_func
+
+        # Internal state for DataFrame features
+        self.feature_names_in_ = None
+        self.selected_features_ = None
+        self._internal_selector = None # Stores the actual selector instance (self or SelectKBest)
+
+        # Data validation setup
+        self._validator = DataValidator("FeatureSelector")
+
+        # Use standard logger for the instance
+        self._logger = logging.getLogger(f"{self.__class__.__module__}.{self.__class__.__name__}")
+
+    def get_params(self, deep=True) -> Dict[str, Any]:
+        """Get parameters for this estimator."""
+        params = super().get_params(deep=deep)
+        params['score_func'] = self.score_func
+        return params
+
+    @debug_pipeline_step("FeatureSelector_Fit")
+    def fit(self, X: pd.DataFrame, y: Optional[np.ndarray] = None) -> 'FeatureSelector':
+        """
+        Fits the appropriate feature selector (SelectFromModel or SelectKBest).
+
+        Parameters
+        ----------
+        X : pd.DataFrame
+            The training input samples.
+        y : np.ndarray, optional
+            The target values.
+
+        Returns
+        -------
+        self : FeatureSelector
+            The fitted selector instance.
+            
+        Raises
+        ------
+        TypeError
+            If input X is not a pandas DataFrame.
+        ValueError
+            If 'score_func' is specified without 'max_features'.
+        """
+
+        # 1. Input Validation and DataFrame check
+        if not isinstance(X, pd.DataFrame):
+            raise TypeError(f"Input X must be a pandas DataFrame, not {type(X) = }.")
+
+        self._validator.validate_frame(X, "feature_selector_fit_input")
+        self.feature_names_in_ = X.columns.to_numpy()
+        X_array = X.values
+
+        # 2. Scikit-learn validation check
+        X_array, y = check_X_y(X_array, y, dtype=None)
+
+        # 3. Conditional Selection Logic (SelectFromModel vs. SelectKBest)
+        if self.score_func is not None:
+            # --- Logic for SelectKBest (Filter-based Selection) ---
+            if self.max_features is None:
+                self._logger.error("score_func requires max_features (k) to be specified.")
+                raise ValueError(
+                    "When 'score_func' is specified, 'max_features' (k) must also be specified "
+                    "to use the filter-based SelectKBest selector."
+                )
+
+            self._logger.info(
+                f"Using SelectKBest with score_func={self.score_func.__name__} and k={self.max_features}"
+            )
+
+            # Instantiate and fit SelectKBest
+            self._internal_selector = SelectKBest(score_func=self.score_func, k=self.max_features)
+            self._internal_selector.fit(X_array, y)
+            support_mask = self._internal_selector.get_support()
+
+        else:
+            # --- Logic for SelectFromModel (Model-based Selection via Inheritance) ---
+            self._logger.info(
+                f"Using SelectFromModel based on estimator: {type(self.estimator).__name__}"
+            )
+
+            # Call parent fit method (SelectFromModel logic)
+            super().fit(X_array, y) 
+
+            # Set internal selector to self for delegation
+            self._internal_selector = self 
+            support_mask = self.get_support() # Get support from the inherited SelectFromModel
+
+        # 4. Record selected features
+        self.selected_features_ = list(self.feature_names_in_[support_mask])
+
+        self._logger.info(
+            f"Selected {len(self.selected_features_)} features from {len(self.feature_names_in_)}"
+        )
+        self._logger.debug(f"Selected features: {self.selected_features_ = }")
+
+        return self
+
+    @debug_pipeline_step("FeatureSelector_Transform")
+    def transform(self, X: pd.DataFrame) -> pd.DataFrame:
+        """
+        Reduce X to the selected features using the fitted selector.
+
+        Parameters
+        ----------
+        X : pd.DataFrame
+            The input data to transform.
+
+        Returns
+        -------
+        X_result : pd.DataFrame
+            A DataFrame with only the selected features, preserving the index.
+
+        Raises
+        ------
+        RuntimeError
+            If the selector has not been fitted.
+        ValueError
+            If the input DataFrame is missing features and DEBUG_MODE is True.
+        """
+
+        check_is_fitted(self, ['feature_names_in_', 'selected_features_', '_internal_selector'])
+
+        # 1. Input Validation
+        if not isinstance(X, pd.DataFrame):
+            raise TypeError("Input X must be a pandas DataFrame.")
+
+        self._validator.validate_frame(X, "feature_selection_transform_input")
+        original_index = X.index
+
+        # 2. Feature Alignment and Error Handling
+        fitted_cols = set(self.feature_names_in_)
+        input_cols = set(X.columns)
+
+        if fitted_cols != input_cols:
+            missing_cols = list(fitted_cols - input_cols)
+            extra_cols = list(input_cols - fitted_cols)
+
+            if missing_cols and DEBUG_MODE:
+                # Critical error if required features are missing
+                raise ValueError(
+                    f"Input DataFrame X is missing {len(missing_cols)} features "
+                    f"that were present during fit: {missing_cols}"
+                )
+
+            if extra_cols:
+                self._logger.warning(
+                    f"Input DataFrame X has {len(extra_cols)} extra features "
+                    f"not seen during fit: {extra_cols}. They will be dropped."
+                )
+
+        # 3. Convert input to the correct feature order
+        # This step is critical for aligning data with the fitted selector's feature indices
+        X_aligned = X[self.feature_names_in_.tolist()]
+        X_array = X_aligned.values
+
+        # 4. Apply feature selection (Delegated to internal selector)
+        X_selected = self._internal_selector.transform(X_array)
+
+        # 5. Convert back to DataFrame
+        X_result = pd.DataFrame(
+            data=X_selected,
+            columns=self.selected_features_,
+            index=original_index
+        )
+
+        # 6. Output Validation and Comparison
+        self._validator.validate_frame(X_result, "feature_selection_transform_output")
+        self._validator.compare_frames(X, X_result, "FeatureSelection")
+
+        self._logger.debug(f"Feature selection: {X.shape} -> {X_result.shape}")
+        return X_result
+
+    def get_feature_names_out(self, input_features: Optional[List[str]] = None) -> List[str]:
+        """Get output feature names."""
+        check_is_fitted(self)
+        return self.selected_features_
+
+def fit_transform(self, X: pd.DataFrame, y: Optional[np.ndarray] = None) -> pd.DataFrame:
+    """Fit selector to X and y, and then transform X.
+
+    Equivalent to calling `fit(X, y)` followed by `transform(X)`.
+
+    Parameters
+    ----------
+    X : pd.DataFrame
+        The input data to fit and transform.
+    y : np.ndarray, optional
+        The target values.
+
+    Returns
+    -------
+    X_transformed : pd.DataFrame
+        The transformed data.
+    """
+    fitted_selector = self.fit(X, y)
+    X_transformed = self.fit(X, y).transform(X)
+
+    # Error Checking
+    if not hasattr(fitted_selector, 'transform'):
+        raise AttributeError("Fitted selector does not have a 'transform' method.")
+
+    if not isinstance(X_transformed, pd.DataFrame):
+        raise TypeError("Expected 'transform' to return a pd.DataFrame, but got {}".format(type(X_transformed)))
+
+    return X_transformed    return fitted_selector.transform(X)
+
+class FeatureSelectingClassifier(BaseEstimator, ClassifierMixin):
+    """
+    Classifier that performs feature selection before training.
+
+    This acts as a meta-estimator, chaining the FeatureSelector transformer with
+    a final classifier, ensuring that the same features are consistently used
+    across fit, predict, and predict_proba steps.
+    """
+
+    _estimator_type = "classifier"
+    
+    def __init__(self,
+                 estimator: BaseEstimator,
+                 max_features: Optional[int] = None,
+                 threshold: Optional[Union[str, float]] = "median",
+                 score_func: Optional[callable] = None):
+        
+        self.estimator = estimator
+        self.max_features = max_features
+        self.threshold = threshold
+        self.score_func = score_func
+        
+        # Internal components
+        self.feature_selector_: Optional[FeatureSelector] = None
+        self.classifier_: Optional[BaseEstimator] = None
+        self.classes_: Optional[np.ndarray] = None
+        self._validator = DataValidator("FeatureSelectingClassifier")
+        self._logger = logging.getLogger(f"{self.__class__.__module__}.{self.__class__.__name__}")
+        
+    def get_params(self, deep=True) -> Dict[str, Any]:
+        """Get parameters for this estimator."""
+        params = super().get_params(deep=deep)
+        if self.estimator is not None and deep:
+             # Delegate to the base estimator's get_params
+            estimator_params = self.estimator.get_params(deep=deep)
+            for k, v in estimator_params.items():
+                params[f"estimator__{k}"] = v
+        
+        return params
+    
+    def set_params(self, **params) -> 'FeatureSelectingClassifier':
+        """Set parameters for this estimator."""
+        if 'estimator' in params:
+            self.estimator = params.pop('estimator')
+        
+        # Delegate nested parameters to the estimator
+        estimator_params = {k.split('__', 1)[1]: v for k, v in params.items() if k.startswith('estimator__')}
+        if estimator_params:
+            self.estimator.set_params(**estimator_params)
+        
+        # Set top-level parameters
+        for key, value in params.items():
+            if not key.startswith('estimator__') and hasattr(self, key):
+                setattr(self, key, value)
+        
+        return self
+    
+    @debug_pipeline_step("FeatureSelectingClassifier_Fit")
+    def fit(self, X: pd.DataFrame, y: np.ndarray) -> 'FeatureSelectingClassifier':
+        """
+        Selects features, then fits the final classifier on the selected features.
+
+        Parameters
+        ----------
+        X : pd.DataFrame
+            The training input samples.
+        y : np.ndarray
+            The target values.
+
+        Returns
+        -------
+        self : FeatureSelectingClassifier
+            The fitted classifier instance.
+        """
+
+        # 1. Input Validation
+        self._validator.validate_frame(X, "classifier_fit_input")
+        X_array, y = check_X_y(X.values, y, dtype=None, ensure_2d=True)
+        self.classes_ = np.unique(y)
+
+        # 2. Initialize and Fit FeatureSelector
+        self.feature_selector_ = FeatureSelector(
+            estimator=clone(self.estimator), # Selector uses a fresh, un-fitted copy
+            max_features=self.max_features,
+            threshold=self.threshold,
+            score_func=self.score_func # Pass the score_func here
+        )
+        self._logger.debug("Fitting internal FeatureSelector...")
+        X_selected_train = self.feature_selector_.fit_transform(X, y)
+
+        # 3. Initialize and Fit final Classifier
+        self.classifier_ = clone(self.estimator)
+        self._logger.debug(f"Fitting final classifier: {type(self.classifier_).__name__}")
+        self.classifier_.fit(X_selected_train.values, y)
+
+        return self
+
+    @debug_pipeline_step("FeatureSelectingClassifier_Predict")
+    def predict(self, X: pd.DataFrame) -> np.ndarray:
+        """Predict using selected features."""
+        check_is_fitted(self, ['feature_selector_', 'classifier_'])
+
+        # 1. Transform features using the fitted selector
+        X_selected_test = self.feature_selector_.transform(X)
+
+        # 2. Predict with the fitted classifier
+        return self.classifier_.predict(X_selected_test.values)
+
+    def predict_proba(self, X: pd.DataFrame) -> np.ndarray:
+        """Predict probabilities using selected features."""
+        check_is_fitted(self, ['feature_selector_', 'classifier_'])
+
+        if not hasattr(self.classifier_, 'predict_proba'):
+            raise AttributeError("Underlying classifier does not support predict_proba.")
+
+        # 1. Transform features using the fitted selector
+        X_selected_test = self.feature_selector_.transform(X)
+
+        # 2. Predict probabilities
+        return self.classifier_.predict_proba(X_selected_test.values)

@@ -1,0 +1,30 @@
+{"phrase": "No", "hex": "#202429", "rgb": [32, 36, 41], "cat": "neutral", "bbox": [178, 152, 213, 174]}
+{"phrase": "No", "hex": "#202429", "rgb": [32, 36, 41], "cat": "neutral", "bbox": [405, 152, 439, 174]}
+{"phrase": "t Freeze", "hex": "#4f5356", "rgb": [79, 83, 86], "cat": "neutral", "bbox": [2, 195, 82, 212]}
+{"phrase": "Fraud Alert", "hex": "#53565a", "rgb": [83, 86, 90], "cat": "neutral", "bbox": [178, 195, 284, 212]}
+{"phrase": "Deceased", "hex": "#56595d", "rgb": [86, 89, 93], "cat": "neutral", "bbox": [405, 195, 501, 212]}
+{"phrase": "Credit Factors", "hex": "#202429", "rgb": [32, 36, 41], "cat": "neutral", "bbox": [155, 272, 329, 292]}
+{"phrase": "5 Rev Lates in 4-6 mo", "hex": "#6fa978", "rgb": [111, 169, 120], "cat": "green", "bbox": [154, 339, 367, 356]}
+{"phrase": "Current Lates (LEAD BANK, CREDIT ONE BAI", "hex": "#67a571", "rgb": [103, 165, 113], "cat": "green", "bbox": [154, 373, 612, 394]}
+{"phrase": "AHERTY", "hex": "#64676b", "rgb": [100, 103, 107], "cat": "neutral", "bbox": [2, 395, 74, 408]}
+{"phrase": "5 Over Limit Accnt", "hex": "#73ac7c", "rgb": [115, 172, 124], "cat": "green", "bbox": [154, 407, 333, 423]}
+{"phrase": "Current Lates (POMELO INTERNATIONAL)", "hex": "#69a673", "rgb": [105, 166, 115], "cat": "green", "bbox": [154, 441, 582, 462]}
+{"phrase": "Total Rev Usage > 90%", "hex": "#74ad7d", "rgb": [116, 173, 125], "cat": "green", "bbox": [154, 475, 386, 496]}
+{"phrase": "RL", "hex": "#797c7f", "rgb": [121, 124, 127], "cat": "neutral", "bbox": [0, 486, 20, 499]}
+{"phrase": "Pay $19661 so Accts < 40%", "hex": "#e46672", "rgb": [228, 102, 114], "cat": "red", "bbox": [155, 508, 428, 530]}
+{"phrase": "5124", "hex": "#ebeff4", "rgb": [235, 239, 244], "cat": "neutral", "bbox": [0, 531, 42, 545]}
+{"phrase": "5 Rev Lates in 0-3 mo", "hex": "#e46571", "rgb": [228, 101, 113], "cat": "red", "bbox": [154, 543, 368, 560]}
+{"phrase": "No Open Rev Credit Lines", "hex": "#e35e6b", "rgb": [227, 94, 107], "cat": "red", "bbox": [155, 577, 409, 598]}
+{"phrase": "No 3k+ Lines", "hex": "#e46572", "rgb": [228, 101, 114], "cat": "red", "bbox": [155, 611, 281, 628]}
+{"phrase": "1", "hex": "#df4a58", "rgb": [223, 74, 88], "cat": "red", "bbox": [155, 645, 161, 661]}
+{"phrase": "Rev Late in 12-24 mo", "hex": "#e3606c", "rgb": [227, 96, 108], "cat": "red", "bbox": [174, 645, 381, 662]}
+{"phrase": "Less than 5 yrs", "hex": "#e6707c", "rgb": [230, 112, 124], "cat": "red", "bbox": [155, 679, 302, 700]}
+{"phrase": "Good Closed Rev Depth", "hex": "#6ba774", "rgb": [107, 167, 116], "cat": "green", "bbox": [154, 713, 390, 734]}
+{"phrase": "3+ Closed Rev Accnts", "hex": "#6fa978", "rgb": [111, 169, 120], "cat": "green", "bbox": [154, 747, 370, 764]}
+{"phrase": "Seasoned Closed Accounts", "hex": "#77ae80", "rgb": [119, 174, 128], "cat": "green", "bbox": [154, 781, 423, 798]}
+{"phrase": "No Open Mortgage", "hex": "#585b5f", "rgb": [88, 91, 95], "cat": "neutral", "bbox": [155, 815, 340, 836]}
+{"phrase": "Drop Bad Auth User (CAPITAL ONE BANK US", "hex": "#4c4f53", "rgb": [76, 79, 83], "cat": "neutral", "bbox": [155, 850, 611, 871]}
+{"phrase": "No Rev Acct Open 10K 2yr", "hex": "#53565a", "rgb": [83, 86, 90], "cat": "neutral", "bbox": [155, 884, 417, 905]}
+{"phrase": "1", "hex": "#373b3f", "rgb": [55, 59, 63], "cat": "neutral", "bbox": [155, 918, 161, 934]}
+{"phrase": "Inq Last 4-5 mo", "hex": "#5a5d61", "rgb": [90, 93, 97], "cat": "neutral", "bbox": [174, 918, 324, 939]}
+{"phrase": "1 Total Ings 4-5 mo", "hex": "#56595d", "rgb": [86, 89, 93], "cat": "neutral", "bbox": [155, 952, 342, 973]}

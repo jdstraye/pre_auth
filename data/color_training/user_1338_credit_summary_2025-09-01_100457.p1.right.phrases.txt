@@ -1,0 +1,24 @@
+{"phrase": "No", "hex": "#202429", "rgb": [32, 36, 41], "cat": "neutral", "bbox": [178, 152, 213, 174]}
+{"phrase": "No", "hex": "#202429", "rgb": [32, 36, 41], "cat": "neutral", "bbox": [405, 152, 439, 174]}
+{"phrase": "t Freeze", "hex": "#4f5356", "rgb": [79, 83, 86], "cat": "neutral", "bbox": [2, 195, 82, 212]}
+{"phrase": "Fraud Alert", "hex": "#54575b", "rgb": [84, 87, 91], "cat": "neutral", "bbox": [178, 195, 285, 212]}
+{"phrase": "Deceased", "hex": "#56595d", "rgb": [86, 89, 93], "cat": "neutral", "bbox": [405, 195, 501, 212]}
+{"phrase": "Credit Factors", "hex": "#202429", "rgb": [32, 36, 41], "cat": "neutral", "bbox": [154, 272, 329, 292]}
+{"phrase": "Too Few Open Rev Accounts", "hex": "#e4636f", "rgb": [228, 99, 111], "cat": "red", "bbox": [154, 339, 440, 360]}
+{"phrase": "7k+ line for 12+yrs", "hex": "#6da876", "rgb": [109, 168, 118], "cat": "green", "bbox": [154, 373, 333, 394]}
+{"phrase": "Great Closed Rev Depth", "hex": "#67a571", "rgb": [103, 165, 113], "cat": "green", "bbox": [154, 407, 391, 428]}
+{"phrase": "Existing Open Mortgage", "hex": "#74ac7d", "rgb": [116, 172, 125], "cat": "green", "bbox": [155, 441, 388, 462]}
+{"phrase": "Ok Open Rev Depth", "hex": "#6ca876", "rgb": [108, 168, 118], "cat": "green", "bbox": [154, 475, 350, 496]}
+{"phrase": "3+ Closed Rev Accnts", "hex": "#6fa978", "rgb": [111, 169, 120], "cat": "green", "bbox": [154, 509, 370, 526]}
+{"phrase": "21133", "hex": "#ebeff4", "rgb": [235, 239, 244], "cat": "neutral", "bbox": [12, 531, 61, 545]}
+{"phrase": ".", "hex": "#4b4f54", "rgb": [75, 79, 84], "cat": "neutral", "bbox": [3, 542, 5, 544]}
+{"phrase": "Closed Accnts Over 10k", "hex": "#74ac7d", "rgb": [116, 172, 125], "cat": "green", "bbox": [154, 543, 389, 560]}
+{"phrase": "Seasoned Closed Accounts", "hex": "#77ae80", "rgb": [119, 174, 128], "cat": "green", "bbox": [154, 577, 423, 594]}
+{"phrase": "8+ Closed RE Accounts", "hex": "#6da876", "rgb": [109, 168, 118], "cat": "green", "bbox": [154, 611, 385, 628]}
+{"phrase": "Paid Off 150k+ RE/RE", "hex": "#70aa79", "rgb": [112, 170, 121], "cat": "green", "bbox": [155, 645, 372, 662]}
+{"phrase": "1", "hex": "#373b3f", "rgb": [55, 59, 63], "cat": "neutral", "bbox": [155, 679, 161, 695]}
+{"phrase": "Inq Last 4-5 mo", "hex": "#5a5d61", "rgb": [90, 93, 97], "cat": "neutral", "bbox": [174, 679, 324, 700]}
+{"phrase": "1", "hex": "#373b3f", "rgb": [55, 59, 63], "cat": "neutral", "bbox": [155, 713, 161, 729]}
+{"phrase": "Ings Fall Off In 30 Days", "hex": "#53565a", "rgb": [83, 86, 90], "cat": "neutral", "bbox": [174, 713, 401, 734]}
+{"phrase": "1 Total Ings 4-5 mo", "hex": "#56595d", "rgb": [86, 89, 93], "cat": "neutral", "bbox": [155, 747, 342, 768]}
+{"phrase": "1 Total Ings 5-6 mo", "hex": "#56595d", "rgb": [86, 89, 93], "cat": "neutral", "bbox": [155, 781, 342, 802]}

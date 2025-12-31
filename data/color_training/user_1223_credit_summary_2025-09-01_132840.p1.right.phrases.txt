@@ -1,0 +1,23 @@
+{"phrase": "Yes", "hex": "#202429", "rgb": [32, 36, 41], "cat": "neutral", "bbox": [177, 152, 225, 174]}
+{"phrase": "No", "hex": "#202429", "rgb": [32, 36, 41], "cat": "neutral", "bbox": [405, 152, 439, 174]}
+{"phrase": "t Freeze", "hex": "#4f5356", "rgb": [79, 83, 86], "cat": "neutral", "bbox": [2, 195, 82, 212]}
+{"phrase": "Fraud Alert", "hex": "#54575b", "rgb": [84, 87, 91], "cat": "neutral", "bbox": [178, 195, 285, 212]}
+{"phrase": "Deceased", "hex": "#56595d", "rgb": [86, 89, 93], "cat": "neutral", "bbox": [405, 195, 501, 212]}
+{"phrase": "Credit Factors", "hex": "#202429", "rgb": [32, 36, 41], "cat": "neutral", "bbox": [155, 272, 329, 292]}
+{"phrase": "Total Rev Usage > 55%", "hex": "#75ad7e", "rgb": [117, 173, 126], "cat": "green", "bbox": [154, 339, 386, 360]}
+{"phrase": "Rev Bal", "hex": "#69a672", "rgb": [105, 166, 114], "cat": "green", "bbox": [155, 373, 229, 389]}
+{"phrase": "$70,000", "hex": "#75ad7e", "rgb": [117, 173, 126], "cat": "green", "bbox": [256, 372, 334, 392]}
+{"phrase": ">", "hex": "#70aa79", "rgb": [112, 170, 121], "cat": "green", "bbox": [238, 379, 248, 389]}
+{"phrase": "Pay $41977 so Accts < 40%", "hex": "#e56c77", "rgb": [229, 108, 119], "cat": "red", "bbox": [155, 406, 428, 428]}
+{"phrase": "7k+ line for 10+yrs", "hex": "#6faa78", "rgb": [111, 170, 120], "cat": "green", "bbox": [154, 441, 333, 462]}
+{"phrase": "Seasoned Closed Accounts", "hex": "#77ae80", "rgb": [119, 174, 128], "cat": "green", "bbox": [154, 475, 423, 492]}
+{"phrase": "DR", "hex": "#606366", "rgb": [96, 99, 102], "cat": "neutral", "bbox": [2, 486, 25, 499]}
+{"phrase": "Great Closed Rev Depth", "hex": "#67a571", "rgb": [103, 165, 113], "cat": "green", "bbox": [154, 509, 391, 530]}
+{"phrase": "Ok Open Rev Depth", "hex": "#6ca876", "rgb": [108, 168, 118], "cat": "green", "bbox": [154, 543, 350, 564]}
+{"phrase": "Closed Accnts Over 7.5k", "hex": "#77ae80", "rgb": [119, 174, 128], "cat": "green", "bbox": [154, 577, 395, 594]}
+{"phrase": "1+ Closed Rev Accnts", "hex": "#6ca775", "rgb": [108, 167, 117], "cat": "green", "bbox": [156, 611, 370, 628]}
+{"phrase": "Paid Off 200k+ RE/RE", "hex": "#6da876", "rgb": [109, 168, 118], "cat": "green", "bbox": [155, 645, 372, 662]}
+{"phrase": "8+ Rev Accnts with Balances", "hex": "#5d6064", "rgb": [93, 96, 100], "cat": "neutral", "bbox": [154, 679, 437, 696]}
+{"phrase": "No Open Mortgage", "hex": "#585b5f", "rgb": [88, 91, 95], "cat": "neutral", "bbox": [155, 713, 340, 734]}
+{"phrase": "Fraud Alert", "hex": "#56595d", "rgb": [86, 89, 93], "cat": "neutral", "bbox": [155, 747, 262, 764]}
+{"phrase": "Drop Bad Auth User (ELAN FINANCIAL SERV!", "hex": "#4b4e52", "rgb": [75, 78, 82], "cat": "neutral", "bbox": [155, 781, 612, 802]}

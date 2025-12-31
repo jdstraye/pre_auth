@@ -1,0 +1,18 @@
+{"phrase": "No", "hex": "#202429", "rgb": [32, 36, 41], "cat": "neutral", "bbox": [178, 152, 213, 174]}
+{"phrase": "No", "hex": "#202429", "rgb": [32, 36, 41], "cat": "neutral", "bbox": [405, 152, 439, 174]}
+{"phrase": "t Freeze", "hex": "#4f5356", "rgb": [79, 83, 86], "cat": "neutral", "bbox": [2, 195, 82, 212]}
+{"phrase": "Fraud Alert", "hex": "#53565a", "rgb": [83, 86, 90], "cat": "neutral", "bbox": [178, 195, 284, 212]}
+{"phrase": "Deceased", "hex": "#56595d", "rgb": [86, 89, 93], "cat": "neutral", "bbox": [405, 195, 501, 212]}
+{"phrase": "Credit Factors", "hex": "#202429", "rgb": [32, 36, 41], "cat": "neutral", "bbox": [155, 272, 329, 292]}
+{"phrase": "Total Rev Usage > 40%", "hex": "#76ae7f", "rgb": [118, 174, 127], "cat": "green", "bbox": [154, 339, 386, 360]}
+{"phrase": "Pay $5160 so Accts < 40%", "hex": "#e56d78", "rgb": [229, 109, 120], "cat": "red", "bbox": [155, 372, 416, 394]}
+{"phrase": "Avg Age Open", "hex": "#e3606c", "rgb": [227, 96, 108], "cat": "red", "bbox": [154, 407, 295, 428]}
+{"phrase": "No Closed Rev Depth", "hex": "#e4636f", "rgb": [228, 99, 111], "cat": "red", "bbox": [155, 441, 365, 462]}
+{"phrase": "No 7.5k+ Lines", "hex": "#e46773", "rgb": [228, 103, 115], "cat": "red", "bbox": [155, 475, 300, 492]}
+{"phrase": "N", "hex": "#616467", "rgb": [97, 100, 103], "cat": "neutral", "bbox": [0, 486, 18, 499]}
+{"phrase": "Ok Open Rev Depth", "hex": "#6ca876", "rgb": [108, 168, 118], "cat": "green", "bbox": [154, 509, 350, 530]}
+{"phrase": "CO. 80921", "hex": "#ebeff4", "rgb": [235, 239, 244], "cat": "neutral", "bbox": [13, 531, 96, 545]}
+{"phrase": ",", "hex": "#ebeff4", "rgb": [235, 239, 244], "cat": "neutral", "bbox": [0, 538, 6, 547]}
+{"phrase": "1+ Closed Rev Accnts", "hex": "#67a571", "rgb": [103, 165, 113], "cat": "green", "bbox": [156, 543, 370, 559]}
+{"phrase": "No Open Mortgage", "hex": "#585b5f", "rgb": [88, 91, 95], "cat": "neutral", "bbox": [155, 577, 340, 598]}
+{"phrase": "No Rev Acct Open 10K 2yr", "hex": "#53565a", "rgb": [83, 86, 90], "cat": "neutral", "bbox": [155, 611, 417, 632]}

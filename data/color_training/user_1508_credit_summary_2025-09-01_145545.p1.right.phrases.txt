@@ -1,0 +1,16 @@
+{"phrase": "No", "hex": "#202429", "rgb": [32, 36, 41], "cat": "neutral", "bbox": [178, 152, 213, 174]}
+{"phrase": "No", "hex": "#202429", "rgb": [32, 36, 41], "cat": "neutral", "bbox": [405, 152, 439, 174]}
+{"phrase": "t Freeze", "hex": "#4f5356", "rgb": [79, 83, 86], "cat": "neutral", "bbox": [2, 195, 82, 212]}
+{"phrase": "Fraud Alert", "hex": "#53565a", "rgb": [83, 86, 90], "cat": "neutral", "bbox": [178, 195, 284, 212]}
+{"phrase": "Deceased", "hex": "#53565a", "rgb": [83, 86, 90], "cat": "neutral", "bbox": [405, 195, 500, 212]}
+{"phrase": "Credit Factors", "hex": "#202429", "rgb": [32, 36, 41], "cat": "neutral", "bbox": [155, 272, 329, 292]}
+{"phrase": "Total Rev Usage > 75%", "hex": "#76ae7f", "rgb": [118, 174, 127], "cat": "green", "bbox": [154, 339, 386, 360]}
+{"phrase": "Pay $921 so Accts < 40%", "hex": "#e56c77", "rgb": [229, 108, 119], "cat": "red", "bbox": [155, 372, 404, 394]}
+{"phrase": "NTLEY", "hex": "#727578", "rgb": [114, 117, 120], "cat": "neutral", "bbox": [0, 395, 55, 408]}
+{"phrase": "No Open Rev Credit Lines", "hex": "#e35e6b", "rgb": [227, 94, 107], "cat": "red", "bbox": [155, 407, 409, 428]}
+{"phrase": "No 3k+ Lines", "hex": "#e46572", "rgb": [228, 101, 114], "cat": "red", "bbox": [155, 441, 281, 458]}
+{"phrase": "No Closed Rev Depth", "hex": "#e4636f", "rgb": [228, 99, 111], "cat": "red", "bbox": [155, 475, 365, 496]}
+{"phrase": "oR", "hex": "#676a6d", "rgb": [103, 106, 109], "cat": "neutral", "bbox": [0, 486, 19, 499]}
+{"phrase": "Less than 5 yrs", "hex": "#e6707c", "rgb": [230, 112, 124], "cat": "red", "bbox": [155, 509, 302, 530]}
+{"phrase": "62", "hex": "#c2c6cb", "rgb": [194, 198, 203], "cat": "neutral", "bbox": [0, 531, 25, 544]}
+{"phrase": "No Rev Acct Open 10K 2yr", "hex": "#53565a", "rgb": [83, 86, 90], "cat": "neutral", "bbox": [155, 543, 417, 564]}

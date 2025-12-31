@@ -1,0 +1,23 @@
+{"phrase": "No", "hex": "#202429", "rgb": [32, 36, 41], "cat": "neutral", "bbox": [178, 152, 213, 174]}
+{"phrase": "No", "hex": "#202429", "rgb": [32, 36, 41], "cat": "neutral", "bbox": [405, 152, 439, 174]}
+{"phrase": "t Freeze", "hex": "#4f5356", "rgb": [79, 83, 86], "cat": "neutral", "bbox": [2, 195, 82, 212]}
+{"phrase": "Fraud Alert", "hex": "#53565a", "rgb": [83, 86, 90], "cat": "neutral", "bbox": [178, 195, 284, 212]}
+{"phrase": "Deceased", "hex": "#56595d", "rgb": [86, 89, 93], "cat": "neutral", "bbox": [405, 195, 501, 212]}
+{"phrase": "Credit Factors", "hex": "#202429", "rgb": [32, 36, 41], "cat": "neutral", "bbox": [155, 272, 329, 292]}
+{"phrase": "Current Lates (CREDIT ONE BANK)", "hex": "#67a571", "rgb": [103, 165, 113], "cat": "green", "bbox": [154, 339, 507, 360]}
+{"phrase": "3 Over Limit Accnt", "hex": "#73ac7c", "rgb": [115, 172, 124], "cat": "green", "bbox": [154, 373, 333, 389]}
+{"phrase": "Total Rev Usage > 90%", "hex": "#74ad7d", "rgb": [116, 173, 125], "cat": "green", "bbox": [154, 407, 386, 428]}
+{"phrase": "Past Due Not Late", "hex": "#70aa79", "rgb": [112, 170, 121], "cat": "green", "bbox": [155, 441, 332, 458]}
+{"phrase": "Pay $1451 so Accts < 40%", "hex": "#e46672", "rgb": [228, 102, 114], "cat": "red", "bbox": [155, 474, 416, 496]}
+{"phrase": "3 Rev Lates in 0-3 mo", "hex": "#e4636f", "rgb": [228, 99, 111], "cat": "red", "bbox": [154, 509, 368, 526]}
+{"phrase": "3 Rev Lates in 6-12 mo", "hex": "#e46470", "rgb": [228, 100, 112], "cat": "red", "bbox": [154, 543, 380, 560]}
+{"phrase": "No Open 1k+ Lines", "hex": "#e35e6a", "rgb": [227, 94, 106], "cat": "red", "bbox": [155, 577, 341, 598]}
+{"phrase": "3 Rev Lates in 12-24 mo", "hex": "#e3616e", "rgb": [227, 97, 110], "cat": "red", "bbox": [154, 611, 392, 628]}
+{"phrase": "1 Charged Off Acct", "hex": "#e25c69", "rgb": [226, 92, 105], "cat": "red", "bbox": [156, 645, 340, 666]}
+{"phrase": "Light Open Rev Depth", "hex": "#e4636f", "rgb": [228, 99, 111], "cat": "red", "bbox": [155, 679, 370, 700]}
+{"phrase": "No Closed Rev Depth", "hex": "#e4636f", "rgb": [228, 99, 111], "cat": "red", "bbox": [155, 713, 365, 734]}
+{"phrase": "2 RE Late in 12-24 mo", "hex": "#e35e6a", "rgb": [227, 94, 106], "cat": "red", "bbox": [154, 747, 373, 764]}
+{"phrase": "Avg Age Open", "hex": "#e3606c", "rgb": [227, 96, 108], "cat": "red", "bbox": [154, 781, 295, 802]}
+{"phrase": "2+ Closed Rev Accnts", "hex": "#6da876", "rgb": [109, 168, 118], "cat": "green", "bbox": [154, 815, 370, 832]}
+{"phrase": "No Open Mortgage", "hex": "#585b5f", "rgb": [88, 91, 95], "cat": "neutral", "bbox": [155, 850, 340, 871]}
+{"phrase": "No Rev Acct Open 10K 2yr", "hex": "#53565a", "rgb": [83, 86, 90], "cat": "neutral", "bbox": [155, 884, 417, 905]}

@@ -1,0 +1,29 @@
+{"phrase": "No", "hex": "#202429", "rgb": [32, 36, 41], "cat": "neutral", "bbox": [178, 152, 213, 174]}
+{"phrase": "No", "hex": "#202429", "rgb": [32, 36, 41], "cat": "neutral", "bbox": [405, 152, 439, 174]}
+{"phrase": "t Freeze", "hex": "#4f5356", "rgb": [79, 83, 86], "cat": "neutral", "bbox": [2, 195, 82, 212]}
+{"phrase": "Fraud Alert", "hex": "#53565a", "rgb": [83, 86, 90], "cat": "neutral", "bbox": [178, 195, 284, 212]}
+{"phrase": "Deceased", "hex": "#56595d", "rgb": [86, 89, 93], "cat": "neutral", "bbox": [405, 195, 501, 212]}
+{"phrase": "Credit Factors", "hex": "#202429", "rgb": [32, 36, 41], "cat": "neutral", "bbox": [155, 272, 329, 292]}
+{"phrase": "3 Unpaid Collection(s)", "hex": "#71ab7a", "rgb": [113, 171, 122], "cat": "green", "bbox": [154, 339, 368, 360]}
+{"phrase": "5 RE Lates in 6-12 mo", "hex": "#6da876", "rgb": [109, 168, 118], "cat": "green", "bbox": [154, 373, 371, 389]}
+{"phrase": "JAR", "hex": "#45484c", "rgb": [69, 72, 76], "cat": "neutral", "bbox": [0, 395, 32, 408]}
+{"phrase": "Total Rev Usage > 40%", "hex": "#76ae7f", "rgb": [118, 174, 127], "cat": "green", "bbox": [154, 407, 386, 428]}
+{"phrase": "Pay $59 so Accts < 40%", "hex": "#e56974", "rgb": [229, 105, 116], "cat": "red", "bbox": [155, 440, 392, 462]}
+{"phrase": "No Open Rev Credit Lines", "hex": "#e35e6b", "rgb": [227, 94, 107], "cat": "red", "bbox": [155, 475, 409, 496]}
+{"phrase": "2 Inq Last 4 Mo", "hex": "#e25d6a", "rgb": [226, 93, 106], "cat": "red", "bbox": [154, 509, 304, 530]}
+{"phrase": "$7224 Unpaid Collections", "hex": "#e3606c", "rgb": [227, 96, 108], "cat": "red", "bbox": [154, 542, 403, 564]}
+{"phrase": "No 3k+ Lines", "hex": "#e46572", "rgb": [228, 101, 114], "cat": "red", "bbox": [155, 577, 281, 594]}
+{"phrase": "Too Few Open Rev Accounts", "hex": "#e4636f", "rgb": [228, 99, 111], "cat": "red", "bbox": [154, 611, 440, 632]}
+{"phrase": "Avg Age Open", "hex": "#e3606c", "rgb": [227, 96, 108], "cat": "red", "bbox": [154, 645, 295, 666]}
+{"phrase": "No Closed Rev Depth", "hex": "#e4636f", "rgb": [228, 99, 111], "cat": "red", "bbox": [155, 679, 365, 700]}
+{"phrase": "3 Rev Lates in 2-4 yrs", "hex": "#e46470", "rgb": [228, 100, 112], "cat": "red", "bbox": [154, 713, 366, 734]}
+{"phrase": "1", "hex": "#df4a58", "rgb": [223, 74, 88], "cat": "red", "bbox": [156, 747, 161, 763]}
+{"phrase": "Paid Collection", "hex": "#e3626f", "rgb": [227, 98, 111], "cat": "red", "bbox": [174, 747, 317, 764]}
+{"phrase": "3+ Closed Rev Accnts", "hex": "#69a673", "rgb": [105, 166, 115], "cat": "green", "bbox": [154, 781, 370, 797]}
+{"phrase": "No Open Mortgage", "hex": "#585b5f", "rgb": [88, 91, 95], "cat": "neutral", "bbox": [155, 815, 340, 836]}
+{"phrase": "Seasoned Closed Accounts", "hex": "#616467", "rgb": [97, 100, 103], "cat": "neutral", "bbox": [154, 850, 423, 867]}
+{"phrase": "No Rev Acct Open 10K 2yr", "hex": "#53565a", "rgb": [83, 86, 90], "cat": "neutral", "bbox": [155, 884, 417, 905]}
+{"phrase": "1", "hex": "#373b3f", "rgb": [55, 59, 63], "cat": "neutral", "bbox": [155, 918, 161, 934]}
+{"phrase": "Ing last 2-4 Mo", "hex": "#4f5256", "rgb": [79, 82, 86], "cat": "neutral", "bbox": [174, 918, 316, 939]}
+{"phrase": "1 Total Ing 0-2 Mo", "hex": "#4c4f53", "rgb": [76, 79, 83], "cat": "neutral", "bbox": [155, 952, 331, 973]}
+{"phrase": "1 Total Ing 2-4 Mo", "hex": "#4c4f53", "rgb": [76, 79, 83], "cat": "neutral", "bbox": [155, 986, 331, 1007]}

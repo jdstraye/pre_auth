@@ -1,0 +1,1265 @@
+"""
+Feature Selection and Classification with DataFrame Support
+
+This module provides two classes for feature selection and classification,
+built to be highly compatible with pandas DataFrames and scikit-learn pipelines.
+It leverages SelectFromModel for model-based feature selection and SelectKBest
+for filter-based selection, ensuring data integrity checks using the DataValidator
+in debug_library.py.
+
+Classes:
+- FeatureSelector: A DataFrame-aware transformer inheriting from SelectFromModel,
+  capable of model-based or filter-based selection.
+- FeatureSelectingClassifier: A classifier wrapper that manages the feature
+  selection process internally before training the final estimator.  It uses 
+  `FeatureSelector` internally to ensure the same features are used for feature selection,
+  training, and prediction, maintaining consistency.
+
+Key Features:
+- **DataFrame Support**: Both classes handle pandas DataFrames natively, preserving
+  column names and indices.
+- **Validation**: Uses `DataValidator` in debug_library to check for data corruption,
+  missing values, and other issues.
+- **Flexibility**: Supports model-based selection (estimator/threshold) and
+  filter-based selection (score_func/max_features).
+"""
+
+import sys
+import pandas as pd
+import numpy as np
+import logging
+from scipy import sparse
+from scipy.sparse import issparse, spmatrix, csc_matrix, csr_matrix
+from pandas import RangeIndex
+from typing import Optional, Union, List, Dict, Any, Tuple, Callable, cast
+from sklearn.base import BaseEstimator, TransformerMixin, ClassifierMixin, clone
+from sklearn.feature_selection import SelectFromModel, SelectKBest, f_classif
+from sklearn.utils._set_output import _SetOutputMixin
+from sklearn.utils.validation import check_is_fitted, check_X_y, check_array
+from sklearn.linear_model import LogisticRegression
+# NOTE: Assumes src.debug_library is correctly set up in the environment
+from src.debug_library import debug_pipeline_step, DataValidator
+from src.utils import setup_logging, gv, debug_setup_logging, get_logger
+
+# Standard logging configuration for the module
+setup_logging(gv.LOG_DIR/"feature_selector.log")
+#debug_setup_logging()
+
+
+class FeatureSelector(BaseEstimator, TransformerMixin):
+    """
+    DataFrame-aware feature selector supporting both model-based and filter-based selection.
+
+    This transformer performs feature selection while preserving pandas DataFrame
+    metadata, such as column names and index. It delegates to SelectFromModel or SelectKBest based on the
+    presence of `score_func`.
+
+    Parameters
+    ----------
+    estimator : estimator object, optional
+        The base estimator from which to select features (used only if `score_func`
+        is None). Must have `feature_importances_` or `coef_` attribute.
+    
+    threshold : str or float, default='median'
+        The threshold value for model-based selection (used only if `score_func`
+        is None).
+    
+    max_features : int, optional
+        The maximum number of features to select (k). **Required if `score_func`
+        is specified.** Takes precedence over `threshold` when used with a model.
+        
+    prefit : bool, default=False
+        Whether a prefit estimator is passed.
+
+    score_func : callable, optional
+        A scoring function (e.g., `chi2`). If provided, `SelectKBest` is used.
+
+    Attributes
+    ----------
+    feature_names_in_ : ndarray of str
+        Names of features seen during :term:`fit`.
+
+    n_features_in_ : int
+        Number of features seen during fit.
+    
+    _selected_features : ndarray of shape (n_features_selected_,)
+        Names of features that were selected after fit().
+    
+    support_ : ndarray of shape (n_features_in_,), dtype=bool
+        Boolean mask indicating which features were selected. True indicates
+        the feature at that index was selected.
+    
+    _internal_selector : SelectFromModel or SelectKBest
+        The fitted selector instance used internally for transformations.
+
+    Examples
+    --------
+    >>> from sklearn.ensemble import RandomForestClassifier
+    >>> from sklearn.datasets import make_classification
+    >>> import pandas as pd
+    >>> 
+    >>> # Create sample data
+    >>> X, y = make_classification(n_samples=100, n_features=20, n_informative=10)
+    >>> X_df = pd.DataFrame(X, columns=[f'feature_{i}' for i in range(20)])
+    >>> 
+    >>> # Model-based selection
+    >>> selector = FeatureSelector(
+    ...     estimator=RandomForestClassifier(n_estimators=10, random_state=42),
+    ...     max_features=5,
+    ...     score_func=None
+    ... )
+    >>> X_selected = selector.fit_transform(X_df, y)
+    >>> print(f"Selected {X_selected.shape[1]} features")
+    >>> print(f"Selected features: {selector.selected_features_}")
+    >>>
+    >>> # Filter-based selection
+    >>> from sklearn.feature_selection import chi2
+    >>> selector = FeatureSelector(score_func=chi2, max_features=5)
+    >>> X_selected = selector.fit_transform(X_df, y)
+    >>>
+    >>> # Works with numpy arrays too
+    >>> X_arr = X_df.values
+    >>> X_selected = selector.fit_transform(X_arr, y)  # Returns numpy array
+
+    Notes
+    -----
+    - Input format is automatically preserved: DataFrame → DataFrame, array → array,
+      sparse → sparse
+    - When using `score_func`, `max_features` is required
+    - When using `estimator`, either `max_features` or `threshold` can be used
+    - For sparse matrices, avoids unnecessary densification
+    - Column names are preserved for DataFrame inputs
+    
+    See Also
+    --------
+    sklearn.feature_selection.SelectFromModel : Model-based feature selection
+    sklearn.feature_selection.SelectKBest : Filter-based feature selection
+    sklearn.feature_selection.chi2 : Chi-squared statistic for feature selection
+    sklearn.feature_selection.f_classif : ANOVA F-value for feature selection    """
+
+    # Type annotations
+    ''' 
+    Fitted attributes (those ending in _) must not be set in __init__.
+    They are assigned during fit, and their existence signals that the estimator
+    is fitted. I am also creating private versions for myself that will be used 
+    for checking.
+    '''
+    feature_names_in_: np.ndarray # SKLearn's attribute
+    _feature_names_in: Optional[np.ndarray] # Private attribute of feature_names_in_
+    selected_features_: List[str] # SKLearn's attribute - An array selecting the features that were selected, [True, False, True, etc.] or [0 2 5 ...]
+    _selected_features: Optional[List[str]] # Private attribute of selected_features_
+
+    def __init__(self,
+                 estimator: Optional[BaseEstimator] = None,
+                 max_features: Optional[int] = 15,
+                 threshold: Optional[Union[str, float]] = "median",
+                 prefit: bool = False,
+                 score_func: Optional[Callable] = f_classif
+                 ):
+
+        self.estimator = estimator
+        self.max_features = max_features
+        self.threshold = threshold
+        self.prefit = prefit
+        self.score_func = score_func
+
+        # Internal state for DataFrame features
+        self._internal_selector: Optional[Union[SelectFromModel, SelectKBest]] = None # Stores the actual selector instance (self or SelectKBest)
+
+        ## Data validation setup
+        self._validator = DataValidator("FeatureSelector")
+
+        ## Pickleable logger
+        self._logger_name = f"{self.__class__.__module__}.{self.__class__.__name__}"
+
+    def _get_logger(self):
+        """
+        Return a logger by name. Resolve it at call time so we do NOT store the
+        Logger object on the instance (keeps the instance pickleable).
+        Get logger instance without storing it (maintains picklability).
+        
+        Returns
+        -------
+        logging.Logger
+            Logger configured for this class.
+        """
+        name = getattr(self, "_logger_name", f"{__name__}.{self.__class__.__name__}.PicklableFeatureSelector")
+        lg = get_logger(name)
+        return lg
+
+    def get_params(self, deep=True) -> Dict[str, Any]:
+        """
+        Get parameters for this estimator.
+        
+        Parameters
+        ----------
+        deep : bool, default=True
+            If True, return parameters for this estimator and contained subobjects.
+        
+        Returns
+        -------
+        dict
+            Parameter names mapped to their values.
+        """
+        params = super().get_params(deep=deep)
+        params['score_func'] = self.score_func
+        return params
+
+    def _check_fit_quality(self):
+        """
+        Check if the estimator is fitted and that all fitted attributes are in good order
+        
+        Raises
+        ------
+        ValueError or TypeError
+            Highlighting inappropriate values/types if the estimator were well-fitted.
+        """
+
+        # Check the quality of the fit
+        try:
+            ## Check existence of fitted attributes
+            check_is_fitted(self, [
+                'n_features_in_',
+                'feature_names_in_',
+                'support_',
+                '_support',
+                '_internal_selector',
+            ])
+
+            ## Further checks on types and values of fitted attributes
+            if not isinstance(self.n_features_in_, int):
+                raise TypeError(f"BAD FIT- n_features_in_ must be int, got {type(self.n_features_in_)}.")
+            if self.n_features_in_ < 1:
+                raise ValueError(f"BAD FIT- n_features_in_ must be >= 1, got {self.n_features_in_}.")
+            if not (isinstance(self.feature_names_in_, np.ndarray) or
+                    (isinstance(self.feature_names_in_, list) and
+                     all(isinstance(x, str) for x in self.feature_names_in_))): # type: ignore
+                dtype_str = f" with dtype {self.feature_names_in_.dtype}" if isinstance(self.feature_names_in_, np.ndarray) else ""
+                raise TypeError(f"BAD FIT- feature_names_in_ must be a numpy array or list of strings; got {type(self.feature_names_in_)}{dtype_str}.")
+            if self.feature_names_in_.shape[0] != self.n_features_in_:
+                raise ValueError(
+                    f"BAD FIT- feature_names_in_ length {self.feature_names_in_.shape[0]} != n_features_in_ ({self.n_features_in_})."
+                )
+            if self._support is None:
+                raise ValueError("BAD FIT- FeatureSelector is not fitted: _support is None.")
+            if np.any(pd.isna(self._support)):
+                raise ValueError("BAD FIT- FeatureSelector._support contains None or NaN values.")
+            if not isinstance(self._support, np.ndarray):
+                raise TypeError(f"BAD FIT- _support must be a numpy array, got {type(self._support)}.")
+            if self._support.dtype != bool:
+                raise TypeError(f"BAD FIT- _support must be boolean mask, got dtype={self._support.dtype}.")
+            if self._support.shape[0] != self.n_features_in_:
+                raise ValueError(
+                    f"BAD FIT- Support mask length {self._support.shape[0]} != n_features_in_ ({self.n_features_in_})."
+                )
+        except Exception as e:
+            raise ValueError(f"Estimator not fitted: {e}")
+
+    def fit(self, X: Union[pd.DataFrame, np.ndarray, pd.Series, spmatrix], y: Optional[np.ndarray] = None, feature_names: Optional[list[str]] = None):
+        """
+        Public fit: manages recording incoming type (DF, Series, array) as well as data dtype,
+        converting incoming type to NumPy arrays, passing the data to internal _fit, and 
+        converting the _fit output back to the incoming dtype.
+
+        In the flow, fit should take X and figure out which features of X to keep. 
+        Therefore, it should return itself with a few more attributes set so that the correct
+        features can be taken in transform(). The attributes to set are:
+        SK/IMBLearn required:
+        - feature_names_in_
+        - n_features_in_
+        - support_
+        Private:
+        - _feature_names_in
+        - _n_features_in
+        - _support
+        - _selected_features
+
+        Parameters
+        ----------
+        X : {array-like, sparse matrix, DataFrame} of shape (n_samples, n_features)
+            Training data. Can be:
+            - pandas DataFrame (column names preserved)
+            - numpy array
+            - scipy sparse matrix
+        
+        y : array-like of shape (n_samples,), optional
+            Target values. Required for supervised feature selection.
+        
+        feature_names : list of str, optional
+            Feature names to use if X is an array without column names.
+            Ignored if X is a DataFrame.
+        
+        Returns
+        -------
+        self : FeatureSelector
+            Fitted selector with the following attributes set:
+            - feature_names_in_
+            - n_features_in_
+            - selected_features_
+            - support_
+        
+        Raises
+        ------
+        ValueError
+            If score_func is provided but max_features is None.
+            If y is None but required for the selection method.
+        TypeError
+            If X is not DataFrame, array, or sparse matrix.
+        """
+        X_input, y_input = self._validate_and_record_input(
+            X, 
+            y, 
+            require_y=True, 
+            record_metadata=True,
+            feature_names=None
+        )
+
+        self._fit(X_input, y_input)
+
+        # Check that _fit set _feature_names_in correctly.
+        if (hasattr(self, "feature_names_in_") and 
+            self._feature_names_in is not None and 
+            not np.array_equal(self.feature_names_in_, self._feature_names_in)):
+                raise ValueError (f"'feature_names_in_' set prior to '{__name__}.{__class__}' and X column names do not match."
+                                  f"\n {self.feature_names_in_.tolist() = }"
+                                  f"\n {self._feature_names_in.tolist() = }"
+                                  )
+        # If _fit() did not set the required attributes, do it here.
+        ## feature_names_in_ and n_features_in_ = len(feature_names_in_)
+        if not hasattr(self, "feature_names_in_") or getattr(self, "feature_names_in_") is None:
+            setattr(self, "feature_names_in_", self._feature_names_in)
+            setattr(self, "n_features_in_", len(self.feature_names_in_))
+
+        ## support_
+        if not hasattr(self, "support_") or getattr(self, "support_") is None:
+            setattr(self, "support_", self._support)
+
+        ## selected_features_
+        if not hasattr(self, "selected_features_") or getattr(self, "selected_features_") is None:
+            setattr(self, "selected_features_", self._selected_features)
+
+        self._check_fit_quality()
+
+        return self
+
+    def _validate_and_record_input(self, 
+                                   X: Union[pd.DataFrame, np.ndarray, pd.Series, spmatrix], 
+                                   y: Optional[Union[pd.DataFrame, np.ndarray]],
+                                   require_y: bool = False,
+                                   record_metadata: bool = True,
+                                   feature_names: Optional[list[np.ndarray]] = None) -> Tuple[Union[np.ndarray, spmatrix], Optional[Union[np.ndarray, spmatrix]]]:
+        """
+        Validate inputs and record metadata for format preservation.
+        
+        Records the input type (DataFrame, array, sparse, Series) and associated
+        metadata (column names, index, dtypes) to enable returning output in the
+        same format during transform().
+        
+        Parameters
+        ----------
+        X : DataFrame, array, or sparse matrix
+            Input features.
+        y : DataFrame, Series, or array, optional
+            Target values.
+        require_y : bool, default=False
+            Whether y is required (e.g., True for fit() when using SelectFromModel
+            but False for transform() where only X is modified) for supervised
+            selection).
+        feature_names : list of str, optional
+            Feature names if X is an array.
+        record_metadata : bool, default=True
+            Whether to record metadata about the input features. Metadata is used
+            to restore the output format in transform() and should only be True for 
+            fit() because transform() should not modify the input features (cannot 
+            modify __dict__ in SKLearn compliance terminology).
+
+        Returns
+        -------
+        X_validated : array or sparse matrix
+            Validated feature matrix.
+        y_validated : array or sparse matrix
+            Validated target array.
+        
+        Raises
+        ------
+        TypeError
+            If X or y are not supported types.
+
+        Notes
+        -----
+        There used to be a golden_df attribute that stored the original DataFrame and all 
+        the metadata that could be derived from it. It is still here but not used. It has 
+        been commented out because it caused multiple problems with SKLearn compliance and
+        memory usage.
+        """
+        lg = self._get_logger()
+
+        # Record input type and columns
+        if record_metadata:
+            self._X_is_dataframe = isinstance(X, pd.DataFrame)
+            self._X_is_ndarray = isinstance(X, np.ndarray)
+            self._X_is_pandas_series = isinstance(X, pd.Series)
+            self._X_is_sparse = sparse.issparse(X)
+            self._X_is_catchall = not (self.X_is_dataframe or self.X_is_pandas_series or self.X_is_sparse or self.X_is_ndarray)
+            self._y_is_dataframe = isinstance(y, pd.DataFrame)
+            self._y_is_ndarray = isinstance(y, np.ndarray)
+            self._y_is_pandas_series = isinstance(y, pd.Series)
+            self._y_is_sparse = sparse.issparse(y)
+            self._y_is_catchall = not (self.y_is_dataframe or self.y_is_pandas_series or self.y_is_sparse or self.y_is_ndarray)
+#20251014-deprecated             #self.golden_df = pd.DataFrame()
+            self._feature_names_in = None
+        X_recorded = None
+        y_recorded = None
+
+        if self.X_is_dataframe:
+            # Safely, capture DF metadata
+            # This should be self.feature_names_in_ after fit(). Setup X as well.
+            X_df = cast(pd.DataFrame, X)
+            if record_metadata:
+                self._feature_names_in = getattr(X_df, 'columns', None)
+                self._X_index = getattr(X_df, 'index', None)
+                self._X_dtypes = getattr(X_df, 'dtypes', None)
+                self._validator.validate_frame(X_df, "feature_selector_fit_input")
+#20251014-deprecated                 self.golden_df = X_df.copy(deep=True)
+            X_recorded = X_df.values
+        elif self.X_is_pandas_series:
+            X_pds = cast(pd.Series, X)
+            X_recorded = X_pds.to_numpy().reshape(-1, 1)  # Ensure 2D
+            if record_metadata:
+                self._X_index = getattr(X_pds, 'index', None)
+                self._X_dtype = getattr(X_pds, 'dtype', None)
+#20251014-deprecated                 self.golden_df = pd.DataFrame(X_recorded, columns=[X_pds.name], index=self._X_index)    
+        elif self.X_is_ndarray:
+            # Create metadata to the extent possible
+            X_nda = cast(np.ndarray, X)
+            if feature_names and record_metadata:
+                self._feature_names_in = np.array(feature_names)
+            elif record_metadata:
+                self._feature_names_in = np.array([f"feature{i}" for i in range(X.shape[1])])
+                self._X_index = RangeIndex(start=0, stop=X.shape[0], step=1)
+            X_recorded = X_nda
+#20251014-deprecated             if record_metadata:
+#20251014-deprecated                 self.golden_df = pd.DataFrame(
+#20251014-deprecated                     X_recorded,
+#20251014-deprecated                     columns=self._feature_names_in,
+#20251014-deprecated                     index=self._X_index
+#20251014-deprecated                 )
+        else:
+            # Handle ndarray and any other array-like object
+            try:
+                X_recorded = np.asarray(X)  # ✅ Converts array-like objects
+                if feature_names and record_metadata:
+                    self._feature_names_in = np.array(feature_names)
+                elif record_metadata:
+                    self._feature_names_in = np.array([f"feature{i}" for i in range(X_recorded.shape[1])])
+                    self._X_index = RangeIndex(start=0, stop=X_recorded.shape[0], step=1)
+#20251014-deprecated                 if record_metadata:
+#20251014-deprecated                     self.golden_df = pd.DataFrame(
+#20251014-deprecated                         X_recorded,
+#20251014-deprecated                         columns=self._feature_names_in,
+#20251014-deprecated                         index=self._X_index
+#20251014-deprecated                     )
+                lg.warning(f"Input X should be a pandas DataFrame or numpy ndarray, not {type(X) = }.")
+            except Exception as e:
+                raise TypeError(f"Input X should be a pandas DataFrame or numpy ndarray, not {type(X) = }.\n Error: {e}")
+        
+        if y is None:
+            if require_y and self.score_func is not None:
+                raise ValueError("y cannot be None when using a score_func for supervised feature selection.")
+            if require_y and self.estimator is not None and not self.prefit:
+                raise ValueError("y cannot be None when fitting an estimator for feature-based selection.")
+            # If unsupervised selection (e.g., prefit model without y), allow y to be None
+            y_recorded = None #np.array([])  # Dummy placeholder
+        elif self.y_is_dataframe:
+            # Safely, capture DF metadata
+            # This should be self.feature_names_in_ after fit(). Setup X as well.
+            y_df = cast(pd.DataFrame, y)
+            self._feature_names_in = getattr(y_df, 'columns', None)
+            self._y_index = getattr(y_df, 'index', None)
+            self._y_dtypes = getattr(y_df, 'dtypes', None)
+            self._validator.validate_frame(y_df, "feature_selector_fit_y_input")
+            y_recorded = y_df.values
+        elif isinstance(y, list):
+            y_recorded = np.array(y)
+        elif self.y_is_pandas_series:
+            y_pds = cast(pd.Series, y)
+            self._y_index = getattr(y_pds, 'index', None)
+            self._y_dtypes = getattr(y_pds, 'dtype', None)
+            y_recorded = y_pds.to_numpy(self._y_dtypes)
+        elif self.y_is_ndarray:
+            y_recorded = cast(np.ndarray, y)
+            self._y_index = pd.RangeIndex(y.shape[0])
+            self._y_dtypes = y_recorded.dtype
+        else:
+            # Handle ndarray, list, and any array-like object
+            try:
+                y_recorded = np.asarray(y)  # ✅ Converts array-like objects
+            except Exception as e:
+                raise TypeError(f"Input y should be a pandas DataFrame, Series, numpy ndarray, or list, not {type(y) = }.\n Error: {e}")
+
+        # Validate using sklearn's check_array
+        X_validated = check_array(
+            X_recorded,
+            accept_sparse=True,
+            dtype=None,  # Keep original dtype
+            force_all_finite=False,  # Check for NaN/inf
+            ensure_2d=True,
+            allow_nd=False
+        )
+        if y_recorded is not None:
+            y_validated = check_array(
+                y_recorded,
+                accept_sparse=True,
+                dtype=None,  # Keep original dtype
+                force_all_finite=False,  # Check for NaN/inf
+                ensure_2d=False,
+                allow_nd=False
+            )
+
+#20251014-deprecated             # Add target to golden_df for reference
+#20251014-deprecated             if record_metadata:
+#20251014-deprecated                 ## Rearrange y according to _X_index instead of _y_index.
+#20251014-deprecated                 y_validated_df = pd.DataFrame(
+#20251014-deprecated                     y_validated,
+#20251014-deprecated                     columns=["target"],
+#20251014-deprecated                     index=self._X_index  # Force the index to match _X_index
+#20251014-deprecated                 )
+#20251014-deprecated 
+#20251014-deprecated                 ## Verify indices match
+#20251014-deprecated                 if not self.golden_df.index.equals(y_validated_df.index):
+#20251014-deprecated                     raise ValueError("Index mismatch between X and y after validation."
+#20251014-deprecated                                       "golden_df index:", self.golden_df.index,
+#20251014-deprecated                                       "y_validated_df index:", y_validated_df.index
+#20251014-deprecated                     )
+#20251014-deprecated                 
+#20251014-deprecated                 ## Concatenate the DFs
+#20251014-deprecated                 self.golden_df = pd.concat(
+#20251014-deprecated                     [self.golden_df,
+#20251014-deprecated                      y_validated_df],
+#20251014-deprecated                     axis=1)
+
+        else:
+            y_validated = None
+
+        if self._feature_names_in is None:
+            lg.debug(f"Could not determine feature names from input X of type {type(X)}\n {X = }.")
+            raise ValueError("Feature names could not be determined from input X.")
+        return X_validated, y_validated
+
+    def _generate_output(self, X : Union[np.ndarray, spmatrix]) -> Union[pd.DataFrame, pd.Series, np.ndarray, spmatrix]:
+        """
+        Convert transformed data back to original input format.
+        
+        Restores the output to match the input type that was provided to fit(),
+        preserving metadata like column names, index, and dtypes where applicable.
+        
+        Parameters
+        ----------
+        X : array or sparse matrix
+            Transformed data with selected features.
+        
+        Returns
+        -------
+        output : DataFrame, Series, array, or sparse matrix
+            Data in original input format with appropriate metadata restored.
+        
+        Raises
+        ------
+        ValueError
+            If Series output requested but multiple features were selected.
+        TypeError
+            If input type is unrecognized.
+        """
+        lg = self._get_logger()
+
+        if issparse(X):
+            return X
+        if self.X_is_ndarray:
+            return np.asarray(X)
+        if self.X_is_dataframe:
+            X_df = cast(pd.DataFrame, X)
+            # Optionally restore dtypes per column
+            if hasattr(self, '_X_dtypes') and self._X_dtypes is not None:
+                for col in X_df.columns:
+                    if col in self._X_dtypes:
+                        try:
+                            X_df[col] = X_df[col].astype(self._X_dtypes[col])
+                        except Exception as e   :
+                            lg.error(f"Error applying dtype to column: {e}")                 
+            return X_df
+        if self.X_is_catchall:
+            return np.asarray(X)
+        if self.X_is_pandas_series:
+            # X is an ndarray at this point (transformed output)
+            X_arr = cast(np.ndarray, X)
+
+            # We need to convert it back to a Series
+            # Ensure X is 1D or can be flattened
+            if X_arr.ndim > 1:
+                if X.shape[1] == 1:
+                    X_flat = X_arr.flatten()
+                else:
+                    raise ValueError(
+                        f"Cannot convert {X.shape} array back to Series. "
+                        f"Series input requires single feature selection."
+                    )
+            else:
+                X_flat = X_arr.ravel() # Ensure 1D array
+
+            name = self.selected_features_[0] if len(self.selected_features_) == 1 else "Selected_Feature"
+
+            # Build kwargs for Series constructor
+            series_kwargs: dict = {"data": X_flat, "name": name}
+
+            if hasattr(self, '_X_dtype') and self._X_dtype is not None:
+                series_kwargs["dtype"] = self._X_dtype
+
+            if hasattr(self, '_X_index') and self._X_index is not None:
+                series_kwargs["index"] = self._X_index
+
+            return pd.Series(**series_kwargs)
+
+        else:
+            raise TypeError("Unexpected input type; cannot restore output format.")
+
+    @debug_pipeline_step("FeatureSelector_Fit")
+    def _fit(self, 
+             X: Union[np.ndarray,spmatrix], 
+             y: Optional[Union[np.ndarray,spmatrix]]) -> 'FeatureSelector':
+        """
+        Internal fit() method that finds the best feature using a feature selector (SelectFromModel or SelectKBest).
+
+        Chooses between SelectKBest (filter-based) or SelectFromModel (model-based)
+        based on whether score_func is provided. Fits the selector and records
+        which features were selected.
+
+        Parameters
+        ----------
+        X : array or sparse matrix of shape (n_samples, n_features)
+            Validated training features.
+        y : array or sparse matrix of shape (n_samples,)
+            Validated target values.
+        
+        Returns
+        -------
+        self : FeatureSelector
+            Fitted instance with _support and _selected_features set.
+            
+        Raises
+        ------
+        ValueError
+            If score_func is provided without max_features.
+            If estimator is None when score_func is None.
+            If y is None but required.
+
+        Notes
+        -----
+        - This method assumes X and y have been validated and converted to NumPy arrays.
+        - Sets the following private attributes:
+          - _support
+          - _selected_features
+          - _internal_selector
+        - Does not set the public attributes (those ending in _) which are set in fit().
+        """
+
+        lg = self._get_logger()
+
+        # Let sklearn validate and set n_features_in_ (private API; silence type checker)
+        X_array, y = self._validate_data(  # type: ignore[attr-defined]
+            X, y, 
+            accept_sparse=True, 
+            ensure_2d=True,
+            reset=True)
+        # check_X_y is done internal to _validate_data - X_array, y = check_X_y(X_array, y, dtype=None) 
+
+        # Conditional Selection Logic (SelectFromModel vs. SelectKBest)
+        if self.score_func is not None:
+            # --- Logic for SelectKBest (Filter-based Selection) ---
+            if self.max_features is None:
+                lg.critical("score_func requires max_features (k) to be specified.")
+                raise ValueError(
+                    "When 'score_func' is specified, 'max_features' (k) must also be specified "
+                    "to use the filter-based SelectKBest selector."
+                )
+            if y is None:
+                raise ValueError("y cannot be None for supervised feature selection")
+
+            lg.info(
+                f"Using SelectKBest with score_func={self.score_func.__name__} and k={self.max_features}"
+            )
+        
+            # Instantiate SelectKBest
+            self._internal_selector = SelectKBest(score_func=self.score_func, k=self.max_features)
+
+        else:
+            if self.estimator is None:
+                raise ValueError("estimator must be provided when score_func is None.")
+
+            # Instantiate SelectFromModel
+            self._internal_selector = SelectFromModel(
+                estimator=clone(self.estimator),
+                threshold=self.threshold,
+                max_features=self.max_features,
+                prefit=self.prefit
+            )
+        
+        # sklearn's fit() method doesn't accept sparse matrices for the target variable y.
+        # Convert y to dense array if it's sparse
+        if issparse(y):
+            y_sparse = cast(spmatrix, y)
+            y_array = np.asarray(y_sparse.toarray()).ravel()  # type: ignore[attr-defined]
+        else:
+            y_array = np.asarray(y).ravel()
+
+        # Do the fit
+        self._internal_selector.fit(X_array, y_array)
+
+        # Record selected_features_
+        self._support = self._internal_selector.get_support()
+        if  (hasattr(self, '_feature_names_in') and 
+                self._feature_names_in is not None):
+            self._selected_features = getattr(self, '_feature_names_in')[self._support]
+            self._n_features_in = len(self._selected_features) if self._selected_features is not None else 0
+            lg.info(f"Selected {self._n_features_in = } features from {len(self._feature_names_in) = }")
+            lg.debug(f"Selected features: {self._selected_features = }")
+            self.n_features_in_ = self._n_features_in
+        else:
+            self._selected_features = None
+            self.n_features_in_ = 0
+            lg.debug(f"Input feature names are not available; cannot record selected feature names of {X = }, {self.__dict__ = }.")
+
+        return self
+
+    @debug_pipeline_step("FeatureSelector__Transform")
+    def _transform(self, X: Union[np.ndarray, spmatrix]) -> Union[np.ndarray, spmatrix]:
+        """
+        Apply feature selection mask to X.
+        
+        Internal method that applies the boolean support mask to select columns.
+        Works with both dense and sparse matrices.
+        
+        Parameters
+        ----------
+        X : array or sparse matrix of shape (n_samples, n_features_in_)
+            Data to transform.
+        
+        Returns
+        -------
+        X_selected : array or sparse matrix of shape (n_samples, n_features_selected_)
+            Data with only selected features.
+        """
+        lg = self._get_logger()
+        X_array= self._validate_data(   # type: ignore[attr-defined]
+            X, 
+            accept_sparse=True, 
+            ensure_2d=True,
+            reset=False)
+        
+        # Ensure support mask is valid
+        if not hasattr(self, "_support") or self._support is None:
+            raise ValueError("FeatureSelector._support is None — did you call fit()?")
+
+        mask = np.asarray(self._support, dtype=bool)
+        if mask.ndim != 1 or mask.shape[0] != X_array.shape[1]:
+            raise ValueError(
+                f"Support mask shape {mask.shape} does not match X {X_array.shape}."
+            )
+
+        # Apply selection
+        X_selected = X_array[:, mask]
+        
+        #20251014debug. They all match exactly. lg.debug(f"DBGTransform02: {X_selected = }\n {X_array = },\n {X = }")
+
+        return X_selected
+
+    @debug_pipeline_step("FeatureSelector_Transform")
+    def transform(self, X: Union[pd.DataFrame, np.ndarray, pd.Series, spmatrix]) -> Union[pd.DataFrame, pd.Series, np.ndarray, spmatrix]:
+        """
+        Reduce X to the selected features using the fitted selector.
+        Applies the feature selection determined during fit().
+
+        While fit() sets which features to keep, transform() applies that selection.
+        Uses attributes set during fit():
+        SK/IMBLearn required:
+        - feature_names_in_
+        - n_features_in_
+        - support_
+        Private:
+        - _feature_names_in
+        - _n_features_in
+        - _support
+        - _selected_features
+        to generate a new X with only the selected features.
+
+        Since pd.DataFrame format has more information than a NumPy array, this method
+        tries to preserve the DataFrame structure, including column names and index. However, DFs
+        cause failures to SKLearn compliance in some cases.
+
+        Parameters
+        ----------
+        X : {array, sparse matrix} of shape (n_samples, n_features_in_)
+            Data to transform. Must have the same number of features as seen during fit().
+
+        Returns
+        -------
+        X_transformed : {DataFrame, Series, array, sparse matrix}
+            Transformed data with only selected features. Type matches input type:
+            - DataFrame input → DataFrame output (with selected column names)
+            - Array input → Array output
+            - Sparse input → Sparse output (avoids densification)
+            - Series input → Series output (if single feature selected)
+
+        Raises
+        ------
+        NotFittedError
+            If transform is called before fit.
+        ValueError
+            If X has wrong number of features.
+            If transformed output doesn't match expected shape.
+        """
+        lg = self._get_logger()
+        if __debug__:
+            dict_before = {k: id(v) for k, v in self.__dict__.items()}
+            lg.debug(f"DBGTransform04a: {dict_before = }")
+
+        # Check if fitting set everything necessary. sklearn's check_is_fitted performs 
+        # other tests as well on the quality of the fit.
+        self._check_fit_quality()
+
+        X_array: Union[np.ndarray, spmatrix] = np.array([])  # Placeholder for validated X
+        X_selected: Union[np.ndarray, spmatrix] = np.array([])  # Placeholder for selected X
+
+        # For sparse matrices, avoid densification
+        if issparse(X):
+            # Validate sparse matrix
+            X_array = check_array(X, accept_sparse=True, ensure_2d=True)
+
+            # Validate feature count
+            if X_array.shape[1] != self.n_features_in_:
+                raise ValueError(
+                    f"Sparse matrix has {X_array.shape[1] = } features, but FeatureSelector "
+                    f"expected {self.n_features_in_ = } features"
+                )
+
+            # Apply selection
+            X_selected = self._transform(X_array)
+
+        else:
+            # Input Validation
+            X_array, _ = self._validate_and_record_input(
+                X, 
+                None, 
+                require_y = False,
+                record_metadata=False,
+                feature_names=None
+                )
+
+            # Per SKLearn compliance, immediately return empty input
+            if isinstance(X, pd.DataFrame) and (X.empty or X.shape[1] == 0):
+                return X
+            elif isinstance(X_array, np.ndarray) and (X_array.size == 0 or X_array.shape[1] == 0):
+                return self._generate_output(X_array)
+            elif isinstance(X, spmatrix) and (X.shape[0] == 0 or X.shape[1] == 0):
+                return self._generate_output(X)
+
+            # Apply Selection
+            lg.debug(f"DBGTransform05: {self._support = }, {X_array.shape = }")
+            X_selected = self._transform(X_array)
+
+     #debugged. Identical.            if np.array_equal(X_selected, X_array):
+     #debugged. Identical.                lg.debug("DBGTransform03: No change in data")
+     #debugged. Identical.            else:
+     #debugged. Identical.                lg.debug(f"DBGTransform03: {X_selected = }\n {X_array = }")
+
+        # Determine the index to use for validation DFs. This handles the case where the number of samples in transform differs
+        # from fit (common in sklearn compliance tests like check_methods_subset_invariance, where full data is transformed, then
+        # single-sample batches are transformed separately). If lengths match, reuse the original index (preserves custom indices
+        # if any). If not, create a fresh RangeIndex matching the current X rows to avoid shape mismatches in pd.DataFrame creation.
+        validation_index = pd.RangeIndex(start=0, stop=X_array.shape[0], step=1)
+        if hasattr(self, '_X_index') and self._X_index is not None:
+            if len(self._X_index) == X_array.shape[0]:
+                validation_index = self._X_index
+
+        # Create DataFrames for validation
+        ## Input DF
+        X_df = None
+        if hasattr(self, 'feature_names_in_') and not isinstance(X_array, spmatrix) and self.feature_names_in_ is not None and self._selected_features is not None:
+            X_df = pd.DataFrame(
+                data=X_array,
+                columns=self.feature_names_in_,
+                index=validation_index
+            )
+            # Restore dtypes if available
+            if hasattr(self, '_X_dtypes') and self._X_dtypes is not None:
+                for col in X_df.columns:
+                    if col in self._X_dtypes:
+                        try:
+                            X_df[col] = X_df[col].astype(self._X_dtypes[col])
+                        except Exception as e:
+                            lg.warning(f"Error applying dtype to input column {col}: {e}")
+            self._validator.validate_frame(X_df, "feature_selector_transform_X_input")
+        else:
+            lg.warning("Skipping input validation DF: feature_names_in_ not available")
+
+        ## Output DF (using selected columns and selected data)
+        X_df_selected = None
+
+        ### Refine the columns if available, otherwise keep all the original
+        if self._selected_features is not None:
+            cols = self._selected_features
+        elif X_df is not None:
+            cols = X_df.columns
+        else:
+            cols = [f"feature{i}" for i in range(0, X_selected.shape[1])]
+        if not isinstance(X_selected, spmatrix):
+            X_df_selected = pd.DataFrame(
+                data=X_selected,
+                columns=cols,
+                index=validation_index
+            )
+        ### Optionally restore dtypes for selected columns
+        if hasattr(self, '_X_dtypes') and self._X_dtypes is not None and X_df_selected is not None:
+            for col in X_df_selected.columns:
+                if col in self._X_dtypes:
+                    try:
+                        X_df_selected[col] = X_df_selected[col].astype(self._X_dtypes[col])
+                    except Exception as e:
+                        lg.warning(f"Error applying dtype to output column {col}: {e}")
+        # Validate output DF
+            self._validator.validate_frame(X_df_selected, "feature_selector_transform_X_output")
+         
+        # Compare input and output DFs for consistency
+            if X_df is not None:
+                # Compare should verify that the selected columns in input match the output (no corruption)
+                self._validator.compare_frames(X_df, X_df_selected, "feature_selector_transform_X_in_v_out")
+            else:
+                lg.warning("Skipping output vs input comparison validation because DataFrame of input X could not be created.")
+
+        # Check for unintended state changes
+        dict_after = {k: id(v) for k, v in self.__dict__.items()}
+        changed = {k: (dict_before[k], dict_after[k]) for k in dict_before
+                   if k in dict_after and dict_before[k] != dict_after[k]}
+        if changed:
+            lg.error(f"DBGTransform04b: FeatureSelector mutated attributes in transform: {changed}")
+
+
+        # Validate output
+        ## This had to be scrapped because SKLearn's compliance check sends different 
+        ## data to fit() and transform(). 
+        ## There is no way to make the data provide in fit() match the data in 
+        ## transform().
+        ## Compare with golden_df if available
+        if False:  # hasattr(self, 'golden_df') and self._selected_features is not None:
+            expected = self.golden_df[self._selected_features].values
+
+            ### Convert to dense if sparse
+            if issparse(X_selected):
+                X_sp = cast(spmatrix, X_selected)
+                X_selected_dense = np.asarray(X_sp.todense())
+            else:
+                X_selected_dense = X_selected
+            lg.debug(f"DBGTransform01: {X_selected_dense = }\n {expected = }")  
+            if not np.array_equal(expected, X_selected_dense):  # type: ignore[attr-defined]
+                raise ValueError("Transformed output does not match expected selected features:\n "
+                                 f"{expected.shape = }\n "
+                                 f"{X_selected_dense.shape = }\n "
+                                 f"{expected.dtype = }\n "
+                                 f"{type(X_selected_dense) = }\n "
+                                 f"{expected = }\n "
+                                 f"{X_selected_dense = }\n "
+                )
+
+        # Generate output in the original input format
+        X_res = self._generate_output(X_selected)
+
+        lg.debug(f"Feature selection: {X_array.shape if hasattr(X_array, 'shape') else 'sparse'} -> {X_res.shape if hasattr(X_res, 'shape') else 'sparse'}")
+    #    debugged         if __debug__:
+    #    debugged             new_keys = set()
+    #    debugged             changed_keys = set()
+    #    debugged             dict_after = self.__dict__
+    #    debugged             lg.debug(f"DBGTransform04b: {dict_after = }")
+    #    debugged             for k, v in dict_after.items():
+    #    debugged                 if k not in dict_before:
+    #    debugged                     new_keys.add(k)
+    #    debugged                 elif dict_before[k] != v:
+    #    debugged                     changed_keys.add(k)
+    #    debugged             if new_keys:
+    #    debugged                 lg.debug(f"DBGTransform04c: transform() added attributes: {new_keys}")
+    #    debugged             elif changed_keys:
+    #    debugged                 lg.debug(f"DBGTransform04c: transform() changed attributes: {changed_keys}")
+    #    debugged             else:
+    #    debugged                 lg.debug("DBGTransform04c: No new attributes added during transform(); nothing changed either.")
+    #    debugged 
+
+        return X_res
+    
+    def get_feature_names_out(self, input_features: Optional[List[str]] = None) -> List[str]:
+        """
+        Get output feature names for transformation.
+        
+        Parameters
+        ----------
+        input_features : list of str, optional
+            Not used. Present for sklearn API compatibility.
+        
+        Returns
+        -------
+        feature_names_out : ndarray of str
+            Names of features that will be output by transform(). 
+            This would be the private attribute, _selected_features, which should be
+            `feature_names_in_[support_]`.
+        
+        Raises
+        ------
+        NotFittedError
+            If called before fit.
+        """
+        check_is_fitted(self, ["_selected_features"])
+
+        if self._selected_features is None:
+            return []
+    
+        return list(self._selected_features)
+
+    def fit_transform(
+            self,
+            X: Union[pd.DataFrame, np.ndarray, pd.Series, spmatrix], 
+            y: Optional[np.ndarray] = None
+            ) -> Union[pd.DataFrame, pd.Series, np.ndarray, spmatrix]:
+        """
+        Fit to data, then transform it.
+        
+        Convenience method equivalent to calling fit(X, y).transform(X).
+        
+        Parameters
+        ----------
+        X : {DataFrame, array, sparse matrix} of shape (n_samples, n_features)
+            Training data.
+        y : array-like of shape (n_samples,), optional
+            Target values.
+        
+        Returns
+        -------
+        X_transformed : {DataFrame, array, sparse matrix}
+            Transformed data in same format as input.
+        
+        See Also
+        --------
+        fit : Fit the feature selector.
+        transform : Transform data using fitted selector.
+        """
+        fitted_selector = self.fit(X, y)
+        X_transformed = self.fit(X, y).transform(X)
+
+        # Error Checking
+        if not hasattr(fitted_selector, 'transform'):
+            raise AttributeError("Fitted selector does not have a 'transform' method.")
+
+        return X_transformed
+    
+    def get_support(self, indices=False):
+        """
+        Get boolean mask or integer indices of selected features.
+        
+        Parameters
+        ----------
+        indices : bool, default=False
+            If True, return integer indices of selected features.
+            If False, return boolean mask.
+        
+        Returns
+        -------
+        support : ndarray
+            If indices=False: Boolean array of shape (n_features_in_,)
+                where True indicates selected feature.
+            If indices=True: Integer array of selected feature indices.
+        
+        Raises
+        ------
+        NotFittedError
+            If called before fit.
+        
+        Examples
+        --------
+        >>> selector.fit(X, y)
+        >>> mask = selector.get_support()  # [True, False, True, False, True]
+        >>> indices = selector.get_support(indices=True)  # [0, 2, 4]
+        """
+        if (check_is_fitted(self, "_internal_selector") and
+            self._internal_selector is not None):
+            return self._internal_selector.get_support(indices=indices)
+
+class FeatureSelectingClassifier(BaseEstimator, ClassifierMixin):
+    """
+    Classifier that performs feature selection before training.
+
+    This acts as a meta-estimator, chaining the FeatureSelector transformer with
+    a final classifier, ensuring that the same features are consistently used
+    across fit, predict, and predict_proba steps.
+
+    Parameters
+    ----------
+    estimator : estimator object
+        The base estimator (classifier) to be used for the final prediction.
+        It is also used by the internal FeatureSelector for selection.
+        
+    max_features : int, optional
+        The maximum number of features to select. Passed to FeatureSelector.
+        
+    threshold : str or float, default='median'
+        The threshold value for feature selection. Passed to FeatureSelector.
+        
+    score_func : callable, optional
+        A scoring function for feature selection (e.g., chi2). Passed to FeatureSelector.
+
+    Attributes
+    ----------
+    feature_selector_ : FeatureSelector
+        The fitted feature selector instance.
+        
+    classifier_ : BaseEstimator
+        The fitted final classifier instance.
+        
+    classes_ : ndarray
+        The class labels known to the classifier.
+    """
+
+    _estimator_type = "classifier"
+    estimator_: BaseEstimator
+    
+    def __init__(self,
+                 estimator: BaseEstimator,
+                 max_features: Optional[int] = 10,
+                 threshold: Optional[Union[str, float]] = "median",
+                 score_func: Optional[Callable] = None
+                ):
+        
+        self.estimator = estimator
+        self.max_features = max_features
+        self.threshold = threshold
+        self.score_func = score_func
+        
+        # Attributes set in fit (have trailing '_')
+        self.feature_selector_: Optional[FeatureSelector] = None
+        self.classifier_: Optional[BaseEstimator] = None
+        self.classes_: Optional[np.ndarray] = None
+
+        # Private attributes
+        self._validator = DataValidator("FeatureSelectingClassifier")
+        self._logger_name = f"{self.__class__.__module__}.{self.__class__.__name__}"
+
+    def _get_logger(self):
+        """
+        Return a logger by name. Resolve it at call time so we do NOT store the
+        Logger object on the instance (keeps the instance pickleable).
+        """
+        name = getattr(self, "_logger_name", f"{__name__}.PicklableFeatureSelectingClassifier")
+        lg = logging.getLogger(name)
+        # keep runtime guarantees: debugging enabled & propagation on
+        if lg.level == logging.NOTSET:
+            lg.setLevel(logging.DEBUG)
+        lg.propagate = False
+
+        return lg
+
+    def get_params(self, deep=True) -> Dict[str, Any]:
+        """Get parameters for this estimator."""
+        params = super().get_params(deep=deep)
+        if self.estimator is not None and deep:
+             # Delegate to the base estimator's get_params
+            estimator_params = self.estimator.get_params(deep=deep)
+            for k, v in estimator_params.items():
+                params[f"estimator__{k}"] = v
+
+        return params
+
+    def set_params(self, **params) -> 'FeatureSelectingClassifier':
+        """Set parameters for this estimator."""
+        if 'estimator' in params:
+            self.estimator = params.pop('estimator')
+
+        # Delegate nested parameters to the estimator
+        estimator_params = {k.split('__', 1)[1]: v for k, v in params.items() if k.startswith('estimator__')}
+        if estimator_params:
+            self.estimator.set_params(**estimator_params)
+
+        # Set top-level parameters
+        for key, value in params.items():
+            if not key.startswith('estimator__') and hasattr(self, key):
+                setattr(self, key, value)
+
+        return self
+
+    @debug_pipeline_step("FeatureSelectingClassifier_Fit")
+    def fit(self, X: pd.DataFrame, y: np.ndarray) -> 'FeatureSelectingClassifier':
+        """
+        Selects features, then fits the final classifier on the selected features.
+
+        Parameters
+        ----------
+        X : pd.DataFrame
+            The training input samples.
+        y : np.ndarray
+            The target values.
+
+        Returns
+        -------
+        self : FeatureSelectingClassifier
+            The fitted classifier instance.
+        """
+
+        # 1. Input Validation
+        self._validator.validate_frame(X, "SelectingClassifier_fit_input")
+        X_array, y = check_X_y(X.values, y, dtype=None, ensure_2d=True)
+        self.classes_ = np.unique(y)
+
+        # 2. Initialize and Fit FeatureSelector
+        self.feature_selector_ = FeatureSelector(
+            estimator=clone(self.estimator), # Selector uses a fresh, un-fitted copy
+            max_features=self.max_features,
+            threshold=self.threshold,
+            score_func=self.score_func # Pass the score_func here, forcing SelectKBest to be the selector.
+        )
+        self._get_logger().debug("Fitting internal FeatureSelector...")
+        X_selected = self.feature_selector_.fit_transform(X, y)
+
+        # 3. Initialize and Fit final Classifier
+        self.classifier_ = clone(self.estimator)
+        self._get_logger().debug(f"Fitting final classifier: {type(self.classifier_).__name__}")
+        internal_classifier = cast(Any, self.classifier_)
+        internal_classifier.fit(X_selected, y)
+
+        return self
+
+    @debug_pipeline_step("FeatureSelectingClassifier_Predict")
+    def predict(self, X: pd.DataFrame) -> np.ndarray:
+        """Predict using selected features."""
+        check_is_fitted(self, ['feature_selector_', 'classifier_'])
+
+        # 1. Transform features using the fitted selector
+        feature_selector = cast(Any, self.feature_selector_)
+        X_selected_test = feature_selector.transform(X)
+
+        # 2. Predict with the fitted classifier
+        internal_classifier = cast(Any, self.classifier_)
+        return internal_classifier.predict(X_selected_test.values)
+
+    def predict_proba(self, X: pd.DataFrame) -> np.ndarray:
+        """Predict probabilities using selected features."""
+        check_is_fitted(self, ['feature_selector_', 'classifier_'])
+
+        if not hasattr(self.classifier_, 'predict_proba'):
+            raise AttributeError("Underlying classifier does not support predict_proba.")
+
+        # 1. Transform features using the fitted selector
+        internal_feature_selector = cast(Any, self.feature_selector_)
+        X_selected = internal_feature_selector.transform(X)
+
+        # 2. Predict probabilities
+        internal_classifier = cast(Any, self.classifier_)
+        return internal_classifier.predict_proba(X_selected.values)
+    
+    def get_feature_names_out(self) -> List[str]:
+        check_is_fitted(self, "feature_selector_")
+        internal_selector = cast(Any, self.feature_selector_)
+        return internal_selector.get_feature_names_out()

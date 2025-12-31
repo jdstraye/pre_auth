@@ -1,0 +1,13 @@
+filename,phrase,found_in_pdf,found_in_rows,row_cat,sampled_cat,sampled_hex,sample_img,uncertain
+user_1314_credit_summary_2025-09-01_092724.pdf,8 Chrged Off Rev Accts,True,False,,red,#dc3545,,True
+user_1314_credit_summary_2025-09-01_092724.pdf,3+ Closed Rev Accts,True,False,,green,#428f4e,,True
+user_1314_credit_summary_2025-09-01_092724.pdf,8+ Rev Accts with Balances,True,False,,red,#dc3545,,True
+user_1314_credit_summary_2025-09-01_092724.pdf,In Credit Counseling,True,False,,black,#202429,/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/qa_user_1314_credit_summary_2025-09-01_092724.pdf_p1_in_credit_counseling.png,True
+user_1314_credit_summary_2025-09-01_092724.pdf,No Open Mortgage,True,False,,black,#202429,/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/qa_user_1314_credit_summary_2025-09-01_092724.pdf_p1_no_open_mortgage.png,True
+user_1314_credit_summary_2025-09-01_092724.pdf,1 Rev Late in 4+ yrs,True,False,,black,#202429,/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/qa_user_1314_credit_summary_2025-09-01_092724.pdf_p1_1_rev_late_in_4__yrs.png,True
+user_1314_credit_summary_2025-09-01_092724.pdf,"Drop Bad Auth User (BEST BUY/CBNA, and C",True,False,,black,#374151,/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/qa_user_1314_credit_summary_2025-09-01_092724.pdf_p1_drop_bad_auth_user__best_buy_cbna__and_c.png,True
+user_1314_credit_summary_2025-09-01_092724.pdf,No Rev Acct Open 10K 2yr,True,False,,black,#202429,/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/qa_user_1314_credit_summary_2025-09-01_092724.pdf_p1_no_rev_acct_open_10k_2yr.png,True
+user_1314_credit_summary_2025-09-01_092724.pdf,1 Inq last 2‑4 Mo,True,False,,black,#202429,,True
+user_1314_credit_summary_2025-09-01_092724.pdf,1 Inq Last 4‑5 mo,True,False,,black,#202429,,True
+user_1314_credit_summary_2025-09-01_092724.pdf,1 Total Inq 2-4 Mo,True,False,,black,#202429,/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/qa_user_1314_credit_summary_2025-09-01_092724.pdf_p2_1_total_inq_2_4_mo.png,True
+user_1314_credit_summary_2025-09-01_092724.pdf,1 Total Inqs 4-5 Mo,True,False,,black,#202429,/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/qa_user_1314_credit_summary_2025-09-01_092724.pdf_p3_1_total_inqs_4_5_mo.png,True

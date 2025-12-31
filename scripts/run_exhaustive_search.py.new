@@ -1,0 +1,651 @@
+#!/usr/bin/env python3
+"""
+Run an exhaustive hyperparameter grid search across multiple classifiers using the
+MLPipelineCoordinator. Saves the top candidates and their evaluation metrics.
+
+This is an intentionally heavy script — it can enumerate a very large number of
+parameter combinations. Use `--limit` or drop `--exhaustive` for a constrained run.
+"""
+from pathlib import Path
+import argparse
+import logging
+import json
+import joblib
+import sys
+import time
+from itertools import product
+from sklearn.model_selection import ParameterGrid, ParameterSampler
+from sklearn.base import clone
+from datetime import datetime
+import pandas as pd
+import numpy as np
+import math
+from collections import Counter, defaultdict
+import sqlite3
+
+ROOT = Path(__file__).resolve().parents[1]
+SRC = ROOT / "src"
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+if str(SRC) not in sys.path:
+    sys.path.insert(0, str(SRC))
+
+from src.utils import load_column_headers, gv, sanitize_column_name
+from src.eval_utils import generate_parameter_samples, now_ts
+from src.ingest import _load_golden_schema, _parse_schema, preprocess_dataframe
+from src.pipeline_coordinator import create_default_coordinator, MLPipelineCoordinator
+from src.eval_algos import param_distributions as eval_param_distributions, models as eval_models
+from sklearn.model_selection import StratifiedKFold
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
+import sys
+try:
+    from tqdm import tqdm
+    HAS_TQDM = True
+except Exception:
+    HAS_TQDM = False
+
+logger = logging.getLogger(__name__)
+logging.basicConfig(level=logging.INFO)
+
+
+def build_models_and_dist(models_to_run: dict, param_dists: dict, restrict: dict | None = None):
+    """Return filtered models and param distributions according to `restrict` (optional)."""
+    if not restrict:
+        return models_to_run, param_dists
+    new_models = {k: v for k, v in models_to_run.items() if k in restrict}
+    new_dists = {k: v for k, v in param_dists.items() if k in new_models}
+    return new_models, new_dists
+def param_grid_product(dist: dict):
+    return list(ParameterGrid(dist))
+
+
+def param_random_samples(dist: dict, n_samples: int, random_state: int):
+    # Use generate_parameter_samples if available to maintain project-specific validation
+    try:
+        samples = generate_parameter_samples(dist, n_samples=n_samples, random_state=random_state)
+    except Exception:
+        samples = list(ParameterSampler(dist, n_iter=n_samples, random_state=random_state))
+    # normalize samples to dicts
+    normalized = []
+    for s in samples:
+        if isinstance(s, dict):
+            normalized.append(dict(s))
+        else:
+            normalized.append(dict(s))
+    return normalized
+
+
+def get_model_family(model) -> str:
+    """Return a lightweight family string for a model instance to guide default encodings.
+
+    Values: 'tree', 'linear', 'catboost', 'knn', 'other'
+    """
+    cname = model.__class__.__name__
+    if 'CatBoost' in cname:
+        return 'catboost'
+    if 'LGBM' in cname or 'LightGBM' in cname or 'LGBM' in cname:
+        return 'tree'
+    # tree family
+    if any(k in cname for k in ('RandomForest', 'ExtraTrees', 'DecisionTree', 'Forest', 'Tree', 'XGB', 'XGBoost', 'GradientBoosting')):
+        return 'tree'
+    # linear family
+    if any(k in cname for k in ('LogisticRegression', 'Linear', 'SGDClassifier', 'SVC', 'Ridge', 'LinearSVC')):
+        return 'linear'
+    # distance-based
+    if any(k in cname for k in ('KNeighbors', 'Nearest')):
+        return 'knn'
+    return 'other'
+
+
+def is_valid_candidate(candidate: dict) -> bool:
+    # Enforce mutual exclusivity: both max_features and threshold cannot be set simultaneously
+    maxf = candidate.get('feature_selecting_classifier__max_features')
+    thr = candidate.get('feature_selecting_classifier__threshold')
+    if maxf is not None and thr is not None:
+        return False
+    # incompatible: OHE with SMOTENC
+    enc = candidate.get('encoding', None)
+    smm = candidate.get('smote__method', None)
+    if enc == 'ohe' and smm == 'smotenc':
+        return False
+    return True
+
+
+def run_search(args):
+    # Respect the CLI debug flag: set global debug mode accordingly
+    gv.DEBUG_MODE = bool(getattr(args, 'debug', False))
+
+    df = pd.read_csv(args.data_csv)
+    # Ensure CSV column names are sanitized to match schema used by preprocess_dataframe
+    df.columns = [sanitize_column_name(c) for c in df.columns]
+    # Preprocess the CSV according to schema to generate all derived/OHE columns
+    schema = _load_golden_schema(Path(args.column_headers))
+    sorted_schema, column_map = _parse_schema(schema)
+    df = preprocess_dataframe(df, sorted_schema, column_map)
+    # Preprocessing now performs NaN/inf cleaning and enforcement (ensure_no_nans called there)
+    headers = load_column_headers(Path(args.column_headers), df)
+    feature_cols = [c for c in headers.get('feature_cols', []) if c in df.columns]
+    target_cols = [c for c in headers.get('target_cols', []) if c in df.columns]
+    if len(target_cols) == 0:
+        raise ValueError('No target columns present in schema/data')
+    # status target by default
+    status_target = [t for t in target_cols if t.lower().endswith('status_label')]
+    if status_target:
+        status_target = status_target[0]
+    else:
+        status_target = target_cols[0]
+
+    X = df[feature_cols].copy()
+    y = df[status_target].astype(int).to_numpy()
+
+    # Split train/test; if a separate test provided, use it
+    if args.test_csv:
+        test_df = pd.read_csv(args.test_csv)
+        X_test = test_df[feature_cols].copy()
+        y_test = test_df[status_target].astype(int).to_numpy()
+    elif args.start_json:
+        # start from raw JSON -> ingest -> preprocess -> allocate
+        logger.info("Starting from raw JSON input; executing ingest->preprocess")
+        json_schema = _load_golden_schema(Path(args.column_headers))
+        sorted_schema, column_map = _parse_schema(json_schema)
+        # Some JSON inputs are nested (weaviate export); reading directly with
+        # pandas may fail. Attempt a safe read and fall back to the
+        # specialized `flatten_weaviate_data` which handles nested structure.
+        try:
+            df_json = pd.read_json(args.start_json)
+        except Exception:
+            logger.debug("pd.read_json failed for start_json; will use flatten_weaviate_data")
+            df_json = None
+        # flatten_weaviate_data expects a JSON file path, so call it directly
+        from src.ingest import flatten_weaviate_data
+        df_raw = flatten_weaviate_data(Path(args.start_json), sorted_schema)
+        df_processed = preprocess_dataframe(df_raw, sorted_schema, column_map)
+        # Preprocessing performs NaN/inf cleaning and enforcement now
+        df = df_processed
+        headers = load_column_headers(Path(args.column_headers), df)
+        feature_cols = [c for c in headers.get('feature_cols', []) if c in df.columns]
+        target_cols = [c for c in headers.get('target_cols', []) if c in df.columns]
+        X = df[feature_cols].copy()
+        y = df[status_target].astype(int).to_numpy()
+        from sklearn.model_selection import train_test_split
+        try:
+            X_train_full, X_test, y_train_full, y_test = train_test_split(
+                X, y, test_size=0.2, stratify=y, random_state=gv.RANDOM_STATE
+            )
+        except ValueError as e:
+            logger.warning(f"Stratified split failed: {e}; falling back to unstratified split")
+            X_train_full, X_test, y_train_full, y_test = train_test_split(
+                X, y, test_size=0.2, random_state=gv.RANDOM_STATE
+            )
+        X = X_train_full
+        y = y_train_full
+        # Optionally write splits
+        if args.save_splits:
+            train_file = outdir / f"train_from_json_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv"
+            test_file = outdir / f"test_from_json_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv"
+            pd.concat([X, pd.Series(y, name=status_target)], axis=1).to_csv(train_file, index=False)
+            pd.concat([X_test, pd.Series(y_test, name=status_target)], axis=1).to_csv(test_file, index=False)
+    else:
+        from sklearn.model_selection import train_test_split
+        X_train_full, X_test, y_train_full, y_test = train_test_split(X, y, test_size=0.2, stratify=y, random_state=gv.RANDOM_STATE)
+        X = X_train_full
+        y = y_train_full
+
+    coordinator = MLPipelineCoordinator(enable_debugging=args.debug, export_debug_info=args.debug)
+    outdir = Path(args.output_dir)
+    outdir.mkdir(parents=True, exist_ok=True)
+
+    models_to_run, param_dists = build_models_and_dist(eval_models, eval_param_distributions, restrict=None)
+    # default ParamGrid enumeration
+
+    total_candidates = 0
+    model_candidate_grids = {}
+    n_samples_override = args.n_samples_per_model if getattr(args, 'n_samples_per_model', None) is not None else None
+    random_search_mult = getattr(args, 'random_search_mult', 0.08)
+    for mname, dist in param_dists.items():
+        if args.exhaustive:
+            grid = param_grid_product(dist)
+            samples = grid
+        else:
+            # determine n_samples for this model using either override or a scaled heuristic
+            if n_samples_override and n_samples_override > 0:
+                n_per_model = n_samples_override
+            else:
+                # heuristic: sum length of param lists times multiplier
+                total_param_values = sum(len(v) if hasattr(v, '__len__') else 1 for v in dist.values())
+                n_per_model = max(1, int(math.ceil(total_param_values * float(random_search_mult))))
+            samples = param_random_samples(dist, n_samples=n_per_model if n_per_model > 0 else 1, random_state=gv.RANDOM_STATE)
+        # Default: replace missing smote__categorical_feature_names with categorical headers
+        # Set defaults for encoding and smote_method based on model family to reduce incompatible combos
+        mdl = models_to_run.get(mname)
+        family = get_model_family(mdl) if mdl is not None else 'other'
+        for s in samples:
+            # default encoding
+            if 'encoding' not in s:
+                s['encoding'] = 'ordinal' if family in ('tree', 'catboost') else 'ohe'
+            # default smote method per family
+            if 'smote__method' not in s:
+                if family == 'catboost':
+                    s['smote__method'] = 'none'
+                elif family == 'tree':
+                    s['smote__method'] = 'smotenc'
+                elif family == 'knn':
+                    s['smote__method'] = 'none'
+                else:
+                    s['smote__method'] = 'smote'
+            # Default: set categorical feature names for SMOTENC only when encoding is 'ordinal'
+            if 'smote__categorical_feature_names' not in s:
+                if s.get('encoding') == 'ordinal':
+                    s['smote__categorical_feature_names'] = headers.get('ordinal_cols', [])
+                else:
+                    s['smote__categorical_feature_names'] = []
+        valid_samples = [s for s in samples if is_valid_candidate(s)]
+        if len(valid_samples) != len(samples):
+            logger.info(f"Filtered {len(samples)-len(valid_samples)} incompatible samples for model {mname}")
+        model_candidate_grids[mname] = valid_samples
+        total_candidates += len(model_candidate_grids[mname])
+
+    logger.info(f"Total parameter combinations (before restrictions): {total_candidates}")
+    if args.limit and args.limit > 0:
+        logger.info(f"Limiting search to first {args.limit} candidates per model")
+
+    results = []
+    records = []
+    # progress tracking
+    candidate_counter = 0
+    start_time = time.time()
+    # Loop models and combos
+    # Setup output files and DB connection if required
+    outdir = Path(args.output_dir)
+    outdir.mkdir(parents=True, exist_ok=True)
+    conn = None
+    if args.save_format.lower() == 'sqlite':
+        import sqlite3
+        db_file = outdir / args.db_path
+        conn = sqlite3.connect(db_file)
+        # create table if not exists
+        cur = conn.cursor()
+        cur.execute('''CREATE TABLE IF NOT EXISTS candidates (
+            timestamp TEXT,
+            model TEXT,
+            params TEXT,
+            mean_f1 REAL,
+            mean_accuracy REAL,
+            mean_precision REAL,
+            mean_recall REAL,
+            cv_scores TEXT,
+            selected_features TEXT,
+            selected_features_freq TEXT,
+            mean_feature_importances TEXT,
+            feature_importances TEXT,
+            fit_time REAL
+        )''')
+        conn.commit()
+
+    def flush_records(records_list):
+        if not records_list:
+            return
+        df_out = pd.DataFrame(records_list)
+        if args.save_format.lower() == 'csv':
+            csv_path = outdir / 'search_results.csv'
+            if csv_path.exists():
+                df_out.to_csv(csv_path, index=False, mode='a', header=False)
+            else:
+                df_out.to_csv(csv_path, index=False, mode='w', header=True)
+        elif args.save_format.lower() == 'sqlite':
+            df_out.to_sql('candidates', conn, if_exists='append', index=False)
+            conn.commit()
+        records_list.clear()
+
+    # Setup tqdm progress bar if available
+    pbar = None
+    if not getattr(args, 'no_progress', False) and HAS_TQDM:
+        pbar = tqdm(total=total_candidates, desc='Search', unit='cand', dynamic_ncols=True)
+
+    for mname, model in models_to_run.items():
+        logger.info(f"Starting exhaustive search for model: {mname}")
+        combos = model_candidate_grids.get(mname, [])
+        if args.limit and args.limit > 0:
+            combos = combos[:args.limit]
+
+        for idx, cand in enumerate(combos):
+            candidate_counter += 1
+            pct = (candidate_counter / max(1, total_candidates)) * 100.0
+            elapsed = time.time() - start_time
+            eta = None
+            if pct > 0:
+                est_total = elapsed / (pct / 100.0)
+                eta = time.time() + (est_total - elapsed)
+            eta_str = datetime.utcfromtimestamp(eta).strftime('%Y-%m-%d %H:%M:%S UTC') if eta else 'unknown'
+            logger.info(f"Evaluating {mname} candidate {idx+1}/{len(combos)} ({candidate_counter}/{total_candidates}) [{pct:.2f}% done]. ETA: {eta_str}. Params: {cand}")
+            # Update tqdm progress bar
+            if pbar is not None:
+                try:
+                    pbar.set_postfix_str(f"{mname} {idx+1}/{len(combos)}")
+                except Exception:
+                    pass
+                pbar.update(1)
+            try:
+                # Ensure SMOTE categorical features exist in the DataFrame
+                smote_cat_names = [c for c in cand.get('smote__categorical_feature_names', []) if c in X.columns]
+                enc = cand.get('encoding', 'ohe')
+                smm = cand.get('smote__method', 'smote')
+                smote_enabled_full = bool(cand.get('smote__enabled', True))
+                if smm == 'smotenc' and enc != 'ordinal':
+                    logger.debug(f"Disabling SMOTENC for candidate because encoding={enc}")
+                    smote_enabled_full = False
+                if smm == 'smotenc' and not smote_cat_names:
+                    logger.debug("Disabling SMOTENC for candidate because no categorical columns present in full data")
+                    smote_enabled_full = False
+                # if method is 'smote' we must not provide categorical names (keeps NamedSMOTE)
+                if smm != 'smotenc':
+                    smote_cat_names = []
+                # min class adjustment for full train
+                try:
+                    full_class_counts = np.bincount(y.astype(int))
+                    min_class_count_full = full_class_counts.min() if len(full_class_counts) > 0 else 0
+                except Exception:
+                    min_class_count_full = 0
+                k_neighbors_full = int(cand.get('smote__k_neighbors', 5))
+                if min_class_count_full <= 1:
+                    logger.debug(f"Disabling SMOTE for candidate because min_class_count_full={min_class_count_full}")
+                    smote_enabled_full = False
+                else:
+                    if k_neighbors_full >= min_class_count_full:
+                        k_neighbors_full = max(1, min_class_count_full - 1)
+                        logger.debug(f"Adjusting k_neighbors to {k_neighbors_full} for full training")
+                logger.debug(f"Candidate SMOTE categorical names (filtered): {smote_cat_names}")
+                pipeline = coordinator.create_pipeline(base_estimator=clone(model),
+                                                       smote_config={"enabled": smote_enabled_full,
+                                                                   "categorical_feature_names": smote_cat_names,
+                                                                   "k_neighbors": int(k_neighbors_full)},
+                                                       feature_selection_config={"max_features": cand.get('feature_selecting_classifier__max_features', None),
+                                                                                  "threshold": cand.get('feature_selecting_classifier__threshold', None)})
+
+                # Attempt to set other params
+                try:
+                    pipeline.set_params(**cand)
+                except Exception:
+                    pass
+                # ensure smote categorical names and enabled flag are filtered and re-applied after set_params
+                try:
+                    pipeline.set_params(smote__categorical_feature_names=smote_cat_names)
+                    pipeline.set_params(smote__enabled=smote_enabled_full)
+                    pipeline.set_params(smote__k_neighbors=k_neighbors_full)
+                except Exception:
+                    pass
+
+                cv_strategy = StratifiedKFold(n_splits=args.cv, shuffle=True, random_state=gv.RANDOM_STATE)
+                # Run manual CV to capture per-fold selected features and feature importances
+                fold_metrics = []
+                selected_count = Counter()
+                importance_sums = defaultdict(float)
+                importance_counts = Counter()
+                # Per-fold metadata for debugging and analysis (SMOTE enabled, class counts, selected features)
+                cv_fold_info = []
+                for fold_i, (train_idx, val_idx) in enumerate(cv_strategy.split(X, y)):
+                    X_train, X_val = X.iloc[train_idx], X.iloc[val_idx]
+                    y_train, y_val = y[train_idx], y[val_idx]
+                    # Per-fold SMOTE configuration: filter categorical names to current fold
+                    enc = cand.get('encoding', 'ohe')
+                    smm = cand.get('smote__method', 'smote')
+                    smote_enabled_fold = bool(cand.get('smote__enabled', True))
+                    smote_cat_names_fold = [c for c in cand.get('smote__categorical_feature_names', []) if c in X_train.columns]
+                    # Compatibility checks
+                    if smm == 'smotenc' and enc != 'ordinal':
+                        # SMOTENC requires ordinal-encoded categorical features; disable for this fold
+                        logger.debug(f"Disabling SMOTENC for fold {fold_i} because encoding={enc}")
+                        smote_enabled_fold = False
+                    # If smotenc requested but no categorical features exist in this fold, disable
+                    if smm == 'smotenc' and not smote_cat_names_fold:
+                        logger.debug(f"Disabling SMOTENC for fold {fold_i} because no categorical features present in fold")
+                        smote_enabled_fold = False
+                    if smm != 'smotenc':
+                        # ensure we don't pass categorical names when using plain SMOTE
+                        smote_cat_names_fold = []
+                    # Compute min class count and adjust k_neighbors if necessary
+                    try:
+                        class_counts = np.bincount(y_train.astype(int))
+                        min_class_count = class_counts.min() if len(class_counts) > 0 else 0
+                    except Exception:
+                        min_class_count = 0
+                    k_neighbors = int(cand.get('smote__k_neighbors', 5))
+                    if min_class_count <= 1:
+                        logger.debug(f"Disabling SMOTE for fold {fold_i} because min_class_count={min_class_count}")
+                        smote_enabled_fold = False
+                    else:
+                        if k_neighbors >= min_class_count:
+                            k_neighbors = max(1, min_class_count - 1)
+                            logger.debug(f"Adjusting k_neighbors to {k_neighbors} for fold {fold_i}")
+
+                    pipeline_fold = coordinator.create_pipeline(base_estimator=clone(model),
+                                                               smote_config={"enabled": smote_enabled_fold,
+                                                                            "categorical_feature_names": smote_cat_names_fold,
+                                                                            "k_neighbors": int(k_neighbors)},
+                                                               feature_selection_config={"max_features": cand.get('feature_selecting_classifier__max_features', None),
+                                                                                          "threshold": cand.get('feature_selecting_classifier__threshold', None)})
+                    try:
+                        pipeline_fold.set_params(**cand)
+                    except Exception:
+                        pass
+                    # Ensure filtered categorical names and enabled flag are re-applied per fold
+                    try:
+                        pipeline_fold.set_params(smote__categorical_feature_names=smote_cat_names_fold)
+                        pipeline_fold.set_params(smote__enabled=smote_enabled_fold)
+                        pipeline_fold.set_params(smote__k_neighbors=k_neighbors)
+                    except Exception:
+                        pass
+                    t0 = time.time()
+                    fitted_fold = coordinator.fit_pipeline(pipeline_fold, X_train, y_train)
+                    fold_fit_time = time.time() - t0
+                    y_pred = fitted_fold.predict(X_val)
+                    f1 = float(f1_score(y_val, y_pred, average='macro'))
+                    acc = float(accuracy_score(y_val, y_pred))
+                    prec = float(precision_score(y_val, y_pred, average='macro', zero_division=0))
+                    rec = float(recall_score(y_val, y_pred, average='macro', zero_division=0))
+                    fold_metrics.append({'f1': f1, 'accuracy': acc, 'precision': prec, 'recall': rec, 'fit_time': fold_fit_time})
+                    # Capture selected features and importances
+                    sel_feats = None
+                    fsc_fold = fitted_fold.named_steps.get('feature_selecting_classifier')
+                    if fsc_fold is not None:
+                        try:
+                            sel_feats = getattr(fsc_fold, 'selected_features_', None)
+                            if sel_feats is not None:
+                                for feat in sel_feats:
+                                    selected_count[str(feat)] += 1
+                            fi = getattr(fsc_fold, 'feature_importances_', None)
+                            # Normalize to feature names if fi is array-like
+                            if fi is not None:
+                                # If pandas Series-like
+                                if hasattr(fi, 'to_dict'):
+                                    fi_map = dict(fi.to_dict())
+                                else:
+                                    fi_arr = np.asarray(fi)
+                                    # try to align with selected features first
+                                    if sel_feats is not None and len(fi_arr) == len(sel_feats):
+                                        fi_map = {str(sel_feats[i]): float(fi_arr[i]) for i in range(len(sel_feats))}
+                                    else:
+                                        # fallback: align with full X columns if lengths match
+                                        if len(fi_arr) == len(X.columns):
+                                            fi_map = {str(X.columns[i]): float(fi_arr[i]) for i in range(len(X.columns))}
+                                        else:
+                                            fi_map = {}
+                                for fk, fv in fi_map.items():
+                                    importance_sums[fk] += float(fv)
+                                    importance_counts[fk] += 1
+                        except Exception:
+                            pass
+                    # Append fold-level metadata for diagnostics
+                    try:
+                        class_counts_list = class_counts.tolist() if hasattr(class_counts, 'tolist') else list(class_counts)
+                    except Exception:
+                        class_counts_list = []
+                    cv_fold_info.append({
+                        'fold': int(fold_i),
+                        'smote_enabled': bool(smote_enabled_fold),
+                        'min_class_count': int(min_class_count),
+                        'class_counts': class_counts_list,
+                        'selected_features': list(sel_feats) if sel_feats is not None else []
+                    })
+                # Aggregate fold metrics
+                mean_f1 = float(np.mean([m['f1'] for m in fold_metrics])) if fold_metrics else 0.0
+                mean_acc = float(np.mean([m['accuracy'] for m in fold_metrics])) if fold_metrics else 0.0
+                mean_prec = float(np.mean([m['precision'] for m in fold_metrics])) if fold_metrics else 0.0
+                mean_rec = float(np.mean([m['recall'] for m in fold_metrics])) if fold_metrics else 0.0
+                cv_fit_time = sum([m['fit_time'] for m in fold_metrics])
+                # finalize selected features frequency and mean importances
+                selected_features_freq = {k: v / float(args.cv) for k, v in selected_count.items()}
+                mean_feature_importances = {k: importance_sums[k] / float(importance_counts[k]) for k in importance_sums}
+                logger.info(f"Candidate mean_f1={mean_f1:.4f} (acc={mean_acc:.4f})")
+
+                # Fit on full training data to capture selected features and importances
+                t_fit_start = time.time()
+                fitted_pipeline = coordinator.fit_pipeline(pipeline, X, y)
+                fit_time = time.time() - t_fit_start
+
+                fsc = None
+                try:
+                    fsc = fitted_pipeline.named_steps.get('feature_selecting_classifier')
+                except Exception:
+                    fsc = None
+                selected_features = None
+                feature_importances = None
+                try:
+                    if fsc is not None and hasattr(fsc, 'selected_features_'):
+                        selected_features = list(getattr(fsc, 'selected_features_', []))
+                        fi = getattr(fsc, 'feature_importances_', None)
+                        if fi is not None:
+                            try:
+                                feature_importances = {feat: float(val) for feat, val in zip(selected_features, fi.tolist())}
+                            except Exception:
+                                feature_importances = fi.tolist()
+                except Exception:
+                    feature_importances = None
+
+                records.append({
+                    'timestamp': now_ts(),
+                    'model': mname,
+                    'params': json.dumps(cand, default=str),
+                    'mean_f1': mean_f1,
+                    'mean_accuracy': mean_acc,
+                    'mean_precision': mean_prec,
+                    'mean_recall': mean_rec,
+                    'cv_scores': json.dumps([m['f1'] for m in fold_metrics]),
+                    'cv_fold_info': json.dumps(cv_fold_info),
+                    'selected_features': json.dumps(selected_features),
+                    'feature_importances': json.dumps(feature_importances),
+                    'selected_features_freq': json.dumps(selected_features_freq),
+                    'mean_feature_importances': json.dumps(mean_feature_importances),
+                    'fit_time': fit_time
+                })
+                # Optionally flush periodically
+                if args.flush_every > 0 and (candidate_counter % args.flush_every == 0):
+                    flush_records(records)
+            except Exception as e:
+                logger.exception(f"Error evaluating {mname} candidate: {e}")
+                continue
+
+    # close tqdm progress bar if present to avoid misleading stalled display
+    if pbar is not None:
+        try:
+            pbar.close()
+        except Exception:
+            pass
+
+    # Sort results by mean_f1
+    import sqlite3
+    # flush any remaining records in memory
+    flush_records(records)
+    records_df = pd.DataFrame([])
+    if args.save_format.lower() == 'csv':
+        csv_path = outdir / 'search_results.csv'
+        if csv_path.exists():
+            records_df = pd.read_csv(csv_path)
+    elif args.save_format.lower() == 'sqlite' and conn is not None:
+        records_df = pd.read_sql_query('SELECT * FROM candidates', conn)
+    else:
+        records_df = pd.DataFrame(records)
+    if not records_df.empty:
+        records_df.sort_values(by='mean_f1', ascending=False, inplace=True)
+    results_sorted = records_df.to_dict(orient='records')
+    top = results_sorted[: args.n_top]
+    logger.info(f"Best {len(top)} candidates:")
+    for t in top:
+        logger.info(t)
+
+    # Fit the top candidate pipeline on the full train and evaluate on test
+    if top:
+        best = top[0]
+        mname = best['model']
+        params = best['params']
+        if isinstance(params, str):
+            try:
+                params = json.loads(params)
+            except Exception:
+                params = {}
+        # instantiate pipeline
+        # Reuse code from above to build pipeline with the base estimator
+        base_estimator = eval_models[mname]
+        pipeline = coordinator.create_pipeline(base_estimator=base_estimator,
+                                               smote_config={"enabled": params.get('smote__enabled', True),
+                                                            "categorical_feature_names": params.get('smote__categorical_feature_names', []),
+                                                            "k_neighbors": int(params.get('smote__k_neighbors', 5))},
+                                               feature_selection_config={"max_features": params.get('feature_selecting_classifier__max_features', None),
+                                                                         "threshold": params.get('feature_selecting_classifier__threshold', None)})
+        try:
+            pipeline.set_params(**params)
+        except Exception:
+            pass
+
+        logger.info("Fitting best candidate on train and evaluating on test set...")
+        pipeline.fit(X, y)
+        y_pred = pipeline.predict(X_test)
+        # Use macro averaging so multiclass targets are handled correctly
+        metrics = {
+            'accuracy': float(accuracy_score(y_test, y_pred)),
+            'precision': float(precision_score(y_test, y_pred, average='macro', zero_division=0)),
+            'recall': float(recall_score(y_test, y_pred, average='macro', zero_division=0)),
+            'f1': float(f1_score(y_test, y_pred, average='macro', zero_division=0))
+        }
+        logger.info(f"Best candidate test metrics: {metrics}")
+        # Save pipeline and metrics
+        outdir = Path(args.output_dir)
+        outdir.mkdir(parents=True, exist_ok=True)
+        joblib.dump(pipeline, outdir / f"best_pipeline_{mname}.pkl")
+        (outdir / "top_candidates.json").write_text(json.dumps(top, indent=2, default=str))
+        (outdir / "metrics.json").write_text(json.dumps(metrics, indent=2))
+
+    logger.info("Search complete")
+    if conn is not None:
+        conn.close()
+
+
+def main():
+    parser = argparse.ArgumentParser(description="Exhaustive hyperparameter search runner using MLPipelineCoordinator")
+    parser.add_argument("--data-csv", type=Path, default=ROOT / "data" / "prefi_weaviate_clean-1_flattened.csv")
+    parser.add_argument("--start-json", type=Path, default=None, help='Start from raw JSON (will run ingest + preprocess)')
+    parser.add_argument("--save-splits", action='store_true', help='Save train/test splits when starting from JSON')
+    parser.add_argument("--test-csv", type=Path, default=None)
+    parser.add_argument("--column-headers", type=Path, default=ROOT / "src" / "column_headers.json")
+    parser.add_argument("--output-dir", type=Path, default=ROOT / "models" / "exhaustive_search")
+    parser.add_argument("--n-top", type=int, default=5)
+    parser.add_argument("--n-samples-per-model", type=int, default=30, dest="n_samples_per_model",
+                        help='Number of parameter samples to draw per model')
+    parser.add_argument("--random-search-mult", type=float, default=0.08, dest='random_search_mult',
+                        help='Multiplier for default random search iterations per model to scale sampling density')
+    parser.add_argument("--save-format", type=str, default='csv', choices=['csv', 'sqlite'], dest='save_format')
+    parser.add_argument("--db-path", type=str, default='search_results.db', dest='db_path', help='SQLite DB filename when saving to sqlite')
+    parser.add_argument("--flush-every", type=int, default=10, dest='flush_every', help='Flush results to disk every N candidates')
+    parser.add_argument("--n-jobs", type=int, default=1)
+    parser.add_argument("--cv", type=int, default=3)
+    parser.add_argument("--limit", type=int, default=0, help="Limit number of combos per model; 0 means no limit")
+    parser.add_argument("--exhaustive", action='store_true', help="Enumerate all parameter combinations (cartesian product)")
+    parser.add_argument("--debug", action='store_true')
+    parser.add_argument("--no-progress", action='store_true', default=False, help='Disable inline progress bar and ETA')
+    args = parser.parse_args()
+
+    run_search(args)
+
+
+if __name__ == '__main__':
+    main()

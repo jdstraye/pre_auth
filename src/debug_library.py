@@ -294,12 +294,43 @@ class DataValidator:
                 comparison["dtype_changes"].append(
                     {"column": col, "before": str(before_dtype), "after": str(after_dtype)}
                 )
-                if is_integer_or_bool_dtype(before_dtype) and not is_integer_or_bool_dtype(after_dtype):
-                    comparison["errors"].append(
-                        f"Column '{col}' saw dtype changes from '{str(before_dtype)}' to '{str(after_dtype)}'"
-                    )
+                # Allow integer -> numeric (float) conversions only when the resulting
+                # float values are *integral* (e.g., 3.0). This commonly happens when
+                # resampling (SMOTE) produces integer-equivalent floats. However,
+                # if fractional values (e.g., 3.1) are introduced, treat that as a
+                # critical error because converting back to int would lose information.
+                if is_integer_or_bool_dtype(before_dtype):
+                    if is_numeric_dtype(after_dtype) and not is_integer_or_bool_dtype(after_dtype):
+                        # Inspect the actual values to detect fractional values
+                        try:
+                            after_arr = after[col].to_numpy()
+                            mask = np.isfinite(after_arr)
+                            if mask.sum() > 0:
+                                fractional = np.abs(after_arr[mask] - np.rint(after_arr[mask])) > 1e-8
+                                if np.any(fractional):
+                                    sample_vals = after_arr[mask][fractional][:3]
+                                    comparison["errors"].append(
+                                        f"Column '{col}' converted integer->float but fractional values introduced (examples: {list(sample_vals)})"
+                                    )
+                                else:
+                                    comparison["warnings"].append(
+                                        f"Column '{col}' changed from integer/bool '{str(before_dtype)}' to numeric '{str(after_dtype)}' (allowed, values are integer-equivalent)"
+                                    )
+                            else:
+                                # No finite values to inspect; treat as warning
+                                comparison["warnings"].append(
+                                    f"Column '{col}' changed from integer/bool '{str(before_dtype)}' to numeric '{str(after_dtype)}' (allowed, no finite values to inspect)"
+                                )
+                        except Exception as e:
+                            comparison["errors"].append(
+                                f"Column '{col}' conversion inspection failed: {e}"
+                            )
+                    elif not is_integer_or_bool_dtype(after_dtype):
+                        comparison["errors"].append(
+                            f"Column '{col}' saw dtype changes from '{str(before_dtype)}' to '{str(after_dtype)}'"
+                        )
                 else:
-                     comparison["warnings"].append(f"Column '{col}' saw dtype changes from '{str(before[col].dtype)}' to '{str(after[col].dtype)}'")
+                    comparison["warnings"].append(f"Column '{col}' saw dtype changes from '{str(before[col].dtype)}' to '{str(after[col].dtype)}'")
 
             # Check for new NaN/inf values (Refined to check for numeric types)
             if is_numeric_dtype(before[col].dtype) and is_numeric_dtype(after[col].dtype):
@@ -369,7 +400,22 @@ class DataValidator:
             log = "\n - ".join(comparison["errors"])
             raise ValueError(f"Unacceptable transformations to DataFrame during {operation}: \n - {log}")
 
-        comparison["passed"] = not any(comparison[key] for key in ["warnings", "issues", "errors"])
+        # Mark as passed when there were no critical errors found
+        if not comparison["errors"]:
+            comparison["passed"] = True
+
+        # Treat most warnings/issues as failures under DEBUG, but allow
+        # integer->float dtype warnings (commonly introduced by resampling
+        # like SMOTE) to be informational only and not mark the comparison
+        # as failed.
+        # Exclude 'allowed' informational warnings (e.g., integer-equivalent float
+        # conversions introduced by resampling) from causing a failure state.
+        filtered_warnings = [w for w in comparison["warnings"] if "allowed" not in w]
+        # Only treat *critical* errors as failing conditions. 'issues' (informational findings
+        # like multicollinearity warnings) should not automatically mark the transform as
+        # 'corrupted' in DEBUG mode; they are diagnostic. Therefore, pass is True when there
+        # are no critical errors and no disallowed warnings (e.g., int->object conversions).
+        comparison["passed"] = not comparison["errors"] and not filtered_warnings
         return comparison
 
 

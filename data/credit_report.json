@@ -1,0 +1,280 @@
+{
+  "summary": {
+    "credit_score": 653,
+    "monthly_payments": 715,
+    "credit_freeze": false,
+    "fraud_alert": false,
+    "deceased": false
+  },
+  "personal_info": {
+    "name": "Venitia Dickerson VENITIA OSHANTIA DICKERSON",
+    "age": 50,
+    "report_date": "09/01/2025",
+    "address": null
+  },
+  "categories": {
+    "revolving_open": {
+      "count": 5,
+      "balance": 4393
+    },
+    "real_estate_open": {
+      "count": 0,
+      "balance": 0
+    },
+    "line_of_credit_open": {
+      "count": 0,
+      "balance": 0
+    },
+    "installment_open": {
+      "count": 7,
+      "balance": 55220
+    },
+    "miscellaneous_open": {
+      "count": 0,
+      "balance": 0
+    }
+  },
+  "credit_alerts": {},
+  "credit_factors": [
+    "Venitia Dickerson's Credit Summary",
+    "653 $715/mo No No No",
+    "Credit Report Details Credit Factors",
+    "Report Date: 09/01/2025 Credit Report",
+    "Name: Venitia Dickerson VENITIA OSHANTIA DICKERSON",
+    "2 Rev Lates in 2-4 yrs",
+    "7350 Jefferson Hwy 7350 JEFFERSON HWY #485-33",
+    "10k+ lines",
+    "Baton Rouge, LA. 70806 BATON ROUGE, LA. 70806",
+    "Credit Alerts #",
+    "Public Records 0",
+    "Inquires (Last 6 Months) 0",
+    "Late Pays (Last 2/2+ Years) 1 / 7",
+    "Credit Alerts",
+    "30 - 09/23",
+    "Lates +2yr: 1/30, 1/60",
+    "Lates +2yr: 1/30, 1/60",
+    "JPMCB CARD SERVICES (Flexible Spending Credit Card) $1,858 $10,000 19% $75 I 2025",
+    "NEIGHBORS FEDERAL CR (Credit Card) $0 $3,000 0% $0 I 2024",
+    "CREDIT ONE BANK (Credit Card) $1,210 $1,200 101% $61 I 2024",
+    "AVANT / WEBBANK (Credit Card) $1,011 $1,000 101% $55 I 2022",
+    "LEAD BANK (Secured Credit Card) $314 $725 43% $0 I 2021",
+    "CHIMEFIN/STRIDE BANK (Secured Credit Card) $0 $809 0% $0 I 2021",
+    "WESTLAKE FINANCIAL (Unsecured) $10,883 $12,000 $334 I 2024",
+    "LEAD BANK (Secured) $233 $511 $25 I 2024",
+    "DEPT OF ED (Education Loan) $10,840 $10,248 $0 I 2024",
+    "DEPT OF ED (Education Loan) $11,128 $10,252 $0 I 2024",
+    "REPUBLIC FINANCE, IN (Note Loan) $2,076 $3,161 $165 I 2024",
+    "DEPT OF ED (Education Loan) $15,381 $13,668 $0 I 2022",
+    "DEPT OF ED (Education Loan) $4,679 $4,279 $0 I 2018",
+    "CHIMEFIN/STRIDE BANK (Secured Credit Card) $0 $809 $0 I 2021",
+    "WESTLAKE FINANCIAL (Unsecured) $10,883 $12,000 $334 I 2024",
+    "LEAD BANK (Secured) $233 $511 $25 I 2024",
+    "DEPT OF ED (Education Loan) $10,840 $10,248 $0 I 2024",
+    "DEPT OF ED (Education Loan) $11,128 $10,252 $0 I 2024",
+    "REPUBLIC FINANCE, IN (Note Loan) $2,076 $3,161 $165 I 2024",
+    "DEPT OF ED (Education Loan) $15,381 $13,668 $0 I 2022",
+    "DEPT OF ED (Education Loan) $4,679 $4,279 $0 I 2018",
+    "950 Credit, Inc (Rental Agreement) $0 $1,350 $0 J 2018"
+  ],
+  "open_accounts": {
+    "revolving": [
+      {
+        "creditor": "LEAD BANK",
+        "balance": 1858,
+        "limit": 10000,
+        "payment": 19,
+        "responsibility": "I",
+        "year_opened": 2025
+      },
+      {
+        "creditor": "CREDIT ONE BANK",
+        "balance": 1210,
+        "limit": 1200,
+        "payment": 101,
+        "responsibility": "I",
+        "year_opened": 2024
+      },
+      {
+        "creditor": "AVANT / WEBBANK",
+        "balance": 1011,
+        "limit": 1000,
+        "payment": 101,
+        "responsibility": "I",
+        "year_opened": 2022
+      },
+      {
+        "creditor": "LEAD BANK",
+        "balance": 314,
+        "limit": 725,
+        "payment": 43,
+        "responsibility": "I",
+        "year_opened": 2021
+      },
+      {
+        "creditor": "CHIMEFIN/STRIDE BANK",
+        "balance": 0,
+        "limit": 809,
+        "payment": 0,
+        "responsibility": "I",
+        "year_opened": 2021
+      },
+      {
+        "creditor": "LEAD BANK",
+        "balance": 233,
+        "limit": 511,
+        "payment": 25,
+        "responsibility": "I",
+        "year_opened": 2024
+      },
+      {
+        "creditor": "CHIMEFIN/STRIDE BANK",
+        "balance": 0,
+        "limit": 809,
+        "payment": 0,
+        "responsibility": "I",
+        "year_opened": 2021
+      },
+      {
+        "creditor": "JPMCB CARD SERVICES",
+        "balance": 0,
+        "limit": 413,
+        "payment": 0,
+        "responsibility": "I",
+        "year_opened": 1995
+      },
+      {
+        "creditor": "LEAD BANK",
+        "balance": 233,
+        "limit": 511,
+        "payment": 25,
+        "responsibility": "I",
+        "year_opened": 2024
+      }
+    ],
+    "line_of_credit": [],
+    "real_estate": [],
+    "installment": [
+      {
+        "creditor": "DEPT OF ED",
+        "balance": 10840,
+        "limit": 10248,
+        "payment": 0,
+        "responsibility": "I",
+        "year_opened": 2024
+      },
+      {
+        "creditor": "DEPT OF ED",
+        "balance": 11128,
+        "limit": 10252,
+        "payment": 0,
+        "responsibility": "I",
+        "year_opened": 2024
+      },
+      {
+        "creditor": "REPUBLIC FINANCE, IN",
+        "balance": 2076,
+        "limit": 3161,
+        "payment": 165,
+        "responsibility": "I",
+        "year_opened": 2024
+      },
+      {
+        "creditor": "DEPT OF ED",
+        "balance": 15381,
+        "limit": 13668,
+        "payment": 0,
+        "responsibility": "I",
+        "year_opened": 2022
+      },
+      {
+        "creditor": "DEPT OF ED",
+        "balance": 4679,
+        "limit": 4279,
+        "payment": 0,
+        "responsibility": "I",
+        "year_opened": 2018
+      },
+      {
+        "creditor": "DEPT OF ED",
+        "balance": 10840,
+        "limit": 10248,
+        "payment": 0,
+        "responsibility": "I",
+        "year_opened": 2024
+      },
+      {
+        "creditor": "DEPT OF ED",
+        "balance": 11128,
+        "limit": 10252,
+        "payment": 0,
+        "responsibility": "I",
+        "year_opened": 2024
+      },
+      {
+        "creditor": "REPUBLIC FINANCE, IN",
+        "balance": 2076,
+        "limit": 3161,
+        "payment": 165,
+        "responsibility": "I",
+        "year_opened": 2024
+      },
+      {
+        "creditor": "DEPT OF ED",
+        "balance": 15381,
+        "limit": 13668,
+        "payment": 0,
+        "responsibility": "I",
+        "year_opened": 2022
+      },
+      {
+        "creditor": "DEPT OF ED",
+        "balance": 4679,
+        "limit": 4279,
+        "payment": 0,
+        "responsibility": "I",
+        "year_opened": 2018
+      }
+    ],
+    "miscellaneous": [
+      {
+        "creditor": "NEIGHBORS FEDERAL CR",
+        "balance": 0,
+        "limit": 3000,
+        "payment": 0,
+        "responsibility": "I",
+        "year_opened": 2024
+      },
+      {
+        "creditor": "WESTLAKE FINANCIAL",
+        "balance": 10883,
+        "limit": 12000,
+        "payment": 334,
+        "responsibility": "I",
+        "year_opened": 2024
+      },
+      {
+        "creditor": "SYNCB/CARE",
+        "balance": 0,
+        "limit": 5000,
+        "payment": 0,
+        "responsibility": "I",
+        "year_opened": 2008
+      },
+      {
+        "creditor": "WESTLAKE FINANCIAL",
+        "balance": 10883,
+        "limit": 12000,
+        "payment": 334,
+        "responsibility": "I",
+        "year_opened": 2024
+      }
+    ]
+  },
+  "closed_accounts": {
+    "revolving": [],
+    "line_of_credit": [],
+    "real_estate": [],
+    "installment": [],
+    "miscellaneous": []
+  }
+}

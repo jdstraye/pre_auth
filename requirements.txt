@@ -147,3 +147,4 @@ webencodings==0.5.1
 xdg==5
 xgboost==3.0.4
 xlrd==1.2.0
+pymupdf==1.26.7

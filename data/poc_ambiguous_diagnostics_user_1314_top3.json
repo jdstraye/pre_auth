@@ -1,0 +1,2726 @@
+[
+  {
+    "phrase": "8 Chrged Off Rev Accts",
+    "page": 0,
+    "found_text": "10 / $56,881",
+    "bbox": [
+      212.60000610351562,
+      395.5450134277344,
+      262.6399841308594,
+      407.9110107421875
+    ],
+    "crop": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_crop_1_8___c_h_r_g_e_d___o_f_f___r_e_v___a_c_c_t_s.png",
+    "red_hm": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_1_8___c_h_r_g_e_d___o_f_f___r_e_v___a_c_c_t_s_red_hm.png",
+    "green_hm": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_1_8___c_h_r_g_e_d___o_f_f___r_e_v___a_c_c_t_s_green_hm.png",
+    "left_strip": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_1_8___c_h_r_g_e_d___o_f_f___r_e_v___a_c_c_t_s_left_strip.png",
+    "med_full": [
+      235,
+      239,
+      244
+    ],
+    "med_left": [
+      235,
+      239,
+      244
+    ],
+    "med_full_cat": "green",
+    "med_left_cat": "green",
+    "classifier": {
+      "cat": "green",
+      "rgb": [
+        235,
+        239,
+        244
+      ],
+      "hex": "#ebeff4",
+      "green_peak": 0.0,
+      "red_peak": 0.0,
+      "ratio": 0.0,
+      "uncertain": true
+    },
+    "glyph_hex": "#202429",
+    "glyph_rgb": [
+      32,
+      36,
+      41
+    ],
+    "glyph_cat": "black",
+    "best_score": 50,
+    "candidates": [
+      {
+        "rank": 1,
+        "page": 0,
+        "line_text": "8 Chrgd Off Rev Accts",
+        "score": 170,
+        "ln_bbox": [
+          382.67999267578125,
+          318.8849792480469,
+          492.1080627441406,
+          333.9989929199219
+        ],
+        "matched_spans": [
+          {
+            "text": "8 Chrgd Off Rev Accts",
+            "bbox": [
+              382.67999267578125,
+              318.8849792480469,
+              492.1080627441406,
+              333.9989929199219
+            ]
+          }
+        ],
+        "crop": "data/poc_imgs/top3_1_8___c_h_r_g_e_d___o_f_f___r_e_v___a_c_c_t_s_1.png",
+        "overlay": "data/poc_imgs/top3_1_8___c_h_r_g_e_d___o_f_f___r_e_v___a_c_c_t_s_1_overlay.png",
+        "red_hm": "data/poc_imgs/top3_1_8___c_h_r_g_e_d___o_f_f___r_e_v___a_c_c_t_s_1_red_hm.png",
+        "green_hm": "data/poc_imgs/top3_1_8___c_h_r_g_e_d___o_f_f___r_e_v___a_c_c_t_s_1_green_hm.png",
+        "med_full": [
+          255,
+          255,
+          255
+        ],
+        "med_left": [
+          255,
+          255,
+          255
+        ],
+        "med_full_cat": "neutral",
+        "med_left_cat": "neutral",
+        "classifier": {
+          "cat": "red",
+          "rgb": [
+            220,
+            53,
+            69
+          ],
+          "hex": "#dc3545",
+          "green_peak": 0.0,
+          "red_peak": 151.00000000000009,
+          "ratio": 0.0,
+          "uncertain": false
+        },
+        "glyph_hex": "#dc3545",
+        "glyph_rgb": [
+          220,
+          53,
+          69
+        ],
+        "glyph_cat": "red"
+      },
+      {
+        "rank": 2,
+        "page": 0,
+        "line_text": "8+ Rev Accnts with Balances",
+        "score": 130,
+        "ln_bbox": [
+          382.67999267578125,
+          591.0050048828125,
+          524.8220825195312,
+          606.1190185546875
+        ],
+        "matched_spans": [
+          {
+            "text": "8+ Rev Accnts with Balances",
+            "bbox": [
+              382.67999267578125,
+              591.0050048828125,
+              524.8220825195312,
+              606.1190185546875
+            ]
+          }
+        ],
+        "crop": "data/poc_imgs/top3_1_8___c_h_r_g_e_d___o_f_f___r_e_v___a_c_c_t_s_2.png",
+        "overlay": "data/poc_imgs/top3_1_8___c_h_r_g_e_d___o_f_f___r_e_v___a_c_c_t_s_2_overlay.png",
+        "red_hm": "data/poc_imgs/top3_1_8___c_h_r_g_e_d___o_f_f___r_e_v___a_c_c_t_s_2_red_hm.png",
+        "green_hm": "data/poc_imgs/top3_1_8___c_h_r_g_e_d___o_f_f___r_e_v___a_c_c_t_s_2_green_hm.png",
+        "med_full": [
+          255,
+          255,
+          255
+        ],
+        "med_left": [
+          255,
+          255,
+          255
+        ],
+        "med_full_cat": "neutral",
+        "med_left_cat": "neutral",
+        "classifier": {
+          "cat": "black",
+          "rgb": [
+            32,
+            36,
+            41
+          ],
+          "hex": "#202429",
+          "green_peak": 0.0,
+          "red_peak": 0.0,
+          "ratio": 0.0,
+          "uncertain": true
+        },
+        "glyph_hex": "#202429",
+        "glyph_rgb": [
+          32,
+          36,
+          41
+        ],
+        "glyph_cat": "black"
+      },
+      {
+        "rank": 3,
+        "page": 0,
+        "line_text": "6 Charged Off Accts",
+        "score": 110,
+        "ln_bbox": [
+          382.67999267578125,
+          165.8050079345703,
+          481.72406005859375,
+          180.91900634765625
+        ],
+        "matched_spans": [
+          {
+            "text": "6 Charged Off Accts",
+            "bbox": [
+              382.67999267578125,
+              165.8050079345703,
+              481.72406005859375,
+              180.91900634765625
+            ]
+          }
+        ],
+        "crop": "data/poc_imgs/top3_1_8___c_h_r_g_e_d___o_f_f___r_e_v___a_c_c_t_s_3.png",
+        "overlay": "data/poc_imgs/top3_1_8___c_h_r_g_e_d___o_f_f___r_e_v___a_c_c_t_s_3_overlay.png",
+        "red_hm": "data/poc_imgs/top3_1_8___c_h_r_g_e_d___o_f_f___r_e_v___a_c_c_t_s_3_red_hm.png",
+        "green_hm": "data/poc_imgs/top3_1_8___c_h_r_g_e_d___o_f_f___r_e_v___a_c_c_t_s_3_green_hm.png",
+        "med_full": [
+          255,
+          255,
+          255
+        ],
+        "med_left": [
+          255,
+          255,
+          255
+        ],
+        "med_full_cat": "neutral",
+        "med_left_cat": "neutral",
+        "classifier": {
+          "cat": "green",
+          "rgb": [
+            66,
+            143,
+            78
+          ],
+          "hex": "#428f4e",
+          "green_peak": 65.00000000000006,
+          "red_peak": 0.0,
+          "ratio": 65000000.00000006,
+          "uncertain": false
+        },
+        "glyph_hex": "#428f4e",
+        "glyph_rgb": [
+          66,
+          143,
+          78
+        ],
+        "glyph_cat": "green"
+      }
+    ]
+  },
+  {
+    "phrase": "3+ Closed Rev Accts",
+    "page": 0,
+    "found_text": "$1,036/mo",
+    "bbox": [
+      167.24000549316406,
+      71.42996978759766,
+      234.94398498535156,
+      90.70797729492188
+    ],
+    "crop": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_crop_2_3___c_l_o_s_e_d___r_e_v___a_c_c_t_s.png",
+    "red_hm": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_2_3___c_l_o_s_e_d___r_e_v___a_c_c_t_s_red_hm.png",
+    "green_hm": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_2_3___c_l_o_s_e_d___r_e_v___a_c_c_t_s_green_hm.png",
+    "left_strip": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_2_3___c_l_o_s_e_d___r_e_v___a_c_c_t_s_left_strip.png",
+    "med_full": [
+      255,
+      255,
+      255
+    ],
+    "med_left": [
+      255,
+      255,
+      255
+    ],
+    "med_full_cat": "neutral",
+    "med_left_cat": "neutral",
+    "classifier": {
+      "cat": "black",
+      "rgb": [
+        32,
+        36,
+        41
+      ],
+      "hex": "#202429",
+      "green_peak": 0.0,
+      "red_peak": 0.0,
+      "ratio": 0.0,
+      "uncertain": true
+    },
+    "glyph_hex": "#202429",
+    "glyph_rgb": [
+      32,
+      36,
+      41
+    ],
+    "glyph_cat": "black",
+    "best_score": 50,
+    "candidates": [
+      {
+        "rank": 1,
+        "page": 0,
+        "line_text": "3+ Closed Rev Accnts",
+        "score": 150,
+        "ln_bbox": [
+          382.67999267578125,
+          522.9749755859375,
+          491.19500732421875,
+          538.0889892578125
+        ],
+        "matched_spans": [
+          {
+            "text": "3+ Closed Rev Accnts",
+            "bbox": [
+              382.67999267578125,
+              522.9749755859375,
+              491.19500732421875,
+              538.0889892578125
+            ]
+          }
+        ],
+        "crop": "data/poc_imgs/top3_2_3___c_l_o_s_e_d___r_e_v___a_c_c_t_s_1.png",
+        "overlay": "data/poc_imgs/top3_2_3___c_l_o_s_e_d___r_e_v___a_c_c_t_s_1_overlay.png",
+        "red_hm": "data/poc_imgs/top3_2_3___c_l_o_s_e_d___r_e_v___a_c_c_t_s_1_red_hm.png",
+        "green_hm": "data/poc_imgs/top3_2_3___c_l_o_s_e_d___r_e_v___a_c_c_t_s_1_green_hm.png",
+        "med_full": [
+          255,
+          255,
+          255
+        ],
+        "med_left": [
+          255,
+          255,
+          255
+        ],
+        "med_full_cat": "neutral",
+        "med_left_cat": "neutral",
+        "classifier": {
+          "cat": "green",
+          "rgb": [
+            66,
+            143,
+            78
+          ],
+          "hex": "#428f4e",
+          "green_peak": 65.00000000000004,
+          "red_peak": 0.0,
+          "ratio": 65000000.000000045,
+          "uncertain": false
+        },
+        "glyph_hex": "#428f4e",
+        "glyph_rgb": [
+          66,
+          143,
+          78
+        ],
+        "glyph_cat": "green"
+      },
+      {
+        "rank": 2,
+        "page": 3,
+        "line_text": "Account paid for less than full balance. Fixed rate. Closed - 5/31/24",
+        "score": 140,
+        "ln_bbox": [
+          206.92999267578125,
+          457.9150085449219,
+          471.3830261230469,
+          470.281005859375
+        ],
+        "matched_spans": [
+          {
+            "text": "Account paid for less than full balance. Fixed rate. Closed - 5/31/24",
+            "bbox": [
+              206.92999267578125,
+              457.9150085449219,
+              471.3830261230469,
+              470.281005859375
+            ]
+          }
+        ],
+        "crop": "data/poc_imgs/top3_2_3___c_l_o_s_e_d___r_e_v___a_c_c_t_s_2.png",
+        "overlay": "data/poc_imgs/top3_2_3___c_l_o_s_e_d___r_e_v___a_c_c_t_s_2_overlay.png",
+        "red_hm": "data/poc_imgs/top3_2_3___c_l_o_s_e_d___r_e_v___a_c_c_t_s_2_red_hm.png",
+        "green_hm": "data/poc_imgs/top3_2_3___c_l_o_s_e_d___r_e_v___a_c_c_t_s_2_green_hm.png",
+        "med_full": [
+          255,
+          255,
+          255
+        ],
+        "med_left": [
+          255,
+          255,
+          255
+        ],
+        "med_full_cat": "neutral",
+        "med_left_cat": "neutral",
+        "classifier": {
+          "cat": "black",
+          "rgb": [
+            32,
+            36,
+            41
+          ],
+          "hex": "#202429",
+          "green_peak": 0.0,
+          "red_peak": 0.0,
+          "ratio": 0.0,
+          "uncertain": true
+        },
+        "glyph_hex": "#202429",
+        "glyph_rgb": [
+          32,
+          36,
+          41
+        ],
+        "glyph_cat": "black"
+      },
+      {
+        "rank": 3,
+        "page": 0,
+        "line_text": "3 Charged Off Accts",
+        "score": 130,
+        "ln_bbox": [
+          382.67999267578125,
+          182.8150177001953,
+          481.72406005859375,
+          197.92901611328125
+        ],
+        "matched_spans": [
+          {
+            "text": "3 Charged Off Accts",
+            "bbox": [
+              382.67999267578125,
+              182.8150177001953,
+              481.72406005859375,
+              197.92901611328125
+            ]
+          }
+        ],
+        "crop": "data/poc_imgs/top3_2_3___c_l_o_s_e_d___r_e_v___a_c_c_t_s_3.png",
+        "overlay": "data/poc_imgs/top3_2_3___c_l_o_s_e_d___r_e_v___a_c_c_t_s_3_overlay.png",
+        "red_hm": "data/poc_imgs/top3_2_3___c_l_o_s_e_d___r_e_v___a_c_c_t_s_3_red_hm.png",
+        "green_hm": "data/poc_imgs/top3_2_3___c_l_o_s_e_d___r_e_v___a_c_c_t_s_3_green_hm.png",
+        "med_full": [
+          255,
+          255,
+          255
+        ],
+        "med_left": [
+          255,
+          255,
+          255
+        ],
+        "med_full_cat": "neutral",
+        "med_left_cat": "neutral",
+        "classifier": {
+          "cat": "green",
+          "rgb": [
+            66,
+            143,
+            78
+          ],
+          "hex": "#428f4e",
+          "green_peak": 65.00000000000006,
+          "red_peak": 0.0,
+          "ratio": 65000000.00000006,
+          "uncertain": false
+        },
+        "glyph_hex": "#428f4e",
+        "glyph_rgb": [
+          66,
+          143,
+          78
+        ],
+        "glyph_cat": "green"
+      }
+    ]
+  },
+  {
+    "phrase": "8+ Rev Accts with Balances",
+    "page": 0,
+    "found_text": "10 / $56,881",
+    "bbox": [
+      212.60000610351562,
+      395.5450134277344,
+      262.6399841308594,
+      407.9110107421875
+    ],
+    "crop": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_crop_3_8___r_e_v___a_c_c_t_s___w_i_t_h___b_a_l_a_n_c_e_s.png",
+    "red_hm": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_3_8___r_e_v___a_c_c_t_s___w_i_t_h___b_a_l_a_n_c_e_s_red_hm.png",
+    "green_hm": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_3_8___r_e_v___a_c_c_t_s___w_i_t_h___b_a_l_a_n_c_e_s_green_hm.png",
+    "left_strip": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_3_8___r_e_v___a_c_c_t_s___w_i_t_h___b_a_l_a_n_c_e_s_left_strip.png",
+    "med_full": [
+      235,
+      239,
+      244
+    ],
+    "med_left": [
+      235,
+      239,
+      244
+    ],
+    "med_full_cat": "green",
+    "med_left_cat": "green",
+    "classifier": {
+      "cat": "green",
+      "rgb": [
+        235,
+        239,
+        244
+      ],
+      "hex": "#ebeff4",
+      "green_peak": 0.0,
+      "red_peak": 0.0,
+      "ratio": 0.0,
+      "uncertain": true
+    },
+    "glyph_hex": "#202429",
+    "glyph_rgb": [
+      32,
+      36,
+      41
+    ],
+    "glyph_cat": "black",
+    "best_score": 50,
+    "candidates": [
+      {
+        "rank": 1,
+        "page": 0,
+        "line_text": "8+ Rev Accnts with Balances",
+        "score": 180,
+        "ln_bbox": [
+          382.67999267578125,
+          591.0050048828125,
+          524.8220825195312,
+          606.1190185546875
+        ],
+        "matched_spans": [
+          {
+            "text": "8+ Rev Accnts with Balances",
+            "bbox": [
+              382.67999267578125,
+              591.0050048828125,
+              524.8220825195312,
+              606.1190185546875
+            ]
+          }
+        ],
+        "crop": "data/poc_imgs/top3_3_8___r_e_v___a_c_c_t_s___w_i_t_h___b_a_l_a_n_c_e_s_1.png",
+        "overlay": "data/poc_imgs/top3_3_8___r_e_v___a_c_c_t_s___w_i_t_h___b_a_l_a_n_c_e_s_1_overlay.png",
+        "red_hm": "data/poc_imgs/top3_3_8___r_e_v___a_c_c_t_s___w_i_t_h___b_a_l_a_n_c_e_s_1_red_hm.png",
+        "green_hm": "data/poc_imgs/top3_3_8___r_e_v___a_c_c_t_s___w_i_t_h___b_a_l_a_n_c_e_s_1_green_hm.png",
+        "med_full": [
+          255,
+          255,
+          255
+        ],
+        "med_left": [
+          255,
+          255,
+          255
+        ],
+        "med_full_cat": "neutral",
+        "med_left_cat": "neutral",
+        "classifier": {
+          "cat": "black",
+          "rgb": [
+            32,
+            36,
+            41
+          ],
+          "hex": "#202429",
+          "green_peak": 0.0,
+          "red_peak": 0.0,
+          "ratio": 0.0,
+          "uncertain": true
+        },
+        "glyph_hex": "#202429",
+        "glyph_rgb": [
+          32,
+          36,
+          41
+        ],
+        "glyph_cat": "black"
+      },
+      {
+        "rank": 2,
+        "page": 0,
+        "line_text": "8 Chrgd Off Rev Accts",
+        "score": 130,
+        "ln_bbox": [
+          382.67999267578125,
+          318.8849792480469,
+          492.1080627441406,
+          333.9989929199219
+        ],
+        "matched_spans": [
+          {
+            "text": "8 Chrgd Off Rev Accts",
+            "bbox": [
+              382.67999267578125,
+              318.8849792480469,
+              492.1080627441406,
+              333.9989929199219
+            ]
+          }
+        ],
+        "crop": "data/poc_imgs/top3_3_8___r_e_v___a_c_c_t_s___w_i_t_h___b_a_l_a_n_c_e_s_2.png",
+        "overlay": "data/poc_imgs/top3_3_8___r_e_v___a_c_c_t_s___w_i_t_h___b_a_l_a_n_c_e_s_2_overlay.png",
+        "red_hm": "data/poc_imgs/top3_3_8___r_e_v___a_c_c_t_s___w_i_t_h___b_a_l_a_n_c_e_s_2_red_hm.png",
+        "green_hm": "data/poc_imgs/top3_3_8___r_e_v___a_c_c_t_s___w_i_t_h___b_a_l_a_n_c_e_s_2_green_hm.png",
+        "med_full": [
+          255,
+          255,
+          255
+        ],
+        "med_left": [
+          255,
+          255,
+          255
+        ],
+        "med_full_cat": "neutral",
+        "med_left_cat": "neutral",
+        "classifier": {
+          "cat": "red",
+          "rgb": [
+            220,
+            53,
+            69
+          ],
+          "hex": "#dc3545",
+          "green_peak": 0.0,
+          "red_peak": 151.00000000000009,
+          "ratio": 0.0,
+          "uncertain": false
+        },
+        "glyph_hex": "#dc3545",
+        "glyph_rgb": [
+          220,
+          53,
+          69
+        ],
+        "glyph_cat": "red"
+      },
+      {
+        "rank": 3,
+        "page": 3,
+        "line_text": "Charged off account. Account closed by credit grantor.",
+        "score": 110,
+        "ln_bbox": [
+          206.92999267578125,
+          117.75498962402344,
+          426.5390930175781,
+          130.12098693847656
+        ],
+        "matched_spans": [
+          {
+            "text": "Charged off account. Account closed by credit grantor. ",
+            "bbox": [
+              206.92999267578125,
+              117.75498962402344,
+              426.5390930175781,
+              130.12098693847656
+            ]
+          }
+        ],
+        "crop": "data/poc_imgs/top3_3_8___r_e_v___a_c_c_t_s___w_i_t_h___b_a_l_a_n_c_e_s_3.png",
+        "overlay": "data/poc_imgs/top3_3_8___r_e_v___a_c_c_t_s___w_i_t_h___b_a_l_a_n_c_e_s_3_overlay.png",
+        "red_hm": "data/poc_imgs/top3_3_8___r_e_v___a_c_c_t_s___w_i_t_h___b_a_l_a_n_c_e_s_3_red_hm.png",
+        "green_hm": "data/poc_imgs/top3_3_8___r_e_v___a_c_c_t_s___w_i_t_h___b_a_l_a_n_c_e_s_3_green_hm.png",
+        "med_full": [
+          235,
+          239,
+          244
+        ],
+        "med_left": [
+          235,
+          239,
+          244
+        ],
+        "med_full_cat": "green",
+        "med_left_cat": "green",
+        "classifier": {
+          "cat": "green",
+          "rgb": [
+            235,
+            239,
+            244
+          ],
+          "hex": "#ebeff4",
+          "green_peak": 0.0,
+          "red_peak": 0.0,
+          "ratio": 0.0,
+          "uncertain": true
+        },
+        "glyph_hex": "#202429",
+        "glyph_rgb": [
+          32,
+          36,
+          41
+        ],
+        "glyph_cat": "black"
+      }
+    ]
+  },
+  {
+    "phrase": "In Credit Counseling",
+    "page": 0,
+    "found_text": "In Credit Counseling",
+    "bbox": [
+      382.67999267578125,
+      608.0149536132812,
+      482.3289489746094,
+      623.1289672851562
+    ],
+    "crop": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_crop_4_i_n___c_r_e_d_i_t___c_o_u_n_s_e_l_i_n_g.png",
+    "red_hm": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_4_i_n___c_r_e_d_i_t___c_o_u_n_s_e_l_i_n_g_red_hm.png",
+    "green_hm": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_4_i_n___c_r_e_d_i_t___c_o_u_n_s_e_l_i_n_g_green_hm.png",
+    "left_strip": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_4_i_n___c_r_e_d_i_t___c_o_u_n_s_e_l_i_n_g_left_strip.png",
+    "med_full": [
+      255,
+      255,
+      255
+    ],
+    "med_left": [
+      255,
+      255,
+      255
+    ],
+    "med_full_cat": "neutral",
+    "med_left_cat": "neutral",
+    "classifier": {
+      "cat": "black",
+      "rgb": [
+        32,
+        36,
+        41
+      ],
+      "hex": "#202429",
+      "green_peak": 0.0,
+      "red_peak": 0.0,
+      "ratio": 0.0,
+      "uncertain": true
+    },
+    "glyph_hex": "#202429",
+    "glyph_rgb": [
+      32,
+      36,
+      41
+    ],
+    "glyph_cat": "black",
+    "best_score": 9999,
+    "candidates": [
+      {
+        "rank": 1,
+        "page": 0,
+        "line_text": "In Credit Counseling",
+        "score": 1120,
+        "ln_bbox": [
+          382.67999267578125,
+          608.0149536132812,
+          482.3289489746094,
+          623.1289672851562
+        ],
+        "matched_spans": [
+          {
+            "text": "In Credit Counseling",
+            "bbox": [
+              382.67999267578125,
+              608.0149536132812,
+              482.3289489746094,
+              623.1289672851562
+            ]
+          }
+        ],
+        "crop": "data/poc_imgs/top3_4_i_n___c_r_e_d_i_t___c_o_u_n_s_e_l_i_n_g_1.png",
+        "overlay": "data/poc_imgs/top3_4_i_n___c_r_e_d_i_t___c_o_u_n_s_e_l_i_n_g_1_overlay.png",
+        "red_hm": "data/poc_imgs/top3_4_i_n___c_r_e_d_i_t___c_o_u_n_s_e_l_i_n_g_1_red_hm.png",
+        "green_hm": "data/poc_imgs/top3_4_i_n___c_r_e_d_i_t___c_o_u_n_s_e_l_i_n_g_1_green_hm.png",
+        "med_full": [
+          255,
+          255,
+          255
+        ],
+        "med_left": [
+          255,
+          255,
+          255
+        ],
+        "med_full_cat": "neutral",
+        "med_left_cat": "neutral",
+        "classifier": {
+          "cat": "black",
+          "rgb": [
+            32,
+            36,
+            41
+          ],
+          "hex": "#202429",
+          "green_peak": 0.0,
+          "red_peak": 0.0,
+          "ratio": 0.0,
+          "uncertain": true
+        },
+        "glyph_hex": "#202429",
+        "glyph_rgb": [
+          32,
+          36,
+          41
+        ],
+        "glyph_cat": "black"
+      },
+      {
+        "rank": 2,
+        "page": 3,
+        "line_text": "Charged off account. Account closed by credit grantor.",
+        "score": 120,
+        "ln_bbox": [
+          206.92999267578125,
+          117.75498962402344,
+          426.5390930175781,
+          130.12098693847656
+        ],
+        "matched_spans": [
+          {
+            "text": "Charged off account. Account closed by credit grantor. ",
+            "bbox": [
+              206.92999267578125,
+              117.75498962402344,
+              426.5390930175781,
+              130.12098693847656
+            ]
+          }
+        ],
+        "crop": "data/poc_imgs/top3_4_i_n___c_r_e_d_i_t___c_o_u_n_s_e_l_i_n_g_2.png",
+        "overlay": "data/poc_imgs/top3_4_i_n___c_r_e_d_i_t___c_o_u_n_s_e_l_i_n_g_2_overlay.png",
+        "red_hm": "data/poc_imgs/top3_4_i_n___c_r_e_d_i_t___c_o_u_n_s_e_l_i_n_g_2_red_hm.png",
+        "green_hm": "data/poc_imgs/top3_4_i_n___c_r_e_d_i_t___c_o_u_n_s_e_l_i_n_g_2_green_hm.png",
+        "med_full": [
+          235,
+          239,
+          244
+        ],
+        "med_left": [
+          235,
+          239,
+          244
+        ],
+        "med_full_cat": "green",
+        "med_left_cat": "green",
+        "classifier": {
+          "cat": "green",
+          "rgb": [
+            235,
+            239,
+            244
+          ],
+          "hex": "#ebeff4",
+          "green_peak": 0.0,
+          "red_peak": 0.0,
+          "ratio": 0.0,
+          "uncertain": true
+        },
+        "glyph_hex": "#202429",
+        "glyph_rgb": [
+          32,
+          36,
+          41
+        ],
+        "glyph_cat": "black"
+      },
+      {
+        "rank": 3,
+        "page": 3,
+        "line_text": "Charged off account. Account closed by credit grantor.",
+        "score": 120,
+        "ln_bbox": [
+          206.92999267578125,
+          321.8450012207031,
+          426.5390930175781,
+          334.21099853515625
+        ],
+        "matched_spans": [
+          {
+            "text": "Charged off account. Account closed by credit grantor. ",
+            "bbox": [
+              206.92999267578125,
+              321.8450012207031,
+              426.5390930175781,
+              334.21099853515625
+            ]
+          }
+        ],
+        "crop": "data/poc_imgs/top3_4_i_n___c_r_e_d_i_t___c_o_u_n_s_e_l_i_n_g_3.png",
+        "overlay": "data/poc_imgs/top3_4_i_n___c_r_e_d_i_t___c_o_u_n_s_e_l_i_n_g_3_overlay.png",
+        "red_hm": "data/poc_imgs/top3_4_i_n___c_r_e_d_i_t___c_o_u_n_s_e_l_i_n_g_3_red_hm.png",
+        "green_hm": "data/poc_imgs/top3_4_i_n___c_r_e_d_i_t___c_o_u_n_s_e_l_i_n_g_3_green_hm.png",
+        "med_full": [
+          255,
+          255,
+          255
+        ],
+        "med_left": [
+          255,
+          255,
+          255
+        ],
+        "med_full_cat": "neutral",
+        "med_left_cat": "neutral",
+        "classifier": {
+          "cat": "black",
+          "rgb": [
+            32,
+            36,
+            41
+          ],
+          "hex": "#202429",
+          "green_peak": 0.0,
+          "red_peak": 0.0,
+          "ratio": 0.0,
+          "uncertain": true
+        },
+        "glyph_hex": "#202429",
+        "glyph_rgb": [
+          32,
+          36,
+          41
+        ],
+        "glyph_cat": "black"
+      }
+    ]
+  },
+  {
+    "phrase": "No Open Mortgage",
+    "page": 0,
+    "found_text": "No Open Mortgage",
+    "bbox": [
+      382.67999267578125,
+      625.0249633789062,
+      476.2239990234375,
+      640.1389770507812
+    ],
+    "crop": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_crop_5_n_o___o_p_e_n___m_o_r_t_g_a_g_e.png",
+    "red_hm": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_5_n_o___o_p_e_n___m_o_r_t_g_a_g_e_red_hm.png",
+    "green_hm": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_5_n_o___o_p_e_n___m_o_r_t_g_a_g_e_green_hm.png",
+    "left_strip": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_5_n_o___o_p_e_n___m_o_r_t_g_a_g_e_left_strip.png",
+    "med_full": [
+      255,
+      255,
+      255
+    ],
+    "med_left": [
+      255,
+      255,
+      255
+    ],
+    "med_full_cat": "neutral",
+    "med_left_cat": "neutral",
+    "classifier": {
+      "cat": "black",
+      "rgb": [
+        32,
+        36,
+        41
+      ],
+      "hex": "#202429",
+      "green_peak": 0.0,
+      "red_peak": 0.0,
+      "ratio": 0.0,
+      "uncertain": true
+    },
+    "glyph_hex": "#202429",
+    "glyph_rgb": [
+      32,
+      36,
+      41
+    ],
+    "glyph_cat": "black",
+    "best_score": 9999,
+    "candidates": [
+      {
+        "rank": 1,
+        "page": 0,
+        "line_text": "No Open Mortgage",
+        "score": 1090,
+        "ln_bbox": [
+          382.67999267578125,
+          625.0249633789062,
+          476.2239990234375,
+          640.1389770507812
+        ],
+        "matched_spans": [
+          {
+            "text": "No Open Mortgage",
+            "bbox": [
+              382.67999267578125,
+              625.0249633789062,
+              476.2239990234375,
+              640.1389770507812
+            ]
+          }
+        ],
+        "crop": "data/poc_imgs/top3_5_n_o___o_p_e_n___m_o_r_t_g_a_g_e_1.png",
+        "overlay": "data/poc_imgs/top3_5_n_o___o_p_e_n___m_o_r_t_g_a_g_e_1_overlay.png",
+        "red_hm": "data/poc_imgs/top3_5_n_o___o_p_e_n___m_o_r_t_g_a_g_e_1_red_hm.png",
+        "green_hm": "data/poc_imgs/top3_5_n_o___o_p_e_n___m_o_r_t_g_a_g_e_1_green_hm.png",
+        "med_full": [
+          255,
+          255,
+          255
+        ],
+        "med_left": [
+          255,
+          255,
+          255
+        ],
+        "med_full_cat": "neutral",
+        "med_left_cat": "neutral",
+        "classifier": {
+          "cat": "black",
+          "rgb": [
+            32,
+            36,
+            41
+          ],
+          "hex": "#202429",
+          "green_peak": 0.0,
+          "red_peak": 0.0,
+          "ratio": 0.0,
+          "uncertain": true
+        },
+        "glyph_hex": "#202429",
+        "glyph_rgb": [
+          32,
+          36,
+          41
+        ],
+        "glyph_cat": "black"
+      },
+      {
+        "rank": 2,
+        "page": 0,
+        "line_text": "Revolving Accounts (Open)",
+        "score": 80,
+        "ln_bbox": [
+          56.689998626708984,
+          327.5150146484375,
+          166.22897338867188,
+          339.8810119628906
+        ],
+        "matched_spans": [
+          {
+            "text": "Revolving Accounts (Open)",
+            "bbox": [
+              56.689998626708984,
+              327.5150146484375,
+              166.22897338867188,
+              339.8810119628906
+            ]
+          }
+        ],
+        "crop": "data/poc_imgs/top3_5_n_o___o_p_e_n___m_o_r_t_g_a_g_e_2.png",
+        "overlay": "data/poc_imgs/top3_5_n_o___o_p_e_n___m_o_r_t_g_a_g_e_2_overlay.png",
+        "red_hm": "data/poc_imgs/top3_5_n_o___o_p_e_n___m_o_r_t_g_a_g_e_2_red_hm.png",
+        "green_hm": "data/poc_imgs/top3_5_n_o___o_p_e_n___m_o_r_t_g_a_g_e_2_green_hm.png",
+        "med_full": [
+          255,
+          255,
+          255
+        ],
+        "med_left": [
+          255,
+          255,
+          255
+        ],
+        "med_full_cat": "neutral",
+        "med_left_cat": "neutral",
+        "classifier": {
+          "cat": "black",
+          "rgb": [
+            32,
+            36,
+            41
+          ],
+          "hex": "#202429",
+          "green_peak": 0.0,
+          "red_peak": 0.0,
+          "ratio": 0.0,
+          "uncertain": true
+        },
+        "glyph_hex": "#202429",
+        "glyph_rgb": [
+          32,
+          36,
+          41
+        ],
+        "glyph_cat": "black"
+      },
+      {
+        "rank": 3,
+        "page": 3,
+        "line_text": "Account closed at consumers request. Charged off account.",
+        "score": 80,
+        "ln_bbox": [
+          206.92999267578125,
+          276.4950256347656,
+          448.0491638183594,
+          288.86102294921875
+        ],
+        "matched_spans": [
+          {
+            "text": "Account closed at consumers request. Charged off account. ",
+            "bbox": [
+              206.92999267578125,
+              276.4950256347656,
+              448.0491638183594,
+              288.86102294921875
+            ]
+          }
+        ],
+        "crop": "data/poc_imgs/top3_5_n_o___o_p_e_n___m_o_r_t_g_a_g_e_3.png",
+        "overlay": "data/poc_imgs/top3_5_n_o___o_p_e_n___m_o_r_t_g_a_g_e_3_overlay.png",
+        "red_hm": "data/poc_imgs/top3_5_n_o___o_p_e_n___m_o_r_t_g_a_g_e_3_red_hm.png",
+        "green_hm": "data/poc_imgs/top3_5_n_o___o_p_e_n___m_o_r_t_g_a_g_e_3_green_hm.png",
+        "med_full": [
+          255,
+          255,
+          255
+        ],
+        "med_left": [
+          255,
+          255,
+          255
+        ],
+        "med_full_cat": "neutral",
+        "med_left_cat": "neutral",
+        "classifier": {
+          "cat": "black",
+          "rgb": [
+            32,
+            36,
+            41
+          ],
+          "hex": "#202429",
+          "green_peak": 0.0,
+          "red_peak": 0.0,
+          "ratio": 0.0,
+          "uncertain": true
+        },
+        "glyph_hex": "#202429",
+        "glyph_rgb": [
+          32,
+          36,
+          41
+        ],
+        "glyph_cat": "black"
+      }
+    ]
+  },
+  {
+    "phrase": "1 Rev Late in 4+ yrs",
+    "page": 0,
+    "found_text": "1 Rev Late in 4+ yrs",
+    "bbox": [
+      382.67999267578125,
+      642.0249633789062,
+      480.81103515625,
+      657.1389770507812
+    ],
+    "crop": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_crop_6_1___r_e_v___l_a_t_e___i_n___4___y_r_s.png",
+    "red_hm": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_6_1___r_e_v___l_a_t_e___i_n___4___y_r_s_red_hm.png",
+    "green_hm": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_6_1___r_e_v___l_a_t_e___i_n___4___y_r_s_green_hm.png",
+    "left_strip": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_6_1___r_e_v___l_a_t_e___i_n___4___y_r_s_left_strip.png",
+    "med_full": [
+      255,
+      255,
+      255
+    ],
+    "med_left": [
+      255,
+      255,
+      255
+    ],
+    "med_full_cat": "neutral",
+    "med_left_cat": "neutral",
+    "classifier": {
+      "cat": "black",
+      "rgb": [
+        32,
+        36,
+        41
+      ],
+      "hex": "#202429",
+      "green_peak": 0.0,
+      "red_peak": 0.0,
+      "ratio": 0.0,
+      "uncertain": true
+    },
+    "glyph_hex": "#202429",
+    "glyph_rgb": [
+      32,
+      36,
+      41
+    ],
+    "glyph_cat": "black",
+    "best_score": 10059,
+    "candidates": [
+      {
+        "rank": 1,
+        "page": 0,
+        "line_text": "1 Rev Late in 4+ yrs",
+        "score": 1160,
+        "ln_bbox": [
+          382.67999267578125,
+          642.0249633789062,
+          480.81103515625,
+          657.1389770507812
+        ],
+        "matched_spans": [
+          {
+            "text": "1 Rev Late in 4+ yrs",
+            "bbox": [
+              382.67999267578125,
+              642.0249633789062,
+              480.81103515625,
+              657.1389770507812
+            ]
+          }
+        ],
+        "crop": "data/poc_imgs/top3_6_1___r_e_v___l_a_t_e___i_n___4___y_r_s_1.png",
+        "overlay": "data/poc_imgs/top3_6_1___r_e_v___l_a_t_e___i_n___4___y_r_s_1_overlay.png",
+        "red_hm": "data/poc_imgs/top3_6_1___r_e_v___l_a_t_e___i_n___4___y_r_s_1_red_hm.png",
+        "green_hm": "data/poc_imgs/top3_6_1___r_e_v___l_a_t_e___i_n___4___y_r_s_1_green_hm.png",
+        "med_full": [
+          255,
+          255,
+          255
+        ],
+        "med_left": [
+          255,
+          255,
+          255
+        ],
+        "med_full_cat": "neutral",
+        "med_left_cat": "neutral",
+        "classifier": {
+          "cat": "black",
+          "rgb": [
+            32,
+            36,
+            41
+          ],
+          "hex": "#202429",
+          "green_peak": 0.0,
+          "red_peak": 0.0,
+          "ratio": 0.0,
+          "uncertain": true
+        },
+        "glyph_hex": "#202429",
+        "glyph_rgb": [
+          32,
+          36,
+          41
+        ],
+        "glyph_cat": "black"
+      },
+      {
+        "rank": 2,
+        "page": 0,
+        "line_text": "4 Rev Lates in 2-4 yrs",
+        "score": 150,
+        "ln_bbox": [
+          382.67999267578125,
+          386.91497802734375,
+          489.666015625,
+          402.02899169921875
+        ],
+        "matched_spans": [
+          {
+            "text": "4 Rev Lates in 2-4 yrs",
+            "bbox": [
+              382.67999267578125,
+              386.91497802734375,
+              489.666015625,
+              402.02899169921875
+            ]
+          }
+        ],
+        "crop": "data/poc_imgs/top3_6_1___r_e_v___l_a_t_e___i_n___4___y_r_s_2.png",
+        "overlay": "data/poc_imgs/top3_6_1___r_e_v___l_a_t_e___i_n___4___y_r_s_2_overlay.png",
+        "red_hm": "data/poc_imgs/top3_6_1___r_e_v___l_a_t_e___i_n___4___y_r_s_2_red_hm.png",
+        "green_hm": "data/poc_imgs/top3_6_1___r_e_v___l_a_t_e___i_n___4___y_r_s_2_green_hm.png",
+        "med_full": [
+          255,
+          255,
+          255
+        ],
+        "med_left": [
+          255,
+          255,
+          255
+        ],
+        "med_full_cat": "neutral",
+        "med_left_cat": "neutral",
+        "classifier": {
+          "cat": "red",
+          "rgb": [
+            220,
+            53,
+            69
+          ],
+          "hex": "#dc3545",
+          "green_peak": 0.0,
+          "red_peak": 151.00000000000017,
+          "ratio": 0.0,
+          "uncertain": false
+        },
+        "glyph_hex": "#dc3545",
+        "glyph_rgb": [
+          220,
+          53,
+          69
+        ],
+        "glyph_cat": "red"
+      },
+      {
+        "rank": 3,
+        "page": 0,
+        "line_text": "2 Rev Lates in 4-6 mo",
+        "score": 140,
+        "ln_bbox": [
+          382.67999267578125,
+          335.8849792480469,
+          490.2820129394531,
+          350.9989929199219
+        ],
+        "matched_spans": [
+          {
+            "text": "2 Rev Lates in 4-6 mo",
+            "bbox": [
+              382.67999267578125,
+              335.8849792480469,
+              490.2820129394531,
+              350.9989929199219
+            ]
+          }
+        ],
+        "crop": "data/poc_imgs/top3_6_1___r_e_v___l_a_t_e___i_n___4___y_r_s_3.png",
+        "overlay": "data/poc_imgs/top3_6_1___r_e_v___l_a_t_e___i_n___4___y_r_s_3_overlay.png",
+        "red_hm": "data/poc_imgs/top3_6_1___r_e_v___l_a_t_e___i_n___4___y_r_s_3_red_hm.png",
+        "green_hm": "data/poc_imgs/top3_6_1___r_e_v___l_a_t_e___i_n___4___y_r_s_3_green_hm.png",
+        "med_full": [
+          255,
+          255,
+          255
+        ],
+        "med_left": [
+          255,
+          255,
+          255
+        ],
+        "med_full_cat": "neutral",
+        "med_left_cat": "neutral",
+        "classifier": {
+          "cat": "red",
+          "rgb": [
+            220,
+            53,
+            69
+          ],
+          "hex": "#dc3545",
+          "green_peak": 0.0,
+          "red_peak": 151.00000000000014,
+          "ratio": 0.0,
+          "uncertain": false
+        },
+        "glyph_hex": "#dc3545",
+        "glyph_rgb": [
+          220,
+          53,
+          69
+        ],
+        "glyph_cat": "red"
+      }
+    ]
+  },
+  {
+    "phrase": "Drop Bad Auth User (BEST BUY/CBNA, and C",
+    "page": 0,
+    "found_text": "Bryan Wimpy's Credit Summary",
+    "bbox": [
+      53.86000061035156,
+      32.50998306274414,
+      251.27798461914062,
+      50.41098403930664
+    ],
+    "crop": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_crop_7_d_r_o_p___b_a_d___a_u_t_h___u_s_e_r___b_e_s_t___b_u_y_c_b_n_a___a_n_d___c.png",
+    "red_hm": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_7_d_r_o_p___b_a_d___a_u_t_h___u_s_e_r___b_e_s_t___b_u_y_c_b_n_a___a_n_d___c_red_hm.png",
+    "green_hm": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_7_d_r_o_p___b_a_d___a_u_t_h___u_s_e_r___b_e_s_t___b_u_y_c_b_n_a___a_n_d___c_green_hm.png",
+    "left_strip": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_7_d_r_o_p___b_a_d___a_u_t_h___u_s_e_r___b_e_s_t___b_u_y_c_b_n_a___a_n_d___c_left_strip.png",
+    "med_full": [
+      255,
+      255,
+      255
+    ],
+    "med_left": [
+      255,
+      255,
+      255
+    ],
+    "med_full_cat": "neutral",
+    "med_left_cat": "neutral",
+    "classifier": {
+      "cat": "black",
+      "rgb": [
+        32,
+        36,
+        41
+      ],
+      "hex": "#202429",
+      "green_peak": 0.0,
+      "red_peak": 0.0,
+      "ratio": 0.0,
+      "uncertain": true
+    },
+    "glyph_hex": "#202429",
+    "glyph_rgb": [
+      32,
+      36,
+      41
+    ],
+    "glyph_cat": "black",
+    "best_score": 0,
+    "candidates": [
+      {
+        "rank": 1,
+        "page": 0,
+        "line_text": "Drop Bad Auth User (BEST BUY/CBNA, and CO",
+        "score": 140,
+        "ln_bbox": [
+          382.67999267578125,
+          659.0349731445312,
+          619.8729858398438,
+          674.1489868164062
+        ],
+        "matched_spans": [
+          {
+            "text": "Drop Bad Auth User (BEST BUY/CBNA, and CO",
+            "bbox": [
+              382.67999267578125,
+              659.0349731445312,
+              619.8729858398438,
+              674.1489868164062
+            ]
+          }
+        ],
+        "crop": "data/poc_imgs/top3_7_d_r_o_p___b_a_d___a_u_t_h___u_s_e_r___b_e_s_t___b_u_y_c_b_n_a___a_n_d___c_1.png",
+        "overlay": "data/poc_imgs/top3_7_d_r_o_p___b_a_d___a_u_t_h___u_s_e_r___b_e_s_t___b_u_y_c_b_n_a___a_n_d___c_1_overlay.png",
+        "red_hm": "data/poc_imgs/top3_7_d_r_o_p___b_a_d___a_u_t_h___u_s_e_r___b_e_s_t___b_u_y_c_b_n_a___a_n_d___c_1_red_hm.png",
+        "green_hm": "data/poc_imgs/top3_7_d_r_o_p___b_a_d___a_u_t_h___u_s_e_r___b_e_s_t___b_u_y_c_b_n_a___a_n_d___c_1_green_hm.png",
+        "med_full": [
+          255,
+          255,
+          255
+        ],
+        "med_left": [
+          255,
+          255,
+          255
+        ],
+        "med_full_cat": "neutral",
+        "med_left_cat": "neutral",
+        "classifier": {
+          "cat": "black",
+          "rgb": [
+            32,
+            36,
+            41
+          ],
+          "hex": "#202429",
+          "green_peak": 0.0,
+          "red_peak": 0.0,
+          "ratio": 0.0,
+          "uncertain": true
+        },
+        "glyph_hex": "#202429",
+        "glyph_rgb": [
+          32,
+          36,
+          41
+        ],
+        "glyph_cat": "black"
+      },
+      {
+        "rank": 2,
+        "page": 3,
+        "line_text": "Charged off account. Account closed by credit grantor.",
+        "score": 130,
+        "ln_bbox": [
+          206.92999267578125,
+          117.75498962402344,
+          426.5390930175781,
+          130.12098693847656
+        ],
+        "matched_spans": [
+          {
+            "text": "Charged off account. Account closed by credit grantor. ",
+            "bbox": [
+              206.92999267578125,
+              117.75498962402344,
+              426.5390930175781,
+              130.12098693847656
+            ]
+          }
+        ],
+        "crop": "data/poc_imgs/top3_7_d_r_o_p___b_a_d___a_u_t_h___u_s_e_r___b_e_s_t___b_u_y_c_b_n_a___a_n_d___c_2.png",
+        "overlay": "data/poc_imgs/top3_7_d_r_o_p___b_a_d___a_u_t_h___u_s_e_r___b_e_s_t___b_u_y_c_b_n_a___a_n_d___c_2_overlay.png",
+        "red_hm": "data/poc_imgs/top3_7_d_r_o_p___b_a_d___a_u_t_h___u_s_e_r___b_e_s_t___b_u_y_c_b_n_a___a_n_d___c_2_red_hm.png",
+        "green_hm": "data/poc_imgs/top3_7_d_r_o_p___b_a_d___a_u_t_h___u_s_e_r___b_e_s_t___b_u_y_c_b_n_a___a_n_d___c_2_green_hm.png",
+        "med_full": [
+          235,
+          239,
+          244
+        ],
+        "med_left": [
+          235,
+          239,
+          244
+        ],
+        "med_full_cat": "green",
+        "med_left_cat": "green",
+        "classifier": {
+          "cat": "green",
+          "rgb": [
+            235,
+            239,
+            244
+          ],
+          "hex": "#ebeff4",
+          "green_peak": 0.0,
+          "red_peak": 0.0,
+          "ratio": 0.0,
+          "uncertain": true
+        },
+        "glyph_hex": "#202429",
+        "glyph_rgb": [
+          32,
+          36,
+          41
+        ],
+        "glyph_cat": "black"
+      },
+      {
+        "rank": 3,
+        "page": 3,
+        "line_text": "Charged off account. Account closed by credit grantor.",
+        "score": 130,
+        "ln_bbox": [
+          206.92999267578125,
+          321.8450012207031,
+          426.5390930175781,
+          334.21099853515625
+        ],
+        "matched_spans": [
+          {
+            "text": "Charged off account. Account closed by credit grantor. ",
+            "bbox": [
+              206.92999267578125,
+              321.8450012207031,
+              426.5390930175781,
+              334.21099853515625
+            ]
+          }
+        ],
+        "crop": "data/poc_imgs/top3_7_d_r_o_p___b_a_d___a_u_t_h___u_s_e_r___b_e_s_t___b_u_y_c_b_n_a___a_n_d___c_3.png",
+        "overlay": "data/poc_imgs/top3_7_d_r_o_p___b_a_d___a_u_t_h___u_s_e_r___b_e_s_t___b_u_y_c_b_n_a___a_n_d___c_3_overlay.png",
+        "red_hm": "data/poc_imgs/top3_7_d_r_o_p___b_a_d___a_u_t_h___u_s_e_r___b_e_s_t___b_u_y_c_b_n_a___a_n_d___c_3_red_hm.png",
+        "green_hm": "data/poc_imgs/top3_7_d_r_o_p___b_a_d___a_u_t_h___u_s_e_r___b_e_s_t___b_u_y_c_b_n_a___a_n_d___c_3_green_hm.png",
+        "med_full": [
+          255,
+          255,
+          255
+        ],
+        "med_left": [
+          255,
+          255,
+          255
+        ],
+        "med_full_cat": "neutral",
+        "med_left_cat": "neutral",
+        "classifier": {
+          "cat": "black",
+          "rgb": [
+            32,
+            36,
+            41
+          ],
+          "hex": "#202429",
+          "green_peak": 0.0,
+          "red_peak": 0.0,
+          "ratio": 0.0,
+          "uncertain": true
+        },
+        "glyph_hex": "#202429",
+        "glyph_rgb": [
+          32,
+          36,
+          41
+        ],
+        "glyph_cat": "black"
+      }
+    ]
+  },
+  {
+    "phrase": "No Rev Acct Open 10K 2yr",
+    "page": 0,
+    "found_text": "No Rev Acct Open 10K 2yr",
+    "bbox": [
+      382.67999267578125,
+      676.0449829101562,
+      514.7350463867188,
+      691.1589965820312
+    ],
+    "crop": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_crop_8_n_o___r_e_v___a_c_c_t___o_p_e_n___1_0_k___2_y_r.png",
+    "red_hm": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_8_n_o___r_e_v___a_c_c_t___o_p_e_n___1_0_k___2_y_r_red_hm.png",
+    "green_hm": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_8_n_o___r_e_v___a_c_c_t___o_p_e_n___1_0_k___2_y_r_green_hm.png",
+    "left_strip": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_8_n_o___r_e_v___a_c_c_t___o_p_e_n___1_0_k___2_y_r_left_strip.png",
+    "med_full": [
+      255,
+      255,
+      255
+    ],
+    "med_left": [
+      255,
+      255,
+      255
+    ],
+    "med_full_cat": "neutral",
+    "med_left_cat": "neutral",
+    "classifier": {
+      "cat": "black",
+      "rgb": [
+        32,
+        36,
+        41
+      ],
+      "hex": "#202429",
+      "green_peak": 0.0,
+      "red_peak": 0.0,
+      "ratio": 0.0,
+      "uncertain": true
+    },
+    "glyph_hex": "#202429",
+    "glyph_rgb": [
+      32,
+      36,
+      41
+    ],
+    "glyph_cat": "black",
+    "best_score": 10069,
+    "candidates": [
+      {
+        "rank": 1,
+        "page": 0,
+        "line_text": "No Rev Acct Open 10K 2yr",
+        "score": 1180,
+        "ln_bbox": [
+          382.67999267578125,
+          676.0449829101562,
+          514.7350463867188,
+          691.1589965820312
+        ],
+        "matched_spans": [
+          {
+            "text": "No Rev Acct Open 10K 2yr",
+            "bbox": [
+              382.67999267578125,
+              676.0449829101562,
+              514.7350463867188,
+              691.1589965820312
+            ]
+          }
+        ],
+        "crop": "data/poc_imgs/top3_8_n_o___r_e_v___a_c_c_t___o_p_e_n___1_0_k___2_y_r_1.png",
+        "overlay": "data/poc_imgs/top3_8_n_o___r_e_v___a_c_c_t___o_p_e_n___1_0_k___2_y_r_1_overlay.png",
+        "red_hm": "data/poc_imgs/top3_8_n_o___r_e_v___a_c_c_t___o_p_e_n___1_0_k___2_y_r_1_red_hm.png",
+        "green_hm": "data/poc_imgs/top3_8_n_o___r_e_v___a_c_c_t___o_p_e_n___1_0_k___2_y_r_1_green_hm.png",
+        "med_full": [
+          255,
+          255,
+          255
+        ],
+        "med_left": [
+          255,
+          255,
+          255
+        ],
+        "med_full_cat": "neutral",
+        "med_left_cat": "neutral",
+        "classifier": {
+          "cat": "black",
+          "rgb": [
+            32,
+            36,
+            41
+          ],
+          "hex": "#202429",
+          "green_peak": 0.0,
+          "red_peak": 0.0,
+          "ratio": 0.0,
+          "uncertain": true
+        },
+        "glyph_hex": "#202429",
+        "glyph_rgb": [
+          32,
+          36,
+          41
+        ],
+        "glyph_cat": "black"
+      },
+      {
+        "rank": 2,
+        "page": 0,
+        "line_text": "$16320 Unpaid Collection(s)",
+        "score": 140,
+        "ln_bbox": [
+          382.67999267578125,
+          233.84498596191406,
+          521.4559326171875,
+          248.958984375
+        ],
+        "matched_spans": [
+          {
+            "text": "$16320 Unpaid Collection(s)",
+            "bbox": [
+              382.67999267578125,
+              233.84498596191406,
+              521.4559326171875,
+              248.958984375
+            ]
+          }
+        ],
+        "crop": "data/poc_imgs/top3_8_n_o___r_e_v___a_c_c_t___o_p_e_n___1_0_k___2_y_r_2.png",
+        "overlay": "data/poc_imgs/top3_8_n_o___r_e_v___a_c_c_t___o_p_e_n___1_0_k___2_y_r_2_overlay.png",
+        "red_hm": "data/poc_imgs/top3_8_n_o___r_e_v___a_c_c_t___o_p_e_n___1_0_k___2_y_r_2_red_hm.png",
+        "green_hm": "data/poc_imgs/top3_8_n_o___r_e_v___a_c_c_t___o_p_e_n___1_0_k___2_y_r_2_green_hm.png",
+        "med_full": [
+          255,
+          255,
+          255
+        ],
+        "med_left": [
+          255,
+          255,
+          255
+        ],
+        "med_full_cat": "neutral",
+        "med_left_cat": "neutral",
+        "classifier": {
+          "cat": "green",
+          "rgb": [
+            66,
+            143,
+            78
+          ],
+          "hex": "#428f4e",
+          "green_peak": 65.00000000000006,
+          "red_peak": 0.0,
+          "ratio": 65000000.00000006,
+          "uncertain": false
+        },
+        "glyph_hex": "#428f4e",
+        "glyph_rgb": [
+          66,
+          143,
+          78
+        ],
+        "glyph_cat": "green"
+      },
+      {
+        "rank": 3,
+        "page": 3,
+        "line_text": "Account paid for less than full balance. Fixed rate. Closed - 5/31/24",
+        "score": 140,
+        "ln_bbox": [
+          206.92999267578125,
+          457.9150085449219,
+          471.3830261230469,
+          470.281005859375
+        ],
+        "matched_spans": [
+          {
+            "text": "Account paid for less than full balance. Fixed rate. Closed - 5/31/24",
+            "bbox": [
+              206.92999267578125,
+              457.9150085449219,
+              471.3830261230469,
+              470.281005859375
+            ]
+          }
+        ],
+        "crop": "data/poc_imgs/top3_8_n_o___r_e_v___a_c_c_t___o_p_e_n___1_0_k___2_y_r_3.png",
+        "overlay": "data/poc_imgs/top3_8_n_o___r_e_v___a_c_c_t___o_p_e_n___1_0_k___2_y_r_3_overlay.png",
+        "red_hm": "data/poc_imgs/top3_8_n_o___r_e_v___a_c_c_t___o_p_e_n___1_0_k___2_y_r_3_red_hm.png",
+        "green_hm": "data/poc_imgs/top3_8_n_o___r_e_v___a_c_c_t___o_p_e_n___1_0_k___2_y_r_3_green_hm.png",
+        "med_full": [
+          255,
+          255,
+          255
+        ],
+        "med_left": [
+          255,
+          255,
+          255
+        ],
+        "med_full_cat": "neutral",
+        "med_left_cat": "neutral",
+        "classifier": {
+          "cat": "black",
+          "rgb": [
+            32,
+            36,
+            41
+          ],
+          "hex": "#202429",
+          "green_peak": 0.0,
+          "red_peak": 0.0,
+          "ratio": 0.0,
+          "uncertain": true
+        },
+        "glyph_hex": "#202429",
+        "glyph_rgb": [
+          32,
+          36,
+          41
+        ],
+        "glyph_cat": "black"
+      }
+    ]
+  },
+  {
+    "phrase": "1 Inq last 2\u20114 Mo",
+    "page": 0,
+    "found_text": "1 Inq last 2-4 Mo",
+    "bbox": [
+      382.67999267578125,
+      693.0549926757812,
+      464.6080322265625,
+      708.1690063476562
+    ],
+    "crop": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_crop_9_1___i_n_q___l_a_s_t___2_4___m_o.png",
+    "red_hm": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_9_1___i_n_q___l_a_s_t___2_4___m_o_red_hm.png",
+    "green_hm": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_9_1___i_n_q___l_a_s_t___2_4___m_o_green_hm.png",
+    "left_strip": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_9_1___i_n_q___l_a_s_t___2_4___m_o_left_strip.png",
+    "med_full": [
+      255,
+      255,
+      255
+    ],
+    "med_left": [
+      255,
+      255,
+      255
+    ],
+    "med_full_cat": "neutral",
+    "med_left_cat": "neutral",
+    "classifier": {
+      "cat": "black",
+      "rgb": [
+        32,
+        36,
+        41
+      ],
+      "hex": "#202429",
+      "green_peak": 0.0,
+      "red_peak": 0.0,
+      "ratio": 0.0,
+      "uncertain": true
+    },
+    "glyph_hex": "#202429",
+    "glyph_rgb": [
+      32,
+      36,
+      41
+    ],
+    "glyph_cat": "black",
+    "best_score": 10069,
+    "candidates": [
+      {
+        "rank": 1,
+        "page": 0,
+        "line_text": "1 Inq last 2-4 Mo",
+        "score": 1160,
+        "ln_bbox": [
+          382.67999267578125,
+          693.0549926757812,
+          464.6080322265625,
+          708.1690063476562
+        ],
+        "matched_spans": [
+          {
+            "text": "1 Inq last 2-4 Mo",
+            "bbox": [
+              382.67999267578125,
+              693.0549926757812,
+              464.6080322265625,
+              708.1690063476562
+            ]
+          }
+        ],
+        "crop": "data/poc_imgs/top3_9_1___i_n_q___l_a_s_t___2_4___m_o_1.png",
+        "overlay": "data/poc_imgs/top3_9_1___i_n_q___l_a_s_t___2_4___m_o_1_overlay.png",
+        "red_hm": "data/poc_imgs/top3_9_1___i_n_q___l_a_s_t___2_4___m_o_1_red_hm.png",
+        "green_hm": "data/poc_imgs/top3_9_1___i_n_q___l_a_s_t___2_4___m_o_1_green_hm.png",
+        "med_full": [
+          255,
+          255,
+          255
+        ],
+        "med_left": [
+          255,
+          255,
+          255
+        ],
+        "med_full_cat": "neutral",
+        "med_left_cat": "neutral",
+        "classifier": {
+          "cat": "black",
+          "rgb": [
+            32,
+            36,
+            41
+          ],
+          "hex": "#202429",
+          "green_peak": 0.0,
+          "red_peak": 0.0,
+          "ratio": 0.0,
+          "uncertain": true
+        },
+        "glyph_hex": "#202429",
+        "glyph_rgb": [
+          32,
+          36,
+          41
+        ],
+        "glyph_cat": "black"
+      },
+      {
+        "rank": 2,
+        "page": 0,
+        "line_text": "1 Inq Last 4 Mo",
+        "score": 150,
+        "ln_bbox": [
+          382.67999267578125,
+          454.9449768066406,
+          458.5030517578125,
+          470.0589904785156
+        ],
+        "matched_spans": [
+          {
+            "text": "1 Inq Last 4 Mo",
+            "bbox": [
+              382.67999267578125,
+              454.9449768066406,
+              458.5030517578125,
+              470.0589904785156
+            ]
+          }
+        ],
+        "crop": "data/poc_imgs/top3_9_1___i_n_q___l_a_s_t___2_4___m_o_2.png",
+        "overlay": "data/poc_imgs/top3_9_1___i_n_q___l_a_s_t___2_4___m_o_2_overlay.png",
+        "red_hm": "data/poc_imgs/top3_9_1___i_n_q___l_a_s_t___2_4___m_o_2_red_hm.png",
+        "green_hm": "data/poc_imgs/top3_9_1___i_n_q___l_a_s_t___2_4___m_o_2_green_hm.png",
+        "med_full": [
+          255,
+          255,
+          255
+        ],
+        "med_left": [
+          255,
+          255,
+          255
+        ],
+        "med_full_cat": "neutral",
+        "med_left_cat": "neutral",
+        "classifier": {
+          "cat": "red",
+          "rgb": [
+            220,
+            53,
+            69
+          ],
+          "hex": "#dc3545",
+          "green_peak": 0.0,
+          "red_peak": 151.00000000000009,
+          "ratio": 0.0,
+          "uncertain": false
+        },
+        "glyph_hex": "#dc3545",
+        "glyph_rgb": [
+          220,
+          53,
+          69
+        ],
+        "glyph_cat": "red"
+      },
+      {
+        "rank": 3,
+        "page": 0,
+        "line_text": "1 Inq Last 4-5 mo",
+        "score": 150,
+        "ln_bbox": [
+          382.67999267578125,
+          710.0650024414062,
+          468.28204345703125,
+          725.1790161132812
+        ],
+        "matched_spans": [
+          {
+            "text": "1 Inq Last 4-5 mo",
+            "bbox": [
+              382.67999267578125,
+              710.0650024414062,
+              468.28204345703125,
+              725.1790161132812
+            ]
+          }
+        ],
+        "crop": "data/poc_imgs/top3_9_1___i_n_q___l_a_s_t___2_4___m_o_3.png",
+        "overlay": "data/poc_imgs/top3_9_1___i_n_q___l_a_s_t___2_4___m_o_3_overlay.png",
+        "red_hm": "data/poc_imgs/top3_9_1___i_n_q___l_a_s_t___2_4___m_o_3_red_hm.png",
+        "green_hm": "data/poc_imgs/top3_9_1___i_n_q___l_a_s_t___2_4___m_o_3_green_hm.png",
+        "med_full": [
+          255,
+          255,
+          255
+        ],
+        "med_left": [
+          255,
+          255,
+          255
+        ],
+        "med_full_cat": "neutral",
+        "med_left_cat": "neutral",
+        "classifier": {
+          "cat": "black",
+          "rgb": [
+            32,
+            36,
+            41
+          ],
+          "hex": "#202429",
+          "green_peak": 0.0,
+          "red_peak": 0.0,
+          "ratio": 0.0,
+          "uncertain": true
+        },
+        "glyph_hex": "#202429",
+        "glyph_rgb": [
+          32,
+          36,
+          41
+        ],
+        "glyph_cat": "black"
+      }
+    ]
+  },
+  {
+    "phrase": "1 Inq Last 4\u20115 mo",
+    "page": 0,
+    "found_text": "1 Inq Last 4-5 mo",
+    "bbox": [
+      382.67999267578125,
+      710.0650024414062,
+      468.28204345703125,
+      725.1790161132812
+    ],
+    "crop": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_crop_10_1___i_n_q___l_a_s_t___4_5___m_o.png",
+    "red_hm": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_10_1___i_n_q___l_a_s_t___4_5___m_o_red_hm.png",
+    "green_hm": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_10_1___i_n_q___l_a_s_t___4_5___m_o_green_hm.png",
+    "left_strip": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_10_1___i_n_q___l_a_s_t___4_5___m_o_left_strip.png",
+    "med_full": [
+      255,
+      255,
+      255
+    ],
+    "med_left": [
+      255,
+      255,
+      255
+    ],
+    "med_full_cat": "neutral",
+    "med_left_cat": "neutral",
+    "classifier": {
+      "cat": "black",
+      "rgb": [
+        32,
+        36,
+        41
+      ],
+      "hex": "#202429",
+      "green_peak": 0.0,
+      "red_peak": 0.0,
+      "ratio": 0.0,
+      "uncertain": true
+    },
+    "glyph_hex": "#202429",
+    "glyph_rgb": [
+      32,
+      36,
+      41
+    ],
+    "glyph_cat": "black",
+    "best_score": 10069,
+    "candidates": [
+      {
+        "rank": 1,
+        "page": 0,
+        "line_text": "1 Inq Last 4-5 mo",
+        "score": 1160,
+        "ln_bbox": [
+          382.67999267578125,
+          710.0650024414062,
+          468.28204345703125,
+          725.1790161132812
+        ],
+        "matched_spans": [
+          {
+            "text": "1 Inq Last 4-5 mo",
+            "bbox": [
+              382.67999267578125,
+              710.0650024414062,
+              468.28204345703125,
+              725.1790161132812
+            ]
+          }
+        ],
+        "crop": "data/poc_imgs/top3_10_1___i_n_q___l_a_s_t___4_5___m_o_1.png",
+        "overlay": "data/poc_imgs/top3_10_1___i_n_q___l_a_s_t___4_5___m_o_1_overlay.png",
+        "red_hm": "data/poc_imgs/top3_10_1___i_n_q___l_a_s_t___4_5___m_o_1_red_hm.png",
+        "green_hm": "data/poc_imgs/top3_10_1___i_n_q___l_a_s_t___4_5___m_o_1_green_hm.png",
+        "med_full": [
+          255,
+          255,
+          255
+        ],
+        "med_left": [
+          255,
+          255,
+          255
+        ],
+        "med_full_cat": "neutral",
+        "med_left_cat": "neutral",
+        "classifier": {
+          "cat": "black",
+          "rgb": [
+            32,
+            36,
+            41
+          ],
+          "hex": "#202429",
+          "green_peak": 0.0,
+          "red_peak": 0.0,
+          "ratio": 0.0,
+          "uncertain": true
+        },
+        "glyph_hex": "#202429",
+        "glyph_rgb": [
+          32,
+          36,
+          41
+        ],
+        "glyph_cat": "black"
+      },
+      {
+        "rank": 2,
+        "page": 2,
+        "line_text": "1 Total Inqs 4-5 mo",
+        "score": 160,
+        "ln_bbox": [
+          382.67999267578125,
+          29.745006561279297,
+          477.4450378417969,
+          44.8590087890625
+        ],
+        "matched_spans": [
+          {
+            "text": "1 Total Inqs 4-5 mo",
+            "bbox": [
+              382.67999267578125,
+              29.745006561279297,
+              477.4450378417969,
+              44.8590087890625
+            ]
+          }
+        ],
+        "crop": "data/poc_imgs/top3_10_1___i_n_q___l_a_s_t___4_5___m_o_2.png",
+        "overlay": "data/poc_imgs/top3_10_1___i_n_q___l_a_s_t___4_5___m_o_2_overlay.png",
+        "red_hm": "data/poc_imgs/top3_10_1___i_n_q___l_a_s_t___4_5___m_o_2_red_hm.png",
+        "green_hm": "data/poc_imgs/top3_10_1___i_n_q___l_a_s_t___4_5___m_o_2_green_hm.png",
+        "med_full": [
+          255,
+          255,
+          255
+        ],
+        "med_left": [
+          255,
+          255,
+          255
+        ],
+        "med_full_cat": "neutral",
+        "med_left_cat": "neutral",
+        "classifier": {
+          "cat": "black",
+          "rgb": [
+            32,
+            36,
+            41
+          ],
+          "hex": "#202429",
+          "green_peak": 0.0,
+          "red_peak": 0.0,
+          "ratio": 0.0,
+          "uncertain": true
+        },
+        "glyph_hex": "#202429",
+        "glyph_rgb": [
+          32,
+          36,
+          41
+        ],
+        "glyph_cat": "black"
+      },
+      {
+        "rank": 3,
+        "page": 0,
+        "line_text": "1 Inq Last 4 Mo",
+        "score": 150,
+        "ln_bbox": [
+          382.67999267578125,
+          454.9449768066406,
+          458.5030517578125,
+          470.0589904785156
+        ],
+        "matched_spans": [
+          {
+            "text": "1 Inq Last 4 Mo",
+            "bbox": [
+              382.67999267578125,
+              454.9449768066406,
+              458.5030517578125,
+              470.0589904785156
+            ]
+          }
+        ],
+        "crop": "data/poc_imgs/top3_10_1___i_n_q___l_a_s_t___4_5___m_o_3.png",
+        "overlay": "data/poc_imgs/top3_10_1___i_n_q___l_a_s_t___4_5___m_o_3_overlay.png",
+        "red_hm": "data/poc_imgs/top3_10_1___i_n_q___l_a_s_t___4_5___m_o_3_red_hm.png",
+        "green_hm": "data/poc_imgs/top3_10_1___i_n_q___l_a_s_t___4_5___m_o_3_green_hm.png",
+        "med_full": [
+          255,
+          255,
+          255
+        ],
+        "med_left": [
+          255,
+          255,
+          255
+        ],
+        "med_full_cat": "neutral",
+        "med_left_cat": "neutral",
+        "classifier": {
+          "cat": "red",
+          "rgb": [
+            220,
+            53,
+            69
+          ],
+          "hex": "#dc3545",
+          "green_peak": 0.0,
+          "red_peak": 151.00000000000009,
+          "ratio": 0.0,
+          "uncertain": false
+        },
+        "glyph_hex": "#dc3545",
+        "glyph_rgb": [
+          220,
+          53,
+          69
+        ],
+        "glyph_cat": "red"
+      }
+    ]
+  },
+  {
+    "phrase": "1 Total Inq 2-4 Mo",
+    "page": 1,
+    "found_text": "1 Total Inq 2-4 Mo",
+    "bbox": [
+      382.67999267578125,
+      29.745006561279297,
+      471.9450378417969,
+      44.8590087890625
+    ],
+    "crop": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_crop_11_1___t_o_t_a_l___i_n_q___2_4___m_o.png",
+    "red_hm": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_11_1___t_o_t_a_l___i_n_q___2_4___m_o_red_hm.png",
+    "green_hm": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_11_1___t_o_t_a_l___i_n_q___2_4___m_o_green_hm.png",
+    "left_strip": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_11_1___t_o_t_a_l___i_n_q___2_4___m_o_left_strip.png",
+    "med_full": [
+      255,
+      255,
+      255
+    ],
+    "med_left": [
+      255,
+      255,
+      255
+    ],
+    "med_full_cat": "neutral",
+    "med_left_cat": "neutral",
+    "classifier": {
+      "cat": "black",
+      "rgb": [
+        32,
+        36,
+        41
+      ],
+      "hex": "#202429",
+      "green_peak": 0.0,
+      "red_peak": 0.0,
+      "ratio": 0.0,
+      "uncertain": true
+    },
+    "glyph_hex": "#202429",
+    "glyph_rgb": [
+      32,
+      36,
+      41
+    ],
+    "glyph_cat": "black",
+    "best_score": 10069,
+    "candidates": [
+      {
+        "rank": 1,
+        "page": 1,
+        "line_text": "1 Total Inq 2-4 Mo",
+        "score": 1150,
+        "ln_bbox": [
+          382.67999267578125,
+          29.745006561279297,
+          471.9450378417969,
+          44.8590087890625
+        ],
+        "matched_spans": [
+          {
+            "text": "1 Total Inq 2-4 Mo",
+            "bbox": [
+              382.67999267578125,
+              29.745006561279297,
+              471.9450378417969,
+              44.8590087890625
+            ]
+          }
+        ],
+        "crop": "data/poc_imgs/top3_11_1___t_o_t_a_l___i_n_q___2_4___m_o_1.png",
+        "overlay": "data/poc_imgs/top3_11_1___t_o_t_a_l___i_n_q___2_4___m_o_1_overlay.png",
+        "red_hm": "data/poc_imgs/top3_11_1___t_o_t_a_l___i_n_q___2_4___m_o_1_red_hm.png",
+        "green_hm": "data/poc_imgs/top3_11_1___t_o_t_a_l___i_n_q___2_4___m_o_1_green_hm.png",
+        "med_full": [
+          255,
+          255,
+          255
+        ],
+        "med_left": [
+          255,
+          255,
+          255
+        ],
+        "med_full_cat": "neutral",
+        "med_left_cat": "neutral",
+        "classifier": {
+          "cat": "black",
+          "rgb": [
+            32,
+            36,
+            41
+          ],
+          "hex": "#202429",
+          "green_peak": 0.0,
+          "red_peak": 0.0,
+          "ratio": 0.0,
+          "uncertain": true
+        },
+        "glyph_hex": "#202429",
+        "glyph_rgb": [
+          32,
+          36,
+          41
+        ],
+        "glyph_cat": "black"
+      },
+      {
+        "rank": 2,
+        "page": 0,
+        "line_text": "1 Inq last 2-4 Mo",
+        "score": 150,
+        "ln_bbox": [
+          382.67999267578125,
+          693.0549926757812,
+          464.6080322265625,
+          708.1690063476562
+        ],
+        "matched_spans": [
+          {
+            "text": "1 Inq last 2-4 Mo",
+            "bbox": [
+              382.67999267578125,
+              693.0549926757812,
+              464.6080322265625,
+              708.1690063476562
+            ]
+          }
+        ],
+        "crop": "data/poc_imgs/top3_11_1___t_o_t_a_l___i_n_q___2_4___m_o_2.png",
+        "overlay": "data/poc_imgs/top3_11_1___t_o_t_a_l___i_n_q___2_4___m_o_2_overlay.png",
+        "red_hm": "data/poc_imgs/top3_11_1___t_o_t_a_l___i_n_q___2_4___m_o_2_red_hm.png",
+        "green_hm": "data/poc_imgs/top3_11_1___t_o_t_a_l___i_n_q___2_4___m_o_2_green_hm.png",
+        "med_full": [
+          255,
+          255,
+          255
+        ],
+        "med_left": [
+          255,
+          255,
+          255
+        ],
+        "med_full_cat": "neutral",
+        "med_left_cat": "neutral",
+        "classifier": {
+          "cat": "black",
+          "rgb": [
+            32,
+            36,
+            41
+          ],
+          "hex": "#202429",
+          "green_peak": 0.0,
+          "red_peak": 0.0,
+          "ratio": 0.0,
+          "uncertain": true
+        },
+        "glyph_hex": "#202429",
+        "glyph_rgb": [
+          32,
+          36,
+          41
+        ],
+        "glyph_cat": "black"
+      },
+      {
+        "rank": 3,
+        "page": 0,
+        "line_text": "1 Inq Last 4 Mo",
+        "score": 140,
+        "ln_bbox": [
+          382.67999267578125,
+          454.9449768066406,
+          458.5030517578125,
+          470.0589904785156
+        ],
+        "matched_spans": [
+          {
+            "text": "1 Inq Last 4 Mo",
+            "bbox": [
+              382.67999267578125,
+              454.9449768066406,
+              458.5030517578125,
+              470.0589904785156
+            ]
+          }
+        ],
+        "crop": "data/poc_imgs/top3_11_1___t_o_t_a_l___i_n_q___2_4___m_o_3.png",
+        "overlay": "data/poc_imgs/top3_11_1___t_o_t_a_l___i_n_q___2_4___m_o_3_overlay.png",
+        "red_hm": "data/poc_imgs/top3_11_1___t_o_t_a_l___i_n_q___2_4___m_o_3_red_hm.png",
+        "green_hm": "data/poc_imgs/top3_11_1___t_o_t_a_l___i_n_q___2_4___m_o_3_green_hm.png",
+        "med_full": [
+          255,
+          255,
+          255
+        ],
+        "med_left": [
+          255,
+          255,
+          255
+        ],
+        "med_full_cat": "neutral",
+        "med_left_cat": "neutral",
+        "classifier": {
+          "cat": "red",
+          "rgb": [
+            220,
+            53,
+            69
+          ],
+          "hex": "#dc3545",
+          "green_peak": 0.0,
+          "red_peak": 151.00000000000009,
+          "ratio": 0.0,
+          "uncertain": false
+        },
+        "glyph_hex": "#dc3545",
+        "glyph_rgb": [
+          220,
+          53,
+          69
+        ],
+        "glyph_cat": "red"
+      }
+    ]
+  },
+  {
+    "phrase": "1 Total Inqs 4-5 Mo",
+    "page": 2,
+    "found_text": "1 Total Inqs 4-5 mo",
+    "bbox": [
+      382.67999267578125,
+      29.745006561279297,
+      477.4450378417969,
+      44.8590087890625
+    ],
+    "crop": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_crop_12_1___t_o_t_a_l___i_n_q_s___4_5___m_o.png",
+    "red_hm": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_12_1___t_o_t_a_l___i_n_q_s___4_5___m_o_red_hm.png",
+    "green_hm": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_12_1___t_o_t_a_l___i_n_q_s___4_5___m_o_green_hm.png",
+    "left_strip": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_12_1___t_o_t_a_l___i_n_q_s___4_5___m_o_left_strip.png",
+    "med_full": [
+      255,
+      255,
+      255
+    ],
+    "med_left": [
+      255,
+      255,
+      255
+    ],
+    "med_full_cat": "neutral",
+    "med_left_cat": "neutral",
+    "classifier": {
+      "cat": "black",
+      "rgb": [
+        32,
+        36,
+        41
+      ],
+      "hex": "#202429",
+      "green_peak": 0.0,
+      "red_peak": 0.0,
+      "ratio": 0.0,
+      "uncertain": true
+    },
+    "glyph_hex": "#202429",
+    "glyph_rgb": [
+      32,
+      36,
+      41
+    ],
+    "glyph_cat": "black",
+    "best_score": 10069,
+    "candidates": [
+      {
+        "rank": 1,
+        "page": 2,
+        "line_text": "1 Total Inqs 4-5 mo",
+        "score": 1160,
+        "ln_bbox": [
+          382.67999267578125,
+          29.745006561279297,
+          477.4450378417969,
+          44.8590087890625
+        ],
+        "matched_spans": [
+          {
+            "text": "1 Total Inqs 4-5 mo",
+            "bbox": [
+              382.67999267578125,
+              29.745006561279297,
+              477.4450378417969,
+              44.8590087890625
+            ]
+          }
+        ],
+        "crop": "data/poc_imgs/top3_12_1___t_o_t_a_l___i_n_q_s___4_5___m_o_1.png",
+        "overlay": "data/poc_imgs/top3_12_1___t_o_t_a_l___i_n_q_s___4_5___m_o_1_overlay.png",
+        "red_hm": "data/poc_imgs/top3_12_1___t_o_t_a_l___i_n_q_s___4_5___m_o_1_red_hm.png",
+        "green_hm": "data/poc_imgs/top3_12_1___t_o_t_a_l___i_n_q_s___4_5___m_o_1_green_hm.png",
+        "med_full": [
+          255,
+          255,
+          255
+        ],
+        "med_left": [
+          255,
+          255,
+          255
+        ],
+        "med_full_cat": "neutral",
+        "med_left_cat": "neutral",
+        "classifier": {
+          "cat": "black",
+          "rgb": [
+            32,
+            36,
+            41
+          ],
+          "hex": "#202429",
+          "green_peak": 0.0,
+          "red_peak": 0.0,
+          "ratio": 0.0,
+          "uncertain": true
+        },
+        "glyph_hex": "#202429",
+        "glyph_rgb": [
+          32,
+          36,
+          41
+        ],
+        "glyph_cat": "black"
+      },
+      {
+        "rank": 2,
+        "page": 0,
+        "line_text": "1 Inq Last 4-5 mo",
+        "score": 160,
+        "ln_bbox": [
+          382.67999267578125,
+          710.0650024414062,
+          468.28204345703125,
+          725.1790161132812
+        ],
+        "matched_spans": [
+          {
+            "text": "1 Inq Last 4-5 mo",
+            "bbox": [
+              382.67999267578125,
+              710.0650024414062,
+              468.28204345703125,
+              725.1790161132812
+            ]
+          }
+        ],
+        "crop": "data/poc_imgs/top3_12_1___t_o_t_a_l___i_n_q_s___4_5___m_o_2.png",
+        "overlay": "data/poc_imgs/top3_12_1___t_o_t_a_l___i_n_q_s___4_5___m_o_2_overlay.png",
+        "red_hm": "data/poc_imgs/top3_12_1___t_o_t_a_l___i_n_q_s___4_5___m_o_2_red_hm.png",
+        "green_hm": "data/poc_imgs/top3_12_1___t_o_t_a_l___i_n_q_s___4_5___m_o_2_green_hm.png",
+        "med_full": [
+          255,
+          255,
+          255
+        ],
+        "med_left": [
+          255,
+          255,
+          255
+        ],
+        "med_full_cat": "neutral",
+        "med_left_cat": "neutral",
+        "classifier": {
+          "cat": "black",
+          "rgb": [
+            32,
+            36,
+            41
+          ],
+          "hex": "#202429",
+          "green_peak": 0.0,
+          "red_peak": 0.0,
+          "ratio": 0.0,
+          "uncertain": true
+        },
+        "glyph_hex": "#202429",
+        "glyph_rgb": [
+          32,
+          36,
+          41
+        ],
+        "glyph_cat": "black"
+      },
+      {
+        "rank": 3,
+        "page": 0,
+        "line_text": "1 Inq Last 4 Mo",
+        "score": 150,
+        "ln_bbox": [
+          382.67999267578125,
+          454.9449768066406,
+          458.5030517578125,
+          470.0589904785156
+        ],
+        "matched_spans": [
+          {
+            "text": "1 Inq Last 4 Mo",
+            "bbox": [
+              382.67999267578125,
+              454.9449768066406,
+              458.5030517578125,
+              470.0589904785156
+            ]
+          }
+        ],
+        "crop": "data/poc_imgs/top3_12_1___t_o_t_a_l___i_n_q_s___4_5___m_o_3.png",
+        "overlay": "data/poc_imgs/top3_12_1___t_o_t_a_l___i_n_q_s___4_5___m_o_3_overlay.png",
+        "red_hm": "data/poc_imgs/top3_12_1___t_o_t_a_l___i_n_q_s___4_5___m_o_3_red_hm.png",
+        "green_hm": "data/poc_imgs/top3_12_1___t_o_t_a_l___i_n_q_s___4_5___m_o_3_green_hm.png",
+        "med_full": [
+          255,
+          255,
+          255
+        ],
+        "med_left": [
+          255,
+          255,
+          255
+        ],
+        "med_full_cat": "neutral",
+        "med_left_cat": "neutral",
+        "classifier": {
+          "cat": "red",
+          "rgb": [
+            220,
+            53,
+            69
+          ],
+          "hex": "#dc3545",
+          "green_peak": 0.0,
+          "red_peak": 151.00000000000009,
+          "ratio": 0.0,
+          "uncertain": false
+        },
+        "glyph_hex": "#dc3545",
+        "glyph_rgb": [
+          220,
+          53,
+          69
+        ],
+        "glyph_cat": "red"
+      }
+    ]
+  }
+]

@@ -112,3 +112,16 @@ def test_other_param_distribution(param_dist):
         assert abs(count - expected_count) <= expected_count * 0.3, (
             f"Value {val} is not well-distributed (expected ~{expected_count}, got {count})."
         )
+
+
+def test_encoding_smote_compatibility():
+    param_dist = {
+        'encoding': ['ohe', 'ordinal'],
+        'smote__method': ['smotenc', 'smote', 'none'],
+        'feature_selecting_classifier__max_features': [10, None],
+        'feature_selecting_classifier__threshold': [None, 0.5]
+    }
+    samples = generate_parameter_samples(param_dist, 50, random_state=42)
+    # No sample should have encoding=='ohe' and smote__method=='smotenc'
+    for s in samples:
+        assert not (s.get('encoding') == 'ohe' and s.get('smote__method') == 'smotenc')

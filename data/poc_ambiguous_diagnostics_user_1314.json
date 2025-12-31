@@ -1,0 +1,578 @@
+[
+  {
+    "phrase": "8 Chrged Off Rev Accts",
+    "page": 0,
+    "found_text": "10 / $56,881",
+    "bbox": [
+      212.60000610351562,
+      395.5450134277344,
+      262.6399841308594,
+      407.9110107421875
+    ],
+    "crop": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_crop_1_8___c_h_r_g_e_d___o_f_f___r_e_v___a_c_c_t_s.png",
+    "red_hm": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_1_8___c_h_r_g_e_d___o_f_f___r_e_v___a_c_c_t_s_red_hm.png",
+    "green_hm": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_1_8___c_h_r_g_e_d___o_f_f___r_e_v___a_c_c_t_s_green_hm.png",
+    "left_strip": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_1_8___c_h_r_g_e_d___o_f_f___r_e_v___a_c_c_t_s_left_strip.png",
+    "med_full": [
+      235,
+      239,
+      244
+    ],
+    "med_left": [
+      235,
+      239,
+      244
+    ],
+    "med_full_cat": "green",
+    "med_left_cat": "green",
+    "classifier": {
+      "cat": "green",
+      "rgb": [
+        235,
+        239,
+        244
+      ],
+      "hex": "#ebeff4",
+      "green_peak": 0.0,
+      "red_peak": 0.0,
+      "ratio": 0.0,
+      "uncertain": true
+    },
+    "glyph_hex": "#202429",
+    "glyph_rgb": [
+      32,
+      36,
+      41
+    ],
+    "glyph_cat": "black",
+    "best_score": 50
+  },
+  {
+    "phrase": "3+ Closed Rev Accts",
+    "page": 0,
+    "found_text": "$1,036/mo",
+    "bbox": [
+      167.24000549316406,
+      71.42996978759766,
+      234.94398498535156,
+      90.70797729492188
+    ],
+    "crop": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_crop_2_3___c_l_o_s_e_d___r_e_v___a_c_c_t_s.png",
+    "red_hm": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_2_3___c_l_o_s_e_d___r_e_v___a_c_c_t_s_red_hm.png",
+    "green_hm": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_2_3___c_l_o_s_e_d___r_e_v___a_c_c_t_s_green_hm.png",
+    "left_strip": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_2_3___c_l_o_s_e_d___r_e_v___a_c_c_t_s_left_strip.png",
+    "med_full": [
+      255,
+      255,
+      255
+    ],
+    "med_left": [
+      255,
+      255,
+      255
+    ],
+    "med_full_cat": "neutral",
+    "med_left_cat": "neutral",
+    "classifier": {
+      "cat": "black",
+      "rgb": [
+        32,
+        36,
+        41
+      ],
+      "hex": "#202429",
+      "green_peak": 0.0,
+      "red_peak": 0.0,
+      "ratio": 0.0,
+      "uncertain": true
+    },
+    "glyph_hex": "#202429",
+    "glyph_rgb": [
+      32,
+      36,
+      41
+    ],
+    "glyph_cat": "black",
+    "best_score": 50
+  },
+  {
+    "phrase": "8+ Rev Accts with Balances",
+    "page": 0,
+    "found_text": "10 / $56,881",
+    "bbox": [
+      212.60000610351562,
+      395.5450134277344,
+      262.6399841308594,
+      407.9110107421875
+    ],
+    "crop": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_crop_3_8___r_e_v___a_c_c_t_s___w_i_t_h___b_a_l_a_n_c_e_s.png",
+    "red_hm": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_3_8___r_e_v___a_c_c_t_s___w_i_t_h___b_a_l_a_n_c_e_s_red_hm.png",
+    "green_hm": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_3_8___r_e_v___a_c_c_t_s___w_i_t_h___b_a_l_a_n_c_e_s_green_hm.png",
+    "left_strip": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_3_8___r_e_v___a_c_c_t_s___w_i_t_h___b_a_l_a_n_c_e_s_left_strip.png",
+    "med_full": [
+      235,
+      239,
+      244
+    ],
+    "med_left": [
+      235,
+      239,
+      244
+    ],
+    "med_full_cat": "green",
+    "med_left_cat": "green",
+    "classifier": {
+      "cat": "green",
+      "rgb": [
+        235,
+        239,
+        244
+      ],
+      "hex": "#ebeff4",
+      "green_peak": 0.0,
+      "red_peak": 0.0,
+      "ratio": 0.0,
+      "uncertain": true
+    },
+    "glyph_hex": "#202429",
+    "glyph_rgb": [
+      32,
+      36,
+      41
+    ],
+    "glyph_cat": "black",
+    "best_score": 50
+  },
+  {
+    "phrase": "In Credit Counseling",
+    "page": 0,
+    "found_text": "In Credit Counseling",
+    "bbox": [
+      382.67999267578125,
+      608.0149536132812,
+      482.3289489746094,
+      623.1289672851562
+    ],
+    "crop": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_crop_4_i_n___c_r_e_d_i_t___c_o_u_n_s_e_l_i_n_g.png",
+    "red_hm": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_4_i_n___c_r_e_d_i_t___c_o_u_n_s_e_l_i_n_g_red_hm.png",
+    "green_hm": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_4_i_n___c_r_e_d_i_t___c_o_u_n_s_e_l_i_n_g_green_hm.png",
+    "left_strip": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_4_i_n___c_r_e_d_i_t___c_o_u_n_s_e_l_i_n_g_left_strip.png",
+    "med_full": [
+      255,
+      255,
+      255
+    ],
+    "med_left": [
+      255,
+      255,
+      255
+    ],
+    "med_full_cat": "neutral",
+    "med_left_cat": "neutral",
+    "classifier": {
+      "cat": "black",
+      "rgb": [
+        32,
+        36,
+        41
+      ],
+      "hex": "#202429",
+      "green_peak": 0.0,
+      "red_peak": 0.0,
+      "ratio": 0.0,
+      "uncertain": true
+    },
+    "glyph_hex": "#202429",
+    "glyph_rgb": [
+      32,
+      36,
+      41
+    ],
+    "glyph_cat": "black",
+    "best_score": 9999
+  },
+  {
+    "phrase": "No Open Mortgage",
+    "page": 0,
+    "found_text": "No Open Mortgage",
+    "bbox": [
+      382.67999267578125,
+      625.0249633789062,
+      476.2239990234375,
+      640.1389770507812
+    ],
+    "crop": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_crop_5_n_o___o_p_e_n___m_o_r_t_g_a_g_e.png",
+    "red_hm": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_5_n_o___o_p_e_n___m_o_r_t_g_a_g_e_red_hm.png",
+    "green_hm": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_5_n_o___o_p_e_n___m_o_r_t_g_a_g_e_green_hm.png",
+    "left_strip": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_5_n_o___o_p_e_n___m_o_r_t_g_a_g_e_left_strip.png",
+    "med_full": [
+      255,
+      255,
+      255
+    ],
+    "med_left": [
+      255,
+      255,
+      255
+    ],
+    "med_full_cat": "neutral",
+    "med_left_cat": "neutral",
+    "classifier": {
+      "cat": "black",
+      "rgb": [
+        32,
+        36,
+        41
+      ],
+      "hex": "#202429",
+      "green_peak": 0.0,
+      "red_peak": 0.0,
+      "ratio": 0.0,
+      "uncertain": true
+    },
+    "glyph_hex": "#202429",
+    "glyph_rgb": [
+      32,
+      36,
+      41
+    ],
+    "glyph_cat": "black",
+    "best_score": 9999
+  },
+  {
+    "phrase": "1 Rev Late in 4+ yrs",
+    "page": 0,
+    "found_text": "1 Rev Late in 4+ yrs",
+    "bbox": [
+      382.67999267578125,
+      642.0249633789062,
+      480.81103515625,
+      657.1389770507812
+    ],
+    "crop": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_crop_6_1___r_e_v___l_a_t_e___i_n___4___y_r_s.png",
+    "red_hm": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_6_1___r_e_v___l_a_t_e___i_n___4___y_r_s_red_hm.png",
+    "green_hm": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_6_1___r_e_v___l_a_t_e___i_n___4___y_r_s_green_hm.png",
+    "left_strip": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_6_1___r_e_v___l_a_t_e___i_n___4___y_r_s_left_strip.png",
+    "med_full": [
+      255,
+      255,
+      255
+    ],
+    "med_left": [
+      255,
+      255,
+      255
+    ],
+    "med_full_cat": "neutral",
+    "med_left_cat": "neutral",
+    "classifier": {
+      "cat": "black",
+      "rgb": [
+        32,
+        36,
+        41
+      ],
+      "hex": "#202429",
+      "green_peak": 0.0,
+      "red_peak": 0.0,
+      "ratio": 0.0,
+      "uncertain": true
+    },
+    "glyph_hex": "#202429",
+    "glyph_rgb": [
+      32,
+      36,
+      41
+    ],
+    "glyph_cat": "black",
+    "best_score": 10059
+  },
+  {
+    "phrase": "Drop Bad Auth User (BEST BUY/CBNA, and C",
+    "page": 0,
+    "found_text": "Bryan Wimpy's Credit Summary",
+    "bbox": [
+      53.86000061035156,
+      32.50998306274414,
+      251.27798461914062,
+      50.41098403930664
+    ],
+    "crop": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_crop_7_d_r_o_p___b_a_d___a_u_t_h___u_s_e_r___b_e_s_t___b_u_y_c_b_n_a___a_n_d___c.png",
+    "red_hm": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_7_d_r_o_p___b_a_d___a_u_t_h___u_s_e_r___b_e_s_t___b_u_y_c_b_n_a___a_n_d___c_red_hm.png",
+    "green_hm": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_7_d_r_o_p___b_a_d___a_u_t_h___u_s_e_r___b_e_s_t___b_u_y_c_b_n_a___a_n_d___c_green_hm.png",
+    "left_strip": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_7_d_r_o_p___b_a_d___a_u_t_h___u_s_e_r___b_e_s_t___b_u_y_c_b_n_a___a_n_d___c_left_strip.png",
+    "med_full": [
+      255,
+      255,
+      255
+    ],
+    "med_left": [
+      255,
+      255,
+      255
+    ],
+    "med_full_cat": "neutral",
+    "med_left_cat": "neutral",
+    "classifier": {
+      "cat": "black",
+      "rgb": [
+        32,
+        36,
+        41
+      ],
+      "hex": "#202429",
+      "green_peak": 0.0,
+      "red_peak": 0.0,
+      "ratio": 0.0,
+      "uncertain": true
+    },
+    "glyph_hex": "#202429",
+    "glyph_rgb": [
+      32,
+      36,
+      41
+    ],
+    "glyph_cat": "black",
+    "best_score": 0
+  },
+  {
+    "phrase": "No Rev Acct Open 10K 2yr",
+    "page": 0,
+    "found_text": "No Rev Acct Open 10K 2yr",
+    "bbox": [
+      382.67999267578125,
+      676.0449829101562,
+      514.7350463867188,
+      691.1589965820312
+    ],
+    "crop": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_crop_8_n_o___r_e_v___a_c_c_t___o_p_e_n___1_0_k___2_y_r.png",
+    "red_hm": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_8_n_o___r_e_v___a_c_c_t___o_p_e_n___1_0_k___2_y_r_red_hm.png",
+    "green_hm": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_8_n_o___r_e_v___a_c_c_t___o_p_e_n___1_0_k___2_y_r_green_hm.png",
+    "left_strip": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_8_n_o___r_e_v___a_c_c_t___o_p_e_n___1_0_k___2_y_r_left_strip.png",
+    "med_full": [
+      255,
+      255,
+      255
+    ],
+    "med_left": [
+      255,
+      255,
+      255
+    ],
+    "med_full_cat": "neutral",
+    "med_left_cat": "neutral",
+    "classifier": {
+      "cat": "black",
+      "rgb": [
+        32,
+        36,
+        41
+      ],
+      "hex": "#202429",
+      "green_peak": 0.0,
+      "red_peak": 0.0,
+      "ratio": 0.0,
+      "uncertain": true
+    },
+    "glyph_hex": "#202429",
+    "glyph_rgb": [
+      32,
+      36,
+      41
+    ],
+    "glyph_cat": "black",
+    "best_score": 10069
+  },
+  {
+    "phrase": "1 Inq last 2\u20114 Mo",
+    "page": 0,
+    "found_text": "1 Inq last 2-4 Mo",
+    "bbox": [
+      382.67999267578125,
+      693.0549926757812,
+      464.6080322265625,
+      708.1690063476562
+    ],
+    "crop": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_crop_9_1___i_n_q___l_a_s_t___2_4___m_o.png",
+    "red_hm": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_9_1___i_n_q___l_a_s_t___2_4___m_o_red_hm.png",
+    "green_hm": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_9_1___i_n_q___l_a_s_t___2_4___m_o_green_hm.png",
+    "left_strip": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_9_1___i_n_q___l_a_s_t___2_4___m_o_left_strip.png",
+    "med_full": [
+      255,
+      255,
+      255
+    ],
+    "med_left": [
+      255,
+      255,
+      255
+    ],
+    "med_full_cat": "neutral",
+    "med_left_cat": "neutral",
+    "classifier": {
+      "cat": "black",
+      "rgb": [
+        32,
+        36,
+        41
+      ],
+      "hex": "#202429",
+      "green_peak": 0.0,
+      "red_peak": 0.0,
+      "ratio": 0.0,
+      "uncertain": true
+    },
+    "glyph_hex": "#202429",
+    "glyph_rgb": [
+      32,
+      36,
+      41
+    ],
+    "glyph_cat": "black",
+    "best_score": 10069
+  },
+  {
+    "phrase": "1 Inq Last 4\u20115 mo",
+    "page": 0,
+    "found_text": "1 Inq Last 4-5 mo",
+    "bbox": [
+      382.67999267578125,
+      710.0650024414062,
+      468.28204345703125,
+      725.1790161132812
+    ],
+    "crop": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_crop_10_1___i_n_q___l_a_s_t___4_5___m_o.png",
+    "red_hm": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_10_1___i_n_q___l_a_s_t___4_5___m_o_red_hm.png",
+    "green_hm": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_10_1___i_n_q___l_a_s_t___4_5___m_o_green_hm.png",
+    "left_strip": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_10_1___i_n_q___l_a_s_t___4_5___m_o_left_strip.png",
+    "med_full": [
+      255,
+      255,
+      255
+    ],
+    "med_left": [
+      255,
+      255,
+      255
+    ],
+    "med_full_cat": "neutral",
+    "med_left_cat": "neutral",
+    "classifier": {
+      "cat": "black",
+      "rgb": [
+        32,
+        36,
+        41
+      ],
+      "hex": "#202429",
+      "green_peak": 0.0,
+      "red_peak": 0.0,
+      "ratio": 0.0,
+      "uncertain": true
+    },
+    "glyph_hex": "#202429",
+    "glyph_rgb": [
+      32,
+      36,
+      41
+    ],
+    "glyph_cat": "black",
+    "best_score": 10069
+  },
+  {
+    "phrase": "1 Total Inq 2-4 Mo",
+    "page": 1,
+    "found_text": "1 Total Inq 2-4 Mo",
+    "bbox": [
+      382.67999267578125,
+      29.745006561279297,
+      471.9450378417969,
+      44.8590087890625
+    ],
+    "crop": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_crop_11_1___t_o_t_a_l___i_n_q___2_4___m_o.png",
+    "red_hm": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_11_1___t_o_t_a_l___i_n_q___2_4___m_o_red_hm.png",
+    "green_hm": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_11_1___t_o_t_a_l___i_n_q___2_4___m_o_green_hm.png",
+    "left_strip": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_11_1___t_o_t_a_l___i_n_q___2_4___m_o_left_strip.png",
+    "med_full": [
+      255,
+      255,
+      255
+    ],
+    "med_left": [
+      255,
+      255,
+      255
+    ],
+    "med_full_cat": "neutral",
+    "med_left_cat": "neutral",
+    "classifier": {
+      "cat": "black",
+      "rgb": [
+        32,
+        36,
+        41
+      ],
+      "hex": "#202429",
+      "green_peak": 0.0,
+      "red_peak": 0.0,
+      "ratio": 0.0,
+      "uncertain": true
+    },
+    "glyph_hex": "#202429",
+    "glyph_rgb": [
+      32,
+      36,
+      41
+    ],
+    "glyph_cat": "black",
+    "best_score": 10069
+  },
+  {
+    "phrase": "1 Total Inqs 4-5 Mo",
+    "page": 2,
+    "found_text": "1 Total Inqs 4-5 mo",
+    "bbox": [
+      382.67999267578125,
+      29.745006561279297,
+      477.4450378417969,
+      44.8590087890625
+    ],
+    "crop": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_crop_12_1___t_o_t_a_l___i_n_q_s___4_5___m_o.png",
+    "red_hm": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_12_1___t_o_t_a_l___i_n_q_s___4_5___m_o_red_hm.png",
+    "green_hm": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_12_1___t_o_t_a_l___i_n_q_s___4_5___m_o_green_hm.png",
+    "left_strip": "/home/jdstraye/proj/shifi/pre_auth.git/data/poc_imgs/debug_12_1___t_o_t_a_l___i_n_q_s___4_5___m_o_left_strip.png",
+    "med_full": [
+      255,
+      255,
+      255
+    ],
+    "med_left": [
+      255,
+      255,
+      255
+    ],
+    "med_full_cat": "neutral",
+    "med_left_cat": "neutral",
+    "classifier": {
+      "cat": "black",
+      "rgb": [
+        32,
+        36,
+        41
+      ],
+      "hex": "#202429",
+      "green_peak": 0.0,
+      "red_peak": 0.0,
+      "ratio": 0.0,
+      "uncertain": true
+    },
+    "glyph_hex": "#202429",
+    "glyph_rgb": [
+      32,
+      36,
+      41
+    ],
+    "glyph_cat": "black",
+    "best_score": 10069
+  }
+]

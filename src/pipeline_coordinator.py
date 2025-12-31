@@ -335,13 +335,14 @@ class MLPipelineCoordinator:
         
         try:
             # Perform cross-validation
+            from typing import Any, cast
             cv_results = cross_validate(
                 pipeline, X, y,
                 cv=cv,
                 scoring=scoring,
                 n_jobs=n_jobs,
                 return_train_score=False,
-                error_score='raise'
+                error_score=cast(Any, 'raise')
             )
             
             # Log results
