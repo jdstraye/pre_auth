@@ -35,6 +35,13 @@ Scripts / Tools
     - Imports / uses: combined_sample_color_for_phrase, map_color_to_cat, median_5x5, rgb_to_hex_tuple
   - validate_hammer_small_set.py
     - Imports / uses: combined_sample_color_for_phrase, map_color_to_cat
+  - regen_regression_set.py (new)
+    - Purpose: build a reviewable regression pool of candidate lines from PDFs (provisional labels only). See `scripts/regen_regression_set.py`.
+    - Usage: `python scripts/regen_regression_set.py --quick-subset 50 --out-dir data/regression_pool --seed-from-poc --provisional`
+    - Produces: `data/regression_pool/<pdf_id>_candidates_provisional.json` and `manifest.json` for downstream labeling and CI smoke-tests.
+  - prepare_labeling_csv.py (new)
+    - Purpose: export provisional candidates to CSV/JSONL for fast human validation or import into a labeling tool.
+    - Usage: `python scripts/prepare_labeling_csv.py --input data/regression_pool --out labeling/user_validate.csv --pdf-ids user_1314`
   - eval_threshold_scan.py, eval_color_sampler.py, eval_sensitivity.py
     - Use importlib.import_module('scripts.poc_extract_credit_factors') (dynamic import; may call many attrs at runtime)
 Other / Notes
