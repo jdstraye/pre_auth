@@ -14,6 +14,9 @@ from pathlib import Path
 from datetime import datetime
 import os
 import sys
+import colorsys
+# Minimum saturation threshold used by color classification heuristics
+SPAN_SAT_MIN = 0.05
 
 # --------------------------
 # Global Setup: Constants, Paths, & Logging
@@ -353,7 +356,7 @@ def check_df_columns(df: pd.DataFrame, column_headers: List[str]) -> bool:
     # offer may be missing. For these we will not treat NaN as fatal here; they
     # should be handled by downstream preprocessing (e.g., imputation or filtering).
     allowed_nan_suffixes = (
-        '_Score', '_Amount', '_DebtToIncome', '_below_600_', '_PayD', '_Collections', '_Contingencies', '_Details', '_score_missing_'
+        '_Score', '_Amount', '_DebtToIncome', 'DebtToIncome', '_below_600_', '_PayD', '_Collections', '_Contingencies', '_Details', '_score_missing_'
     )
 
     for c in existing_columns:
@@ -382,5 +385,142 @@ def check_df_columns(df: pd.DataFrame, column_headers: List[str]) -> bool:
     if bad_df:
             raise ValueError("The DataFrame is not suitable for ML model fitting. Address the errors before proceeding.")
     return not bad_df
+
+
+# --- PDF Color Utilities (migrated from scripts/utils.py) ---
+import colorsys
+
+# Canonical RGB values for color distance fallback (PDF-specific)
+CANONICAL = {
+    'red': (220, 53, 69),
+    'green': (66, 143, 78),
+    'black': (33, 37, 41),
+}
+
+SPAN_BLACK_V_THRESH = 0.32  # Value threshold for black
+SPAN_SAT_MIN = 0.18         # Minimum saturation for color
+
+def color_distance(rgb1, rgb2):
+    """Euclidean distance in RGB space (for pale tints)."""
+    r1, g1, b1 = rgb1
+    r2, g2, b2 = rgb2
+    return (r1 - r2) ** 2 + (g1 - g2) ** 2 + (b1 - b2) ** 2
+
+
+def map_color_to_cat(rgb, debug=False):
+    """
+    Hybrid color classifier for PDF extraction:
+    - Exact hex match for known colors (most reliable)
+    - HSV/canonical color distance for robust handling
+    - Threshold-based fallback for unknowns
+    - Debug flag for diagnostics
+    Returns: 'red', 'green', 'black', or 'neutral'
+    """
+    if not rgb:
+        if debug:
+            print("  [map_color_to_cat] No RGB provided, returning 'neutral'")
+        return 'neutral'
+    r, g, b = rgb
+    rgb_hex = '#{:02x}{:02x}{:02x}'.format(r, g, b).lower()
+
+
+    # 1. Exact hex match (most reliable for your PDFs)
+    red_colors = {'#dc3545', '#dd5435', '#ad302e'}
+    green_colors = {'#428f4e', '#8cb955'}
+    black_colors = {'#212529', '#374151'}
+    score_colors = {'#e8923e', '#f7cd47'}
+    if rgb_hex in red_colors:
+        if debug:
+            print(f"  ✓ Exact red match: {rgb_hex}")
+        return 'red'
+    if rgb_hex in green_colors:
+        if debug:
+            print(f"  ✓ Exact green match: {rgb_hex}")
+        return 'green'
+    if rgb_hex in black_colors:
+        if debug:
+            print(f"  ✓ Exact black match: {rgb_hex}")
+        return 'black'
+    if rgb_hex in score_colors:
+        if debug:
+            print(f"  ✓ Score/neutral color: {rgb_hex}")
+        return 'neutral'
+
+    # 2. HSV/canonical color distance logic (from main extraction)
+    r_f, g_f, b_f = [x / 255.0 for x in (r, g, b)]
+    h, s, v = colorsys.rgb_to_hsv(r_f, g_f, b_f)
+    hue = h * 360
+    # More aggressive green/black distinction for dark colors
+    if v < 0.22 and s < 0.22:
+        # If green is dominant and not extremely low, prefer green
+        if g >= r and g >= b and g > 30 and s > 0.10:
+            if debug:
+                print(f"    → Aggressive GREEN (dark, green dominant): v={v:.2f}, s={s:.2f}, g={g}")
+            return 'green'
+        if debug:
+            print(f"    → Classified as BLACK (dark, low sat): v={v:.2f}, s={s:.2f}")
+        return 'black'
+    if s >= SPAN_SAT_MIN:
+        if 60 <= hue <= 170:
+            if debug:
+                print(f"    → Classified as GREEN (hue={hue:.1f})")
+            return 'green'
+        if 30 < hue < 60:
+            if debug:
+                print(f"    → Classified as RED (amber/orange, hue={hue:.1f})")
+            return 'red'
+        if hue <= 30 or hue >= 330:
+            if debug:
+                print(f"    → Classified as RED (hue={hue:.1f})")
+            return 'red'
+        if debug:
+            print(f"    → Classified as NEUTRAL (hue={hue:.1f})")
+        return 'neutral'
+    # If saturation is low but value is high, prefer green if green channel dominates
+    if s < 0.18 and v > 0.35 and g > r and g > b:
+        if debug:
+            print(f"    → Aggressive GREEN fallback (low sat, high v, green bias)")
+        return 'green'
+    # Fallback: distance to canonical colors
+    best, bestd = None, None
+    for name, canon in CANONICAL.items():
+        d = color_distance(rgb, canon)
+        if best is None or d < bestd:
+            best, bestd = name, d
+    if bestd is not None and bestd < 70000:
+        if debug:
+            if best is not None:
+                print(f"    → Classified as {best.upper()} (distance {bestd})")
+            else:
+                print(f"    → Classified as None (distance {bestd})")
+        return best
+    if s >= 0.01 and bestd is not None and bestd < 120000:
+        if debug:
+            if best is not None:
+                print(f"    → Looser match: {best.upper()} (distance {bestd})")
+            else:
+                print(f"    → Looser match: None (distance {bestd})")
+        return best
+    if v > 0.85:
+        if (g - r) > 8 and (g - b) > 8:
+            if debug:
+                print(f"    → Classified as GREEN (very light, green bias)")
+            return 'green'
+    # 3. Threshold-based fallback for unknowns
+    if r > 150 and g < 100 and b < 80:
+        if debug:
+            print(f"    → Fallback: RED (r={r}, g={g}, b={b})")
+        return 'red'
+    if g > 70 and g > r + 30 and g > b + 30:
+        if debug:
+            print(f"    → Fallback: GREEN (r={r}, g={g}, b={b})")
+        return 'green'
+    if r < 60 and g < 70 and b < 90:
+        if debug:
+            print(f"    → Fallback: BLACK (r={r}, g={g}, b={b})")
+        return 'black'
+    if debug:
+        print(f"    → Fallback: NEUTRAL (r={r}, g={g}, b={b})")
+    return 'neutral'
 
 

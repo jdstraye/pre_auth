@@ -674,8 +674,21 @@ class MaybeSMOTESampler(BaseNamedSamplerMixin, BaseSampler):
 
         self._validator = DataValidator("MaybeSMOTESampler", X=X_df, y=y_flat, categorical_feature_names=self.categorical_feature_names, ohe_column_names=self.ohe_column_names)
 
-        self._get_logger().debug(f"Frame Validation before SMOTE ...")
-        self._validator.validate_frame(X_df, "SMOTE")
+        # If the user requested categorical columns that are entirely missing from X, we should
+        # allow a graceful fallback (to NamedSMOTE / RandomOverSampler) rather than fail
+        # during initial validation. Compute an effective categorical list that only contains
+        # columns present in the frame.
+        effective_categorical = [c for c in (self.categorical_feature_names or []) if c in X_df.columns]
+        skip_validator = False
+        if self.categorical_feature_names and not effective_categorical and self.allow_fallback:
+            self._get_logger().warning(f"Missing requested categorical columns {self.categorical_feature_names}; will fall back to non-categorical sampler due to allow_fallback=True")
+            skip_validator = True
+
+        self._get_logger().debug(f"Frame Validation before SMOTE (skip_validator={skip_validator}) ...")
+        if not skip_validator:
+            self._validator.validate_frame(X_df, "SMOTE")
+        else:
+            self._get_logger().debug("Skipping DataValidator categorical checks due to allow_fallback condition")
 
         orig_counts = self._class_counts(y_series)
         orig_min_share = self._minority_share(orig_counts)
@@ -699,10 +712,11 @@ class MaybeSMOTESampler(BaseNamedSamplerMixin, BaseSampler):
             self.last_used_sampler = 'RandomOverSampler'
             self.last_smote_applied = False
         else:
-            if self.categorical_feature_names:
+            # Use the effective categorical list computed earlier - this allows graceful fallback
+            if effective_categorical:
                 sampler = NamedSMOTENC(
                     feature_names=self.feature_names,
-                    categorical_feature_names=self.categorical_feature_names,
+                    categorical_feature_names=effective_categorical,
                     k_neighbors=int(self.k_neighbors),
                     sampling_strategy=self.sampling_strategy,
                     random_state=self.random_state,
@@ -1082,15 +1096,16 @@ class NamedSMOTENC(BaseNamedSamplerMixin, SMOTENC):
         self.categorical_features_indices: List[int] = []
         self._get_logger().debug(f"DBG:SMOTERECUR00 - ENTER {self.__class__.__name__}.fit_resample")
 
-        if not self.categorical_features_indices:
-            self._get_logger().warning("No categorical features remain after selection; falling back to plain SMOTE.")
-            smote = NamedSMOTE(random_state=gv.RANDOM_STATE, feature_names=self.feature_names)
-            self._get_logger().debug("DBG:SMOTERECUR01 - FALLing back to NamedSMOTE from NamedSMOTENC")    
-            return cast(
-                Tuple[pd.DataFrame, np.ndarray], 
-                smote.fit_resample(X, y)
-            )
+        # Do not attempt to perform any fallback here: we don't have access to X/y yet in __init__.
+        # The mapping from categorical names -> indices and any fallback to NamedSMOTE is handled
+        # within NamedSMOTENC._fit_resample where X and y are available.
+        # Leaving this as a no-op prevents inadvertent UnboundLocalError caused by referencing X/y here.
 
+    def _fit_resample(self, X: Any, y: Any) -> Tuple[Any, Any]:
+        """
+        Resample the dataset using SMOTENC semantics, mapping categorical feature names
+        to column indices and delegating to the parent SMOTENC implementation.
+        """
         # If input is not a DataFrame, try to convert it to DataFrame
         if not isinstance(X, pd.DataFrame):
             self._get_logger().debug(f"NamedSMOTENC received {type(X)}, converting to DataFrame.")
