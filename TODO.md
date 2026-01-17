@@ -1,3 +1,96 @@
+
+# Get rid of scripts\poc_extract_credit_factors.py
+Validation tests:
+ python -m pytest tests/test_pdf_extraction_ground_truth.py --user_id 582 -q -x
+ python -m pytest tests/test_pdf_extraction_ground_truth.py --user_id 692 -q -x
+ python -m pytest tests/test_pdf_extraction_ground_truth.py --user_id 692 -q -x -s
+ python -m pytest tests/test_pdf_extraction_ground_truth.py --user_id 705 -q -x -s
+ python -m pytest tests/test_pdf_extraction_ground_truth.py --user_id 1140 -q -x -s
+ python -m pytest tests/test_pdf_extraction_ground_truth.py --user_id 1314 -q -x -s
+
+- [x] Audit all imports/usages (done briefly earlier) and list functions used by callers. (in-progress)
+Tests
+  - test_pymupdf_extractor.py
+    - Imports / uses: load_expectations_from_dir, find_credit_factors_region, extract_lines_from_region, span_color_hex, map_color_to_cat, combined_sample_color_for_phrase, ROOT
+    - Also references (local import): color_first_search_for_phrase, run_expectation_only_qa
+  - test_vector_inspector.py
+    - Imports / uses: load_expectations_from_dir, map_color_to_cat, span_color_hex, ROOT
+  - test_color_phrase_sampling.py
+    - Imports / uses: combined_sample_color_for_phrase, map_color_to_cat
+  - test_qa_review_flag.py
+    - Imports / uses: run_expectation_only_qa
+  - test_public_records_parsing.py
+    - Imports / uses: parse_public_records
+  - (Indirect/related tests: test_span_color.py, test_numeric_parsing.py, test_1314_expectations.py — inspect if they rely on the module)
+Scripts / Tools
+  - run_sample_extraction.py
+    - Imports / uses: extract_record_level, parse_count_amount_pair, map_line_to_canonical, span_color_hex, rgb_to_hex_tuple, map_color_to_cat, combined_sample_color_for_phrase, parse_public_records, normalize_factors
+  - generate_color_training.py
+    - Imports / uses: median_5x5, rgb_to_hex_tuple, map_color_to_cat
+  - eval_color_extractor.py
+    - Imports / uses: combined_sample_color_for_phrase, map_color_to_cat
+  - validate_credit_factors.py
+    - Imports / uses: extract_credit_factors_from_doc
+  - dump_color_mismatches.py
+    - Imports / uses: combined_sample_color_for_phrase, map_color_to_cat, median_5x5, rgb_to_hex_tuple
+  - validate_hammer_small_set.py
+    - Imports / uses: combined_sample_color_for_phrase, map_color_to_cat
+  - eval_threshold_scan.py, eval_color_sampler.py, eval_sensitivity.py
+    - Use importlib.import_module('scripts.poc_extract_credit_factors') (dynamic import; may call many attrs at runtime)
+Other / Notes
+  - The module defines constants and side-effect functions used by tooling (e.g., ROOT, file writing from run_expectation_only_qa, output CSV writers).
+  - Some code relies on slightly different names/structures (e.g., nested account dicts vs flat counts) — tests catch these semantic differences.
+  - There are many occurrences of legacy key inquiries_6mo that still appear in other scripts and test expectations (we replaced many, but some unvalidated files remain).
+
+- [x] Move any missing helpers from poc_extract_credit_factors.py into pdf_color_extraction.py, adding/adjusting tests where needed.
+  - Affected ./src/utils.py, ./src/scripts/pdf_color_extraction.py
+  - Created ./tests/test_pdf_color_helpers.py
+  - [ ] Compare the helpers from poc_extract_credit_factors.py (parse_count_amount_pair, median_5x5, parse_public_records, load_expectations_from_dir, find_credit_factors_region, extract_lines_from_region, normalize_factors, extract_credit_factors_from_doc) to the current extraction code in pdf_color_extraction.py. Are there superior strategies/algorithms that should be adopted in pdf_color_extraction.py?
+    - the POC helpers contain reliable, structured heuristics (pivot/column detection, dollar-line merging, canonical dedupe) that are generally superior to the current ad-hoc/fallback heuristics in pdf_color_extraction.py and should be adopted as the primary credit-factor extraction path; a few targeted improvements (multi-page handling, robust OCR fallbacks, fuzzy canonicalization) would make the result even more robust.
+    - GIT commit 100644 to save src/scripts/pdf_color_extraction.py before big changes, since it passes the 6 random PDF extractions.
+    - Recommendations:
+      - [ ] Candidate discovery (POC) vs ad-hoc lines (pdf_color_extraction). Adopt the POC pivot-based candidate discovery (i.e., extract_credit_factors_from_doc) as the primary factor extraction flow and keep the phrase/fallback as a secondary rescue path.
+        - POC strategy:
+          - Computes a per-page pivot (x0 median) to find right-column candidates.
+          - Filters by x-position and text compactness; merges adjacent dollar lines with following label lines.This geometric approach is robust for two-column credit-summary layouts.
+        - Current pdf_color_extraction:
+          - Tries cf_start/contiguous-block capture or falls back to a phrase-list search (factor_phrases).
+          - Good fallback, but less precise for right-column/structured pages and multi-page cases.
+        Implementation of Candidate discovery:
+          - First round caused failures on `python -m pytest tests/test_pdf_extraction_ground_truth.py --user_id 582 -q -x`. While we got more items (some were correct), we also got pure headings and table rows (e.g., esholds (SPAN_SAT_MIN, low-v thresholds) and prefer span colors when present; add short QA rules where fallback color overrides POC neutral.
+          Add targeted tests:
+          Unit tests for the three failing ground-truth cases (user_582, user_1254, user_1514) to prevent regressions.
+          Run full ground-truth suite and iterate until counts/colors match expected GT.uppercase company rows like "SUNCOAST CREDIT UNIO")
+          - Second round will address by:
+            - Normalize and dedupe POC output: run normalize_factors() and map_line_to_canonical() on POC results before merging so keys match canonical forms.
+            - Merge with smarter color pick: If both fallback and POC provide the same canonical key, prefer fallback color when it's non-neutral and POC is neutral. Otherwise use higher priority color (red > green > black > neutral).
+            - Filter noisy rows: Exclude uppercase-only company lines and table/account rows (refined regex rules for lines like ^\$[0-9,]+\s+[A-Z0-9 ]+$ and tokens length heuristics).
+            - Improve color heuristics: Normalize span/pixel sampling thresholds (SPAN_SAT_MIN, low-v thresholds) and prefer span colors when present; add short QA rules where fallback color overrides POC neutral.
+            - Add targeted tests: Unit tests for the three failing ground-truth cases (user_582, user_1254, user_1514) to prevent regressions.
+            - Run full ground-truth suite and iterate until counts/colors match expected GT.
+
+      - [ ] Dollar-line merging & numeric parsing. Keep/standardize this merging and parsing logic (already migrated). Add more test vectors (edge locale formats, parentheses, ranges) where helpful.
+          - POC: merges "$123" + "Unpaid Collections" pairs and has parse_count_amount_pair() heuristics (dollar-sign heuristic, magnitude heuristic, comma heuristic).
+      - [ ] Normalization & dedupe (normalize_factors). Use normalize_factors as the canonical post-processing step and extend it with:
+        - fuzzy matching (normalized token edit-distance/tokens overlap) for near-duplicates,
+        - a small alias map to cover common label variants,
+        - more unit tests on deduping behavior.
+          - POC: canonicalizes factors, dedupes by canonical key, and chooses the highest-severity color (red>amber>green>black).
+          - Current code: pdf_color_extraction had factor detection but lacked the disciplined dedupe/priority merge.
+      - [ ] Color sampling & classification. Keep combined_sample_color_for_phrase and ensure that factor extraction preferentially uses span-based color tokens, then fall back to pixel-sampling (median_5x5 or global cluster heuristics) as implemented.
+        - Consider tuning canonical color lists and thresholds (e.g., SPAN_SAT_MIN) via small QA runs.
+        - POC helpers (median_5x5, _detect_canonical_in_pixels) + span_color_hex form a good multilevel color-sampling strategy (span-first, then pixel sampling).
+        - pdf_color_extraction adds advanced routines (e.g., combined_sample_color_for_phrase, color-first hammer).
+      - [ ] Multi-page & context-aware pairing. Ensure page_limit is adjustable (or None) and that merged/adjacent merging logic can span pages when reasonable (e.g., when same pivot/page context).
+        - Issue found in QA: some credit factors spill to a second page or have city/state on separate lines (addresses). POC merges contiguous pages only if you instruct it to scan pages; extraction should be resilient across page boundaries.
+    - [ ] The organization is poor with scripts/ inside src/. Instead create a library:
+        - extract stable helpers into a package module (e.g., src/lib/pdf_extraction.py), update tests/callers, then delete the old script wrapper. (Cleaner API, higher effort) ✅
+
+
+
+
+- [ ] Update callers incrementally to import from the new module directly, run unit tests after each change.
+- [ ] When everything is green and callers updated, remove shim and delete old file.
 - [ ] Documentation:
   - [ ] Result tracker: a report from the intensive runs with the best candidate's full metrics + feature importances. It should identify what changed in the source vs. what the resulting top candidate's results were. It needs to be maintained with every major improvement, so add it to the end of every Todo list.Ideally it has a graph showing f1 score of the top candidate on the y-axis and date on the x-axis.
   - [ ] SRS

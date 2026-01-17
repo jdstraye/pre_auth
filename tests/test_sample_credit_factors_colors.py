@@ -9,7 +9,11 @@ def load_rec(name):
     p = next(EXTRACTED.glob(f"{name}*.json"), None)
     assert p is not None, f"extracted json for {name} not found"
     j = json.loads(p.read_text())
-    return j['rec']
+    if isinstance(j, dict) and 'rec' in j:
+        return j['rec']
+    if isinstance(j, dict):
+        return j
+    raise AssertionError(f"extracted JSON for {name} is not a valid record")
 
 
 def has_non_neutral(rec):

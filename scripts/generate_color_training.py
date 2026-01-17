@@ -13,7 +13,7 @@ from PIL import Image
 import pytesseract
 import numpy as np
 import json
-from scripts.poc_extract_credit_factors import median_5x5, rgb_to_hex_tuple, map_color_to_cat
+from src.scripts.pdf_color_extraction import median_5x5, rgb_to_hex_tuple, map_color_to_cat
 
 PDF_DIR = pathlib.Path('data/pdf_analysis')
 OUT_DIR = pathlib.Path('data/color_training')

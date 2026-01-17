@@ -4,7 +4,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 import sys
 sys.path.insert(0, str(ROOT))
-from scripts.poc_extract_credit_factors import extract_credit_factors_from_doc
+from src.scripts.pdf_color_extraction import extract_credit_factors_from_doc
 
 DATA_DIR = ROOT / 'data'
 PDF_DIR = DATA_DIR / 'pdf_analysis'

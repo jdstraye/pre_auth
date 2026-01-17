@@ -13,8 +13,11 @@ def find_any_extracted():
 
 def load_rec_from_file(p):
     j = json.loads(p.read_text())
-    assert 'rec' in j, 'extracted file must contain top-level rec'
-    return j['rec']
+    if isinstance(j, dict) and 'rec' in j:
+        return j['rec']
+    if isinstance(j, dict):
+        return j
+    raise AssertionError('extracted file must contain top-level rec or be a record dict')
 
 
 def _any_extracted_files():
@@ -29,10 +32,14 @@ def test_no_wide_row_in_extracted_files():
     stale = []
     for p in files:
         j = json.loads(p.read_text())
+        # treat non-dict or null content as stale/extracted-before-migration
+        if not isinstance(j, dict):
+            stale.append(p)
+            continue
         if 'wide_row' in j:
             stale.append(p)
         else:
-            rec = j.get('rec', {})
+            rec = j.get('rec', {}) if isinstance(j.get('rec', {}), dict) else {}
             if not rec.get('filename') or not rec.get('source'):
                 stale.append(p)
     if stale:

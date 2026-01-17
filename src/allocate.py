@@ -152,7 +152,6 @@ def main():
             if counts.shape[0] <= 1:
                 break
 
-        from sklearn.model_selection import train_test_split
         train_df, test_df = train_test_split(df, test_size=test_fraction, stratify=df['strat_key'], random_state=42)
 
     else:

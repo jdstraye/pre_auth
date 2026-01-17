@@ -1,67 +1,65 @@
-#!/usr/bin/env python3
-import csv, re, os, sys
 from pathlib import Path
-try:
-    import boto3
-except Exception:
-    boto3 = None
-try:
-    import fitz
-except Exception:
-    raise ImportError('PyMuPDF (fitz) is required for `poc_extract_credit_factors`. Install with: pip install pymupdf')
-HAS_FITZ = True
-import subprocess
-from PIL import Image, ImageDraw
-try:
-    import pytesseract
-    HAS_PYTESSERACT = True
-except Exception:
-    pytesseract = None
-    HAS_PYTESSERACT = False
+import fitz
 import numpy as np
-from collections import deque
+import re
+from src.scripts.pdf_color_extraction import combined_sample_color_for_phrase, span_color_hex, rgb_to_hex_tuple, median_5x5, map_color_to_cat as canonical_map_color_to_cat
 
-# --- BEGIN TEST-ENSURING STUBS ---
-# Provide minimal, import-safe stubs for public helpers so tests can import
-if 'combined_sample_color_for_phrase' not in globals() or not callable(globals().get('combined_sample_color_for_phrase')):
-    def combined_sample_color_for_phrase(doc, phrase, expected_color=None, page_limit=1):
-        """Import-time safe stub. Calls color_first_search_for_phrase if available, else returns None."""
-        try:
-            if 'color_first_search_for_phrase' in globals():
-                res = color_first_search_for_phrase(doc, phrase, expected_color=expected_color, page_limit=page_limit)
-                if res:
-                    pidx, line_text, hexv, rgb, bbox, *rest = res
-                    return pidx, line_text, hexv, rgb, bbox, 'color_first'
-        except Exception:
-            pass
-        return None
+def sample_color_from_glyphs(page, spans, scale=3):
+    """Sample the color of a phrase from its glyph spans on a page. Returns (hex, rgb, score)."""
+    hexv, rgb = span_color_hex(spans)
+    if rgb is not None:
+        cat = map_color_to_cat(rgb)
+        score = 1.0 if cat in ("red", "green", "amber") else 0.0
+        return hexv, rgb, score
 
-if 'extract_record_level' not in globals() or not callable(globals().get('extract_record_level')):
-    def extract_record_level(full_text, doc=None):
-        """Import-time safe stub for lightweight numeric parsing used by tests."""
-        out = {}
-        try:
-            m = re.search(r'Installment Accounts \(Open\)\s*[:\-]?\s*(\d+)\s*/\s*\$?([0-9,]+)', full_text, re.I)
-            if m:
-                out['installment_open_count'] = int(m.group(1))
-                out['installment_open_total'] = int(m.group(2).replace(',',''))
-            m = re.search(r'Inquir(?:y|ies).*?(\d{1,3})', full_text, re.I)
-            if m:
-                out['inquiries_6mo'] = int(m.group(1))
-            m = re.search(r'Late Pays.*?(\d+)\s*/\s*(\d+)', full_text, re.I)
-            if m:
-                out['late_pays_recent'] = int(m.group(1))
-                out['late_pays_prior'] = int(m.group(2))
-            m = re.search(r'Payments?\s*[:\-]?\s*\$?([0-9,]+)\s*/\s*mo', full_text, re.I)
-            if m:
-                out['monthly_payment'] = int(m.group(1).replace(',',''))
-        except Exception:
-            pass
-        # normalize keys
-        for k in ['installment_open_count','installment_open_total','revolving_open_count','revolving_open_total','inquiries_6mo','late_pays_recent','late_pays_prior','monthly_payment']:
-            out[k] = out.get(k)
-        return out
-# --- END TEST-ENSURING STUBS ---
+    # Use canonicalize, map_line_to_canonical, and MAPPING_RULES from src/scripts/pdf_color_extraction
+    from src.scripts.pdf_color_extraction import map_line_to_canonical, canonicalize, MAPPING_RULES
+def get_candidates_for_phrase(doc, phrase, page_limit=1):
+    """Return a list of (page_index, line_text, spans) for lines matching the phrase (case-insensitive substring match) in the first page_limit pages."""
+    candidates = []
+    for pidx in range(min(page_limit, len(doc))):
+        page = doc.load_page(pidx)
+        td = page.get_text('dict')
+        for b in td.get('blocks', []):
+            for ln in b.get('lines', []):
+                line_text = ''.join([s.get('text','') for s in ln.get('spans', [])]).strip()
+                if not line_text:
+                    continue
+                if phrase.lower() in line_text.lower():
+                    candidates.append((pidx, line_text, ln.get('spans', [])))
+    return candidates
+
+
+def extract_record_level(full_text: str, doc=None):
+    """Lightweight extraction of record-level numeric fields from a raw text dump of the PDF.
+
+    This is intentionally conservative: it only parses explicit "N / $X" rows for the common
+    account-summary sections. Other callers may supplement results by scanning the rendered
+    pages with OCR or by using the more robust PDF parsing routines in the project.
+    """
+    rec = {}
+    # Patterns for count/total pairs
+    pairs = [
+        ('revolving_open', r"Revolving Accounts \(Open\).*?(\d+)\s*/\s*\$?([0-9,]+)"),
+        ('installment_open', r"Installment Accounts \(Open\).*?(\d+)\s*/\s*\$?([0-9,]+)"),
+        ('line_of_credit', r"Line of Credit Accounts \(Open\).*?(\d+)\s*/\s*\$?([0-9,]+)"),
+        ('miscellaneous', r"Miscellaneous Accounts \(Open\).*?(\d+)\s*/\s*\$?([0-9,]+)"),
+    ]
+    import re
+    for k, rx in pairs:
+        m = re.search(rx, full_text, re.I)
+        if m:
+            rec[f"{k}_count"] = int(m.group(1))
+            rec[f"{k}_total"] = int(m.group(2).replace(',', ''))
+    # Public records
+    try:
+        cnt, note = parse_public_records(full_text)
+        if cnt:
+            rec['public_records'] = cnt
+            rec['public_records_details'] = {'detail': note, 'date': None, 'color': None}
+    except Exception:
+        pass
+    return rec
 
 # Markers are deprecated in the primary flow. Marker/vector heuristics remain in helpers
 # for analysis but are NOT used by default. This module uses a deterministic span -> conv -> glyph
@@ -122,6 +120,9 @@ def parse_count_amount_pair(s):
             lnum = norm_num(left)
             rnum = norm_num(right)
         except Exception:
+            continue
+        # ignore trivial all-zero placeholder pairs like '0 / $0'
+        if lnum == 0 and rnum == 0:
             continue
         # if either side has a dollar sign, prefer that as amount
         if '$' in left and '$' not in right:
@@ -258,58 +259,18 @@ def color_distance(c1, c2):
     return sum((a-b)**2 for a,b in zip(c1,c2))
 
 
+
 import colorsys
+from src.utils import map_color_to_cat, color_distance
 
 def map_rgb_to_category(rgb):
-    """Map an RGB tuple to a category using HSV heuristics and canonical distances.
-    Returns one of: 'red', 'green', 'black', 'neutral'."""
-    if not rgb:
-        return 'neutral'
-    r,g,b = [x/255.0 for x in rgb]
-    h,s,v = colorsys.rgb_to_hsv(r,g,b)
-    hue = h * 360
-    # detect near-black text/line markers (stricter threshold)
-    if v < SPAN_BLACK_V_THRESH and s < 0.25:
-        return 'black'
-    # if fairly dark overall, treat as black (covers low-value non-saturated text)
-    if v < SPAN_BLACK_V_THRESH or (s < SPAN_SAT_MIN and v < 0.6):
-        return 'black'
-    # colored markers may be very pale; accept lower saturation tints
-    if s >= SPAN_SAT_MIN:
-        # green range
-        if 60 <= hue <= 170:
-            return 'green'
-        # amber/orange -> map to nearest canonical (prefer red)
-        if 30 < hue < 60:
-            # approximate as red (no amber category per policy)
-            return 'red'
-        # red range (wraparound)
-        if hue <= 30 or hue >= 330:
-            return 'red'
-        return 'neutral'
-    # fallback to distance to canonical colors with a looser threshold to accept pale tints
-    best, bestd = None, None
-    for name, canon in CANONICAL.items():
-        d = color_distance(rgb, canon)
-        if best is None or d < bestd:
-            best, bestd = name, d
-    # if distance is reasonably small, treat as that canonical
-    if bestd is not None and bestd < 70000:
-        return best
-    # allow looser match when saturation is slightly higher (>0.01) and reasonably close
-    if s >= 0.01 and bestd is not None and bestd < 120000:
-        return best
-    # another heuristic: if pixel is very light but has slight green bias, call green
-    if v > 0.85:
-        r2,g2,b2 = rgb
-        if (g2 - r2) > 8 and (g2 - b2) > 8:
-            return 'green'
-    return 'neutral'
+    # Use the canonical map_color_to_cat for all color classification
+    return canonical_map_color_to_cat(rgb)
 
 
 def map_color_to_cat(rgb):
-    # wrapper for backward compat/consistency
-    return map_rgb_to_category(rgb)
+    # Legacy shim: call canonical implementation in src module
+    return canonical_map_color_to_cat(rgb)
 
 
 def download_source(src, dest):
@@ -632,222 +593,9 @@ def _local_left_strip_conv_search(page, phrase, expected_color=None, scale=8, st
     return None
 
 
-def color_first_search_for_phrase(pdf_doc, phrase, expected_color=None, page_limit=None):
-    """Search pages for colored regions matching expected_color, OCR them, and attempt to find phrase text inside those regions.
-    Modes can be controlled via env var `POC_MARKER_MODE`:
-      - "" (default) : current mixed behavior (vector-first integrated with color masks)
-      - "color_first_only" : search color masks/OCR first and don't consult vectors
-      - "vector_first_only" : only consult vector markers (fast, deterministic when present)
-      - "color_then_vector" : try color masks first, then vectors as fallback
-    Returns (page_index, text, hex, rgb, page_bbox, pix_bbox, uncertain) or None if not found. """
-    mode = os.environ.get('POC_MARKER_MODE', '').lower()
-    # helper: stricter line matching to avoid false substring matches (e.g., '6 Charged Off' vs '8 Charged Off Rev')
-    def _is_line_match(phrase, line_text):
-        def _tok_list(s):
-            return [t for t in ''.join(ch.lower() if ch.isalnum() or ch.isspace() else ' ' for ch in s).split()]
-        p_toks = _tok_list(phrase)
-        l_toks = _tok_list(line_text)
-        if not p_toks or not l_toks:
-            return False
-        # if phrase contains numeric tokens, require numeric match
-        nums = [t for t in p_toks if t.isdigit()]
-        if nums and not any(n in l_toks for n in nums):
-            return False
-        p_use = [t for t in p_toks if len(t) > 2 or t.isdigit()]
-        if not p_use:
-            return False
-        overlap = len(set(p_use) & set(l_toks))
-        # require at least half of non-trivial phrase tokens to match (min 1)
-        return overlap >= max(1, int(len(p_use) * 0.5))
 
-    global_candidates = []
-    for p in range(len(pdf_doc)):
-        if page_limit is not None and p >= page_limit:
-            break
-        page = pdf_doc.load_page(p)
-        # pick color to search: if expected_color provided, use that, otherwise try green/red/amber
-        colors = [expected_color] if expected_color else ['green','red','amber']
-        for c in colors:
-            # Deterministic span -> conv classifier -> glyph fallback path
-            try:
-                td = page.get_text('dict')
-                norm_phrase = ' '.join(ch.lower() for ch in phrase if ch.isalnum() or ch.isspace()).strip()
-                canonical_phrase = map_line_to_canonical(phrase)
-                global_candidates = []
-                # collect candidates from all blocks on the page
-                for b in td.get('blocks', []):
-                    # block-level heuristic: if phrase relates to revolving accounts + balances,
-                    # prefer the line inside the block that contains 'revolv' and 'balanc' tokens
-                    block_text = '\n'.join([''.join([s.get('text','') for s in l.get('spans', [])]) for l in b.get('lines', [])]).lower()
-                    if ('rev' in norm_phrase or 'revolv' in norm_phrase or 'rev_accts' in (canonical_phrase or '')) and ('balanc' in block_text):
-                        # find the line with 'revolv' token
-                        for ln in b.get('lines', []):
-                            line_text = ''.join([s.get('text','') for s in ln.get('spans', [])]).strip()
-                            if 'revolv' in line_text.lower() or 'revolving' in line_text.lower():
-                                p_use = [t for t in norm_phrase.split() if len(t) > 2 or t.isdigit()]
-                                l_use = ' '.join(ch.lower() for ch in line_text if ch.isalnum() or ch.isspace()).strip().split()
-                                overlap = len(set(p_use) & set(l_use))
-                                uniq_score = sum(len(t) for t in p_use if len(t) > 4 and t in l_use)
-                                nums = [t for t in p_use if t.isdigit()]
-                                num_match = 1 if nums and any(n in l_use for n in nums) else 0
-                                missing_penalty = sum(len(t) for t in p_use if len(t) > 4 and t not in l_use) * 2
-                                # n-gram overlap (bigrams) to prefer multi-token matches
-                                p_bigrams = [ ' '.join(p_use[i:i+2]) for i in range(max(0, len(p_use)-1)) ]
-                                l_bigrams = [ ' '.join(l_use[i:i+2]) for i in range(max(0, len(l_use)-1)) ]
-                                ngram_overlap = len(set(p_bigrams) & set(l_bigrams))
-                                score = 9000 + (overlap * 10) + (uniq_score * UNIQ_SCORE_MULTIPLIER) + (num_match * NUM_MATCH_WEIGHT) + (ngram_overlap * NGRAM_WEIGHT) - missing_penalty
-                                global_candidates.append((score, overlap, uniq_score, line_text, ln, p))
-                                break
-                    for ln in b.get('lines', []):
-                        line_text = ''.join([s.get('text','') for s in ln.get('spans', [])]).strip()
-                        if not line_text:
-                            continue
-                        norm_line = ' '.join(ch.lower() for ch in line_text if ch.isalnum() or ch.isspace()).strip()
-                        canonical_line = map_line_to_canonical(line_text)
-                        # exact normalized match short-circuit: prefer span color if present
-                        if norm_phrase and norm_line and norm_phrase == norm_line:
-                            try:
-                                hexv_s, rgb_s = span_color_hex(ln.get('spans', []))
-                                if rgb_s is not None and map_color_to_cat(rgb_s) != 'neutral' and (expected_color is None or map_color_to_cat(rgb_s) == expected_color):
-                                    return p, line_text, rgb_to_hex_tuple(rgb_s), rgb_s, ln.get('bbox'), None, False
-                            except Exception:
-                                pass
-                            p_use = [t for t in norm_phrase.split() if len(t) > 2 or t.isdigit()]
-                            l_use = norm_line.split()
-                            overlap = len(set(p_use) & set(l_use))
-                            uniq_score = sum(len(t) for t in p_use if len(t) > 4 and t in l_use)
-                            nums = [t for t in p_use if t.isdigit()]
-                            num_match = 1 if nums and any(n in l_use for n in nums) else 0
-                            missing_penalty = sum(len(t) for t in p_use if len(t) > 4 and t not in l_use) * 2
-                            p_bigrams = [ ' '.join(p_use[i:i+2]) for i in range(max(0, len(p_use)-1)) ]
-                            l_bigrams = [ ' '.join(l_use[i:i+2]) for i in range(max(0, len(l_use)-1)) ]
-                            ngram_overlap = len(set(p_bigrams) & set(l_bigrams))
-                            score = 9999 + (overlap * 10) + (uniq_score * UNIQ_SCORE_MULTIPLIER) + (num_match * NUM_MATCH_WEIGHT) + (ngram_overlap * NGRAM_WEIGHT) - missing_penalty
-                            global_candidates.append((score, overlap, uniq_score, line_text, ln, p))
-                            continue
-                        # otherwise, use the token-aware fast filter
-                        if _is_line_match(phrase, line_text):
-                            # special-case: if phrase is about inquiries, prefer lines that contain 'inq' or canonical 'inquiry'
-                            if ('inq' in norm_phrase.split() or (canonical_phrase and 'inquiry' in canonical_phrase)) and not (('inq' in norm_line.split()) or (canonical_line == 'inquiry')):
-                                # skip lines that are not about inquiries
-                                continue
-                            p_use = [t for t in norm_phrase.split() if len(t) > 2 or t.isdigit()]
-                            l_use = norm_line.split()
-                            overlap = len(set(p_use) & set(l_use))
-                            uniq_score = sum(len(t) for t in p_use if len(t) > 4 and t in l_use)
-                            nums = [t for t in p_use if t.isdigit()]
-                            num_match = 1 if nums and any(n in l_use for n in nums) else 0
-                            missing_penalty = sum(len(t) for t in p_use if len(t) > 4 and t not in l_use) * 2
-                            p_bigrams = [ ' '.join(p_use[i:i+2]) for i in range(max(0, len(p_use)-1)) ]
-                            l_bigrams = [ ' '.join(l_use[i:i+2]) for i in range(max(0, len(l_use)-1)) ]
-                            ngram_overlap = len(set(p_bigrams) & set(l_bigrams))
-                            score = (overlap * 10) + (uniq_score * UNIQ_SCORE_MULTIPLIER) + (num_match * NUM_MATCH_WEIGHT) + (ngram_overlap * NGRAM_WEIGHT) - missing_penalty
-                            global_candidates.append((score, overlap, uniq_score, line_text, ln, p))
-
-                    # 3) glyph interior sampling fallback
-                    try:
-                        hexv_g, rgb_g = sample_glyph_interior_color_near_line(page, best_ln.get('bbox'), zoom=6, gray_pctile=90, erode_iter=1)
-                        if rgb_g is not None:
-                            return best_p, best_text, rgb_to_hex_tuple(rgb_g), rgb_g, best_ln.get('bbox'), None, uncertain
-                    except Exception:
-                        pass
-            except Exception:
-                pass
-
-            # After scanning all pages/blocks, pick best candidate across pages (if any)
-            if global_candidates:
-                global_candidates.sort(reverse=True, key=lambda x: x[0])
-                best_score,_,_,best_text,best_ln,best_p = global_candidates[0]
-                second_score = global_candidates[1][0] if len(global_candidates) > 1 else None
-                uncertain = False
-                if second_score is not None and (best_score - second_score) < AMBIGUITY_MARGIN:
-                    uncertain = True
-                    # Tie-breaker: sample glyph interior for best and second candidate and prefer the one matching expected_color
-                    try:
-                        second = global_candidates[1]
-                        sec_score,_,_,sec_text,sec_ln,sec_p = second
-                        # sample glyph for best
-                        bp = pdf_doc.load_page(best_p)
-                        b_hex, b_rgb = sample_glyph_interior_color_near_line(bp, best_ln.get('bbox'), zoom=8, gray_pctile=90, erode_iter=1)
-                        sp = pdf_doc.load_page(sec_p)
-                        s_hex, s_rgb = sample_glyph_interior_color_near_line(sp, sec_ln.get('bbox'), zoom=8, gray_pctile=90, erode_iter=1)
-                        b_match = False
-                        s_match = False
-                        if b_rgb is not None and expected_color:
-                            try:
-                                if map_color_to_cat(b_rgb) == expected_color or color_distance(b_rgb, CANONICAL.get(expected_color, (0,0,0))) < 120000:
-                                    b_match = True
-                            except Exception:
-                                pass
-                        if s_rgb is not None and expected_color:
-                            try:
-                                if map_color_to_cat(s_rgb) == expected_color or color_distance(s_rgb, CANONICAL.get(expected_color, (0,0,0))) < 120000:
-                                    s_match = True
-                            except Exception:
-                                pass
-                        if b_match and not s_match:
-                            uncertain = False
-                        elif s_match and not b_match:
-                            # prefer second candidate
-                            best_score,_,_,best_text,best_ln,best_p = sec_score,sec_score,_,sec_text,sec_ln,sec_p
-                            uncertain = False
-                    except Exception:
-                        pass
-                try:
-                    # span-first acceptance for best candidate
-                    target_page = pdf_doc.load_page(best_p)
-                    print(f"DEBUG: best_global_candidate score={best_score} text='{best_text}' page={best_p} uncertain={uncertain}")
-                    hexv_s, rgb_s = span_color_hex(best_ln.get('spans', []))
-                    print(f"DEBUG: span_color -> {hexv_s}, {rgb_s}")
-                    if rgb_s is not None and map_color_to_cat(rgb_s) != 'neutral':
-                        if expected_color is None or map_color_to_cat(rgb_s) == expected_color:
-                            return best_p, best_text, rgb_to_hex_tuple(rgb_s), rgb_s, best_ln.get('bbox'), None, uncertain
-                except Exception:
-                    pass
-                try:
-                    debug_prefix = f"{pdf_doc.name}_p{best_p}_{re.sub('[^a-z0-9]','_',best_text.lower())[:40]}"
-                    cls = classify_snippet_color_convolution(target_page, best_ln.get('bbox'), zoom=8, kernel=7, peak_thresh=CONV_PEAK_THRESH_DEFAULT, ratio_thresh=CONV_RATIO_THRESH_DEFAULT, debug_prefix=debug_prefix)
-                    if cls and cls.get('cat') in ('green','red','black'):
-                        final_uncertain = uncertain or bool(cls.get('uncertain'))
-                        # when an expected_color is provided, prefer matches to that color
-                        if cls.get('uncertain'):
-                            try:
-                                hexv_g, rgb_g = sample_glyph_interior_color_near_line(target_page, best_ln.get('bbox'), zoom=8, gray_pctile=90, erode_iter=1)
-                                if rgb_g is not None:
-                                    cat_g = map_color_to_cat(rgb_g)
-                                    if (expected_color is not None and cat_g == expected_color) or (expected_color == 'black' and cat_g == 'black'):
-                                        return best_p, best_text, rgb_to_hex_tuple(rgb_g), rgb_g, best_ln.get('bbox'), None, True
-                            except Exception:
-                                pass
-                        else:
-                            # Non-uncertain classifier: accept only if it matches expected_color when provided
-                            if expected_color is None or cls.get('cat') == expected_color:
-                                return best_p, best_text, cls.get('hex'), cls.get('rgb'), best_ln.get('bbox'), None, final_uncertain
-                            # otherwise skip this classifier result and continue (do not accept conflicting color)
-                except Exception:
-                    pass
-
-            # if mode == 'color_then_vector', try vectors as a fallback when masks didn't find anything
-            if mode == 'color_then_vector':
-                try:
-                    vecs = extract_vector_markers(page)
-                    for v in vecs:
-                        px0, py0, px1, py1 = v['rect'].x0, v['rect'].y0, v['rect'].x1, v['rect'].y1
-                        td = page.get_text('dict')
-                        for b in td.get('blocks', []):
-                            for ln in b.get('lines', []):
-                                lx0, ly0, lx1, ly1 = ln.get('bbox')
-                                vert_overlap = not (ly1 < py0 or ly0 > py1)
-                                is_right = lx0 > px1 - 0.5
-                                if vert_overlap and is_right:
-                                    line_text = ''.join([s.get('text','') for s in ln.get('spans', [])]).strip()
-                                    if not line_text:
-                                        continue
-                                    if phrase.lower() in line_text.lower() or any(tok.lower() in phrase.lower() or phrase.lower() in tok.lower() for tok in line_text.split()):
-                                        return p, line_text, v.get('hex'), v.get('rgb'), ln.get('bbox'), v.get('rect')
-                except Exception:
-                    pass
-    return None
+# Use the canonical version from src/scripts/pdf_color_extraction
+from src.scripts.pdf_color_extraction import color_first_search_for_phrase
 
 
 def band_scan_color_for_phrase(pdf_doc, phrase, out_img_path=None):
@@ -3589,7 +3337,9 @@ def normalize_factors(raw_factors):
             sf['color'] = 'red'
         if ('6-12' in low or '6 - 12' in low or '6 to 12' in low) and ('re lates' in low or 'rev' in low):
             sf['color'] = 'red'
-    return simplified
+    # Return merged canonical list (preserve counts and totals) for scripts/tests expectations
+    merged_list = [merged[k] for k in order]
+    return merged_list
 
 
 def extract_credit_factors_from_doc(doc, page_limit=None):

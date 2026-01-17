@@ -6,7 +6,7 @@ Print per-file and aggregate accuracy.
 """
 import pathlib, json, sys
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
-from scripts.poc_extract_credit_factors import combined_sample_color_for_phrase, map_color_to_cat
+from src.scripts.pdf_color_extraction import combined_sample_color_for_phrase, map_color_to_cat
 import fitz
 
 TRAIN_DIR = pathlib.Path('data/color_training')

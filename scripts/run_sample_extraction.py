@@ -6,7 +6,7 @@ import json, sys
 from pathlib import Path
 import sys
 sys.path.insert(0, str(Path('.').resolve()))
-from scripts.poc_extract_credit_factors import extract_record_level, parse_count_amount_pair, map_line_to_canonical, span_color_hex, rgb_to_hex_tuple, map_color_to_cat, combined_sample_color_for_phrase, parse_public_records, normalize_factors
+from src.scripts.pdf_color_extraction import extract_pdf_all_fields, parse_count_amount_pair, map_line_to_canonical, span_color_hex, rgb_to_hex_tuple, map_color_to_cat, combined_sample_color_for_phrase, parse_public_records, normalize_factors
 try:
     import fitz
 except Exception:
@@ -102,116 +102,16 @@ for pbase in pdfs:
                         x0 = bbox[0]
                 lines.append((p, text, spans, x0))
     full_text = '\n'.join([doc.load_page(i).get_text() for i in range(len(doc))])
-    rec = extract_record_level(full_text)
-    # OCR-based fallback for numeric pairs
-    try:
-        # iterate by index so we can look ahead/back with spatial awareness
-        for idx in range(len(lines)):
-            p_idx, ln_text, sp, x0 = lines[idx]
-            ln_low = ln_text.lower()
-            pivot = page_pivots.get(p_idx)
-            # if this looks like a left-column label, look ahead for right-column numeric
-            if pivot is not None and x0 is not None and x0 <= pivot - 10:
-                # scan the next few lines on the same page for a right-column numeric token
-                for j in range(idx+1, min(len(lines), idx+6)):
-                    p2, ln2_text, sp2, x2 = lines[j]
-                    if p2 != p_idx:
-                        break
-                    if x2 is None:
-                        continue
-                    # right-column candidate (use pivot tolerance to catch right column even when pivot shifts)
-                    if x2 > pivot - 10:
-                        cnt, amt = parse_count_amount_pair(ln2_text)
-                        if cnt is None and amt is None:
-                            # try combining left label + right text
-                            cnt, amt = parse_count_amount_pair(ln_text + ' ' + ln2_text)
-                        if cnt is not None or amt is not None:
-                            if 'install' in ln_low:
-                                if rec.get('installment_open_count') is None and cnt is not None:
-                                    rec['installment_open_count'] = int(cnt)
-                                if rec.get('installment_open_total') is None and amt is not None:
-                                    rec['installment_open_total'] = int(amt)
-                            if 'revolv' in ln_low or 'rev' in ln_low:
-                                if rec.get('revolving_open_count') is None and cnt is not None:
-                                    rec['revolving_open_count'] = int(cnt)
-                                if rec.get('revolving_open_total') is None and amt is not None:
-                                    rec['revolving_open_total'] = int(amt)
-                            break
-            # fallback: if this line itself contains a count/amount pair, assign appropriately
-            cnt0, amt0 = parse_count_amount_pair(ln_text)
-            if (cnt0 is not None or amt0 is not None):
-                if 'install' in ln_low:
-                    if rec.get('installment_open_count') is None and cnt0 is not None:
-                        rec['installment_open_count'] = int(cnt0)
-                    if rec.get('installment_open_total') is None and amt0 is not None:
-                        rec['installment_open_total'] = int(amt0)
-                if 'revolv' in ln_low or 'rev' in ln_low:
-                    if rec.get('revolving_open_count') is None and cnt0 is not None:
-                        rec['revolving_open_count'] = int(cnt0)
-                    if rec.get('revolving_open_total') is None and amt0 is not None:
-                        rec['revolving_open_total'] = int(amt0)
-    except Exception:
-        pass
+    # Use canonical extractor to create the authoritative record
+    rec = extract_pdf_all_fields(str(pdf_path))
+    # Ensure backward-compatible keys and metadata
+    rec['filename'] = rec.get('filename', pdf_path.name)
+    rec['source'] = rec.get('source', str(pdf_path))
+    for _k in ['installment_open_count','installment_open_total','revolving_open_count','revolving_open_total']:
+        rec[_k] = rec.get(_k, '')
+    rec['public_record_note'] = rec.get('public_record_note', '')
 
-    # If still missing installment/revolving info, try OCR on rendered pages (pytesseract)
-    try:
-        import pytesseract
-        from PIL import Image
-        from io import BytesIO
-        # only run if keys missing
-        if rec.get('installment_open_count') is None or rec.get('installment_open_total') is None or rec.get('revolving_open_count') is None or rec.get('revolving_open_total') is None:
-            for p in range(len(doc)):
-                pix = doc.load_page(p).get_pixmap(matrix=fitz.Matrix(2,2), alpha=False)
-                img = Image.frombytes('RGB', [pix.width, pix.height], pix.samples)
-                ocr_text = pytesseract.image_to_string(img)
-                for oline in ocr_text.splitlines():
-                    if not oline.strip():
-                        continue
-                    cnt, amt = parse_count_amount_pair(oline)
-                    if (cnt is not None or amt is not None):
-                        low = oline.lower()
-                        if 'install' in low:
-                            if rec.get('installment_open_count') is None and cnt is not None:
-                                rec['installment_open_count'] = int(cnt)
-                            if rec.get('installment_open_total') is None and amt is not None:
-                                rec['installment_open_total'] = int(amt)
-                        if 'revolv' in low or 'rev' in low:
-                            if rec.get('revolving_open_count') is None and cnt is not None:
-                                rec['revolving_open_count'] = int(cnt)
-                            if rec.get('revolving_open_total') is None and amt is not None:
-                                rec['revolving_open_total'] = int(amt)
-                # if we found both, stop scanning
-                if rec.get('installment_open_count') is not None and rec.get('revolving_open_count') is not None:
-                    break
-    except Exception:
-        pass
-
-    # Merge minimal file metadata and numeric fields into the record itself (no wide_row output)
-    rec['filename'] = pdf_path.name
-    rec['source'] = str(pdf_path)
-    # ensure numeric fields exist even if not found
-    rec['installment_open_count'] = rec.get('installment_open_count', '')
-    rec['installment_open_total'] = rec.get('installment_open_total', '')
-    rec['revolving_open_count'] = rec.get('revolving_open_count', '')
-    rec['revolving_open_total'] = rec.get('revolving_open_total', '')
-
-    # Delegate factor extraction to the main extractor (which uses column logic + normalization)
-    try:
-        rec = extract_record_level(full_text, doc=doc)
-    except Exception:
-        # fallback: keep rec populated from previous text parsing and try a local normalization
-        try:
-            rec['credit_factors'] = normalize_factors(factors)
-        except Exception:
-            rec['credit_factors'] = [{'label': f.get('factor'), 'canonical': map_line_to_canonical(f.get('factor')), 'count': None, 'total': None, 'color': f.get('color'), 'hex': f.get('hex','')} for f in factors]
-    # also expose parsed public records from full_text if available
-    try:
-        pr_count, pr_note = parse_public_records(full_text)
-        rec['public_records'] = pr_count
-        rec['public_record_note'] = pr_note
-    except Exception:
-        rec['public_records'] = rec.get('public_records',0)
-        rec['public_record_note'] = rec.get('public_record_note','')
+    # normalize address if present with multiple lines or left/right lists
 
     # normalize address if present with multiple lines or left/right lists
     if rec.get('address'):
@@ -237,8 +137,40 @@ for pbase in pdfs:
         else:
             rec['address'] = _pick_addr(addr)
 
+    # Fallback scanning for installment/revolving counts when missing (populate legacy wide_row)
+    if not rec.get('installment_open_count') or rec.get('installment_open_count') == '' or rec.get('installment_open_count') == 0:
+        prev_ln = ''
+        for p in range(len(doc)):
+            td = doc.load_page(p).get_text('dict')
+            for b in td.get('blocks', []):
+                for ln in b.get('lines', []):
+                    line_text = ''.join([s.get('text','') for s in ln.get('spans', [])]).strip()
+                    if not line_text:
+                        prev_ln = ''
+                        continue
+                    combined = (prev_ln + ' ' + line_text).strip()
+                    cnt, amt = parse_count_amount_pair(combined)
+                    if cnt is None and amt is None:
+                        cnt, amt = parse_count_amount_pair(line_text)
+                    if (cnt is not None or amt is not None) and 'install' in combined.lower():
+                        if cnt is not None:
+                            rec['installment_open_count'] = int(cnt)
+                        if amt is not None:
+                            rec['installment_open_total'] = int(amt)
+                        break
+                    prev_ln = line_text
+                if rec.get('installment_open_count'):
+                    break
+            if rec.get('installment_open_count'):
+                break
+
     outp = OUT / f"{pdf_path.name}.json"
+    # Provide a legacy 'wide_row' key for older consumers that expect scaffolded numeric parsing results
+    wide_row = {
+        'installment_open_count': rec.get('installment_open_count', ''),
+        'installment_open_total': rec.get('installment_open_total', '')
+    }
     with open(outp,'w') as fh:
-        json.dump({'rec': rec}, fh, indent=2)
+        json.dump({'rec': rec, 'wide_row': wide_row}, fh, indent=2)
     print('Wrote', outp)
 print('Done')

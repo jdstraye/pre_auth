@@ -3,9 +3,9 @@ from pathlib import Path
 import json
 
 pytest.importorskip('fitz')
-import fitz
+from src.pymupdf_compat import fitz
 
-from scripts.poc_extract_credit_factors import combined_sample_color_for_phrase, map_color_to_cat
+from src.scripts.pdf_color_extraction import combined_sample_color_for_phrase, map_color_to_cat
 
 ROOT = Path(__file__).resolve().parents[1]
 TRAIN_DIR = ROOT / 'data' / 'color_training'

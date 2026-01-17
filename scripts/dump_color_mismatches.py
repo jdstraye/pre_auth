@@ -4,7 +4,7 @@ Writes JSONL lines with token, expected, predicted, pdf, and saves small token c
 """
 import pathlib, json, os, sys
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
-from scripts.poc_extract_credit_factors import combined_sample_color_for_phrase, map_color_to_cat, median_5x5, rgb_to_hex_tuple
+from src.scripts.pdf_color_extraction import combined_sample_color_for_phrase, map_color_to_cat, median_5x5, rgb_to_hex_tuple
 from PIL import Image
 
 TRAIN_DIR = pathlib.Path('data/color_training')
