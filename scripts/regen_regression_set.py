@@ -56,7 +56,7 @@ def candidate_snapshot_for_pdf(pdf_path: Path, seed_from_poc: bool = False) -> D
         out["candidates"].append({
             "candidate_id": f"c{i}",
             "page": c.get("page"),
-            "line_text": c.get("line_text") or c.get("text"),
+            "line_text": c.get("line_text") or c.get("text") or c.get("factor"),
             "bbox": c.get("bbox"),
             "spans": c.get("spans", []),
             "color": c.get("color"),

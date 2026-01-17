@@ -14,7 +14,8 @@ def test_regression_snapshot_for_user_1314(tmp_path):
     cands = rec.get("candidates") or rec.get("credit_factors")
     assert cands and len(cands) > 0
     first = cands[0]
-    assert "line_text" in first or "text" in first
+    # extractor historically used different keys for the line text ("factor", "text", "line_text"); accept any
+    assert any(k in first for k in ("line_text", "text", "factor"))
     assert "page" in first
     assert "spans" in first
 
