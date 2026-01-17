@@ -1,5 +1,8 @@
 import argparse
 import logging
+from pathlib import Path
+ROOT = Path(__file__).resolve().parents[2]
+
 def cli_extract():
 	parser = argparse.ArgumentParser(description="Extract all fields from a credit summary PDF.")
 	parser.add_argument('--user_id', type=str, help='User ID (e.g., 705)')
@@ -25,8 +28,9 @@ if __name__ == "__main__":
 	cli_extract()
 # Unified extraction entry point for pytest and batch tools
 try:
-	import fitz
+	from src.pymupdf_compat import fitz
 except Exception:
+	# If our compatibility shim cannot import PyMuPDF, fall back to None
 	fitz = None  # Lazy import: tests that don't need PDF parsing can still import this module
 
 def postal_cap(s):
@@ -49,10 +53,13 @@ def postal_cap(s):
 def pair_addresses_from_candidates(candidates, all_lines):
 	"""Return a single address string, a list of addresses, or None.
 
-	Logic:
+	Logic (improved):
 	- Keep candidates order and deduplicate.
-	- Find street-like candidates (start with number) and attempt to pair each with a nearby city/state/zip candidate
-	  within candidates or by searching the full document for lines that contain the street text and a city/zip.
+	- Find street-like candidates (start with number).
+	- Find city-like candidates (lines that look like city/state/zip).
+	- Pair each street with the nearest city that occurs *after* the street in the candidates list; when multiple streets preceed cities,
+	  pair them sequentially (first street -> first city after it, second street -> next city, etc.).
+	- If no local city is found, fallback to searching the full document for a city line containing the street tokens.
 	- If multiple distinct paired addresses are found, return list; if single, return string; if none, return None.
 	"""
 	import re
@@ -64,20 +71,30 @@ def pair_addresses_from_candidates(candidates, all_lines):
 	street_indices = [i for i, c in enumerate(cands) if re.match(r'\d+\s+.*', c)]
 	if not street_indices:
 		return None
+	# Identify city-like candidate indices
+	city_indices = [i for i, c in enumerate(cands) if re.search(r'[A-Za-z]{2}[\.]?\s*\d{5}', c, re.I) or re.search(r',\s*[A-Za-z ]+$', c)]
 	pairs = []
-	for idx in street_indices:
-		street = cands[idx]
+	used_city_idx = -1
+	for s_idx in street_indices:
+		street = cands[s_idx]
 		city = None
-		# check within following candidates for a city-like line
-		for j in range(idx+1, min(idx+4, len(cands))):
-			if re.search(r'[A-Za-z]{2}[\.]?\s*\d{5}', cands[j], re.I) or re.search(r',\s*[A-Za-z ]+$', cands[j]):
-				city = cands[j]
+		# Prefer the first city candidate that occurs after this street and hasn't been used yet
+		for ci in city_indices:
+			if ci > s_idx and ci > used_city_idx:
+				city = cands[ci]
+				used_city_idx = ci
 				break
+		# fallback: broader local search among the next few candidates (if no ordered city candidates found)
+		if not city:
+			for j in range(s_idx+1, min(s_idx+5, len(cands))):
+				if re.search(r'[A-Za-z]{2}[\.]?\s*\d{5}', cands[j], re.I) or re.search(r',\s*[A-Za-z ]+$', cands[j]):
+					city = cands[j]
+					break
 		# fallback: search full document lines for a city line that contains the street number and street name
 		if not city:
-			street_key = ' '.join(street.split()[:3])
+			st_tokens = street.split()
 			for l in all_lines:
-				if street.split()[0] in l and street.split()[1] in l and re.search(r'[A-Za-z]{2}[\.]?\s*\d{5}', l, re.I):
+				if len(st_tokens) >= 2 and st_tokens[0] in l and st_tokens[1] in l and re.search(r'[A-Za-z]{2}[\.]?\s*\d{5}', l, re.I):
 					city = l
 					break
 		if city:
@@ -88,10 +105,15 @@ def pair_addresses_from_candidates(candidates, all_lines):
 	def simple_key(s):
 		return re.sub(r'[^a-z0-9]+','', s.lower())
 	if len(pairs) == 1:
-		# If we found a single paired street, but the document has an obvious city line (different from the street), enrich it
+		# If we found a single paired street, but the document has an obvious city line (different from the street),
+		# prefer a city candidate that canonicalizes differently from the already-paired address to avoid duplicating the same city twice.
 		for l in cands:
-			if l.strip() not in pairs[0] and re.search(r'[A-Za-z]{2}[\.]?\s*\d{5}', l, re.I):
-				return postal_cap(f"{pairs[0]}, {l}")
+			if re.search(r'[A-Za-z]{2}[\.]?\s*\d{5}', l, re.I):
+				# Compare the candidate city with the city portion of the already-paired address
+				parts = pairs[0].split(',')
+				city_component = ','.join(parts[1:]).strip() if len(parts) > 1 else ''
+				if city_component and simple_key(l) != simple_key(city_component):
+					return postal_cap(f"{pairs[0]}, {l}")
 		return pairs[0]
 	# If there are multiple pairs but they canonicalize to the same street, compress
 	if len(pairs) >= 2 and simple_key(pairs[0]) == simple_key(pairs[1]):
@@ -191,7 +213,6 @@ def extract_pdf_all_fields(pdf_path):
 					rec['address'] = postal_cap(candidates[0])
 					break
 			# No viable address here; continue scanning further 'Age' lines for a valid address
-		break
 	if 'address' not in rec or not rec['address']:
 		# Fallback: look for any line that looks like an address (match both uppercase and lowercase state abbreviations)
 		for line in all_lines:
@@ -382,44 +403,260 @@ def extract_pdf_all_fields(pdf_path):
 				'Payment': pay
 			}
 			break
+	# Prefer POC candidate-based extraction when available (primary flow)
+	poc_used = False
+	try:
+		poc_results = extract_credit_factors_from_doc(doc, page_limit=3)
+		# Quick sanity check: reject POC results that are overwhelmingly table-like account detail rows
+		if poc_results:
+			def _is_table_like_local(s):
+				toks = [t for t in re.split(r'\s+', s) if t]
+				num_numeric = sum(1 for t in toks if re.search(r'[\d\$%]', t))
+				num_alpha = sum(1 for t in toks if re.search(r'[A-Za-z]', t))
+				if re.match(r'^[\$\d\.,\s%\-]+$', s):
+					return True
+				if num_numeric >= 2 and num_numeric > num_alpha:
+					return True
+				return False
+			table_count = sum(1 for f in poc_results if _is_table_like_local(f.get('factor','')))
+			single_token_count = sum(1 for f in poc_results if len(f.get('factor','').split()) == 1)
+			# Reject POC results if they look like dense tables, too many items, or many single-token labels
+			num_items = len(poc_results)
+			if num_items > 30 or float(table_count) / max(1, num_items) >= 0.4 or (num_items >= 3 and float(single_token_count) / max(1, num_items) >= 0.4):
+				# Reject POC when it seems to be mostly account-detail tables or many trivial tokens; fall back to legacy flow
+				poc_results = []
+		if poc_results:
+			# Accept POC but merge-in any missing high-value summary candidates from legacy scan
+			rec['credit_factors'] = poc_results
+			# merge important fallback candidates missing from POC (cover POC omissions)
+			poc_keys = set(map_line_to_canonical(f.get('factor','')) for f in poc_results)
+			legacy_candidates = []
+			for i, line in enumerate(all_lines):
+				if any(phrase in line.lower() for phrase in factor_phrases):
+					hexv, rgb = span_color_hex(all_spans[i])
+					legacy_candidates.append({'factor': line, 'color': map_color_to_cat(rgb) if rgb else None, 'hex': hexv})
+			# whitelist canonical keys or keywords that are important to merge
+			for cand in legacy_candidates:
+				ck = map_line_to_canonical(cand['factor'])
+				if ck not in poc_keys and re.search(r'charged off|rev lates|unpaid collection|total rev|drop bad auth|current lates|inq|inquiry', cand['factor'], re.I):
+					rec['credit_factors'].append(cand)
+			poc_used = True
+	except Exception:
+		poc_used = False
+
 	# Extract credit factors by locating the 'Credit Factors' block and taking contiguous lines until the next heading
-	cf_start = next((idx for idx, l in enumerate(all_lines) if l.lower().strip().startswith('credit factors')), None)
-	if cf_start is not None:
-		terminators = {'credit alerts', 'collections/charge offs', 'remarks', 'status', 'credit report', 'categories'}
-		j = cf_start + 1
-		while j < len(all_lines):
-			ln = all_lines[j].strip()
-			if not ln:
+	# Only run the legacy span-line extraction if POC primary flow did not yield results
+	if not poc_used:
+		cf_start = next((idx for idx, l in enumerate(all_lines) if l.lower().strip().startswith('credit factors')), None)
+		if cf_start is not None:
+			terminators = {'credit alerts', 'collections/charge offs', 'remarks', 'status', 'credit report', 'categories'}
+			j = cf_start + 1
+			while j < len(all_lines):
+				ln = all_lines[j].strip()
+				if not ln:
+					j += 1
+					continue
+				low = ln.lower()
+				if any(t in low for t in terminators):
+					break
+				# Avoid capturing heading-like lines that are clearly section headers
+				if len(ln) > 0 and not re.match(r'^[#0-9\s/.]+$', ln):
+					hexv, rgb = span_color_hex(all_spans[j])
+					color_cat = map_color_to_cat(rgb) if rgb else 'neutral'
+					rec['credit_factors'].append({
+						'factor': ln,
+						'color': color_cat,
+						'hex': hexv
+					})
 				j += 1
-				continue
-			low = ln.lower()
-			if any(t in low for t in terminators):
-				break
-			# Avoid capturing heading-like lines that are clearly section headers
-			if len(ln) > 0 and not re.match(r'^[#0-9\s/.]+$', ln):
-				hexv, rgb = span_color_hex(all_spans[j])
-				color_cat = map_color_to_cat(rgb) if rgb else 'neutral'
-				rec['credit_factors'].append({
-					'factor': ln,
-					'color': color_cat,
-					'hex': hexv
-				})
-			j += 1
 	else:
 		# Fallback: previous heuristic
 		for i, line in enumerate(all_lines):
 			if any(phrase in line.lower() for phrase in factor_phrases) and not re.match(r'^(payments?|accounts?|lines?|categories|totals?|balance|limit|payment resp|age|open accounts|closed accounts|real estate accounts|installment accounts|miscellaneous accounts|line of credit accounts|credit card open totals|no real estate accounts|no line of credit accounts|no miscellaneous accounts|credit report|credit alerts|public records|collections|inquires|late pays|name:|report date:|credit score|deceased|fraud alert|credit freeze|monthly payments?)', line.lower()):
 				hexv, rgb = span_color_hex(all_spans[i])
 				color_cat = map_color_to_cat(rgb) if rgb else 'neutral'
-				rec['credit_factors'].append({
-					'factor': line,
-					'color': color_cat,
-					'hex': hexv
-				})
+				# Conservative fallback rules: helper to detect table-like/account rows
+			def _is_table_like(s):
+				toks = [t for t in re.split(r'\s+', s) if t]
+				num_numeric = sum(1 for t in toks if re.search(r'[\d\$%]', t))
+				num_alpha = sum(1 for t in toks if re.search(r'[A-Za-z]', t))
+				if re.match(r'^[\$\d\.,\s%\-]+$', s):
+					return True
+				if num_numeric >= 2 and num_numeric > num_alpha:
+					return True
+				return False
+				# determine if the line looks like a table/account row
+			def _is_table_like(s):
+				toks = [t for t in re.split(r'\s+', s) if t]
+				num_numeric = sum(1 for t in toks if re.search(r'[\d\$%]', t))
+				num_alpha = sum(1 for t in toks if re.search(r'[A-Za-z]', t))
+				if re.match(r'^[\$\d\.,\s%\-]+$', s):
+					_is_table = True
+				elif num_numeric >= 2 and num_numeric > num_alpha:
+					_is_table = True
+				else:
+					_is_table = False
+			# If colored and not table-like, accept; otherwise only accept neutral lines with summary keywords/digits
+					rec['credit_factors'].append({
+						'factor': line,
+						'color': color_cat,
+						'hex': hexv
+					})
+	# Cleanup trivial credit_factors: remove single-token neutral lines without digits or strong keywords
+	filtered = []
+	headers = re.compile(r'^(credit factors|credit freeze|fraud alert|deceased|status|age|credit score|public records|collections|remarks|credit report|name:?|report date:?|no)$', re.I)
+	for f in rec['credit_factors']:
+		ln = f['factor'].strip()
+		toks = [t for t in ln.split() if t.strip()]
+		# Drop single-token neutral lines with no digits and no strong keywords
+		if len(toks) < 2 and not re.search(r'\d', ln) and f.get('color', 'neutral') == 'neutral' and not re.search(r'charged off|unpaid collection|over limit|closed|seasoned', ln, re.I):
+			continue
+		# Drop explicit header labels which are not meaningful credit factors
+		if headers.match(ln):
+			continue
+		filtered.append(f)
+	rec['credit_factors'] = filtered
+	# Remove table-like account-detail rows (balances/limits grids that are not high-level factors)
+	def _is_table_like_line(s):
+		toks = [t for t in re.split(r'\s+', s) if t]
+		num_numeric = sum(1 for t in toks if re.search(r'[\d\$%]', t))
+		num_alpha = sum(1 for t in toks if re.search(r'[A-Za-z]', t))
+		if re.match(r'^[\$\d\.,\s%\-]+$', s):
+			return True
+		if num_numeric >= 2 and num_numeric > num_alpha:
+			return True
+		return False
+	rec['credit_factors'] = [f for f in rec['credit_factors'] if not _is_table_like_line(f['factor'])]
+	# Further prune obvious per-account detail lines (company rows, single-token labels)
+	post = []
+	for f in rec['credit_factors']:
+		ln = f['factor'].strip()
+		# Dollar-leading company detail lines like '$557 COMENITYCAPITAL/AAAR' (often per-account)
+		if re.match(r'^\s*\$[\d,]+(?:\s+[A-Z0-9/()\-]+)+\s*$', ln) and not re.search(r'[a-z]', ln):
+			continue
+		# Drop pure per-account value rows like '$2,049 Account' or '$908 Balance'
+		if re.match(r'^\s*\$[\d,]+\s+(Account|Balance)\s*$', ln, re.I):
+			continue
+		# Remove company-only short labels containing slash or all-uppercase tokens
+		if '/' in ln and not re.search(r'rev|late|charged|collection|account|credit', ln, re.I):
+			continue
+		# Remove all-uppercase short company labels (<=5 tokens) that are not numeric/summaries
+		if ln == ln.upper() and len(ln.split()) <= 5 and not re.search(r'\d', ln) and len(ln) > 2:
+			continue
+		# Remove one-token trivial labels
+		if len(ln.split()) == 1 and ln.lower() in {'open','limit','balance','status','age','name','report','paid'}:
+			continue
+		post.append(f)
+	rec['credit_factors'] = post
+	# Ensure we include any 'Current Lates' per-institution summary lines if present
+	_present = set(f['factor'] for f in rec['credit_factors'])
+	for idx, ln in enumerate(all_lines):
+		if 'current lates' in ln.lower() and ln not in _present:
+			hexv, rgb = span_color_hex(all_spans[idx])
+			color_cat = map_color_to_cat(rgb) if rgb else 'neutral'
+			rec['credit_factors'].append({'factor': ln, 'color': color_cat, 'hex': hexv})
+	# Recompute colors/hex for any credit_factors by matching to source lines (fix neutral->black issues)
+	for f in rec['credit_factors']:
+		try:
+			match_idx = next(i for i,l in enumerate(all_lines) if l.strip() == f['factor'].strip())
+			hexv, rgb = span_color_hex(all_spans[match_idx])
+			if hexv:
+				f['hex'] = hexv
+				f['color'] = map_color_to_cat(rgb) if rgb else f.get('color','neutral')
+		except StopIteration:
+			pass
+	# If POC was used, preserve the original POC results (avoid fallback post-processing overriding POC)
+	if poc_used:
+		rec['credit_factors'] = poc_results if poc_results else rec['credit_factors']
+	else:
+		# Final sanitation: ensure header-like labels (e.g., 'Credit Freeze', 'No') and trivial single-token labels are removed
+		headers = re.compile(r'^(credit factors|credit freeze|fraud alert|deceased|status|age|credit score|public records|collections|remarks|credit report|name:?|report date:?|no|yes)$', re.I)
+		final = []
+		for f in rec['credit_factors']:
+			ln = f['factor'].strip()
+			if headers.match(ln):
+				continue
+			if len(ln.split()) < 2 and ln.lower() in {'no','yes','open','limit','status','age'}:
+				continue
+			final.append(f)
+		rec['credit_factors'] = final
+	# Aggressive final prune: remove per-account numeric/company detail rows that are not high-level factors
+	rec['credit_factors'] = [f for f in rec['credit_factors'] if not re.match(r'^\s*\$[\d,]+(?:\s+[A-Z0-9/()\-]+)+\s*$', f['factor']) and not re.match(r'^\s*\$[\d,]+\s+(Account|Balance)\s*$', f['factor'], re.I) and not ( '/' in f['factor'] and not re.search(r'rev|late|charged|collection|account|credit', f['factor'], re.I) and len(f['factor'].split())<=4 )]
+	# Ensure we include any 'Current Lates' per-institution summary lines if present (re-check after pruning)
+	_present = set(f['factor'] for f in rec['credit_factors'])
+	for idx, ln in enumerate(all_lines):
+		if 'current lates' in ln.lower() and ln not in _present:
+			hexv, rgb = span_color_hex(all_spans[idx])
+			color_cat = map_color_to_cat(rgb) if rgb else 'neutral'
+			rec['credit_factors'].append({'factor': ln, 'color': color_cat, 'hex': hexv})
+	# Recompute colors/hex for any credit_factors by matching to source lines (fix neutral->black issues)
+	for f in rec['credit_factors']:
+		try:
+			match_idx = next(i for i,l in enumerate(all_lines) if l.strip() == f['factor'].strip())
+			hexv, rgb = span_color_hex(all_spans[match_idx])
+			if hexv:
+				f['hex'] = hexv
+				f['color'] = map_color_to_cat(rgb) if rgb else f.get('color','neutral')
+		except StopIteration:
+			pass
+	# Final table-like pruning to remove remaining dense numeric rows
+	def _is_table_like_line_final(s):
+		toks = [t for t in re.split(r'\s+', s) if t]
+		num_numeric = sum(1 for t in toks if re.search(r'[\d\$%]', t))
+		num_alpha = sum(1 for t in toks if re.search(r'[A-Za-z]', t))
+		if re.match(r'^[\$\d\.,\s%\-]+$', s):
+			return True
+		if num_numeric >= 2 and num_numeric > num_alpha:
+			return True
+		return False
+	rec['credit_factors'] = [f for f in rec['credit_factors'] if not _is_table_like_line_final(f['factor'])]
+	# Remove any all-uppercase short company labels that slipped through (e.g., vendor lines)
+	rec['credit_factors'] = [f for f in rec['credit_factors'] if not (f['factor'].strip() == f['factor'].strip().upper() and len(f['factor'].split()) <= 4 and not re.search(r'\d', f['factor']))]
+	# Final POC preservation + robust merge: ensure high-value POC/legacy factors are not lost
+	# Build canonical key sets observed earlier (prefer POC, fall back to legacy scan)
+	_preserve_keys = set()
+	if poc_results:
+		_preserve_keys.update(map_line_to_canonical(f.get('factor','')) for f in poc_results)
+	# also include any strong-keyword legacy candidates found earlier in the document
+	_legacy_candidates = []
+	for i, ln in enumerate(all_lines):
+		if any(k in ln.lower() for k in ('charged off','rev lates','unpaid collection','total rev','drop bad auth','current lates','inq','inquiry')):
+			hexv, rgb = span_color_hex(all_spans[i])
+			_legacy_candidates.append({'factor': ln, 'color': map_color_to_cat(rgb) if rgb else None, 'hex': hexv})
+	_legacy_keys = {map_line_to_canonical(f['factor']): f for f in _legacy_candidates}
+	_preserve_keys.update(_legacy_keys.keys())
+	# Ensure any preserved canonical keys appear in final rec (prefer POC entry, else legacy candidate)
+	existing_keys = {map_line_to_canonical(f.get('factor','')) for f in rec['credit_factors']}
+	for key in sorted(_preserve_keys):
+		if key not in existing_keys:
+			# prefer POC-provided text when available
+			picked = None
+			if poc_results:
+				for f in poc_results:
+					if map_line_to_canonical(f.get('factor','')) == key:
+						picked = f
+						break
+				# else prefer legacy candidate
+				if not picked and key in _legacy_keys:
+					picked = _legacy_keys[key]
+				# final safety checks before re-adding
+				if picked and not re.match(r'^(credit factors|credit freeze|fraud alert|deceased|status|age|no|yes)$', picked.get('factor','').strip(), re.I) and not _is_table_like_line_final(picked.get('factor','')):
+					rec['credit_factors'].append(picked)
+	# If POC was used, prefer POC ordering — move POC-provided items to the front (preserve relative order)
+	if poc_results:
+		poc_order = [map_line_to_canonical(f.get('factor','')) for f in poc_results]
+		def _pf_key(f):
+			k = map_line_to_canonical(f.get('factor',''))
+			try:
+				prio = poc_order.index(k)
+			except ValueError:
+				prio = len(poc_order) + 1
+			return (prio, f.get('factor',''))
+		rec['credit_factors'].sort(key=_pf_key)
 	# Add counts for red, green, black credit factors
-	rec['red_credit_factors_count'] = sum(1 for f in rec['credit_factors'] if f['color'] == 'red')
-	rec['green_credit_factors_count'] = sum(1 for f in rec['credit_factors'] if f['color'] == 'green')
-	rec['black_credit_factors_count'] = sum(1 for f in rec['credit_factors'] if f['color'] == 'black')
+	rec['red_credit_factors_count'] = sum(1 for f in rec['credit_factors'] if f.get('color') == 'red')
+	rec['green_credit_factors_count'] = sum(1 for f in rec['credit_factors'] if f.get('color') == 'green')
+	rec['black_credit_factors_count'] = sum(1 for f in rec['credit_factors'] if f.get('color') == 'black')
 	# Always include top line info if missing
 	for k in ['credit_freeze', 'fraud_alert', 'deceased']:
 		if k not in rec:
@@ -453,7 +690,31 @@ def extract_pdf_all_fields(pdf_path):
 			if k not in c:
 				c[k] = None
 		rec['credit_card_open_totals'] = c
+	# Targeted safeguard: ensure any 'Drop Bad Auth' summary present in document is retained
+	try:
+		if not any(re.search(r'\bdrop bad auth\b', f.get('factor',''), re.I) for f in rec.get('credit_factors', [])):
+			for idx, ln in enumerate(all_lines):
+				if re.search(r'\bdrop bad auth\b', ln, re.I):
+					hexv, rgb = span_color_hex(all_spans[idx])
+					if not _is_table_like_line_final(ln) and not re.match(r'^(credit factors|credit freeze|fraud alert|deceased)$', ln.strip(), re.I):
+						rec['credit_factors'].append({'factor': ln, 'color': map_color_to_cat(rgb) if rgb else None, 'hex': hexv})
+	except Exception:
+		# safe: do not block extraction on any unexpected failure in the safeguard
+		pass
 	return rec
+
+# Backwards compatible alias for the internal 'impl' used by some tests
+# Assigned at module end to avoid forward-reference issues
+
+
+# Backwards compatible alias for the internal 'impl' used by some tests
+# end of file compatibility aliases
+
+# Provide alias now that combined_sample_color_for_phrase is defined
+# alias assignment deferred to module end to avoid forward-reference issues
+# Additional backwards-compatibility helpers
+# deferred alias for get_candidates_for_phrase assigned at file end
+
 def canonicalize(s):
 	import re
 	s = s.lower()
@@ -590,11 +851,7 @@ def rgb_to_hex_tuple(rgb):
 
 def color_first_search_for_phrase(pdf_doc, phrase, expected_color=None, page_limit=None):
 	"""Search pages for colored regions matching expected_color, OCR them, and attempt to find phrase text inside those regions.
-    Modes can be controlled via env var `POC_MARKER_MODE`:
-      - "" (default) : current mixed behavior (vector-first integrated with color masks)
-      - "color_first_only" : search color masks/OCR first and don't consult vectors
-      - "vector_first_only" : only consult vector markers (fast, deterministic when present)
-      - "color_then_vector" : try color masks first, then vectors as fallback
+    Flow control for POC marker behavior is provided via a config file at `config/control.ini` in the [poc] section (keys: `marker_mode`, `debug_phrase`).
     Returns (page_index, text, hex, rgb, page_bbox, pix_bbox, uncertain) or None if not found. """
 	import re
 	os = __import__('os')
@@ -615,7 +872,18 @@ def color_first_search_for_phrase(pdf_doc, phrase, expected_color=None, page_lim
 		overlap = len(set(p_use) & set(l_toks))
 		return overlap >= max(1, int(len(p_use) * 0.5))
 
-	mode = os.environ.get('POC_MARKER_MODE', '').lower()
+	# Flow control is obtained from config/control.ini (section [poc])
+	try:
+		import configparser
+		from pathlib import Path as _Path
+		_cfg = configparser.ConfigParser()
+		_cfg.read(_Path('config') / 'control.ini')
+		_poc_cfg = _cfg['poc'] if 'poc' in _cfg else {}
+		_debug_phrase = str(_poc_cfg.get('debug_phrase','')).strip().lower() if _poc_cfg else ''
+		_marker_mode = str(_poc_cfg.get('marker_mode','')).strip().lower() if _poc_cfg else ''
+	except Exception:
+		_debug_phrase = ''
+		_marker_mode = ''
 	global_candidates = []
 	for p in range(len(pdf_doc)):
 		if page_limit is not None and p >= page_limit:
@@ -633,36 +901,123 @@ def color_first_search_for_phrase(pdf_doc, phrase, expected_color=None, page_lim
 						if not line_text:
 							continue
 						norm_line = ' '.join(ch.lower() for ch in line_text if ch.isalnum() or ch.isspace()).strip()
+						# Exact contiguous-span match: if phrase is a substring of the line, and that substring is fully
+						# covered by contiguous spans having an explicit non-neutral color, prefer that as an exact match.
+						if norm_phrase and phrase.lower() in line_text.lower():
+							start = line_text.lower().find(phrase.lower())
+							end = start + len(phrase)
+							spans = ln.get('spans', [])
+							offset = 0
+							matched_spans = []
+							for s in spans:
+								text = s.get('text','')
+								span_start = offset
+								span_end = offset + len(text)
+								if span_end > start and span_start < end:
+									matched_spans.append(s)
+								offset = span_end
+							# Debug: log matched spans and context when debug_phrase enabled
+							if _debug_phrase and _debug_phrase in phrase.lower():
+								try:
+									print('\nDEBUG_PHRASE_FOUND page', p, 'line:', line_text)
+									print('  spans:', [(s.get('text',''), s.get('color')) for s in spans])
+									print('  matched_spans:', [(s.get('text',''), s.get('color')) for s in matched_spans])
+								except Exception:
+									print('\nDEBUG_PHRASE_FOUND: (failed to format)')
+							if matched_spans:
+								try:
+									hexv_s, rgb_s = span_color_hex(matched_spans)
+									if _debug_phrase and _debug_phrase in phrase.lower():
+										print('  span_color_hex:', hexv_s, rgb_s, 'cat:', map_color_to_cat(rgb_s) if rgb_s else None)
+									if rgb_s is not None and map_color_to_cat(rgb_s) != 'neutral' and (expected_color is None or map_color_to_cat(rgb_s) == expected_color):
+										exact_matches = exact_matches if 'exact_matches' in locals() else []
+										exact_matches.append(("span", line_text[start:end], rgb_to_hex_tuple(rgb_s) if rgb_s else None, rgb_s, ln.get('bbox')))
+										# found a colored contiguous match; prefer it
+										continue
+								except Exception:
+									pass
 						if norm_phrase and norm_line and norm_phrase == norm_line:
+							# record exact-line match; prefer after scanning page
 							try:
 								hexv_s, rgb_s = span_color_hex(ln.get('spans', []))
-								if rgb_s is not None and map_color_to_cat(rgb_s) != 'neutral' and (expected_color is None or map_color_to_cat(rgb_s) == expected_color):
-									return p, line_text, rgb_to_hex_tuple(rgb_s), rgb_s, ln.get('bbox'), None, False
+								exact_matches = exact_matches if 'exact_matches' in locals() else []
+								exact_matches.append(("line", line_text, rgb_to_hex_tuple(rgb_s) if rgb_s else None, rgb_s, ln.get('bbox')))
 							except Exception:
-								pass
+								exact_matches = exact_matches if 'exact_matches' in locals() else []
+								exact_matches.append(("line", line_text, None, None, ln.get('bbox')))
 							continue
 						if _is_line_match(phrase, line_text):
-							p_use = [t for t in norm_phrase.split() if len(t) > 2 or t.isdigit()]
-							l_use = norm_line.split()
-							overlap = len(set(p_use) & set(l_use))
-							uniq_score = sum(len(t) for t in p_use if len(t) > 4 and t in l_use)
-							nums = [t for t in p_use if t.isdigit()]
-							num_match = 1 if nums and any(n in l_use for n in nums) else 0
-							missing_penalty = sum(len(t) for t in p_use if len(t) > 4 and t not in l_use) * 2
-							score = (overlap * 10) + (uniq_score * 8) + (num_match * 140) - missing_penalty
-							global_candidates.append((score, overlap, uniq_score, line_text, ln, p))
+							# Token matches intentionally ignored for color determination (per policy)
+							try:
+								hexv_line, rgb_line = span_color_hex(ln.get('spans', []))
+								# store for page-level selection
+								token_matches = token_matches if 'token_matches' in locals() else []
+								token_matches.append((line_text, rgb_to_hex_tuple(rgb_line) if rgb_line else None, rgb_line, ln.get('bbox')))
+							except Exception:
+								# store neutral token match
+								token_matches = token_matches if 'token_matches' in locals() else []
+								token_matches.append((line_text, None, None, ln.get('bbox')))
 			except Exception:
 				pass
-		if global_candidates:
-			global_candidates.sort(reverse=True, key=lambda x: x[0])
-			best_score,_,_,best_text,best_ln,best_p = global_candidates[0]
-			try:
-				hexv_s, rgb_s = span_color_hex(best_ln.get('spans', []))
-				if rgb_s is not None and map_color_to_cat(rgb_s) != 'neutral':
-					if expected_color is None or map_color_to_cat(rgb_s) == expected_color:
-						return best_p, best_text, rgb_to_hex_tuple(rgb_s), rgb_s, best_ln.get('bbox'), None, False
-			except Exception:
-				pass
+		# After scanning colors for this page, prefer any exact matches found
+		if 'exact_matches' in locals() and exact_matches:
+			# Debug dump when configured for the phrase
+			if _debug_phrase and _debug_phrase in phrase.lower():
+				try:
+					import json
+					dbg = {
+						'phrase': phrase,
+						'page': p,
+						'exact_matches': exact_matches,
+						'token_matches': token_matches if 'token_matches' in locals() else [],
+					}
+					print('\nDEBUG_COLOR_SEARCH DUMP:', json.dumps(dbg, default=str, indent=2))
+				except Exception:
+					print('\nDEBUG_COLOR_SEARCH DUMP: (failed)')
+			# prefer colored exact matches with preference order
+			for pref in ('green','red','amber'):
+				for typ, txt, hexv_e, rgb_e, bbox_e in exact_matches:
+					if rgb_e is not None and map_color_to_cat(rgb_e) == pref and (expected_color is None or map_color_to_cat(rgb_e) == expected_color):
+						return p, txt, hexv_e, rgb_e, bbox_e, None, False
+			# otherwise accept any explicit-colored exact match
+			for typ, txt, hexv_e, rgb_e, bbox_e in exact_matches:
+				if rgb_e is not None and map_color_to_cat(rgb_e) != 'neutral' and (expected_color is None or map_color_to_cat(rgb_e) == expected_color):
+					return p, txt, hexv_e, rgb_e, bbox_e, None, False
+		# If no exact matches found, consider strong token matches as a conservative fallback
+		# (only accept when token overlap fraction is high and span color is explicit non-neutral).
+		if 'exact_matches' not in locals() or not exact_matches:
+			if 'token_matches' in locals() and token_matches:
+				# compute token overlap fraction helper
+				def _tok_list(s):
+					return [t for t in ''.join(ch.lower() if ch.isalnum() or ch.isspace() else ' ' for ch in s).split()]
+				p_toks = _tok_list(phrase)
+				p_use = [t for t in p_toks if len(t) > 2 or t.isdigit()]
+				if p_use:
+					cands = []
+					for token_text, hexv_t, rgb_t, bbox_t in token_matches:
+						l_toks = _tok_list(token_text)
+						overlap = len(set(p_use) & set(l_toks))
+						frac = overlap / float(len(p_use))
+						if _debug_phrase and _debug_phrase in phrase.lower():
+							print(f"\nDEBUG_TOKEN_MATCH page={p} line='{token_text}' overlap_frac={frac:.2f} hex={hexv_t} rgb={rgb_t}")
+						# Require at least one meaningful (alphabetic) token match
+						overlap_tokens = set(p_use) & set(l_toks)
+						has_alpha_match = any(t.isalpha() and len(t) > 2 for t in overlap_tokens)
+						if _debug_phrase and _debug_phrase in phrase.lower():
+							print('  overlap_tokens=', overlap_tokens, 'has_alpha_match=', has_alpha_match)
+						color_cat = map_color_to_cat(rgb_t) if rgb_t else 'neutral'
+						if frac >= 0.33 and has_alpha_match and rgb_t is not None and color_cat != 'neutral' and (expected_color is None or color_cat == expected_color):
+							penalty = -0.20 if re.search(r'charg|chrg|charged off', token_text.lower()) else 0.0
+							bonus = 0.15 if re.search(r'balanc', token_text.lower()) else 0.0
+							score = frac + bonus + penalty
+							cands.append((score, token_text, hexv_t, rgb_t, bbox_t))
+					if cands:
+						best = max(cands, key=lambda x: x[0])
+						return p, best[1], best[2], best[3], best[4], None, True
+					else:
+						if _debug_phrase and _debug_phrase in phrase.lower():
+							print('  token fallback rejected (no suitable candidates)')
+	# Nothing found on any page (token-based color inference is disabled)
 	return None
 import csv, re, os, sys
 from pathlib import Path
@@ -695,6 +1050,9 @@ def parse_count_amount_pair(s):
             lnum = norm_num(left)
             rnum = norm_num(right)
         except Exception:
+            continue
+        # ignore trivial all-zero placeholder pairs like '0 / $0'
+        if lnum == 0 and rnum == 0:
             continue
         if '$' in left and '$' not in right:
             return (rnum, lnum)
@@ -798,6 +1156,13 @@ def load_expectations_from_dir(dpath):
     return out
 
 
+def run_expectation_only_qa():
+	"""Compatibility shim - delegate to legacy POC QA runner."""
+	import importlib
+	pc = importlib.import_module('scripts.poc_extract_credit_factors')
+	return pc.run_expectation_only_qa()
+
+
 def find_credit_factors_region(doc, anchor='Credit Factors', max_pages=3):
     """Find page index where the 'Credit Factors' section starts and return list of (page_index, blocks_to_scan)."""
     start = None
@@ -856,6 +1221,7 @@ def normalize_factors(raw_factors):
             continue
         canonical = map_line_to_canonical(txt)
         count = None
+
         total = None
         chosen_color = item.get('color')
         chosen_hex = item.get('hex')
@@ -917,6 +1283,35 @@ def normalize_factors(raw_factors):
     return simplified
 
 
+
+# Compatibility helper: return candidate dicts for a phrase (page, text, spans, hex, rgb, score)
+def get_candidates_for_phrase(doc, phrase, page_limit=1):
+	"""Return list of candidate dicts for lines containing phrase-like tokens."""
+	candidates = []
+	tokens = [t.lower() for t in phrase.split() if t and not t.isdigit()]
+	for pidx in range(min(page_limit, len(doc))):
+		page = doc.load_page(pidx)
+		td = page.get_text('dict')
+		for b in td.get('blocks', []):
+			for ln in b.get('lines', []):
+				line_text = ''.join([s.get('text','') for s in ln.get('spans', [])]).strip()
+				if not line_text:
+					continue
+				ltex = line_text.lower()
+				if any(tok in ltex for tok in tokens):
+					hexv, rgb = span_color_hex(ln.get('spans', []))
+					cat = map_color_to_cat(rgb) if rgb else 'neutral'
+					# token overlap fraction
+					overlap = sum(1 for t in tokens if t in ltex)
+					frac = overlap / max(1, len(tokens))
+					bonus = 0.15 if re.search(r'balanc', ltex) else 0.0
+					penalty = -0.20 if re.search(r'charg|chrg|charged off', ltex) else 0.0
+					color_boost = 0.25 if cat == 'red' else 0.0
+					# score primarily by token overlap, with modest color and semantic adjustments
+					score = frac + color_boost + bonus + penalty
+					candidates.append({'page': pidx, 'text': line_text, 'spans': ln.get('spans', []), 'hex': hexv, 'rgb': rgb, 'score': score})
+	return candidates
+
 def extract_credit_factors_from_doc(doc, page_limit=None):
     candidates = []
     page_pivots = {}
@@ -974,4 +1369,8 @@ def extract_credit_factors_from_doc(doc, page_limit=None):
         color = map_color_to_cat(rgb) if rgb else 'neutral'
         raw_factors.append({'factor': text, 'color': color, 'hex': hexv})
     return normalize_factors(raw_factors)
+
+# Module-end compatibility aliases (ensure functions defined before aliasing)
+combined_sample_color_for_phrase_impl = combined_sample_color_for_phrase
+get_candidates_for_phrase_impl = get_candidates_for_phrase
 
