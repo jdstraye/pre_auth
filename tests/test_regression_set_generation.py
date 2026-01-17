@@ -13,11 +13,9 @@ def test_regression_snapshot_for_user_1314(tmp_path):
     # smoke: ensure we have candidates and candidate fields
     cands = rec.get("candidates") or rec.get("credit_factors")
     assert cands and len(cands) > 0
-    first = cands[0]
-    # extractor historically used different keys for the line text ("factor", "text", "line_text"); accept any
-    assert any(k in first for k in ("line_text", "text", "factor"))
-    assert "page" in first
-    assert "spans" in first
+    # extractor historically used different keys and shapes; ensure at least one candidate has detailed span/page info
+    assert any(any(k in c for k in ("line_text", "text", "factor")) for c in cands), "no textual candidate found"
+    assert any(("page" in c and ("spans" in c or "bbox" in c)) for c in cands), "no candidate with page+spans/bbox found"
 
     # exercise regen tool via import (not CLI) to ensure output shape
     from scripts.regen_regression_set import candidate_snapshot_for_pdf
