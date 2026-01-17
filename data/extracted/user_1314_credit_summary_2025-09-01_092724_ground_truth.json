@@ -1,0 +1,90 @@
+{
+    "pdf_file": "data/pdf_analysis/user_1314_credit_summary_2025-09-01_092724.pdf",
+    "credit_score": {
+        "value": 527,
+        "color": "red"
+    },
+    "monthly_payments": 1036,
+    "credit_freeze": false,
+    "fraud_alert": false,
+    "deceased": false,
+    "age": 49,
+    "address": [
+      "3070 Lakecrest Cir, Lexington, KY 40513",
+      "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+    ],
+    "revolving_accounts_open": {
+        "count": 21,
+        "amount": 25304
+    },
+    "real_estate_open": {
+        "count": 0,
+        "amount": 0
+    },
+    "line_of_credit_accounts_open": {
+        "count": 0,
+        "amount": 0
+    },
+    "installment_accounts_open": {
+        "count": 10,
+        "amount": 56881
+    },
+    "miscellaneous_accounts_open": {
+        "count": 0,
+        "amount": 0
+    },
+    "public_records": 0,
+    "collections": {
+        "open": 12,
+        "closed": 10
+    },
+    "inquiries_last_6_months": 2,
+    "late_pays": {
+        "last_2_years": 6,
+        "last_over_2_years": 5
+    },
+    "credit_factors": [
+        {"factor": "6 Charged Off Accts", "color": "green"},
+        {"factor": "3 Charged Off Accts", "color": "green"},
+        {"factor": "4 Charged Off Accts", "color": "green"},
+        {"factor": "4 Unpaid Collection(s)", "color": "green"},
+        {"factor": "$16320 Unpaid Collection(s)", "color": "green"},
+        {"factor": "7 Over Limit Accnt", "color": "green"},
+        {"factor": "Total Rev Usage > 90%", "color": "green"},
+        {"factor": "Past Due Not Late", "color": "green"},
+        {"factor": "Pay $12355 so Accts < 40%", "color": "red"},
+        {"factor": "8 Chrgd Off Rev Accts", "color": "red"},
+        {"factor": "2 Rev Lates in 4-6 mo", "color": "red"},
+        {"factor": "2 Rev Lates in 6-12 mo", "color": "red"},
+        {"factor": "$3029 Unpaid Collections", "color": "red"},
+        {"factor": "4 Rev Lates in 2-4 yrs", "color": "red"},
+        {"factor": "1 RE Late in 4-6 mo", "color": "red"},
+        {"factor": "No 5k+ Lines", "color": "red"},
+        {"factor": "1 Chrgd Off RE Acct", "color": "red"},
+        {"factor": "1 Inq Last 4 Mo", "color": "red"},
+        {"factor": "Less than 5 yrs", "color": "red"},
+        {"factor": "Great Closed Rev Depth", "color": "green"},
+        {"factor": "Ok Open Rev Depth", "color": "green"},
+        {"factor": "3+ Closed Rev Accnts", "color": "green"},
+        {"factor": "Military Affiliated", "color": "green"},
+        {"factor": "Seasoned Closed Accounts", "color": "green"},
+        {"factor": "Closed Accnts Over 5k", "color": "green"},
+        {"factor": "8+ Rev Accnts with Balances", "color": "black"},
+        {"factor": "In Credit Counseling", "color": "black"},
+        {"factor": "No Open Mortgage", "color": "black"},
+        {"factor": "1 Rev Late in 4+ yrs", "color": "black"},
+        {"factor": "Drop Bad Auth User (BEST BUY/CBNA, and CO", "color": "black"},
+        {"factor": "No Rev Acct Open 10K 2yr", "color": "black"},
+        {"factor": "1 Inq last 2-4 Mo", "color": "black"},
+        {"factor": "1 Inq Last 4-5 mo", "color": "black"},
+        {"factor": "1 Total Inq 2-4 Mo", "color": "black"},
+        {"factor": "1 Total Inqs 4-5 Mo", "color": "black"}
+    ],
+    "credit_card_open_totals_no_retail": {
+        "color": "red",
+        "balance": 20483,
+        "limit": 17650,
+        "utilization_percent": 116,
+        "payment": 549
+    }
+}

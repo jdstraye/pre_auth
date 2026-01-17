@@ -24,5 +24,13 @@ warnings.filterwarnings("ignore", message="deprecate positional args", category=
 # - Scikit-learn's estimator check warnings are expected; silence these in CI
 warnings.filterwarnings("ignore", message="Skipping check_estimators_overwrite_params", category=Warning)
 
+
 # Reduce debug-level logger noise during tests; keep INFO and above.
 logging.getLogger().setLevel(logging.INFO)
+
+# Add CLI options for PDF extraction tests
+def pytest_addoption(parser):
+    parser.addoption("--n_pdfs", action="store", default=5, type=int, help="Number of random PDFs to test.")
+    parser.addoption("--pdf_dir", action="store", default="data/pdf_analysis", help="Directory containing PDFs.")
+    parser.addoption("--ground_truth_dir", action="store", default="data/extracted", help="Directory for ground truth JSONs.")
+    parser.addoption("--user_id", action="store", default=None, help="Specific user ID to test (e.g., 705)")
