@@ -1,0 +1,113 @@
+{
+  "filename": "user_1131_credit_summary_2025-09-01_132805.pdf",
+  "source": "data/pdf_analysis/user_1131_credit_summary_2025-09-01_132805.pdf",
+  "credit_score": 659,
+  "credit_score_color": "neutral",
+  "age": 25,
+  "address": [
+    "322 Wilkinson Dr, Newark, DE 19702",
+    "1208 Lemond Dr, Middletown, DE 19709"
+  ],
+  "collections_open": 0,
+  "collections_closed": 0,
+  "public_records": 0,
+  "revolving_open_count": 5,
+  "revolving_open_total": 32334,
+  "installment_open_count": 1,
+  "installment_open_total": 18195,
+  "credit_factors": [
+    {
+      "factor": "1 Over Limit Accnt",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Total Rev Usage > 90%",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Pay $18591 so Accts < 40%",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "1 RE Late in 6-12 mo",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "7k+ line for 4+yrs",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Great Closed Rev Depth",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Seasoned Closed Accounts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Ok Open Rev Depth",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "3+ Closed Rev Accnts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Closed Accnts Over 7.5k",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Paid Off 200k+ RE/RE",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "1 RE Late in 4+ yrs",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "No Open Mortgage",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Drop Bad Auth User (JPMCB CARD SERVICES",
+      "color": "black",
+      "hex": "#212529"
+    }
+  ],
+  "inquiries_last_6_months": 0,
+  "credit_card_open_totals": {
+    "color": "black",
+    "balance": 31428,
+    "limit": 31300,
+    "Percent": 100,
+    "Payment": 1321
+  },
+  "monthly_payments": 1787,
+  "real_estate_open_count": 0,
+  "real_estate_open_total": 0,
+  "line_of_credit_accounts_open_count": 0,
+  "line_of_credit_accounts_open_total": 0,
+  "miscellaneous_accounts_open_count": 0,
+  "miscellaneous_accounts_open_total": 0,
+  "late_pays_2yr": 3,
+  "late_pays_gt2yr": 1,
+  "red_credit_factors_count": 2,
+  "green_credit_factors_count": 9,
+  "black_credit_factors_count": 3,
+  "credit_freeze": 0,
+  "fraud_alert": 0,
+  "deceased": 0
+}

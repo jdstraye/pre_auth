@@ -1,0 +1,41 @@
+{
+  "session_id": "20251231_125326",
+  "timestamp": "2025-12-31T12:53:27.254887",
+  "total_pdfs": 5,
+  "total_phrases_tested": 104,
+  "total_correct": 23,
+  "total_incorrect": 81,
+  "overall_accuracy": 0.22115384615384615,
+  "by_pdf": [
+    {
+      "pdf": "user_426_credit_summary_2025-09-01_095930.pdf",
+      "accuracy": 0.2777777777777778,
+      "correct": 5,
+      "total": 18
+    },
+    {
+      "pdf": "user_577_credit_summary_2025-09-01_104651.pdf",
+      "accuracy": 0.23809523809523808,
+      "correct": 5,
+      "total": 21
+    },
+    {
+      "pdf": "user_599_credit_summary_2025-09-01_104729.pdf",
+      "accuracy": 0.16666666666666666,
+      "correct": 2,
+      "total": 12
+    },
+    {
+      "pdf": "user_1300_credit_summary_2025-09-01_132946.pdf",
+      "accuracy": 0.0625,
+      "correct": 1,
+      "total": 16
+    },
+    {
+      "pdf": "user_1314_credit_summary_2025-09-01_092724.pdf",
+      "accuracy": 0.2702702702702703,
+      "correct": 10,
+      "total": 37
+    }
+  ]
+}

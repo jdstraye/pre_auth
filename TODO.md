@@ -53,6 +53,7 @@ Other / Notes
   - Affected ./src/utils.py, ./src/scripts/pdf_color_extraction.py
   - Created ./tests/test_pdf_color_helpers.py
   - [ ] Compare the helpers from poc_extract_credit_factors.py (parse_count_amount_pair, median_5x5, parse_public_records, load_expectations_from_dir, find_credit_factors_region, extract_lines_from_region, normalize_factors, extract_credit_factors_from_doc) to the current extraction code in pdf_color_extraction.py. Are there superior strategies/algorithms that should be adopted in pdf_color_extraction.py?
+  - [ ] Add `scripts/auto_map_unvalidated.py` + `scripts/validate_ground_truth.py` to: 1) auto-attach `page`/`bbox`/`spans` to existing `_ground_truth_unvalidated.json` files, 2) emit `regression/quick50_batch.csv` for human validation, and 3) provide a safe `--promote` flow once reviewed.
     - the POC helpers contain reliable, structured heuristics (pivot/column detection, dollar-line merging, canonical dedupe) that are generally superior to the current ad-hoc/fallback heuristics in pdf_color_extraction.py and should be adopted as the primary credit-factor extraction path; a few targeted improvements (multi-page handling, robust OCR fallbacks, fuzzy canonicalization) would make the result even more robust.
     - GIT commit 100644 to save src/scripts/pdf_color_extraction.py before big changes, since it passes the 6 random PDF extractions.
     - Recommendations:

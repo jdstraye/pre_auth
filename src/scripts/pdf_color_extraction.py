@@ -121,7 +121,7 @@ def pair_addresses_from_candidates(candidates, all_lines):
 	return pairs
 
 
-def extract_pdf_all_fields(pdf_path):
+def extract_pdf_all_fields(pdf_path, include_spans: bool = False):
 	"""
 	Extract all relevant fields from a PDF for ground truth/testing:
 	- credit_score, age, address, account counts, credit_factors (with color/hex), etc.
@@ -162,19 +162,24 @@ def extract_pdf_all_fields(pdf_path):
 	pat_installment_total = re.compile(r"installment accounts.*\$([0-9,]+)", re.I)
 	# Only keep lines that look like actual credit factors (match color and known phrases)
 	factor_phrases = [
-		"lates", "open rev", "closed rev", "lines", "depth", "mortgage", "accounts", "seasoned", "too few", "no ", "light", "pay", "inquiries", "charged off", "over limit"
+		"lates", "open rev", "closed rev", "lines", "depth", "mortgage", "accounts", "seasoned", "too few", "no ", "light", "paid", "inquiries", "charged off", "over limit"
 	]
-	# Gather all lines and spans from all pages
+	# Gather all lines, spans, bboxes, and page indices from all pages
 	all_lines = []
 	all_spans = []
+	all_bboxes = []
+	all_pages = []
 	for page_num in range(len(doc)):
 		td = doc[page_num].get_text('dict')
 		for b in td.get('blocks', []):
 			for ln in b.get('lines', []):
-				line_text = ''.join([s.get('text','') for s in ln.get('spans', [])]).strip()
+				spans = ln.get('spans', [])
+				line_text = ''.join([s.get('text','') for s in spans]).strip()
 				if line_text:
 					all_lines.append(line_text)
-					all_spans.append(ln.get('spans', []))
+					all_spans.append(spans)
+					all_bboxes.append(ln.get('bbox'))
+					all_pages.append(page_num)
 
 
 	# Explicit address extraction for user 705 and similar PDFs
@@ -286,6 +291,12 @@ def extract_pdf_all_fields(pdf_path):
 		# Payments
 		if re.match(r'\$[0-9,]+/mo', line):
 			rec['monthly_payments'] = int(re.sub(r'[^0-9]', '', line))
+			hexv, rgb = span_color_hex(all_spans[i])
+			rec['monthly_payments_color'] = map_color_to_cat(rgb) if rgb else None
+			if include_spans:
+				rec['monthly_payments_bbox'] = all_bboxes[i]
+				rec['monthly_payments_page'] = all_pages[i]
+				rec['monthly_payments_spans'] = serialize_spans(all_spans[i])
 		# Credit Freeze, Fraud Alert, Deceased (look for 'No' or 'Yes' in top lines)
 		if line.lower() == 'no' or line.lower() == 'yes':
 			# Heuristically assign based on previous heading
@@ -293,10 +304,28 @@ def extract_pdf_all_fields(pdf_path):
 			val = 1 if line.lower() == 'yes' else 0
 			if 'credit freeze' in prev:
 				rec['credit_freeze'] = val
+				hexv, rgb = span_color_hex(all_spans[i])
+				rec['credit_freeze_color'] = map_color_to_cat(rgb) if rgb else None
+				if include_spans:
+					rec['credit_freeze_bbox'] = all_bboxes[i]
+					rec['credit_freeze_page'] = all_pages[i]
+					rec['credit_freeze_spans'] = serialize_spans(all_spans[i])
 			elif 'fraud alert' in prev:
 				rec['fraud_alert'] = val
+				hexv, rgb = span_color_hex(all_spans[i])
+				rec['fraud_alert_color'] = map_color_to_cat(rgb) if rgb else None
+				if include_spans:
+					rec['fraud_alert_bbox'] = all_bboxes[i]
+					rec['fraud_alert_page'] = all_pages[i]
+					rec['fraud_alert_spans'] = serialize_spans(all_spans[i])
 			elif 'deceased' in prev:
 				rec['deceased'] = val
+				hexv, rgb = span_color_hex(all_spans[i])
+				rec['deceased_color'] = map_color_to_cat(rgb) if rgb else None
+				if include_spans:
+					rec['deceased_bbox'] = all_bboxes[i]
+					rec['deceased_page'] = all_pages[i]
+					rec['deceased_spans'] = serialize_spans(all_spans[i])
 
 	# Extract collections, public records, inquiries, late pays, and account totals from all pages
 	credit_score_found = False
@@ -304,8 +333,13 @@ def extract_pdf_all_fields(pdf_path):
 		# Credit score as a standalone number (3-4 digits), only if not already set
 		if not credit_score_found and line.isdigit() and len(line) in (3,4):
 			rec['credit_score'] = int(line)
+			# attach page/spans/bbox only when requested; always compute canonical color
 			hexv, rgb = span_color_hex(all_spans[i])
 			rec['credit_score_color'] = map_color_to_cat(rgb) if rgb else None
+			if include_spans:
+				rec['credit_score_bbox'] = all_bboxes[i]
+				rec['credit_score_page'] = all_pages[i]
+				rec['credit_score_spans'] = serialize_spans(all_spans[i])
 			credit_score_found = True
 		m = pat_score.search(line)
 		if m and not credit_score_found:
@@ -346,7 +380,10 @@ def extract_pdf_all_fields(pdf_path):
 				rec['public_records_details'] = {
 					'detail': detail,
 					'date': date_iso,
-					'color': map_color_to_cat(rgb) if rgb else None
+					'color': map_color_to_cat(rgb) if rgb else None,
+					'bbox': all_bboxes[i+1],
+					'page': all_pages[i+1],
+					'spans': serialize_spans(all_spans[i+1])
 				}
 		# Inquiries
 		if 'inquires (last 6 months)' in line.lower() and i+1 < len(all_lines):
@@ -354,6 +391,18 @@ def extract_pdf_all_fields(pdf_path):
 			if val:
 				cnt = int(val.group(0))
 				rec['inquiries_last_6_months'] = cnt
+				hexv, rgb = span_color_hex(all_spans[i+1]) if i+1 < len(all_spans) else (None, None)
+				rec['inquiries_last_6_months_color'] = map_color_to_cat(rgb) if rgb else None
+				if include_spans:
+					rec['inquiries_last_6_months_bbox'] = all_bboxes[i+1]
+					rec['inquiries_last_6_months_page'] = all_pages[i+1]
+					rec['inquiries_last_6_months_spans'] = serialize_spans(all_spans[i+1])
+				hexv, rgb = span_color_hex(all_spans[i+1]) if i+1 < len(all_spans) else (None, None)
+				rec['late_pays_color'] = map_color_to_cat(rgb) if rgb else None
+				if include_spans:
+					rec['late_pays_bbox'] = all_bboxes[i+1]
+					rec['late_pays_page'] = all_pages[i+1]
+					rec['late_pays_spans'] = serialize_spans(all_spans[i+1])
 		# Late Pays (Last 2/2+ Years)
 		if 'late pays (last 2/2+ years)' in line.lower() and i+1 < len(all_lines):
 			vals = re.findall(r'\d+', all_lines[i+1])
@@ -395,13 +444,17 @@ def extract_pdf_all_fields(pdf_path):
 			pct = _parse_percent(all_lines[idx+2]) if idx+2 < len(all_lines) else None
 			pay = _parse_money(all_lines[idx+3]) if idx+3 < len(all_lines) else None
 			hexv, rgb = span_color_hex(all_spans[idx+1]) if idx+1 < len(all_spans) else (None, None)
-			rec['credit_card_open_totals'] = {
+			entry = {
 				'color': map_color_to_cat(rgb) if rgb else None,
+				'hex': hexv,
 				'balance': bal,
 				'limit': limit,
 				'Percent': pct,
 				'Payment': pay
 			}
+			if include_spans and idx+1 < len(all_bboxes):
+				entry.update({'bbox': all_bboxes[idx+1], 'page': all_pages[idx+1], 'spans': serialize_spans(all_spans[idx+1])})
+			rec['credit_card_open_totals'] = entry
 			break
 	# Prefer POC candidate-based extraction when available (primary flow)
 	poc_used = False
@@ -434,11 +487,23 @@ def extract_pdf_all_fields(pdf_path):
 			for i, line in enumerate(all_lines):
 				if any(phrase in line.lower() for phrase in factor_phrases):
 					hexv, rgb = span_color_hex(all_spans[i])
-					legacy_candidates.append({'factor': line, 'color': map_color_to_cat(rgb) if rgb else None, 'hex': hexv})
+					color_cat = map_color_to_cat(rgb) if rgb else 'neutral'
+					cand = {'factor': line, 'color': color_cat, 'hex': hexv}
+					if include_spans:
+						cand.update({'bbox': all_bboxes[i], 'page': all_pages[i], 'spans': serialize_spans(all_spans[i])})
+					legacy_candidates.append(cand)
 			# whitelist canonical keys or keywords that are important to merge
 			for cand in legacy_candidates:
 				ck = map_line_to_canonical(cand['factor'])
-				if ck not in poc_keys and re.search(r'charged off|rev lates|unpaid collection|total rev|drop bad auth|current lates|inq|inquiry', cand['factor'], re.I):
+				if ck not in poc_keys:
+				# allow merging unless line looks table-like
+				toks = [t for t in re.split(r'\s+', cand['factor']) if t]
+				num_numeric = sum(1 for t in toks if re.search(r'[\d\$%]', t))
+				num_alpha = sum(1 for t in toks if re.search(r'[A-Za-z]', t))
+				if re.match(r'^[\$\d\.,\s%\-]+$', cand['factor']):
+					continue
+				if num_numeric >= 2 and num_numeric > num_alpha:
+					continue
 					rec['credit_factors'].append(cand)
 			poc_used = True
 	except Exception:
@@ -463,11 +528,10 @@ def extract_pdf_all_fields(pdf_path):
 				if len(ln) > 0 and not re.match(r'^[#0-9\s/.]+$', ln):
 					hexv, rgb = span_color_hex(all_spans[j])
 					color_cat = map_color_to_cat(rgb) if rgb else 'neutral'
-					rec['credit_factors'].append({
-						'factor': ln,
-						'color': color_cat,
-						'hex': hexv
-					})
+					entry = {'factor': ln, 'color': color_cat, 'hex': hexv}
+					if include_spans:
+						entry.update({'bbox': all_bboxes[j], 'page': all_pages[j], 'spans': serialize_spans(all_spans[j])})
+					rec['credit_factors'].append(entry)
 				j += 1
 	else:
 		# Fallback: previous heuristic
@@ -554,7 +618,10 @@ def extract_pdf_all_fields(pdf_path):
 		if 'current lates' in ln.lower() and ln not in _present:
 			hexv, rgb = span_color_hex(all_spans[idx])
 			color_cat = map_color_to_cat(rgb) if rgb else 'neutral'
-			rec['credit_factors'].append({'factor': ln, 'color': color_cat, 'hex': hexv})
+			entry = {'factor': ln, 'color': color_cat, 'hex': hexv}
+			if include_spans:
+				entry.update({'bbox': all_bboxes[idx], 'page': all_pages[idx], 'spans': serialize_spans(all_spans[idx])})
+			rec['credit_factors'].append(entry)
 	# Recompute colors/hex for any credit_factors by matching to source lines (fix neutral->black issues)
 	for f in rec['credit_factors']:
 		try:
@@ -588,7 +655,10 @@ def extract_pdf_all_fields(pdf_path):
 		if 'current lates' in ln.lower() and ln not in _present:
 			hexv, rgb = span_color_hex(all_spans[idx])
 			color_cat = map_color_to_cat(rgb) if rgb else 'neutral'
-			rec['credit_factors'].append({'factor': ln, 'color': color_cat, 'hex': hexv})
+			entry = {'factor': ln, 'color': color_cat, 'hex': hexv}
+			if include_spans:
+				entry.update({'bbox': all_bboxes[idx], 'page': all_pages[idx], 'spans': serialize_spans(all_spans[idx])})
+			rec['credit_factors'].append(entry)
 	# Recompute colors/hex for any credit_factors by matching to source lines (fix neutral->black issues)
 	for f in rec['credit_factors']:
 		try:
@@ -599,6 +669,20 @@ def extract_pdf_all_fields(pdf_path):
 				f['color'] = map_color_to_cat(rgb) if rgb else f.get('color','neutral')
 		except StopIteration:
 			pass
+	# Enrich any factor entries lacking bbox/spans/hex by matching to document lines
+	for f in rec['credit_factors']:
+		if 'bbox' not in f or not f.get('bbox'):
+			try:
+				match_idx = next(i for i,l in enumerate(all_lines) if l.strip() == f['factor'].strip())
+				hexv, rgb = span_color_hex(all_spans[match_idx])
+				color_cat = map_color_to_cat(rgb) if rgb else f.get('color','neutral')
+				f['hex'] = color_cat
+				f['color'] = color_cat
+				f['bbox'] = all_bboxes[match_idx]
+				f['page'] = all_pages[match_idx]
+				f['spans'] = serialize_spans(all_spans[match_idx])
+			except StopIteration:
+				pass
 	# Final table-like pruning to remove remaining dense numeric rows
 	def _is_table_like_line_final(s):
 		toks = [t for t in re.split(r'\s+', s) if t]
@@ -622,7 +706,11 @@ def extract_pdf_all_fields(pdf_path):
 	for i, ln in enumerate(all_lines):
 		if any(k in ln.lower() for k in ('charged off','rev lates','unpaid collection','total rev','drop bad auth','current lates','inq','inquiry')):
 			hexv, rgb = span_color_hex(all_spans[i])
-			_legacy_candidates.append({'factor': ln, 'color': map_color_to_cat(rgb) if rgb else None, 'hex': hexv})
+			color_cat = map_color_to_cat(rgb) if rgb else 'neutral'
+			cand = {'factor': ln, 'color': color_cat, 'hex': hexv}
+			if include_spans:
+				cand.update({'bbox': all_bboxes[i], 'page': all_pages[i], 'spans': serialize_spans(all_spans[i])})
+			_legacy_candidates.append(cand)
 	_legacy_keys = {map_line_to_canonical(f['factor']): f for f in _legacy_candidates}
 	_preserve_keys.update(_legacy_keys.keys())
 	# Ensure any preserved canonical keys appear in final rec (prefer POC entry, else legacy candidate)
@@ -653,6 +741,23 @@ def extract_pdf_all_fields(pdf_path):
 				prio = len(poc_order) + 1
 			return (prio, f.get('factor',''))
 		rec['credit_factors'].sort(key=_pf_key)
+
+	# Heuristic: include any 'paid off' or 'paid' lines that were missed by the main candidate heuristics.
+	# This helps catch items like 'Paid Off 200k+ RE/RE' that can appear in different columns/forms.
+	try:
+		for i, ln in enumerate(all_lines):
+			if re.search(r'paid\s*off', ln, re.I) or re.search(r'paid\b', ln, re.I):
+				# skip if already represented (exact match or substring)
+				if any(ln.strip() == (f.get('factor','') or '').strip() or ln.strip() in (f.get('factor','') or '') or (f.get('factor','') or '').strip() in ln.strip() for f in rec.get('credit_factors', [])):
+					continue
+				hexv, rgb = span_color_hex(all_spans[i]) if i < len(all_spans) else (None, None)
+				entry = {'factor': ln.strip(), 'hex': hexv, 'color': map_color_to_cat(rgb) if rgb else None}
+				if include_spans:
+					entry.update({'bbox': all_bboxes[i], 'page': all_pages[i], 'spans': serialize_spans(all_spans[i])})
+				rec['credit_factors'].append(entry)
+	except Exception:
+		# don't let this heuristic break extraction
+		pass
 	# Add counts for red, green, black credit factors
 	rec['red_credit_factors_count'] = sum(1 for f in rec['credit_factors'] if f.get('color') == 'red')
 	rec['green_credit_factors_count'] = sum(1 for f in rec['credit_factors'] if f.get('color') == 'green')
@@ -701,6 +806,104 @@ def extract_pdf_all_fields(pdf_path):
 	except Exception:
 		# safe: do not block extraction on any unexpected failure in the safeguard
 		pass
+	# Recompute colors/hex for any credit_factors by matching to source lines (restore hexv when available)
+	for f in rec.get('credit_factors', []):
+		try:
+			match_idx = next(i for i,l in enumerate(all_lines) if l.strip() == f['factor'].strip())
+			hexv_m, rgb_m = span_color_hex(all_spans[match_idx])
+			# prefer explicit hex from spans when available
+			if hexv_m:
+				f['hex'] = hexv_m
+				f['color'] = map_color_to_cat(rgb_m) if rgb_m else f.get('color','neutral')
+			# add spans/page/bbox when include_spans is requested
+			if include_spans:
+				f['bbox'] = all_bboxes[match_idx]
+				f['page'] = all_pages[match_idx]
+				f['spans'] = serialize_spans(all_spans[match_idx])
+		except StopIteration:
+			pass
+	# Final sanitization: ensure canonical color and hex correctness for each factor
+	for f in rec.get('credit_factors', []):
+		# hex must be an actual hex string like '#rrggbb' or None
+		h = f.get('hex')
+		if isinstance(h, str) and h.startswith('#') and len(h) == 7:
+			# keep as-is
+			pass
+		else:
+			# normalize accidental canonical-color-strings in hex -> None
+			f['hex'] = None
+		# ensure color is one of canonical names
+		col = f.get('color')
+		if col not in {'red','green','black','neutral','amber'}:
+			# try to derive from hex (if present), then spans
+			derived = None
+			if f.get('hex'):
+				rgb = hex_to_rgb(f['hex'])
+				if rgb:
+					try:
+						derived = map_color_to_cat(rgb)
+					except Exception:
+						derived = None
+			if not derived and f.get('spans'):
+				# spans are serialized; they may contain 'rgb' tuples or 'hex'
+				for s in f.get('spans'):
+					if s.get('rgb'):
+						try:
+							derived = map_color_to_cat(tuple(s.get('rgb')))
+							break
+						except Exception:
+							pass
+					if s.get('hex'):
+						try:
+							derived = map_color_to_cat(hex_to_rgb(s.get('hex')))
+							break
+						except Exception:
+							pass
+			# set color default if unresolved
+			if derived:
+				f['color'] = derived
+			else:
+				f['color'] = 'neutral'
+	# Ensure public_records_details have hex and optionally strip spans when not requested
+	if 'public_records_details' in rec:
+		try:
+			pr = rec['public_records_details']
+			# try to resolve hex if missing by matching detail text in document lines
+			if pr.get('hex') is None and pr.get('detail'):
+				for ii, ln in enumerate(all_lines):
+					if pr['detail'] and pr['detail'] in ln:
+						hv, rv = span_color_hex(all_spans[ii])
+						if hv:
+							pr['hex'] = hv
+							break
+		except Exception:
+			pass
+
+
+	# Normalize public_records_details hex and optional spans
+	if 'public_records_details' in rec:
+		try:
+			pr = rec['public_records_details']
+			pr['hex'] = pr.get('hex') if pr.get('hex') is not None else None
+			if not include_spans:
+				for k in ('bbox','page','spans'):
+					pr.pop(k, None)
+		except Exception:
+			pass
+
+	# Expose line-level objects (page, text, spans, bbox) for callers and the auto-mapper
+	if include_spans:
+		lines_obj = []
+		for i, txt in enumerate(all_lines):
+			lines_obj.append({
+				'page': all_pages[i],
+				'text': txt,
+				'spans': serialize_spans(all_spans[i]),
+				'bbox': all_bboxes[i]
+			})
+		rec['all_lines_obj'] = lines_obj
+		# Also include a general 'lines' alias for backward compatibility
+		rec['lines'] = lines_obj
 	return rec
 
 # Backwards compatible alias for the internal 'impl' used by some tests
@@ -848,6 +1051,54 @@ def rgb_to_hex_tuple(rgb):
 		return f"#{int(r):02x}{int(g):02x}{int(b):02x}"
 	except Exception:
 		return None
+
+
+def hex_to_rgb(hexstr):
+	"""Convert '#rrggbb' to (r,g,b) tuple or return None."""
+	if not hexstr or not isinstance(hexstr, str):
+		return None
+	h = hexstr.strip()
+	if h.startswith('#'):
+		h = h[1:]
+	if len(h) != 6:
+		return None
+	try:
+		r = int(h[0:2], 16); g = int(h[2:4], 16); b = int(h[4:6], 16)
+		return (r,g,b)
+	except Exception:
+		return None
+
+
+def bbox_from_spans(spans):
+	"""Return a bbox [x0,y0,x1,y1] that is the union of span bboxes if present."""
+	boxes = [s.get('bbox') for s in spans if s.get('bbox')]
+	if not boxes:
+		return None
+	x0s = [b[0] for b in boxes]
+	y0s = [b[1] for b in boxes]
+	x1s = [b[2] for b in boxes]
+	y1s = [b[3] for b in boxes]
+	return [min(x0s), min(y0s), max(x1s), max(y1s)]
+
+
+def serialize_spans(spans):
+	"""Return a JSON-serializable list of span dicts with text, hex, rgb and bbox."""
+	out = []
+	for s in spans:
+		text = s.get('text','')
+		col = s.get('color')
+		rgb = None
+		if isinstance(col, (tuple, list)):
+			rgb = tuple(int(255*v) if isinstance(v, float) and v <= 1 else int(v) for v in col)
+		elif isinstance(col, int):
+			try:
+				rgb = ((col >> 16) & 255, (col >> 8) & 255, col & 255)
+			except Exception:
+				rgb = None
+		else:
+			rgb = None
+		out.append({'text': text, 'hex': rgb_to_hex_tuple(rgb) if rgb else None, 'rgb': rgb, 'bbox': s.get('bbox')})
+	return out
 
 def color_first_search_for_phrase(pdf_doc, phrase, expected_color=None, page_limit=None):
 	"""Search pages for colored regions matching expected_color, OCR them, and attempt to find phrase text inside those regions.
@@ -1250,7 +1501,7 @@ def normalize_factors(raw_factors):
         f = merged[k]
         if f['canonical'] in ('payment_resp','past_due'):
             continue
-        simplified.append({'factor': f['factor'], 'color': f['color']})
+        simplified.append({'factor': f['factor'], 'color': f['color'], 'hex': f.get('hex'), 'bbox': f.get('bbox'), 'page': f.get('page'), 'spans': f.get('spans')})
     # apply small overrides
     overrides = {
         'no closed rev depth': 'red',
@@ -1367,7 +1618,7 @@ def extract_credit_factors_from_doc(doc, page_limit=None):
     for p_idx, text, spans, x0 in merged_candidates:
         hexv, rgb = span_color_hex(spans)
         color = map_color_to_cat(rgb) if rgb else 'neutral'
-        raw_factors.append({'factor': text, 'color': color, 'hex': hexv})
+        raw_factors.append({'factor': text, 'color': color, 'hex': hexv, 'page': p_idx, 'bbox': bbox_from_spans(spans), 'spans': serialize_spans(spans)})
     return normalize_factors(raw_factors)
 
 # Module-end compatibility aliases (ensure functions defined before aliasing)

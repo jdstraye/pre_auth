@@ -1,0 +1,82 @@
+{
+  "rec": {
+    "filename": "user_692_credit_summary_2025-09-01_105038.pdf",
+    "source": "data/pdf_analysis/user_692_credit_summary_2025-09-01_105038.pdf",
+    "credit_score": 726,
+    "credit_score_color": "neutral",
+    "monthly_payments": 473,
+    "credit_freeze": 0,
+    "fraud_alert": 0,
+    "deceased": 0,
+    "age": 27,
+    "address": [
+      "4830 Flanders Way, Denver, CO 80249"
+    ],
+    "revolving_open_count": 2,
+    "revolving_open_total": 74,
+    "real_estate_open_count": 0,
+    "real_estate_open_total": 0,
+    "line_of_credit_accounts_open_count": 0,
+    "line_of_credit_accounts_open_total": 0,
+    "installment_open_count": 6,
+    "installment_open_total": 28857,
+    "miscellaneous_accounts_open_count": 0,
+    "miscellaneous_accounts_open_total": 0,
+    "public_records": 0,
+    "collections_open": 0,
+    "collections_closed": 0,
+    "inquiries_last_6_months": 0,
+    "late_pays_2yr": 0,
+    "late_pays_gt2yr": 40,
+    "red_credit_factors_count": 4,
+    "green_credit_factors_count": 1,
+    "black_credit_factors_count": 4,
+    "credit_factors": [
+      {
+        "factor": "40 RE Lates in 2-4 yrs",
+        "color": "red",
+        "hex": "#dc3545"
+      },
+      {
+        "factor": "Too Few Open Rev Accounts",
+        "color": "red",
+        "hex": "#dc3545"
+      },
+      {
+        "factor": "No 7.5k+ Lines",
+        "color": "red",
+        "hex": "#dc3545"
+      },
+      {
+        "factor": "Less than 5 yrs",
+        "color": "red",
+        "hex": "#dc3545"
+      },
+      {
+        "factor": "Ok Open Rev Depth",
+        "color": "green",
+        "hex": "#428f4e"
+      },
+      {
+        "factor": "No Open Mortgage",
+        "color": "black",
+        "hex": "#212529"
+      },
+      {
+        "factor": "Seasoned Closed Accounts",
+        "color": "black",
+        "hex": "#212529"
+      },
+      {
+        "factor": "Light Closed Rev Depth",
+        "color": "black",
+        "hex": "#212529"
+      },
+      {
+        "factor": "No Rev Acct Open 10K 2yr",
+        "color": "black",
+        "hex": "#212529"
+      }
+    ]
+  }
+}
