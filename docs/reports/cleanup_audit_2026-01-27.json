@@ -1,0 +1,368 @@
+{
+  "patterns": {
+    "unvalidated_gt": {
+      "pattern": "data/extracted/*_ground_truth_unvalidated.json",
+      "tracked_count": 0,
+      "tracked_files": [],
+      "tracked_size_bytes": 0,
+      "history_objects_count": 0,
+      "history_size_bytes": 0,
+      "history_samples": []
+    },
+    "pdf_json": {
+      "pattern": "data/extracted/*.pdf.json",
+      "tracked_count": 0,
+      "tracked_files": [],
+      "tracked_size_bytes": 0,
+      "history_objects_count": 0,
+      "history_size_bytes": 0,
+      "history_samples": []
+    },
+    "tmp": {
+      "pattern": "tmp/**",
+      "tracked_count": 0,
+      "tracked_files": [],
+      "tracked_size_bytes": 0,
+      "history_objects_count": 69,
+      "history_size_bytes": 2112179,
+      "history_samples": [
+        {
+          "hash": "0603e5e84c5d417dde9008aa5f535dd01ef5b8fc",
+          "path": "tmp/auto_map",
+          "size": 7079
+        },
+        {
+          "hash": "46950004119565fde2a7fab87c63515c8940f318",
+          "path": "tmp/auto_map/user_1034_credit_summary_2025-09-01_100144_ground_truth_unvalidated.mapped.json",
+          "size": 30375
+        },
+        {
+          "hash": "6f018af3bae94b5d8a4538ca6055d0921bee859a",
+          "path": "tmp/auto_map/user_1035_credit_summary_2025-09-01_104550_ground_truth_unvalidated.mapped.json",
+          "size": 7478
+        },
+        {
+          "hash": "eeaf637fd6aa8b4552eb0e3ca903e32679990781",
+          "path": "tmp/auto_map/user_1036_credit_summary_2025-09-01_104456_ground_truth_unvalidated.mapped.json",
+          "size": 5636
+        },
+        {
+          "hash": "ca4ae554e1346632193fa89078e0b86bbb834dde",
+          "path": "tmp/auto_map/user_1040_credit_summary_2025-09-01_091850_ground_truth_unvalidated.mapped.json",
+          "size": 8600
+        },
+        {
+          "hash": "fdb97e24af2d4391f27ed6638d5ac191342cb6ad",
+          "path": "tmp/auto_map/user_1042_credit_summary_2025-09-01_104523_ground_truth_unvalidated.mapped.json",
+          "size": 6741
+        },
+        {
+          "hash": "4547dee80dfebb84253c45feecda925eb003b395",
+          "path": "tmp/auto_map/user_1044_credit_summary_2025-09-01_132336_ground_truth_unvalidated.mapped.json",
+          "size": 4180
+        },
+        {
+          "hash": "27db6e4504f5b75ac002f94a38e4856a3348e8a3",
+          "path": "tmp/auto_map/user_1048_credit_summary_2025-09-01_091926_ground_truth_unvalidated.mapped.json",
+          "size": 9715
+        },
+        {
+          "hash": "23d5ff9a921d251dd487339c3c3b22f1c547b905",
+          "path": "tmp/auto_map/user_1050_credit_summary_2025-09-01_103128_ground_truth_unvalidated.mapped.json",
+          "size": 4541
+        },
+        {
+          "hash": "03af10b06bda8eea3f2c80fec864b660c0b635d7",
+          "path": "tmp/auto_map/user_1052_credit_summary_2025-09-01_091945_ground_truth_unvalidated.mapped.json",
+          "size": 8221
+        },
+        {
+          "hash": "a4f56d8affd1b4a31fe8822904f30020a1ffb15c",
+          "path": "tmp/auto_map/user_1053_credit_summary_2025-09-01_091900_ground_truth_unvalidated.mapped.json",
+          "size": 6385
+        },
+        {
+          "hash": "6c2e1bd1a0c046d9699cf5e33ed3f8314d1dfcb1",
+          "path": "tmp/auto_map/user_1054_credit_summary_2025-09-01_104535_ground_truth_unvalidated.mapped.json",
+          "size": 8241
+        },
+        {
+          "hash": "ffb7fb1862f94c53e6bd86c2b92d6e943e823b07",
+          "path": "tmp/auto_map/user_1055_credit_summary_2025-09-01_104434_ground_truth_unvalidated.mapped.json",
+          "size": 5639
+        },
+        {
+          "hash": "7da322d2dce8ea05795e483df47174037a174f4f",
+          "path": "tmp/auto_map/user_1056_credit_summary_2025-09-01_104603_ground_truth_unvalidated.mapped.json",
+          "size": 4926
+        },
+        {
+          "hash": "257431af9b891c9263363c68a9759cc3eb174d04",
+          "path": "tmp/auto_map/user_1057_credit_summary_2025-09-01_145043_ground_truth_unvalidated.mapped.json",
+          "size": 68121
+        },
+        {
+          "hash": "5881d04a71a3ac8722c47ffb90e647d539001a5c",
+          "path": "tmp/auto_map/user_1058_credit_summary_2025-09-01_132326_ground_truth_unvalidated.mapped.json",
+          "size": 4894
+        },
+        {
+          "hash": "4bc28c01eb0d1eea802777ca6b5f50b3de2760da",
+          "path": "tmp/auto_map/user_1059_credit_summary_2025-09-01_091957_ground_truth_unvalidated.mapped.json",
+          "size": 26659
+        },
+        {
+          "hash": "801b3db032a4d355b6c00f3bec3507f1984ae0e0",
+          "path": "tmp/auto_map/user_1061_credit_summary_2025-09-01_103155_ground_truth_unvalidated.mapped.json",
+          "size": 93011
+        },
+        {
+          "hash": "4fc1e461ec5f1e79bb7253fa238c78f0ed3aa136",
+          "path": "tmp/auto_map/user_1064_credit_summary_2025-09-01_092008_ground_truth_unvalidated.mapped.json",
+          "size": 46019
+        },
+        {
+          "hash": "95ee2b09debbdbadf39729ad642861f60fd41ce6",
+          "path": "tmp/auto_map/user_1076_credit_summary_2025-09-01_092024_ground_truth_unvalidated.mapped.json",
+          "size": 7756
+        }
+      ]
+    },
+    "pytest_logs": {
+      "pattern": "pytest_validation_logs/**",
+      "tracked_count": 0,
+      "tracked_files": [],
+      "tracked_size_bytes": 0,
+      "history_objects_count": 51,
+      "history_size_bytes": 568163,
+      "history_samples": [
+        {
+          "hash": "ec0fb3157e973c9ac95cd81d102710f1b5979f44",
+          "path": "pytest_validation_logs/session_20260102_105715.jsonl",
+          "size": 11192
+        },
+        {
+          "hash": "9ac85460cba094df30db11c12a7c27e80dcb190d",
+          "path": "pytest_validation_logs/session_20260102_105748.jsonl",
+          "size": 11192
+        },
+        {
+          "hash": "a2dae727cd8b094aa8861f3813e3679fcf28ebb4",
+          "path": "pytest_validation_logs/session_20260102_105807.jsonl",
+          "size": 11190
+        },
+        {
+          "hash": "a2778d7e1aa3e661f22fe42fa9088d30c2fa5e75",
+          "path": "pytest_validation_logs/session_20260105_182501.jsonl",
+          "size": 11192
+        },
+        {
+          "hash": "a99f41d698966037dfedcd02a104bdb1857cc0e5",
+          "path": "pytest_validation_logs/session_20260105_182611.jsonl",
+          "size": 11192
+        },
+        {
+          "hash": "34dee672cbd020c24b177f598155fa3a8f5e2ac6",
+          "path": "pytest_validation_logs/session_20260105_183002.jsonl",
+          "size": 11191
+        },
+        {
+          "hash": "6b4e6025c4b880db81bda2548a14baa065562227",
+          "path": "pytest_validation_logs/session_20260105_183009.jsonl",
+          "size": 11191
+        },
+        {
+          "hash": "d6999a254ce7982959f367964cfa0b69ac0898e8",
+          "path": "pytest_validation_logs/session_20260105_183123.jsonl",
+          "size": 11190
+        },
+        {
+          "hash": "db8d6888c04f14bc263188a6661e1fd64dac310b",
+          "path": "pytest_validation_logs/session_20260111_035538.jsonl",
+          "size": 11190
+        },
+        {
+          "hash": "78d1745f65c30e682bba1a84235b8771f1695374",
+          "path": "pytest_validation_logs/session_20260113_064631.jsonl",
+          "size": 11190
+        },
+        {
+          "hash": "b9df5ff34ed6d294a1a0e8e2b398730f5056e267",
+          "path": "pytest_validation_logs/session_20260113_201425.jsonl",
+          "size": 11190
+        },
+        {
+          "hash": "73e99be090e2078dc66af1e434f6e58483058b7f",
+          "path": "pytest_validation_logs/session_20260113_201507.jsonl",
+          "size": 11190
+        },
+        {
+          "hash": "3fd0b42d697d30c302d89703ce1a9d366f73f68d",
+          "path": "pytest_validation_logs/session_20260113_201556.jsonl",
+          "size": 11190
+        },
+        {
+          "hash": "f6afc9d4efb46325e694adcab0235d28b5a40161",
+          "path": "pytest_validation_logs/session_20260113_201627.jsonl",
+          "size": 11190
+        },
+        {
+          "hash": "a8bfd65fbc3b7efb0494dffbc39efcf38df48cf0",
+          "path": "pytest_validation_logs/session_20260113_201657.jsonl",
+          "size": 11190
+        },
+        {
+          "hash": "0a3d48f4160ae177f4521c32637233649ec61f2d",
+          "path": "pytest_validation_logs/session_20260113_201737.jsonl",
+          "size": 11190
+        },
+        {
+          "hash": "29a2c57c54c55ed2c34fadd8f289b2f61f0e7bad",
+          "path": "pytest_validation_logs/session_20260113_201818.jsonl",
+          "size": 11190
+        },
+        {
+          "hash": "b1fc47b7307214de5e4be34084e9454a913bde84",
+          "path": "pytest_validation_logs/session_20260113_202406.jsonl",
+          "size": 11190
+        },
+        {
+          "hash": "7cbbb0c50c402e3671d69ca2a50dcd089b1a5c34",
+          "path": "pytest_validation_logs/session_20260113_205810.jsonl",
+          "size": 11190
+        },
+        {
+          "hash": "f89533d63d4d0133c39a461ce2a114671343a893",
+          "path": "pytest_validation_logs/session_20260113_205952.jsonl",
+          "size": 11363
+        }
+      ]
+    },
+    "pytest_results": {
+      "pattern": "pytest_results.txt",
+      "tracked_count": 0,
+      "tracked_files": [],
+      "tracked_size_bytes": 0,
+      "history_objects_count": 1,
+      "history_size_bytes": 40615,
+      "history_samples": [
+        {
+          "hash": "315341d222f5fafc35596e1784eb6a6cb48b766f",
+          "path": "pytest_results.txt",
+          "size": 40615
+        }
+      ]
+    },
+    "logs": {
+      "pattern": "logs/**",
+      "tracked_count": 0,
+      "tracked_files": [],
+      "tracked_size_bytes": 0,
+      "history_objects_count": 53,
+      "history_size_bytes": 601678,
+      "history_samples": [
+        {
+          "hash": "7c81b757d27b55b4650f50f93c07245308fdec92",
+          "path": "validation_logs/report_20251231_125326.json",
+          "size": 989
+        },
+        {
+          "hash": "e48dc426b9f2a52d327ebbd643e3ade325a651a7",
+          "path": "validation_logs/session_20251231_125326.jsonl",
+          "size": 32526
+        },
+        {
+          "hash": "ec0fb3157e973c9ac95cd81d102710f1b5979f44",
+          "path": "pytest_validation_logs/session_20260102_105715.jsonl",
+          "size": 11192
+        },
+        {
+          "hash": "9ac85460cba094df30db11c12a7c27e80dcb190d",
+          "path": "pytest_validation_logs/session_20260102_105748.jsonl",
+          "size": 11192
+        },
+        {
+          "hash": "a2dae727cd8b094aa8861f3813e3679fcf28ebb4",
+          "path": "pytest_validation_logs/session_20260102_105807.jsonl",
+          "size": 11190
+        },
+        {
+          "hash": "a2778d7e1aa3e661f22fe42fa9088d30c2fa5e75",
+          "path": "pytest_validation_logs/session_20260105_182501.jsonl",
+          "size": 11192
+        },
+        {
+          "hash": "a99f41d698966037dfedcd02a104bdb1857cc0e5",
+          "path": "pytest_validation_logs/session_20260105_182611.jsonl",
+          "size": 11192
+        },
+        {
+          "hash": "34dee672cbd020c24b177f598155fa3a8f5e2ac6",
+          "path": "pytest_validation_logs/session_20260105_183002.jsonl",
+          "size": 11191
+        },
+        {
+          "hash": "6b4e6025c4b880db81bda2548a14baa065562227",
+          "path": "pytest_validation_logs/session_20260105_183009.jsonl",
+          "size": 11191
+        },
+        {
+          "hash": "d6999a254ce7982959f367964cfa0b69ac0898e8",
+          "path": "pytest_validation_logs/session_20260105_183123.jsonl",
+          "size": 11190
+        },
+        {
+          "hash": "db8d6888c04f14bc263188a6661e1fd64dac310b",
+          "path": "pytest_validation_logs/session_20260111_035538.jsonl",
+          "size": 11190
+        },
+        {
+          "hash": "78d1745f65c30e682bba1a84235b8771f1695374",
+          "path": "pytest_validation_logs/session_20260113_064631.jsonl",
+          "size": 11190
+        },
+        {
+          "hash": "b9df5ff34ed6d294a1a0e8e2b398730f5056e267",
+          "path": "pytest_validation_logs/session_20260113_201425.jsonl",
+          "size": 11190
+        },
+        {
+          "hash": "73e99be090e2078dc66af1e434f6e58483058b7f",
+          "path": "pytest_validation_logs/session_20260113_201507.jsonl",
+          "size": 11190
+        },
+        {
+          "hash": "3fd0b42d697d30c302d89703ce1a9d366f73f68d",
+          "path": "pytest_validation_logs/session_20260113_201556.jsonl",
+          "size": 11190
+        },
+        {
+          "hash": "f6afc9d4efb46325e694adcab0235d28b5a40161",
+          "path": "pytest_validation_logs/session_20260113_201627.jsonl",
+          "size": 11190
+        },
+        {
+          "hash": "a8bfd65fbc3b7efb0494dffbc39efcf38df48cf0",
+          "path": "pytest_validation_logs/session_20260113_201657.jsonl",
+          "size": 11190
+        },
+        {
+          "hash": "0a3d48f4160ae177f4521c32637233649ec61f2d",
+          "path": "pytest_validation_logs/session_20260113_201737.jsonl",
+          "size": 11190
+        },
+        {
+          "hash": "29a2c57c54c55ed2c34fadd8f289b2f61f0e7bad",
+          "path": "pytest_validation_logs/session_20260113_201818.jsonl",
+          "size": 11190
+        },
+        {
+          "hash": "b1fc47b7307214de5e4be34084e9454a913bde84",
+          "path": "pytest_validation_logs/session_20260113_202406.jsonl",
+          "size": 11190
+        }
+      ]
+    }
+  },
+  "repo": "main"
+}
