@@ -4,7 +4,10 @@ __pycache__/
 .DS_Store
 .env
 .idea/
+# Ignore most PDFs at root-level, but allow PDFs in `data/pdf_analysis/` to be tracked
 data/*.pdf
+!data/pdf_analysis/
+!data/pdf_analysis/*.pdf
 *~
 dist/
 *.pkg
@@ -18,4 +21,20 @@ catboost_info/
 data/splits/
 src/*.py.bak
 data/*.csv
+
+# Ignore unvalidated ground truth and intermediate files
+data/extracted/*_ground_truth_unvalidated.json
+data/extracted/*_ground_truth_unvalidated.*
+# PDF companion JSON files produced by extraction runs
+data/extracted/*.pdf.json
+
+# Temporary auto-mapper outputs
+tmp/
+
+# Test artifacts
+pytest_validation_logs/
+pytest_results.txt
+
+# Keep repo local assistant logs out (use root-level ASSISTANT_SESSION_STATE_recovered... if needed)
+logs/
 
