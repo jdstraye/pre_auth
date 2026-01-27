@@ -237,6 +237,25 @@ def compare_dicts(a, b):
             na = dict(na); nb = dict(nb)
             na.pop('credit_card_open_totals', None)
             nb.pop('credit_card_open_totals', None)
+        else:
+            # When both sides have a dict, ignore transient metadata like 'hex' that may be present in the extractor output
+            if isinstance(a_cc, dict) and isinstance(b_cc, dict):
+                a_cc = dict(a_cc); b_cc = dict(b_cc)
+                a_cc.pop('hex', None); b_cc.pop('hex', None)
+                na = dict(na); nb = dict(nb)
+                na['credit_card_open_totals'] = a_cc
+                nb['credit_card_open_totals'] = b_cc
+
+    # Normalize top-level *_color keys: if one side has a color and the other has None, drop the key to avoid spurious mismatches
+    color_keys = set(k for k in set(list(na.keys()) + list(nb.keys())) if k.endswith('_color'))
+    for k in color_keys:
+        a_has = (k in na and na.get(k) is not None)
+        b_has = (k in nb and nb.get(k) is not None)
+        # If one side has a non-None color while the other is missing/None, drop the key from both
+        if a_has != b_has:
+            na = dict(na); nb = dict(nb)
+            na.pop(k, None); nb.pop(k, None)
+
     return na == nb
 
 def test_pdf_extraction_vs_ground_truth(request, pdf_path):

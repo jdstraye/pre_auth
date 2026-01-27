@@ -102,8 +102,8 @@ param_distributions: Dict[str, Dict[str, List[Any]]] = {
         'feature_selecting_classifier__threshold': [None],  # mutually exclusive with max_features
         'feature_selecting_classifier__estimator__n_estimators': [100, 200, 300, 400],
         'feature_selecting_classifier__estimator__max_depth': [None, 5, 10, 15],
-        'feature_selecting_classifier__estimator__min_samples_split': [1, 2, 5, 10],
-        'encoding': ['ordinal', 'ohe'],
+            'feature_selecting_classifier__estimator__min_samples_split': [2, 5, 10],
+        # 'encoding': ['ordinal', 'ohe'],
         'smote__method': ['smotenc', 'smote', 'none']
     },
     'ExtraTreesClassifier': {
@@ -527,8 +527,11 @@ def main(args):
     # -------------------------
     # STATUS PHASE
     # -------------------------
-    X_train_status = train_df[available_cols].copy()
-    y_train_status = train_df[status_target].to_numpy()
+
+    # Filter out rows with negative target labels for status
+    status_mask = train_df[status_target] >= 0
+    X_train_status = train_df.loc[status_mask, available_cols].copy()
+    y_train_status = train_df.loc[status_mask, status_target].to_numpy()
     log_class_imbalance(y_train_status, "Status")
 
     # Derive smoke_flag early on (explicit flag or small random_search_mult)

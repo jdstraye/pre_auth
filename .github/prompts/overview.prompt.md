@@ -1,0 +1,11 @@
+The goal of this project is to create a classifier that predicts whether an underwriter is going to approve or deny a loan application based on various features of the application and the applicant's financial history. The classifier should be able to handle imbalanced datasets, as the number of approved applications may significantly differ from the number of denied applications. For approved applications, the classifier should provide a confidence score indicating the likelihood of approval. The model should be interpretable, allowing stakeholders to understand the key factors influencing the approval or denial decisions. Additionally, the approved loans need to be further classified into tiers - 1-4. 
+
+The input is a json file and the training data is also a json file, such as data/prefi_report-20251218-slack1409.json. This file contains various loan applications with their features, and their corresponding approval status. One of the key features is the location of the credit summary pdf on AWS S3, which needs to be fetched and processed as part of the feature extraction process.
+
+Phase 1: Initial Model Development without PDF extraction
+This is completed and tagged in GitHub, but my classification goal - 90% F1 wasn't reached, so we need to improve it further.
+Phase 2: Enhanced Model Development with PDF extraction
+In this phase, we will implement the extraction of features from the credit summary PDFs located on AWS S3. This will involve downloading the PDFs, extracting relevant text and data, and incorporating these features into the model training process. The goal is to improve the classifier's performance by leveraging the additional information contained in the PDFs.
+Phase 3: Model Finalization
+Phase 4: Deployment and Monitoring
+The customer wants an API interface to interact with the model, allowing for real-time predictions on new loan applications. This phase will involve setting up the API, deploying the model to a production environment, and implementing monitoring tools to track the model's performance over timem and the customer's usage patterns.

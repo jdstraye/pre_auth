@@ -496,14 +496,14 @@ def extract_pdf_all_fields(pdf_path, include_spans: bool = False):
 			for cand in legacy_candidates:
 				ck = map_line_to_canonical(cand['factor'])
 				if ck not in poc_keys:
-				# allow merging unless line looks table-like
-				toks = [t for t in re.split(r'\s+', cand['factor']) if t]
-				num_numeric = sum(1 for t in toks if re.search(r'[\d\$%]', t))
-				num_alpha = sum(1 for t in toks if re.search(r'[A-Za-z]', t))
-				if re.match(r'^[\$\d\.,\s%\-]+$', cand['factor']):
-					continue
-				if num_numeric >= 2 and num_numeric > num_alpha:
-					continue
+					# allow merging unless line looks table-like
+					toks = [t for t in re.split(r'\s+', cand['factor']) if t]
+					num_numeric = sum(1 for t in toks if re.search(r'[\d\$%]', t))
+					num_alpha = sum(1 for t in toks if re.search(r'[A-Za-z]', t))
+					if re.match(r'^[\$\d\.,\s%\-]+$', cand['factor']):
+						continue
+					if num_numeric >= 2 and num_numeric > num_alpha:
+						continue
 					rec['credit_factors'].append(cand)
 			poc_used = True
 	except Exception:

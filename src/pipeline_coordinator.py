@@ -26,10 +26,7 @@ try:
 except Exception:
     from src.utils import gv
 
-try:
-    from components.smote_sampler import MaybeSMOTESampler as SMOTESampler
-except Exception:
-    from src.components.smote_sampler import MaybeSMOTESampler as SMOTESampler
+from src.components.smote_sampler import MaybeSMOTESampler as SMOTESampler
 
 try:
     from components.feature_selector import FeatureSelectingClassifier
