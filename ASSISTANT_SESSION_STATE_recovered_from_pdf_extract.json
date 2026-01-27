@@ -1,0 +1,72 @@
+{
+  "recovered_from": "/home/jdstraye/proj/shifi/pdf_extract.git/ASSISTANT_SESSION_STATE.json",
+  "recovered_at": "2026-01-27T00:00:00Z",
+  "note": "Snapshot copied from pdf_extract.git to preserve assistant session state and recommendations.",
+  "snapshot": {
+    "snapshot_created_at": "2026-01-26T00:00:00Z",
+    "repo_path": "/home/jdstraye/proj/shifi/pdf_extract.git",
+    "venv": ".venv_pdfextract",
+    "pymupdf_installed": true,
+    "last_command": "pip install pymupdf (exit 0)",
+    "high_level_summary": "Ported core PDF extraction mapping and tests into a new repo (pdf_extract.git). Added import-safe stubs so unit tests can run without PyMuPDF. Minimal test run succeeded (2 passed). User created and activated .venv_pdfextract and installed pymupdf; next goal is to port the full extractor and remaining integration tests and run pytest in the venv until green.",
+    "files_of_interest": {
+      "scripts": [
+        "scripts/pdf_to_ground_truth.py",
+        "scripts/auto_map_unvalidated.py",
+        "scripts/preview_gt_spans.py (copied from original repo if present)"
+      ],
+      "src": [
+        "src/scripts/pdf_color_extraction.py (minimal import-safe stub; planned to replace with full impl from pre_auth)",
+        "src/pymupdf_compat.py (fitz import shim)",
+        "src/utils.py"
+      ],
+      "tests": [
+        "tests/test_attach_top_level_spans.py",
+        "tests/test_auto_map_load_lines_spans.py",
+        "tests/test_pdf_to_ground_truth_toplevel_spans.py",
+        "tests/test_pdf_color_extraction_normalize.py",
+        "tests/test_pdf_to_ground_truth_spans.py",
+        "tests/test_pdf_color_helpers.py"
+      ],
+      "config": [
+        "pytest.ini",
+        "requirements.txt",
+        "README.md"
+      ]
+    },
+    "test_status": {
+      "unit_tests_import_safe": "passed (minimal set: 2 passed)",
+      "integration_tests": "not yet run in this repo - require .venv_pdfextract with pymupdf and sample PDFs copied into data/pdf_analysis/",
+      "recommended_first_integration_tests": [
+        "tests/test_poc_fixes.py::test_user_1314_drop_bad_auth_preserved (from original repo)",
+        "tests/test_poc_primary_adoption.py (integration smoke)"
+      ]
+    },
+    "next_steps": [
+      "Activate .venv_pdfextract and run `pytest -q` from project root to see full failures.",
+      "Copy required sample PDFs from ../pre_auth.git/data/pdf_analysis/ into this repo's data/pdf_analysis/ for integration tests (users: user_582, user_1314, user_733, etc.).",
+      "Replace the minimal `src/scripts/pdf_color_extraction.py` stub with the full implementation from pre_auth (`../pre_auth.git/src/scripts/pdf_color_extraction.py`), and update any import/time safeguards.",
+      "Port remaining tests from pre_auth into this repo progressively and run small test batches to fix failures iteratively.",
+      "Add GitHub Actions CI to run pytest with venv setup or install dependencies used by tests (note: pymupdf can be installed in CI).",
+      "Commit and push incremental, well-scoped fixes with tests and GT fixtures updated where behavior changes are intentional."
+    ],
+    "how_to_resume_quick": [
+      "1. Open the workspace with pdf_extract.git added.",
+      "2. Activate venv: `source .venv_pdfextract/bin/activate`",
+      "3. Run `pytest -q` from the repo root.",
+      "4. For missing PDFs: copy from ../pre_auth.git/data/pdf_analysis/ or run a focused sample extraction script to create necessary test fixtures.",
+      "5. Replace stubbed extractor with upstream implementation and re-run tests until green."
+    ],
+    "notes": "Tests were made import-safe by stubbing the extractor; be careful replacing it to preserve test import-time behavior. Keep include_spans flag behavior and canonical color normalization when migrating logic. Add fixtures to data/extracted/ if ground-truth changes are intentional.",
+    "references": {
+      "upstream_repo": "/home/jdstraye/proj/shifi/pre_auth.git",
+      "upstream_files_to_port": [
+        "pre_auth.git/src/scripts/pdf_color_extraction.py",
+        "pre_auth.git/scripts/auto_map_unvalidated.py (if different)",
+        "pre_auth.git/scripts/pdf_to_ground_truth.py (for comparison)"
+      ],
+      "sample_pdfs_dir": "/home/jdstraye/proj/shifi/pre_auth.git/data/pdf_analysis/",
+      "notable_users_for_regression": ["user_582","user_1314","user_733"]
+    }
+  }
+}
