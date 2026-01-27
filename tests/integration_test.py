@@ -13,9 +13,9 @@ import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
-from pipeline_coordinator import MLPipelineCoordinator
-from components.smote_sampler import MaybeSMOTESampler
-from components.feature_selector import FeatureSelector, FeatureSelectingClassifier
+from src.pipeline_coordinator import MLPipelineCoordinator
+from src.components.smote_sampler import MaybeSMOTESampler
+from src.components.feature_selector import FeatureSelector, FeatureSelectingClassifier
 
 class TestPipelineIntegration:
     """Integration tests for the complete ML pipeline."""
@@ -68,6 +68,10 @@ class TestPipelineIntegration:
         assert pipeline.steps[1][0] == 'feature_selecting_classifier'
         
         # Check component types
+        print(f"DEBUG: pipeline.steps[0][1] type: {type(pipeline.steps[0][1])}, module: {type(pipeline.steps[0][1]).__module__}")
+        print(f"DEBUG: MaybeSMOTESampler type: {MaybeSMOTESampler}, module: {MaybeSMOTESampler.__module__}")
+        print(f"DEBUG: pipeline.steps[1][1] type: {type(pipeline.steps[1][1])}, module: {type(pipeline.steps[1][1]).__module__}")
+        print(f"DEBUG: FeatureSelectingClassifier type: {FeatureSelectingClassifier}, module: {FeatureSelectingClassifier.__module__}")
         assert isinstance(pipeline.steps[0][1], MaybeSMOTESampler)
         assert isinstance(pipeline.steps[1][1], FeatureSelectingClassifier)
     

@@ -28,10 +28,8 @@ except Exception:
 
 from src.components.smote_sampler import MaybeSMOTESampler as SMOTESampler
 
-try:
-    from components.feature_selector import FeatureSelectingClassifier
-except Exception:
-    from src.components.feature_selector import FeatureSelectingClassifier
+
+from src.components.feature_selector import FeatureSelectingClassifier
 
 logger = logging.getLogger(__name__)
 

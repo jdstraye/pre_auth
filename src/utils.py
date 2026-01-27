@@ -96,6 +96,8 @@ def debug_setup_logging():
         level=logging.DEBUG,
         format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
         handlers=[
+
+
             logging.StreamHandler(),  # Log to console
         ]
     )
@@ -359,8 +361,66 @@ def check_df_columns(df: pd.DataFrame, column_headers: List[str]) -> bool:
             logger.critical(f"DF is missing expected column: {c}, error: {e}")
             bad_df = True
 
+
+
+
+
     if bad_df:
             raise ValueError("The DataFrame is not suitable for ML model fitting. Address the errors before proceeding.")
     return not bad_df
+
+def map_color_to_cat(color: str) -> str:
+    """
+    Maps a color hex or color name to a canonical color category string.
+    Used for PDF color extraction and feature engineering.
+    Accepts hex codes (with or without #), common color names, or None.
+    Returns one of: 'red', 'green', 'yellow', 'blue', 'gray', 'black', 'white', 'other', or 'unknown'.
+    """
+    if not color or not isinstance(color, str):
+        return 'unknown'
+    c = color.lower().strip()
+    # Remove leading # if present
+    if c.startswith('#'):
+        c = c[1:]
+    # Canonical color hexes (project-specific)
+    color_map = {
+        # Red
+        'ff0000': 'red', 'e53935': 'red', 'd32f2f': 'red', 'c62828': 'red',
+        # Green
+        '00ff00': 'green', '43a047': 'green', '388e3c': 'green', '2e7d32': 'green',
+        # Yellow
+        'ffff00': 'yellow', 'fbc02d': 'yellow', 'f9a825': 'yellow', 'f57c00': 'yellow',
+        # Blue
+        '1976d2': 'blue', '1565c0': 'blue', '0d47a1': 'blue', '2196f3': 'blue',
+        # Gray
+        '9e9e9e': 'gray', 'bdbdbd': 'gray', '757575': 'gray', '616161': 'gray',
+        # Black/White
+        '000000': 'black', 'ffffff': 'white',
+    }
+    # Named color mapping
+    name_map = {
+        'red': 'red', 'green': 'green', 'yellow': 'yellow', 'blue': 'blue',
+        'gray': 'gray', 'grey': 'gray', 'black': 'black', 'white': 'white',
+        'orange': 'yellow', 'gold': 'yellow', 'navy': 'blue', 'lime': 'green',
+    }
+    if c in color_map:
+        return color_map[c]
+    if c in name_map:
+        return name_map[c]
+    # Try to match short hex (e.g., 'f00' for red)
+    if len(c) == 3 and all(x in '0123456789abcdef' for x in c):
+        if c == 'f00':
+            return 'red'
+        if c == '0f0':
+            return 'green'
+        if c == 'ff0':
+            return 'yellow'
+        if c == '00f':
+            return 'blue'
+        if c == '000':
+            return 'black'
+        if c == 'fff':
+            return 'white'
+    return 'other'
 
 

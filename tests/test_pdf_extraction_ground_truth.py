@@ -9,11 +9,6 @@ from pathlib import Path
 from src.scripts.pdf_color_extraction import extract_pdf_all_fields
 
 # Configurable number of PDFs to test
-def pytest_addoption(parser):
-    parser.addoption("--n_pdfs", action="store", default=5, type=int, help="Number of random PDFs to test.")
-    parser.addoption("--pdf_dir", action="store", default="data/pdf_analysis", help="Directory containing PDFs.")
-    parser.addoption("--ground_truth_dir", action="store", default="data/extracted", help="Directory for ground truth JSONs.")
-    parser.addoption("--user_id", action="store", default=None, help="Specific user ID to test (e.g., 705)")
 
 
 def get_pdf_files(pdf_dir):
