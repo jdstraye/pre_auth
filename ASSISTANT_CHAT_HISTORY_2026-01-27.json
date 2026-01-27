@@ -1,0 +1,26 @@
+{
+  "created_at": "2026-01-27T00:00:00Z",
+  "summary": "Session covers PDF extraction improvements, F1 score tracking, and troubleshooting run_intensive_search.py. User and assistant discussed how to recover improvement ideas, re-run intensive search, and debug a KeyError in the pipeline. Session state and next steps were also saved in pdf_extract.git/ASSISTANT_SESSION_STATE.json.",
+  "key_points": [
+    "Goal: Improve F1 score by enhancing PDF extraction and other pipeline steps.",
+    "Assistant suggested checking TODO.md, README.md, and script comments for improvement ideas.",
+    "User requested to re-run run_intensive_search.py for latest F1 score.",
+    "Script failed with KeyError: 'mean_f1' (missing column in output DataFrame).",
+    "Assistant recommended debugging DataFrame output and checking recent pipeline changes.",
+    "Session state was previously saved in pdf_extract.git/ASSISTANT_SESSION_STATE.json for cross-repo continuity."
+  ],
+  "next_steps": [
+    "Debug why 'mean_f1' is missing in run_exhaustive_search.py output.",
+    "Add print statements to inspect DataFrame columns and head before sorting.",
+    "Fix column naming or aggregation as needed, then re-run intensive search.",
+    "Once fixed, use new F1/candidate results to suggest further improvements."
+  ],
+  "files_of_interest": [
+    "scripts/run_intensive_search.py",
+    "src/run_exhaustive_search.py",
+    "pdf_extract.git/ASSISTANT_SESSION_STATE.json",
+    "TODO.md"
+  ],
+  "venv": ".venv_pre_auth (active)",
+  "last_command": "source .venv_pre_auth/bin/activate && python scripts/run_intensive_search.py (exit 1)"
+}
