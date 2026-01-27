@@ -26,10 +26,7 @@ try:
 except Exception:
     from src.utils import gv
 
-try:
-    from components.smote_sampler import MaybeSMOTESampler as SMOTESampler
-except Exception:
-    from src.components.smote_sampler import MaybeSMOTESampler as SMOTESampler
+from src.components.smote_sampler import MaybeSMOTESampler as SMOTESampler
 
 try:
     from components.feature_selector import FeatureSelectingClassifier
@@ -335,13 +332,14 @@ class MLPipelineCoordinator:
         
         try:
             # Perform cross-validation
+            from typing import Any, cast
             cv_results = cross_validate(
                 pipeline, X, y,
                 cv=cv,
                 scoring=scoring,
                 n_jobs=n_jobs,
                 return_train_score=False,
-                error_score='raise'
+                error_score=cast(Any, 'raise')
             )
             
             # Log results

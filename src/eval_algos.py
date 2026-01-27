@@ -102,7 +102,9 @@ param_distributions: Dict[str, Dict[str, List[Any]]] = {
         'feature_selecting_classifier__threshold': [None],  # mutually exclusive with max_features
         'feature_selecting_classifier__estimator__n_estimators': [100, 200, 300, 400],
         'feature_selecting_classifier__estimator__max_depth': [None, 5, 10, 15],
-        'feature_selecting_classifier__estimator__min_samples_split': [1, 2, 5, 10]
+            'feature_selecting_classifier__estimator__min_samples_split': [2, 5, 10],
+        # 'encoding': ['ordinal', 'ohe'],
+        'smote__method': ['smotenc', 'smote', 'none']
     },
     'ExtraTreesClassifier': {
         'smote__enabled': [True],
@@ -110,7 +112,9 @@ param_distributions: Dict[str, Dict[str, List[Any]]] = {
         'feature_selecting_classifier__max_features': [10, 15, 20, 25, 30, None],
         'feature_selecting_classifier__threshold': [None],
         'feature_selecting_classifier__estimator__n_estimators': [100, 200, 300],
-        'feature_selecting_classifier__estimator__max_depth': [None, 3, 5, 7, 10]
+        'feature_selecting_classifier__estimator__max_depth': [None, 3, 5, 7, 10],
+        'encoding': ['ordinal', 'ohe'],
+        'smote__method': ['smotenc', 'smote', 'none']
     },
     'GradientBoostingClassifier': {
         'smote__enabled': [True],
@@ -119,7 +123,9 @@ param_distributions: Dict[str, Dict[str, List[Any]]] = {
         'feature_selecting_classifier__threshold': [None],
         'feature_selecting_classifier__estimator__n_estimators': [100, 200],
         'feature_selecting_classifier__estimator__max_depth': [3, 5, 7],
-        'feature_selecting_classifier__estimator__learning_rate': [0.01, 0.05, 0.1]
+        'feature_selecting_classifier__estimator__learning_rate': [0.01, 0.05, 0.1],
+        'encoding': ['ohe', 'ordinal'],
+        'smote__method': ['smote', 'none']
     },
     "XGBClassifier": {
         'smote__enabled': [True],
@@ -130,7 +136,9 @@ param_distributions: Dict[str, Dict[str, List[Any]]] = {
         'feature_selecting_classifier__estimator__max_depth': [3, 5, 7, 10],
         'feature_selecting_classifier__estimator__learning_rate': [0.005, 0.01, 0.05, 0.1],
         'feature_selecting_classifier__estimator__min_child_weight': [1, 5, 10],
-        'feature_selecting_classifier__estimator__gamma': [0, 0.1, 0.2]
+        'feature_selecting_classifier__estimator__gamma': [0, 0.1, 0.2],
+        'encoding': ['ordinal', 'ohe'],
+        'smote__method': ['smotenc', 'smote', 'none']
     },
     "LGBMClassifier": {
         'smote__enabled': [True],
@@ -142,7 +150,9 @@ param_distributions: Dict[str, Dict[str, List[Any]]] = {
         'feature_selecting_classifier__estimator__subsample': [0.6, 0.8, 1.0],
         'feature_selecting_classifier__estimator__reg_alpha': [0, 0.1, 0.5],
         'feature_selecting_classifier__estimator__reg_lambda': [0, 0.1, 0.5],
-        'feature_selecting_classifier__estimator__learning_rate': [0.01, 0.05, 0.1]
+        'feature_selecting_classifier__estimator__learning_rate': [0.01, 0.05, 0.1],
+        'encoding': ['ordinal', 'ohe'],
+        'smote__method': ['smotenc', 'smote', 'none']
     },
     "CatBoostClassifier": {
         # allow SMOTE toggle for CatBoost; user requested CatBoost SMOTE bypass hyperparam
@@ -155,6 +165,8 @@ param_distributions: Dict[str, Dict[str, List[Any]]] = {
         'feature_selecting_classifier__estimator__learning_rate': [0.01, 0.05, 0.1],
         'feature_selecting_classifier__estimator__l2_leaf_reg': [1, 3, 5],
         # optionally let CatBoost try more features (but leaving one-hot encoding up to upstream)
+        'encoding': ['ordinal', 'ohe'],
+        'smote__method': ['none', 'smote']
     }
 }
 
@@ -346,27 +358,33 @@ def get_top_models(X: pd.DataFrame,
                 logger.debug(f"X unique values: {X['AutomaticFinancing_below_600_'].unique()}")
                 logger.debug(f"Any NaN/inf in X: {X['AutomaticFinancing_below_600_'].isin([np.nan, np.inf, -np.inf]).any()}")
 
+                from typing import Any, cast
                 try:
-                    cv_res = cross_validate(pipeline, X, y, cv=cv, scoring=scoring,
-                                        n_jobs=1,#n_jobs_cv,
-                                        error_score="raise",
-                                        return_train_score=False)
+                    cv_res = cross_validate(
+                        pipeline,
+                        X,
+                        y,
+                        cv=cv,
+                        scoring=scoring,
+                        n_jobs=1,  # n_jobs_cv,
+                        error_score=cast(Any, "raise"),
+                        return_train_score=False,
+                    )
                 except Exception as e:
                     logger.debug(f"cross_validate failed: {e}")
-                    # Check if the pipeline corrupted the data during fit
+                    # Try a manual fit to get the underlying error location, then rerun CV
                     logger.debug("Trying manual fit to isolate the problem...")
-                    pipeline.fit(X, y)  # This will show you exactly where it fails
-                cv_res = cross_validate(pipeline,
-                                        X,
-                                        y,
-                                        cv=cv,
-                                        scoring=scoring,
-                                        n_jobs=1,#n_jobs_cv,
-                                        error_score="raise",
-                                        return_train_score=False)
-                #debug20250913 cv_res = run_cv_debug(pipeline, X, y, cv=cv, scoring="f1")
-                #debug20250913 mean_f1 = cv_res["mean_score"]
-                # compute mean f1_macro
+                    pipeline.fit(X, y)
+                    cv_res = cross_validate(
+                        pipeline,
+                        X,
+                        y,
+                        cv=cv,
+                        scoring=scoring,
+                        n_jobs=1,
+                        error_score=cast(Any, "raise"),
+                        return_train_score=False,
+                    )
                 mean_f1 = float(np.mean(cv_res["test_f1_macro"]))
                 auc_score = None
                 if "test_auc" in cv_res:
@@ -509,8 +527,11 @@ def main(args):
     # -------------------------
     # STATUS PHASE
     # -------------------------
-    X_train_status = train_df[available_cols].copy()
-    y_train_status = train_df[status_target].to_numpy()
+
+    # Filter out rows with negative target labels for status
+    status_mask = train_df[status_target] >= 0
+    X_train_status = train_df.loc[status_mask, available_cols].copy()
+    y_train_status = train_df.loc[status_mask, status_target].to_numpy()
     log_class_imbalance(y_train_status, "Status")
 
     # Derive smoke_flag early on (explicit flag or small random_search_mult)
@@ -552,6 +573,16 @@ def main(args):
         if getattr(args, 'smoke', False) or args.random_search_mult < 0.05:
             orig_param_dist = globals().get('param_distributions')
             orig_models = globals().get('models')
+            # Define smoke defaults locally to avoid relying on prior variables
+            models_to_use = {'RandomForestClassifier': RandomForestClassifier(random_state=gv.RANDOM_STATE, n_estimators=10)}
+            param_dist_to_use = {
+                'RandomForestClassifier': {
+                    'smote__enabled': [False],
+                    'feature_selecting_classifier__max_features': [10, None],
+                    'feature_selecting_classifier__threshold': [None],
+                    'feature_selecting_classifier__estimator__n_estimators': [10]
+                }
+            }
             globals()['param_distributions'] = param_dist_to_use
             globals()['models'] = models_to_use
             try:
