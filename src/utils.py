@@ -204,7 +204,7 @@ def get_logger(name: str) -> logging.Logger:
 
 logger = logging.getLogger(__name__)
 
-def load_column_headers(column_headers_json: Path, df: pd.DataFrame) -> Dict[str, List[str]]:
+def load_column_headers(column_headers_json: Path, df: pd.DataFrame, classifier_type: str = None) -> Dict[str, List[str]]:
     """
     Loads feature, categorical, and target column names from a JSON schema file
     and validates that feature columns exist in the DataFrame.
@@ -229,31 +229,69 @@ def load_column_headers(column_headers_json: Path, df: pd.DataFrame) -> Dict[str
     try:
         with open(column_headers_json, 'r', encoding='utf-8') as f:
             header_data = json.load(f)
-        feature_cols = [sanitize_column_name(col['name']) for col in header_data if col.get('X') == 'True']
-        categorical_cols = [col['name'] for col in header_data if col.get('categorical') == 'True']
-        target_cols = [col['name'] for col in header_data if col.get('Y') == 'True']
+        # If classifier_type is provided, filter columns by use_* flag
+        use_flag = None
+        if classifier_type:
+            # Use exact casing as in schema: XGB, Cat, LGBM, Tree, Linear, NN, NB, SVM, KNN
+            classifier_type = classifier_type.strip()
+            # Map common lower/upper variants to canonical schema keys
+            canonical_map = {
+                'xgb': 'XGB',
+                'cat': 'Cat',
+                'lgbm': 'LGBM',
+                'tree': 'Tree',
+                'linear': 'Linear',
+                'nn': 'NN',
+                'nb': 'NB',
+                'svm': 'SVM',
+                'knn': 'KNN',
+                'rf': 'RF',
+                'randomforestclassifier': 'RF',
+            }
+            key = classifier_type.lower()
+            canonical_type = canonical_map.get(key, classifier_type)
+            use_flag = f"use_{canonical_type}"
+        def is_true(val):
+            return val is True or (isinstance(val, str) and val.lower() == 'true')
+        def is_used(col):
+            if not use_flag:
+                return is_true(col.get('X', False))
+            return is_true(col.get('X', False)) and is_true(col.get(use_flag, False))
+
+        # Debug: print classifier_type, use_flag, and value for each column
+        logger.debug(f"[load_column_headers] classifier_type={classifier_type}, use_flag={use_flag}")
+        for col in header_data:
+            if use_flag and is_true(col.get('X', False)):
+                logger.debug(f"  Col: {col['name']} | {use_flag}={col.get(use_flag, None)} | X={col.get('X', None)} | categorical={col.get('categorical', None)}")
+
+        feature_cols = [sanitize_column_name(col['name']) for col in header_data if is_used(col)]
+        categorical_cols = [col['name'] for col in header_data if is_true(col.get('categorical', False)) and (not use_flag or is_true(col.get(use_flag, False)))]
+        target_cols = [col['name'] for col in header_data if is_true(col.get('Y', False))]
         # Collect derived OHE columns and the source columns that produce OHEs.
         # Include sanitized variations and both 'ohe' dict values and 'ohe_from' derived names to handle schema inconsistencies.
         ohe_cols = []
         ohe_source_cols = []
         for col in header_data:
+            # Only include OHE columns if their use_flag is True (if classifier_type is set)
             if 'ohe' in col and isinstance(col['ohe'], dict):
-                for raw_val, ohe_col in col['ohe'].items():
-                    sanitized = sanitize_column_name(ohe_col)
-                    if ohe_col not in ohe_cols:
-                        ohe_cols.append(ohe_col)
-                    if sanitized not in ohe_cols:
-                        ohe_cols.append(sanitized)
-                if col['name'] not in ohe_source_cols:
-                    ohe_source_cols.append(col['name'])
+                if not use_flag or col.get(use_flag, False) is True:
+                    for raw_val, ohe_col in col['ohe'].items():
+                        sanitized = sanitize_column_name(ohe_col)
+                        if ohe_col not in ohe_cols:
+                            ohe_cols.append(ohe_col)
+                        if sanitized not in ohe_cols:
+                            ohe_cols.append(sanitized)
+                    if col['name'] not in ohe_source_cols:
+                        ohe_source_cols.append(col['name'])
             if 'ohe_from' in col and 'ohe_key' in col:
-                sanitized_name = sanitize_column_name(col['name'])
-                if col['name'] not in ohe_cols:
-                    ohe_cols.append(col['name'])
-                if sanitized_name not in ohe_cols:
-                    ohe_cols.append(sanitized_name)
-                if col['ohe_from'] not in ohe_source_cols:
-                    ohe_source_cols.append(col['ohe_from'])
+                if not use_flag or col.get(use_flag, False) is True:
+                    sanitized_name = sanitize_column_name(col['name'])
+                    if col['name'] not in ohe_cols:
+                        ohe_cols.append(col['name'])
+                    if sanitized_name not in ohe_cols:
+                        ohe_cols.append(sanitized_name)
+                    if col['ohe_from'] not in ohe_source_cols:
+                        ohe_source_cols.append(col['ohe_from'])
 
         logger.info(f"Schema loaded: {len(feature_cols)} features, {len(categorical_cols)} categorical, {len(target_cols)} targets.")
 

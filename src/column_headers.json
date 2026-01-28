@@ -1,9 +1,3 @@
-// STATUS HANDOFF (2026-01-27):
-// - All major label mappings (final_contract_status, final_contract_tier, AutomaticFinancing_Status, 0UnsecuredFunding_Status, DebtResolution_Status) now use integer values.
-// - OHE and derived columns are correct.
-// - All use_* flags, X, Y, and categorical flags are present and correct.
-// - No further schema fixes needed for label mappings.
-// NEXT: Update code for dynamic classifier-aware feature selection and add pytests for label encoding/selection.
 [
   {
     "name": "record_id",
@@ -137,6 +131,7 @@
     "use_Cat": true,
     "use_LGBM": true,
     "use_Tree": true,
+    "use_RF": true,
     "use_Linear": false,
     "use_NN": false,
     "use_NB": false,
@@ -289,6 +284,7 @@
     "use_Cat": true,
     "use_LGBM": true,
     "use_Tree": true,
+    "use_RF": true,
     "use_Linear": false,
     "use_NN": false,
     "use_NB": false,
@@ -481,6 +477,7 @@
     "use_Cat": true,
     "use_LGBM": true,
     "use_Tree": true,
+    "use_RF": true,
     "use_Linear": false,
     "use_NN": false,
     "use_NB": false,
