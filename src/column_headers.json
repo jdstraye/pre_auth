@@ -1,3 +1,9 @@
+// STATUS HANDOFF (2026-01-27):
+// - All major label mappings (final_contract_status, final_contract_tier, AutomaticFinancing_Status, 0UnsecuredFunding_Status, DebtResolution_Status) now use integer values.
+// - OHE and derived columns are correct.
+// - All use_* flags, X, Y, and categorical flags are present and correct.
+// - No further schema fixes needed for label mappings.
+// NEXT: Update code for dynamic classifier-aware feature selection and add pytests for label encoding/selection.
 [
   {
     "name": "record_id",
@@ -32,10 +38,10 @@
     "X": "False",
     "Y": "False",
     "labels":{
-      "approved": "0",
-      "declined": "1",
-      "rejected": "0",
-      "refunded": "0"
+      "approved": 0,
+      "declined": 1,
+      "rejected": 0,
+      "refunded": 0
     }
   },
   {
@@ -50,17 +56,17 @@
     "X": "False",
     "Y": "False",
     "labels":{  
-      "0.095": "0",
-      "0.165": "0",
-      "0.045": "0",
-      "0.24": "1",
-      "0.31": "1",
-      "0.34": "2",
-      "0.41": "2",
-      "0.44": "3",
-      "0.51": "3",
-      "0.12": "0",
-      "NA": "-1"
+      "0.095": 0,
+      "0.165": 0,
+      "0.045": 0,
+      "0.24": 1,
+      "0.31": 1,
+      "0.34": 2,
+      "0.41": 2,
+      "0.44": 3,
+      "0.51": 3,
+      "0.12": 0,
+      "NA": -1
     },
     "label_descriptions":["0-Tier1","1-Tier2","2-Tier3","3-Tier4"],
     "mapping":{
@@ -124,9 +130,28 @@
   },
   {
     "name": "AutomaticFinancing_Status",
-    "categorical": "False",
-    "X": "False",
+    "categorical": "True",
+    "X": "True",
     "Y": "False",
+    "use_XGB": true,
+    "use_Cat": true,
+    "use_LGBM": true,
+    "use_Tree": true,
+    "use_Linear": false,
+    "use_NN": false,
+    "use_NB": false,
+    "use_SVM": false,
+    "use_KNN": false,
+    "labels": {
+      "Approved": 0,
+      "Declined": 1,
+      "NA": 2
+    },
+    "mapping": {
+      "Approved": "Approved",
+      "Declined": "Declined",
+      "NA": "NA"
+    },
     "ohe":{
       "Approved": "AutomaticFinancing_Status_Approved",
       "Declined": "AutomaticFinancing_Status_Declined",
@@ -138,6 +163,15 @@
     "categorical": "True",
     "X": "True",
     "Y": "False",
+    "use_XGB": false,
+    "use_Cat": false,
+    "use_LGBM": false,
+    "use_Tree": false,
+    "use_Linear": true,
+    "use_NN": true,
+    "use_NB": true,
+    "use_SVM": true,
+    "use_KNN": true,
     "ohe_from":"AutomaticFinancing_Status",
     "ohe_key":"Approved"
   },
@@ -146,6 +180,15 @@
     "categorical": "True",
     "X": "True",
     "Y": "False",
+    "use_XGB": false,
+    "use_Cat": false,
+    "use_LGBM": false,
+    "use_Tree": false,
+    "use_Linear": true,
+    "use_NN": true,
+    "use_NB": true,
+    "use_SVM": true,
+    "use_KNN": true,
     "ohe_from":"AutomaticFinancing_Status",
     "ohe_key":"Declined"
   },
@@ -154,6 +197,15 @@
     "categorical": "True",
     "X": "True",
     "Y": "False",
+    "use_XGB": false,
+    "use_Cat": false,
+    "use_LGBM": false,
+    "use_Tree": false,
+    "use_Linear": true,
+    "use_NN": true,
+    "use_NB": true,
+    "use_SVM": true,
+    "use_KNN": true,
     "ohe_from":"AutomaticFinancing_Status",
     "ohe_key":"NA"
   },
@@ -230,9 +282,30 @@
   },
   {
     "name": "0UnsecuredFunding_Status",
-    "categorical": "False",
-    "X": "False",
+    "categorical": "True",
+    "X": "True",
     "Y": "False",
+    "use_XGB": true,
+    "use_Cat": true,
+    "use_LGBM": true,
+    "use_Tree": true,
+    "use_Linear": false,
+    "use_NN": false,
+    "use_NB": false,
+    "use_SVM": false,
+    "use_KNN": false,
+    "labels": {
+      "As Is": 0,
+      "If Fixed": 1,
+      "Declined": 2,
+      "NA": 3
+    },
+    "mapping": {
+      "As Is": "As Is",
+      "If Fixed": "If Fixed",
+      "Declined": "Declined",
+      "NA": "NA"
+    },
     "ohe": {
       "As Is": "0UnsecuredFunding_Status_As_Is",
       "If Fixed": "0UnsecuredFunding_Status_If_Fixed",
@@ -241,26 +314,66 @@
     }
   },
   {"name": "0UnsecuredFunding_Status_As_Is",
+    "categorical": "True",
     "X":"True",
     "Y":"False",
+    "use_XGB": false,
+    "use_Cat": false,
+    "use_LGBM": false,
+    "use_Tree": false,
+    "use_Linear": true,
+    "use_NN": true,
+    "use_NB": true,
+    "use_SVM": true,
+    "use_KNN": true,
     "ohe_from":"0UnsecuredFunding_Status",
     "ohe_key":"As Is"
   },
   {"name": "0UnsecuredFunding_Status_If_Fixed",
+    "categorical": "True",
     "X":"True",
     "Y":"False",
+    "use_XGB": false,
+    "use_Cat": false,
+    "use_LGBM": false,
+    "use_Tree": false,
+    "use_Linear": true,
+    "use_NN": true,
+    "use_NB": true,
+    "use_SVM": true,
+    "use_KNN": true,
     "ohe_from":"0UnsecuredFunding_Status",
     "ohe_key":"If Fixed"
   },
   {"name": "0UnsecuredFunding_Status_Declined",
+    "categorical": "True",
     "X":"True",
     "Y":"False",
+    "use_XGB": false,
+    "use_Cat": false,
+    "use_LGBM": false,
+    "use_Tree": false,
+    "use_Linear": true,
+    "use_NN": true,
+    "use_NB": true,
+    "use_SVM": true,
+    "use_KNN": true,
     "ohe_from":"0UnsecuredFunding_Status",
     "ohe_key":"Declined"
   },
   {"name": "0UnsecuredFunding_Status_NA_",
+    "categorical": "True",
     "X":"True",
     "Y":"False",
+    "use_XGB": false,
+    "use_Cat": false,
+    "use_LGBM": false,
+    "use_Tree": false,
+    "use_Linear": true,
+    "use_NN": true,
+    "use_NB": true,
+    "use_SVM": true,
+    "use_KNN": true,
     "ohe_from":"0UnsecuredFunding_Status",
     "ohe_key":"NA"
   },
@@ -361,13 +474,32 @@
   },
   {
     "name": "DebtResolution_Status",
-    "categorical": "False",
-    "X": "False",
+    "categorical": "True",
+    "X": "True",
     "Y": "False",
+    "use_XGB": true,
+    "use_Cat": true,
+    "use_LGBM": true,
+    "use_Tree": true,
+    "use_Linear": false,
+    "use_NN": false,
+    "use_NB": false,
+    "use_SVM": false,
+    "use_KNN": false,
+    "labels": {
+      "Approved": 0,
+      "Declined": 1,
+      "NA": 2
+    },
+    "mapping": {
+      "Approved": "Approved",
+      "Declined": "Declined",
+      "NA": "NA"
+    },
     "ohe":{
       "Approved": "DebtResolution_Status_Approved",
-      "Declined": "DebtResolution_Status_Declined_",
-      "NA": "DebtResolution_Status_NA_"
+      "Declined": "DebtResolution_Status_Declined",
+      "NA": "DebtResolution_Status_NA"
     }
   },
   {
@@ -375,6 +507,15 @@
     "categorical": "True",
     "X": "True",
     "Y": "False",
+    "use_XGB": false,
+    "use_Cat": false,
+    "use_LGBM": false,
+    "use_Tree": false,
+    "use_Linear": true,
+    "use_NN": true,
+    "use_NB": true,
+    "use_SVM": true,
+    "use_KNN": true,
     "ohe_from":"DebtResolution_Status",
     "ohe_key":"Approved"
   },
@@ -383,6 +524,15 @@
     "categorical": "True",
     "X": "True",
     "Y": "False",
+    "use_XGB": false,
+    "use_Cat": false,
+    "use_LGBM": false,
+    "use_Tree": false,
+    "use_Linear": true,
+    "use_NN": true,
+    "use_NB": true,
+    "use_SVM": true,
+    "use_KNN": true,
     "ohe_from":"DebtResolution_Status",
     "ohe_key":"Declined"
   },
@@ -391,6 +541,15 @@
     "categorical": "True",
     "X": "True",
     "Y": "False",
+    "use_XGB": false,
+    "use_Cat": false,
+    "use_LGBM": false,
+    "use_Tree": false,
+    "use_Linear": true,
+    "use_NN": true,
+    "use_NB": true,
+    "use_SVM": true,
+    "use_KNN": true,
     "ohe_from":"DebtResolution_Status",
     "ohe_key":"NA"
   },
