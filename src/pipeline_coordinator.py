@@ -65,21 +65,12 @@ class MLPipelineCoordinator:
                       smoke: bool = False,
                       cv: Optional[StratifiedKFold] = None,
                       n_jobs: int = 1,
-                      target_f1: Optional[float] = None) -> Tuple[List[Tuple[str, Dict[str, Any], float]], Dict[str, Any]]:
-        
-        """
-        Search models using the coordinator's pipeline creation and fitting primitives.
-        This is a smaller, incremental replacement for get_top_models from eval_algos.
-        Returns: (top_candidates, best_summary)
-        """
-        if cv is None:
-            n_splits = 2 if smoke else 5
-            cv = StratifiedKFold(n_splits=n_splits, shuffle=True, random_state=42)
-
-        all_candidates: List[Tuple[str, Dict[str, Any], float]] = []
-        best_summary: Dict[str, Any] = {}
-        best_score = -1.0
-
+                      target_f1: Optional[float] = None,
+                      column_headers_json: Path = Path("src/column_headers.json")) -> Tuple[List[Tuple[str, Dict[str, Any], float]], Dict[str, Any]]:
+        from src.utils import load_column_headers
+        all_candidates = []
+        best_score = float('-inf')
+        best_summary = None
         for model_name, dist in param_distributions.items():
             logger.info(f"Coordinator search: building samples for {model_name}")
             # calculate n_iter
@@ -96,12 +87,45 @@ class MLPipelineCoordinator:
             if not samples:
                 samples = [{}]
 
+            # Map model_name to classifier_type for schema selection
+            def infer_classifier_type(model_name: str) -> str:
+                # Common mapping logic; extend as needed for your models
+                name = model_name.lower()
+                if 'xgb' in name:
+                    return 'XGB'
+                if 'cat' in name:
+                    return 'Cat'
+                if 'lgbm' in name or 'lightgbm' in name:
+                    return 'LGBM'
+                if 'tree' in name:
+                    return 'Tree'
+                if 'linear' in name or 'logistic' in name:
+                    return 'Linear'
+                if 'nn' in name or 'mlp' in name or 'neural' in name:
+                    return 'NN'
+                if 'nb' in name or 'naive' in name:
+                    return 'NB'
+                if 'svm' in name:
+                    return 'SVM'
+                if 'knn' in name:
+                    return 'KNN'
+                # Default fallback
+                return model_name
+
+            classifier_type = infer_classifier_type(model_name)
+            headers = load_column_headers(column_headers_json, X, classifier_type=classifier_type)
+            feature_cols = headers['feature_cols']
+            categorical_cols = headers['categorical_cols']
+            logger.debug(f"[search_models] classifier_type={classifier_type}, feature_cols={feature_cols}, categorical_cols={categorical_cols}")
+            # Subset X to the correct columns for this classifier
+            X_model = X[feature_cols].copy() if feature_cols else pd.DataFrame(index=X.index)
+
             for candidate_params in samples:
                 logger.debug(f"Coordinator search: evaluating candidate for {model_name}: {candidate_params}")
                 # Build pipeline via coordinator.create_pipeline
                 smote_cfg = {
                     'enabled': bool(candidate_params.get('smote__enabled', True)),
-                    'categorical_feature_names': candidate_params.get('smote__categorical_feature_names', []),
+                    'categorical_feature_names': categorical_cols,
                     'k_neighbors': int(candidate_params.get('smote__k_neighbors', 5)),
                     'random_state': int(candidate_params.get('smote__random_state', gv.RANDOM_STATE)),
                 }
@@ -116,7 +140,7 @@ class MLPipelineCoordinator:
 
                 # quick cross_validate using coordinator.cross_validate_pipeline
                 try:
-                    cv_res = self.cross_validate_pipeline(pipeline, X, y, cv=cv, scoring='f1_macro', n_jobs=n_jobs)
+                    cv_res = self.cross_validate_pipeline(pipeline, X_model, y, cv=cv, scoring='f1_macro', n_jobs=n_jobs)
                     mean_score = cv_res.get('mean_score', 0.0)
                     all_candidates.append((model_name, dict(candidate_params), float(mean_score)))
                     if mean_score > best_score:
@@ -317,7 +341,14 @@ class MLPipelineCoordinator:
         Returns:
             Cross-validation results
         """
-        logger.info(f"Starting cross-validation with {cv.n_splits if cv else 'default'} folds")
+        # Handle both int and cross-validator objects for cv
+        if hasattr(cv, 'n_splits'):
+            n_splits = cv.n_splits
+        elif isinstance(cv, int):
+            n_splits = cv
+        else:
+            n_splits = 'default'
+        logger.info(f"Starting cross-validation with {n_splits} folds")
         
         # Input validation
         validation_report = self.validate_pipeline_input(X, y)

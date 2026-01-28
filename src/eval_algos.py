@@ -113,7 +113,6 @@ param_distributions: Dict[str, Dict[str, List[Any]]] = {
         'feature_selecting_classifier__threshold': [None],
         'feature_selecting_classifier__estimator__n_estimators': [100, 200, 300],
         'feature_selecting_classifier__estimator__max_depth': [None, 3, 5, 7, 10],
-        'encoding': ['ordinal', 'ohe'],
         'smote__method': ['smotenc', 'smote', 'none']
     },
     'GradientBoostingClassifier': {

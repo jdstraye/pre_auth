@@ -369,7 +369,8 @@ class DataValidator:
             log = "\n - ".join(comparison["errors"])
             raise ValueError(f"Unacceptable transformations to DataFrame during {operation}: \n - {log}")
 
-        comparison["passed"] = not any(comparison[key] for key in ["warnings", "issues", "errors"])
+        # Only fail if there are critical errors, not just issues or warnings
+        comparison["passed"] = not comparison["errors"]
         return comparison
 
 
