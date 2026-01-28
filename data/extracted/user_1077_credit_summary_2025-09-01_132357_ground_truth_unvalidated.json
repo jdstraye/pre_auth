@@ -1,0 +1,97 @@
+{
+  "filename": "user_1077_credit_summary_2025-09-01_132357.pdf",
+  "source": "data/pdf_analysis/user_1077_credit_summary_2025-09-01_132357.pdf",
+  "credit_score": 667,
+  "credit_score_color": "neutral",
+  "age": 31,
+  "address": [
+    "152 Intervale Ave, Farmingdale, NY 11735"
+  ],
+  "collections_open": 0,
+  "collections_closed": 0,
+  "public_records": 0,
+  "revolving_open_count": 7,
+  "revolving_open_total": 40410,
+  "installment_open_count": 5,
+  "installment_open_total": 90125,
+  "credit_factors": [
+    {
+      "factor": "1 Over Limit Accnt",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Total Rev Usage > 90%",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Pay $24116 so Accts < 40%",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "1 RE Late in 2-4 yrs",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "7k+ line for 10+yrs",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Great Closed Rev Depth",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Ok Open Rev Depth",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "3+ Closed Rev Accnts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Seasoned Closed Accounts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "7+ Closed RE Accounts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "No Open Mortgage",
+      "color": "black",
+      "hex": "#212529"
+    }
+  ],
+  "inquiries_last_6_months": 0,
+  "credit_card_open_totals": {
+    "color": "red",
+    "balance": 40410,
+    "limit": 48409,
+    "Percent": null,
+    "Payment": null
+  },
+  "monthly_payments": 1889,
+  "real_estate_open_count": 0,
+  "real_estate_open_total": 0,
+  "line_of_credit_accounts_open_count": 0,
+  "line_of_credit_accounts_open_total": 0,
+  "miscellaneous_accounts_open_count": 0,
+  "miscellaneous_accounts_open_total": 0,
+  "late_pays_2yr": 0,
+  "late_pays_gt2yr": 1,
+  "red_credit_factors_count": 2,
+  "green_credit_factors_count": 8,
+  "black_credit_factors_count": 1,
+  "credit_freeze": 0,
+  "fraud_alert": 0,
+  "deceased": 0
+}

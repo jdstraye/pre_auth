@@ -1,0 +1,973 @@
+{
+  "filename": "user_657_credit_summary_2025-09-01_132520.pdf",
+  "source": "data/pdf_analysis/user_657_credit_summary_2025-09-01_132520.pdf",
+  "credit_score": 788,
+  "credit_score_color": "green",
+  "age": 40,
+  "address": [
+    "8395 Nw 143rd Ter, Miami Lakes, FL 33016",
+    "8395 Nw 143rd Ter, Miami Lakes, FL 33016"
+  ],
+  "collections_open": 0,
+  "collections_closed": 0,
+  "public_records": 0,
+  "revolving_open_count": 8,
+  "revolving_open_total": 5376,
+  "installment_open_count": 2,
+  "installment_open_total": 44930,
+  "credit_factors": [
+    {
+      "factor": "7k+ line for 10+yrs",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Ok Open Rev Depth",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Good Closed Rev Depth",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "2+ Closed Rev Accnts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Paid Off 200k+ RE/RE",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Seasoned Closed Accounts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Open Accounts",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Revolving Accounts",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Balance",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Limit",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "%",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Payment Resp",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Age",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "APPLE CARD - GS BANK (Credit Card)",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$2,466",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$9,500",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "26%",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$48",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "I",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "BESTBUY/CBNA (Credit Card)",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$850",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$5,200",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "16%",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$29",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "I",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "SYNCB/TJX CO DC (Credit Card)",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$0",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$1,024",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "0%",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$0",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "I",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "AMERICAN EXPRESS (Credit Card)",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$0",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$28,400",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "0%",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$0",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "I",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "JPMCB CARD SERVICES (Flexible Spending Credit Card)",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$937",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$18,000",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "5%",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$40",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "I",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "JPMCB CARD SERVICES (Flexible Spending Credit Card)",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$171",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$16,900",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "1%",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$161",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "I",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "CAPITAL ONE BANK USA (Credit Card)",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$0",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$6,000",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "0%",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$0",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "I",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Bank of America (Credit Card)",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$952",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$30,600",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "3%",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$268",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "I",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Credit Card Open Totals: (No Retail)",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$5,376",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$115,624",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "5%",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$546",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Line of Credit Accounts",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Balance",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Limit",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Payment Resp",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Age",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "No Line of Credit Accounts",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Real Estate Accounts",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Balance",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Limit",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Payment Resp",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Age",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "NATIONSTAR MORTGAGE (Conventional RE Mortgage)",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$313,103",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$350,000",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$2,622",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "J",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Totals",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$313,103",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$350,000",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$2,622",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Installment Accounts",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Balance",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Limit",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Payment Resp",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Age",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "WESTLAKE FINANCIAL (Unsecured)",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$9,529",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$9,800",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$287",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "I",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "ALLY FINANCIAL (Auto)",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$35,401",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$43,615",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$760",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "I",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Totals",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$44,930",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$53,415",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$1,047",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Miscellaneous Accounts",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Balance",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Limit",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Payment Resp",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Age",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "No Miscellaneous Accounts",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Closed Accounts",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Revolving Accounts",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Balance",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Limit",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "%",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Payment Resp",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Age",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "MACYS/CITIBANK NA (Retail Account)",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$0",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$600",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "0%",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$0",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "I",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "AMEX/DSNB (Credit Card)",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$0",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$3,500",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "0%",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$0",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "I",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "JPMCB CARD SERVICES (Credit Card)",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$0",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$4,500",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "0%",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$0",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "I",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Totals",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$0",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$8,000",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "0%",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$0",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Line of Credit Accounts",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Balance",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Limit",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Payment Resp",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Age",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "No Line of Credit Accounts",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Real Estate Accounts",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Balance",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Limit",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Payment Resp",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Age",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "WFBNA HOME LENDING (Conventional RE Mortgage)",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$0",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$350,000",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$0",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "J",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Totals",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$0",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$350,000",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$0",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Installment Accounts",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Balance",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Limit",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Payment Resp",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Age",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "WESTLAKE FINANCIAL (Unsecured)",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$9,529",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$9,800",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$287",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "I",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "ALLY FINANCIAL (Auto)",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$35,401",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$43,615",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$760",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "I",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Totals",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$44,930",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$53,415",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$1,047",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Miscellaneous Accounts",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Balance",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Limit",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Payment Resp",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Age",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "No Miscellaneous Accounts",
+      "color": "black",
+      "hex": "#212529"
+    }
+  ],
+  "inquiries_last_6_months": 0,
+  "credit_card_open_totals": {
+    "color": "black",
+    "balance": 5376,
+    "limit": 115624,
+    "Percent": null,
+    "Payment": null
+  },
+  "monthly_payments": 4215,
+  "real_estate_open_count": 1,
+  "real_estate_open_total": 313103,
+  "line_of_credit_accounts_open_count": 0,
+  "line_of_credit_accounts_open_total": 0,
+  "miscellaneous_accounts_open_count": 0,
+  "miscellaneous_accounts_open_total": 0,
+  "late_pays_2yr": 0,
+  "late_pays_gt2yr": 0,
+  "red_credit_factors_count": 0,
+  "green_credit_factors_count": 6,
+  "black_credit_factors_count": 180,
+  "credit_freeze": 0,
+  "fraud_alert": 0,
+  "deceased": 0
+}

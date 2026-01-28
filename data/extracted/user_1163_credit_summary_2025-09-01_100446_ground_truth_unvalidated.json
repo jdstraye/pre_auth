@@ -1,0 +1,652 @@
+{
+  "filename": "user_1163_credit_summary_2025-09-01_100446.pdf",
+  "source": "data/pdf_analysis/user_1163_credit_summary_2025-09-01_100446.pdf",
+  "credit_score": 708,
+  "credit_score_color": "neutral",
+  "age": 67,
+  "address": [
+    "1015 Thomas Ave N, Minneapolis, MN 55411"
+  ],
+  "collections_open": 0,
+  "collections_closed": 0,
+  "public_records": 0,
+  "revolving_open_count": 1,
+  "revolving_open_total": 6445,
+  "installment_open_count": 2,
+  "installment_open_total": 8079,
+  "credit_factors": [
+    {
+      "factor": "Total Rev Usage > 90%",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Pay $5034 so Accts < 40%",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No Closed Rev Depth",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Too Few Open Rev Accounts",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No 7.5k+ Lines",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "7k+ line for 10+yrs",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Ok Open Rev Depth",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "No Open Mortgage",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "No Rev Acct Open 10K 2yr",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Open Accounts",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Revolving Accounts",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Balance",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Limit",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "%",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Payment Resp",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Age",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "TOPLINE FINANCIAL CR (Line of Credit)",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$2,389",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$2,500",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "96%",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "$48",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "I",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "TOPLINE FINANCIAL CR (Credit Card)",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$6,445",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$7,000",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "92%",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "$194",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "I",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Credit Card Open Totals: (No Retail)",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$8,834",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$7,000 126%",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$242",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Line of Credit Accounts",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Balance",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Limit",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Payment Resp",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Age",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "TOPLINE FINANCIAL CR (Line of Credit)",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$2,389",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$2,500",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$48",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "I",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Totals",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$2,389",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$0",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$48",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Real Estate Accounts",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Balance",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Limit",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Payment Resp",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Age",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "No Real Estate Accounts",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Installment Accounts",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Balance",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Limit",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Payment Resp",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Age",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "TOPLINE FINANCIAL CR (Unsecured)",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$6,099",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$9,251",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$199",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "I",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "TOPLINE FINANCIAL CR (Auto)",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$1,980",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$10,621",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$310",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "I",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Totals",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$8,079",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$19,872",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$509",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Miscellaneous Accounts",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Balance",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Limit",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Payment Resp",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Age",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "No Miscellaneous Accounts",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Closed Accounts",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Revolving Accounts",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Balance",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Limit",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "%",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Payment Resp",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Age",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "No Revolving Accounts",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Line of Credit Accounts",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Balance",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Limit",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Payment Resp",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Age",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "No Line of Credit Accounts",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Real Estate Accounts",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Balance",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Limit",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Payment Resp",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Age",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "No Real Estate Accounts",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Installment Accounts",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Balance",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Limit",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Payment Resp",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Age",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "TOPLINE FINANCIAL CR (Unsecured)",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$6,099",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$9,251",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$199",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "I",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "TOPLINE FINANCIAL CR (Auto)",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$1,980",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$10,621",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$310",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "I",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Totals",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$8,079",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$19,872",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$509",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Miscellaneous Accounts",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Balance",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Limit",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Payment Resp",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Age",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "No Miscellaneous Accounts",
+      "color": "black",
+      "hex": "#212529"
+    }
+  ],
+  "inquiries_last_6_months": 0,
+  "credit_card_open_totals": {
+    "color": "black",
+    "balance": 8834,
+    "limit": 7000,
+    "Percent": 126,
+    "Payment": 242
+  },
+  "monthly_payments": 751,
+  "real_estate_open_count": 0,
+  "real_estate_open_total": 0,
+  "line_of_credit_accounts_open_count": 1,
+  "line_of_credit_accounts_open_total": 2389,
+  "miscellaneous_accounts_open_count": 0,
+  "miscellaneous_accounts_open_total": 0,
+  "late_pays_2yr": 0,
+  "late_pays_gt2yr": 0,
+  "red_credit_factors_count": 6,
+  "green_credit_factors_count": 3,
+  "black_credit_factors_count": 113,
+  "credit_freeze": 0,
+  "fraud_alert": 0,
+  "deceased": 0
+}

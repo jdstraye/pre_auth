@@ -1,0 +1,112 @@
+{
+  "filename": "user_1246_credit_summary_2025-09-01_105842.pdf",
+  "source": "data/pdf_analysis/user_1246_credit_summary_2025-09-01_105842.pdf",
+  "credit_score": 667,
+  "credit_score_color": "neutral",
+  "age": 56,
+  "address": [
+    "602 S Seminole Ave, Okmulgee, OK 74447"
+  ],
+  "collections_open": 0,
+  "collections_closed": 2,
+  "public_records": 0,
+  "revolving_open_count": 6,
+  "revolving_open_total": 3494,
+  "installment_open_count": 11,
+  "installment_open_total": 64989,
+  "credit_factors": [
+    {
+      "factor": "2 Charged Off Accts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "1 Over Limit Accnt",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Total Rev Usage > 90%",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Pay $2014 so Accts < 40%",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No 3k+ Lines",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Avg Age Open",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Ok Open Rev Depth",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Good Closed Rev Depth",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "3+ Closed Rev Accnts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Seasoned Closed Accounts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Military Affiliated",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Closed Accnts Over 7.5k",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "No Open Mortgage",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "No Rev Acct Open 10K 2yr",
+      "color": "black",
+      "hex": "#212529"
+    }
+  ],
+  "inquiries_last_6_months": 0,
+  "credit_card_open_totals": {
+    "color": "black",
+    "balance": 3494,
+    "limit": 3700,
+    "Percent": null,
+    "Payment": null
+  },
+  "monthly_payments": 1285,
+  "real_estate_open_count": 0,
+  "real_estate_open_total": 0,
+  "line_of_credit_accounts_open_count": 0,
+  "line_of_credit_accounts_open_total": 0,
+  "miscellaneous_accounts_open_count": 0,
+  "miscellaneous_accounts_open_total": 0,
+  "late_pays_2yr": 0,
+  "late_pays_gt2yr": 0,
+  "red_credit_factors_count": 3,
+  "green_credit_factors_count": 9,
+  "black_credit_factors_count": 2,
+  "credit_freeze": 0,
+  "fraud_alert": 0,
+  "deceased": 0
+}

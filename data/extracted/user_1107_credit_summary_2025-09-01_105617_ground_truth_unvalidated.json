@@ -1,0 +1,112 @@
+{
+  "filename": "user_1107_credit_summary_2025-09-01_105617.pdf",
+  "source": "data/pdf_analysis/user_1107_credit_summary_2025-09-01_105617.pdf",
+  "credit_score": 638,
+  "credit_score_color": "red",
+  "age": 42,
+  "address": [
+    "980 S Iola St, Aurora, CO 80012"
+  ],
+  "collections_open": 0,
+  "collections_closed": 0,
+  "public_records": 0,
+  "revolving_open_count": 5,
+  "revolving_open_total": 12735,
+  "installment_open_count": 1,
+  "installment_open_total": 0,
+  "credit_factors": [
+    {
+      "factor": "1 Over Limit Accnt",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Total Rev Usage > 90%",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Pay $8307 so Accts < 40%",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Avg Age Open",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No 5k+ Lines",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "1 Inq Last 4 Mo",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Ok Open Rev Depth",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Seasoned Closed Accounts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "1+ Closed Rev Accnts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "No Open Mortgage",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Light Closed Rev Depth",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "No Rev Acct Open 10K 2yr",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "1 Inq last 2-4 Mo",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "1 Total Inq 2-4 Mo",
+      "color": "black",
+      "hex": "#212529"
+    }
+  ],
+  "inquiries_last_6_months": 1,
+  "credit_card_open_totals": {
+    "color": "red",
+    "balance": 12735,
+    "limit": 12960,
+    "Percent": null,
+    "Payment": null
+  },
+  "monthly_payments": 449,
+  "real_estate_open_count": 0,
+  "real_estate_open_total": 0,
+  "line_of_credit_accounts_open_count": 0,
+  "line_of_credit_accounts_open_total": 0,
+  "miscellaneous_accounts_open_count": 0,
+  "miscellaneous_accounts_open_total": 0,
+  "late_pays_2yr": 0,
+  "late_pays_gt2yr": 0,
+  "red_credit_factors_count": 4,
+  "green_credit_factors_count": 5,
+  "black_credit_factors_count": 5,
+  "credit_freeze": 0,
+  "fraud_alert": 0,
+  "deceased": 0
+}

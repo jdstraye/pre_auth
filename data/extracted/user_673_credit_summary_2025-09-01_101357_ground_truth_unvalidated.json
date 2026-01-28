@@ -1,0 +1,128 @@
+{
+  "filename": "user_673_credit_summary_2025-09-01_101357.pdf",
+  "source": "data/pdf_analysis/user_673_credit_summary_2025-09-01_101357.pdf",
+  "credit_score": 645,
+  "credit_score_color": "red",
+  "age": 29,
+  "address": [
+    "2912 Elmridge Dr, Flower Mound, TX 75022",
+    "14175 Dallas Pkwy Apt 1330, Dallas, TX 75254"
+  ],
+  "collections_open": 1,
+  "collections_closed": 0,
+  "public_records": 0,
+  "revolving_open_count": 5,
+  "revolving_open_total": 35110,
+  "installment_open_count": 2,
+  "installment_open_total": 51143,
+  "credit_factors": [
+    {
+      "factor": "$11877 Unpaid Collection(s)",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "2 Over Limit Accnt",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Total Rev Usage > 90%",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Past Due Not Late",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Pay $23215 so Accts < 40%",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "1 Chrgd Off Rev Acct",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "1 Rev Late in 4-6 mo",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "1 Rev Late in 6-12 mo",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "2 Rev Lates in 12-24 mo",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Less than 5 yrs",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "7k+ line for 4+yrs",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Ok Open Rev Depth",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Ok Closed Rev Depth",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "2+ Closed Rev Accnts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Seasoned Closed Accounts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Closed Accnts Over 5k",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "No Open Mortgage",
+      "color": "black",
+      "hex": "#212529"
+    }
+  ],
+  "inquiries_last_6_months": 0,
+  "credit_card_open_totals": {
+    "color": "red",
+    "balance": 35110,
+    "limit": 37238,
+    "Percent": null,
+    "Payment": null
+  },
+  "monthly_payments": 1876,
+  "real_estate_open_count": 0,
+  "real_estate_open_total": 0,
+  "line_of_credit_accounts_open_count": 0,
+  "line_of_credit_accounts_open_total": 0,
+  "miscellaneous_accounts_open_count": 0,
+  "miscellaneous_accounts_open_total": 0,
+  "late_pays_2yr": 4,
+  "late_pays_gt2yr": 0,
+  "red_credit_factors_count": 6,
+  "green_credit_factors_count": 10,
+  "black_credit_factors_count": 1,
+  "credit_freeze": 0,
+  "fraud_alert": 0,
+  "deceased": 0
+}

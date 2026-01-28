@@ -1,0 +1,137 @@
+{
+  "filename": "user_1233_credit_summary_2025-09-01_092315.pdf",
+  "source": "data/pdf_analysis/user_1233_credit_summary_2025-09-01_092315.pdf",
+  "credit_score": 639,
+  "credit_score_color": "red",
+  "age": 62,
+  "address": [
+    "199 Virginia Ave, San Ysidro, CA 92173"
+  ],
+  "collections_open": 2,
+  "collections_closed": 0,
+  "public_records": 0,
+  "revolving_open_count": 0,
+  "revolving_open_total": 0,
+  "installment_open_count": 1,
+  "installment_open_total": 9279,
+  "credit_factors": [
+    {
+      "factor": "1 Unpaid Collection",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "$9866 Unpaid Collection(s)",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "3 RE Lates in 4-6 mo",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "6 RE Lates in 6-12 mo",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Past Due Not Late",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "No Open 1k+ Lines",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No Open Rev Credit Lines",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "12 RE Lates in 12-24 mo",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "1 Charged Off Accts",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Too Few Open Rev Accounts",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "19 RE Lates in 2-4 yrs",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No Closed Rev Depth",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "1 Charged Off Acct 2-4",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "$587 Unpaid Collections",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Less than 5 yrs",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No Open Mortgage",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "No Rev Acct Open 10K 2yr",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "1 Inq Last 4-5 mo",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "1 Total Inqs 4-5 mo",
+      "color": "black",
+      "hex": "#212529"
+    }
+  ],
+  "inquiries_last_6_months": 1,
+  "credit_card_open_totals": {
+    "color": "black",
+    "balance": 0,
+    "limit": 158,
+    "Percent": null,
+    "Payment": null
+  },
+  "monthly_payments": 25,
+  "real_estate_open_count": 0,
+  "real_estate_open_total": 0,
+  "line_of_credit_accounts_open_count": 0,
+  "line_of_credit_accounts_open_total": 0,
+  "miscellaneous_accounts_open_count": 2,
+  "miscellaneous_accounts_open_total": 90120,
+  "late_pays_2yr": 22,
+  "late_pays_gt2yr": 19,
+  "red_credit_factors_count": 10,
+  "green_credit_factors_count": 5,
+  "black_credit_factors_count": 4,
+  "credit_freeze": 0,
+  "fraud_alert": 0,
+  "deceased": 0
+}

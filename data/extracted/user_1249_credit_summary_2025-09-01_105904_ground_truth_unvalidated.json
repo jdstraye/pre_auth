@@ -1,0 +1,102 @@
+{
+  "filename": "user_1249_credit_summary_2025-09-01_105904.pdf",
+  "source": "data/pdf_analysis/user_1249_credit_summary_2025-09-01_105904.pdf",
+  "credit_score": 698,
+  "credit_score_color": "neutral",
+  "age": 66,
+  "address": [
+    "400 Denny Ave Apt 21, Cle Elum, WA 98922"
+  ],
+  "collections_open": 0,
+  "collections_closed": 0,
+  "public_records": 0,
+  "revolving_open_count": 4,
+  "revolving_open_total": 1452,
+  "installment_open_count": 0,
+  "installment_open_total": 0,
+  "credit_factors": [
+    {
+      "factor": "Light Open Rev Depth",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "2 New Accnts Last 60 Days",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Avg Age Open",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No Closed Rev Depth",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No 5k+ Lines",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "1 Inq Last 4 Mo",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Accounts Too New",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "1 RE Late in 2-4 yrs",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "1+ Closed Rev Accnts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "No Open Mortgage",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "No Rev Acct Open 10K 2yr",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "1 Total Inq 0-2 Mo",
+      "color": "black",
+      "hex": "#212529"
+    }
+  ],
+  "inquiries_last_6_months": 1,
+  "credit_card_open_totals": {
+    "color": "black",
+    "balance": 1452,
+    "limit": 4800,
+    "Percent": null,
+    "Payment": null
+  },
+  "monthly_payments": 114,
+  "real_estate_open_count": 0,
+  "real_estate_open_total": 0,
+  "line_of_credit_accounts_open_count": 0,
+  "line_of_credit_accounts_open_total": 0,
+  "miscellaneous_accounts_open_count": 0,
+  "miscellaneous_accounts_open_total": 0,
+  "late_pays_2yr": 0,
+  "late_pays_gt2yr": 1,
+  "red_credit_factors_count": 8,
+  "green_credit_factors_count": 1,
+  "black_credit_factors_count": 3,
+  "credit_freeze": 0,
+  "fraud_alert": 0,
+  "deceased": 0
+}

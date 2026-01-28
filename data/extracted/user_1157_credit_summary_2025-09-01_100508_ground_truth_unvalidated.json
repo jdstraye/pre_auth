@@ -1,0 +1,153 @@
+{
+  "filename": "user_1157_credit_summary_2025-09-01_100508.pdf",
+  "source": "data/pdf_analysis/user_1157_credit_summary_2025-09-01_100508.pdf",
+  "credit_score": 596,
+  "credit_score_color": "red",
+  "age": 56,
+  "address": [
+    "1500 Amherst Dr, Plano, TX 75075",
+    "1500 Amherst Dr Apt 6"
+  ],
+  "collections_open": 3,
+  "collections_closed": 4,
+  "public_records": 0,
+  "revolving_open_count": 7,
+  "revolving_open_total": 8559,
+  "installment_open_count": 5,
+  "installment_open_total": 23260,
+  "credit_factors": [
+    {
+      "factor": "2 Charged Off Accts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "2 Unpaid Collection(s)",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "$9123 Unpaid Collection(s)",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "1 Over Limit Accnt",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Total Rev Usage > 55%",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Past Due Not Late",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Pay $4323 so Accts < 40%",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "2 Chrgd Off Rev Accts",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "11 Rev Lates in 2-4 yrs",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "6 RE Lates in 12-24 mo",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "1 Charged Off Acct",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "$12354 Unpaid Collections",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "46 RE Lates in 2-4 yrs",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No Closed Rev Depth",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "1 Charged Off Acct 2-4",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No 5k+ Lines",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Ok Open Rev Depth",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "1+ Closed Rev Accnts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "6+ Closed RE Accounts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Paid Off 100k+ RE/RE",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "No Open Mortgage",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "No Rev Acct Open 10K 2yr",
+      "color": "black",
+      "hex": "#212529"
+    }
+  ],
+  "inquiries_last_6_months": 0,
+  "credit_card_open_totals": {
+    "color": "black",
+    "balance": 8559,
+    "limit": 11850,
+    "Percent": null,
+    "Payment": null
+  },
+  "monthly_payments": 992,
+  "real_estate_open_count": 1,
+  "real_estate_open_total": 0,
+  "line_of_credit_accounts_open_count": 0,
+  "line_of_credit_accounts_open_total": 0,
+  "miscellaneous_accounts_open_count": 0,
+  "miscellaneous_accounts_open_total": 0,
+  "late_pays_2yr": 6,
+  "late_pays_gt2yr": 57,
+  "red_credit_factors_count": 10,
+  "green_credit_factors_count": 10,
+  "black_credit_factors_count": 2,
+  "credit_freeze": 0,
+  "fraud_alert": 0,
+  "deceased": 0
+}

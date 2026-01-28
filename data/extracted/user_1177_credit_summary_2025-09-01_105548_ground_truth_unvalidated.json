@@ -1,0 +1,132 @@
+{
+  "filename": "user_1177_credit_summary_2025-09-01_105548.pdf",
+  "source": "data/pdf_analysis/user_1177_credit_summary_2025-09-01_105548.pdf",
+  "credit_score": 643,
+  "credit_score_color": "red",
+  "age": 30,
+  "address": [
+    "1160 Suncrest Dr Apt 316, Saint Cloud, MN 56301"
+  ],
+  "collections_open": 0,
+  "collections_closed": 0,
+  "public_records": 0,
+  "revolving_open_count": 6,
+  "revolving_open_total": 11304,
+  "installment_open_count": 1,
+  "installment_open_total": 12219,
+  "credit_factors": [
+    {
+      "factor": "1 Over Limit Accnt",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Total Rev Usage > 90%",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Pay $6464 so Accts < 40%",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "9 Rev Lates in 2-4 yrs",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Light Open Rev Depth",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "6 Rev Lates in 4+ yrs",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No Closed Rev Depth",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No 5k+ Lines",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "1 Inq Last 4 Mo",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "1 RE Late in 12-24 mo",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "1 RE Late in 2-4 yrs",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Less than 5 yrs",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "3+ Closed Rev Accnts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "No Open Mortgage",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Seasoned Closed Accounts",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "No Rev Acct Open 10K 2yr",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "1 Inq last 2-4 Mo",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "1 Total Inq 2-4 Mo",
+      "color": "black",
+      "hex": "#212529"
+    }
+  ],
+  "inquiries_last_6_months": 1,
+  "credit_card_open_totals": {
+    "color": "black",
+    "balance": 11304,
+    "limit": 7100,
+    "Percent": 159,
+    "Payment": 330
+  },
+  "monthly_payments": 908,
+  "real_estate_open_count": 0,
+  "real_estate_open_total": 0,
+  "line_of_credit_accounts_open_count": 0,
+  "line_of_credit_accounts_open_total": 0,
+  "miscellaneous_accounts_open_count": 0,
+  "miscellaneous_accounts_open_total": 0,
+  "late_pays_2yr": 1,
+  "late_pays_gt2yr": 16,
+  "red_credit_factors_count": 10,
+  "green_credit_factors_count": 3,
+  "black_credit_factors_count": 5,
+  "credit_freeze": 0,
+  "fraud_alert": 0,
+  "deceased": 0
+}

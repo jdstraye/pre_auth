@@ -1,0 +1,545 @@
+{
+  "filename": "user_743_credit_summary_2025-09-01_101944.pdf",
+  "source": "data/pdf_analysis/user_743_credit_summary_2025-09-01_101944.pdf",
+  "credit_score": 605,
+  "credit_score_color": "red",
+  "age": 32,
+  "address": [
+    "4025 Cheoah Dr, Douglasville, GA 30135",
+    "2352 Glendale Dr, Decatur, GA 30032"
+  ],
+  "collections_open": 0,
+  "collections_closed": 1,
+  "public_records": 0,
+  "revolving_open_count": 1,
+  "revolving_open_total": 51,
+  "installment_open_count": 0,
+  "installment_open_total": 0,
+  "credit_factors": [
+    {
+      "factor": "No Open 1k+ Lines",
+      "color": "red",
+      "hex": "#dc3545",
+      "bbox": [
+        382.67999267578125,
+        165.8050079345703,
+        477.14801025390625,
+        180.91900634765625
+      ],
+      "page": 0,
+      "spans": [
+        {
+          "text": "No Open 1k+ Lines",
+          "hex": "#dc3545",
+          "rgb": [
+            220,
+            53,
+            69
+          ],
+          "bbox": [
+            382.67999267578125,
+            165.8050079345703,
+            477.14801025390625,
+            180.91900634765625
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "No Open Rev Credit Lines",
+      "color": "red",
+      "hex": "#dc3545",
+      "bbox": [
+        382.67999267578125,
+        182.8150177001953,
+        511.06097412109375,
+        197.92901611328125
+      ],
+      "page": 0,
+      "spans": [
+        {
+          "text": "No Open Rev Credit Lines",
+          "hex": "#dc3545",
+          "rgb": [
+            220,
+            53,
+            69
+          ],
+          "bbox": [
+            382.67999267578125,
+            182.8150177001953,
+            511.06097412109375,
+            197.92901611328125
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "1 Rev Late in 4-6 mo",
+      "color": "red",
+      "hex": "#dc3545",
+      "bbox": [
+        382.67999267578125,
+        199.8250274658203,
+        484.7820129394531,
+        214.93902587890625
+      ],
+      "page": 0,
+      "spans": [
+        {
+          "text": "1 Rev Late in 4-6 mo",
+          "hex": "#dc3545",
+          "rgb": [
+            220,
+            53,
+            69
+          ],
+          "bbox": [
+            382.67999267578125,
+            199.8250274658203,
+            484.7820129394531,
+            214.93902587890625
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "1 Charged Off Acct",
+      "color": "red",
+      "hex": "#dc3545",
+      "bbox": [
+        382.67999267578125,
+        216.83497619628906,
+        476.22406005859375,
+        231.948974609375
+      ],
+      "page": 0,
+      "spans": [
+        {
+          "text": "1 Charged Off Acct",
+          "hex": "#dc3545",
+          "rgb": [
+            220,
+            53,
+            69
+          ],
+          "bbox": [
+            382.67999267578125,
+            216.83497619628906,
+            476.22406005859375,
+            231.948974609375
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "Too Few Open Rev Accounts",
+      "color": "red",
+      "hex": "#dc3545",
+      "bbox": [
+        382.67999267578125,
+        233.84498596191406,
+        526.3510131835938,
+        248.958984375
+      ],
+      "page": 0,
+      "spans": [
+        {
+          "text": "Too Few Open Rev Accounts",
+          "hex": "#dc3545",
+          "rgb": [
+            220,
+            53,
+            69
+          ],
+          "bbox": [
+            382.67999267578125,
+            233.84498596191406,
+            526.3510131835938,
+            248.958984375
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "1 Rev Late in 6-12 mo",
+      "color": "red",
+      "hex": "#dc3545",
+      "bbox": [
+        382.67999267578125,
+        250.84498596191406,
+        490.89801025390625,
+        265.958984375
+      ],
+      "page": 0,
+      "spans": [
+        {
+          "text": "1 Rev Late in 6-12 mo",
+          "hex": "#dc3545",
+          "rgb": [
+            220,
+            53,
+            69
+          ],
+          "bbox": [
+            382.67999267578125,
+            250.84498596191406,
+            490.89801025390625,
+            265.958984375
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "5 Rev Lates in 2-4 yrs",
+      "color": "red",
+      "hex": "#dc3545",
+      "bbox": [
+        382.67999267578125,
+        267.85498046875,
+        489.666015625,
+        282.968994140625
+      ],
+      "page": 0,
+      "spans": [
+        {
+          "text": "5 Rev Lates in 2-4 yrs",
+          "hex": "#dc3545",
+          "rgb": [
+            220,
+            53,
+            69
+          ],
+          "bbox": [
+            382.67999267578125,
+            267.85498046875,
+            489.666015625,
+            282.968994140625
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "1 Rev Late in 12-24 mo",
+      "color": "red",
+      "hex": "#dc3545",
+      "bbox": [
+        382.67999267578125,
+        284.864990234375,
+        497.0140075683594,
+        299.97900390625
+      ],
+      "page": 0,
+      "spans": [
+        {
+          "text": "1 Rev Late in 12-24 mo",
+          "hex": "#dc3545",
+          "rgb": [
+            220,
+            53,
+            69
+          ],
+          "bbox": [
+            382.67999267578125,
+            284.864990234375,
+            497.0140075683594,
+            299.97900390625
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "1 Inq Last 4 Mo",
+      "color": "red",
+      "hex": "#dc3545",
+      "bbox": [
+        382.67999267578125,
+        301.875,
+        458.5030517578125,
+        316.989013671875
+      ],
+      "page": 0,
+      "spans": [
+        {
+          "text": "1 Inq Last 4 Mo",
+          "hex": "#dc3545",
+          "rgb": [
+            220,
+            53,
+            69
+          ],
+          "bbox": [
+            382.67999267578125,
+            301.875,
+            458.5030517578125,
+            316.989013671875
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "3+ Closed Rev Accnts",
+      "color": "green",
+      "hex": "#428f4e",
+      "bbox": [
+        382.67999267578125,
+        318.8849792480469,
+        491.19500732421875,
+        333.9989929199219
+      ],
+      "page": 0,
+      "spans": [
+        {
+          "text": "3+ Closed Rev Accnts",
+          "hex": "#428f4e",
+          "rgb": [
+            66,
+            143,
+            78
+          ],
+          "bbox": [
+            382.67999267578125,
+            318.8849792480469,
+            491.19500732421875,
+            333.9989929199219
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "Good Closed Rev Depth",
+      "color": "green",
+      "hex": "#428f4e",
+      "bbox": [
+        382.67999267578125,
+        335.8849792480469,
+        501.8979797363281,
+        350.9989929199219
+      ],
+      "page": 0,
+      "spans": [
+        {
+          "text": "Good Closed Rev Depth",
+          "hex": "#428f4e",
+          "rgb": [
+            66,
+            143,
+            78
+          ],
+          "bbox": [
+            382.67999267578125,
+            335.8849792480469,
+            501.8979797363281,
+            350.9989929199219
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "6+ Closed RE Accounts",
+      "color": "green",
+      "hex": "#428f4e",
+      "bbox": [
+        382.67999267578125,
+        352.8949890136719,
+        499.14801025390625,
+        368.0090026855469
+      ],
+      "page": 0,
+      "spans": [
+        {
+          "text": "6+ Closed RE Accounts",
+          "hex": "#428f4e",
+          "rgb": [
+            66,
+            143,
+            78
+          ],
+          "bbox": [
+            382.67999267578125,
+            352.8949890136719,
+            499.14801025390625,
+            368.0090026855469
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "No Open Mortgage",
+      "color": "black",
+      "hex": "#212529",
+      "bbox": [
+        382.67999267578125,
+        369.9049987792969,
+        476.2239990234375,
+        385.0190124511719
+      ],
+      "page": 0,
+      "spans": [
+        {
+          "text": "No Open Mortgage",
+          "hex": "#212529",
+          "rgb": [
+            33,
+            37,
+            41
+          ],
+          "bbox": [
+            382.67999267578125,
+            369.9049987792969,
+            476.2239990234375,
+            385.0190124511719
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "Seasoned Closed Accounts",
+      "color": "black",
+      "hex": "#212529",
+      "bbox": [
+        382.67999267578125,
+        386.91497802734375,
+        517.803955078125,
+        402.02899169921875
+      ],
+      "page": 0,
+      "spans": [
+        {
+          "text": "Seasoned Closed Accounts",
+          "hex": "#212529",
+          "rgb": [
+            33,
+            37,
+            41
+          ],
+          "bbox": [
+            382.67999267578125,
+            386.91497802734375,
+            517.803955078125,
+            402.02899169921875
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "No Rev Acct Open 10K 2yr",
+      "color": "black",
+      "hex": "#212529",
+      "bbox": [
+        382.67999267578125,
+        403.91497802734375,
+        514.7350463867188,
+        419.02899169921875
+      ],
+      "page": 0,
+      "spans": [
+        {
+          "text": "No Rev Acct Open 10K 2yr",
+          "hex": "#212529",
+          "rgb": [
+            33,
+            37,
+            41
+          ],
+          "bbox": [
+            382.67999267578125,
+            403.91497802734375,
+            514.7350463867188,
+            419.02899169921875
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "1 Inq last 2-4 Mo",
+      "color": "black",
+      "hex": "#212529",
+      "bbox": [
+        382.67999267578125,
+        420.92498779296875,
+        464.6080322265625,
+        436.03900146484375
+      ],
+      "page": 0,
+      "spans": [
+        {
+          "text": "1 Inq last 2-4 Mo",
+          "hex": "#212529",
+          "rgb": [
+            33,
+            37,
+            41
+          ],
+          "bbox": [
+            382.67999267578125,
+            420.92498779296875,
+            464.6080322265625,
+            436.03900146484375
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "1 Total Inq 2-4 Mo",
+      "color": "black",
+      "hex": "#212529",
+      "bbox": [
+        382.67999267578125,
+        437.93499755859375,
+        471.9450378417969,
+        453.04901123046875
+      ],
+      "page": 0,
+      "spans": [
+        {
+          "text": "1 Total Inq 2-4 Mo",
+          "hex": "#212529",
+          "rgb": [
+            33,
+            37,
+            41
+          ],
+          "bbox": [
+            382.67999267578125,
+            437.93499755859375,
+            471.9450378417969,
+            453.04901123046875
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "Paid charge off. Account closed by credit grantor. Closed - 11/1/23",
+      "hex": "#212529",
+      "color": "black"
+    }
+  ],
+  "inquiries_last_6_months": 1,
+  "credit_card_open_totals": {
+    "color": "black",
+    "hex": "#212529",
+    "balance": 51,
+    "limit": 500,
+    "Percent": null,
+    "Payment": null
+  },
+  "monthly_payments": 35,
+  "monthly_payments_color": "black",
+  "real_estate_open_count": 0,
+  "real_estate_open_total": 0,
+  "line_of_credit_accounts_open_count": 0,
+  "line_of_credit_accounts_open_total": 0,
+  "miscellaneous_accounts_open_count": 0,
+  "miscellaneous_accounts_open_total": 0,
+  "inquiries_last_6_months_color": "black",
+  "late_pays_color": "black",
+  "late_pays_2yr": 3,
+  "late_pays_gt2yr": 5,
+  "red_credit_factors_count": 9,
+  "green_credit_factors_count": 3,
+  "black_credit_factors_count": 6,
+  "credit_freeze": 0,
+  "fraud_alert": 0,
+  "deceased": 0
+}

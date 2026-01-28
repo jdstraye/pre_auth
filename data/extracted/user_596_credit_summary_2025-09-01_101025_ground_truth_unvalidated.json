@@ -1,0 +1,163 @@
+{
+  "filename": "user_596_credit_summary_2025-09-01_101025.pdf",
+  "source": "data/pdf_analysis/user_596_credit_summary_2025-09-01_101025.pdf",
+  "credit_score": 530,
+  "credit_score_color": "red",
+  "age": 54,
+  "address": [
+    "7636 Quail Dust St, N Las Vegas, NV 89084",
+    "7636 Quail Dust St, N Las Vegas, NV 89084"
+  ],
+  "collections_open": 2,
+  "collections_closed": 1,
+  "public_records": 0,
+  "revolving_open_count": 6,
+  "revolving_open_total": 22511,
+  "installment_open_count": 6,
+  "installment_open_total": 133721,
+  "credit_factors": [
+    {
+      "factor": "1 Unpaid Collection",
+      "color": "green",
+      "src": "fb"
+    },
+    {
+      "factor": "$23733 Unpaid Collection(s)",
+      "color": "green",
+      "src": "fb"
+    },
+    {
+      "factor": "4 RE Lates in 0-3 mo",
+      "color": "green",
+      "src": "fb"
+    },
+    {
+      "factor": "4 RE Lates in 4-6 mo",
+      "color": "green",
+      "src": "fb"
+    },
+    {
+      "factor": "1 Over Limit Accnt",
+      "color": "green",
+      "src": "fb"
+    },
+    {
+      "factor": "Current Lates (NAVY FEDERAL CREDIT )",
+      "color": "green",
+      "src": "fb"
+    },
+    {
+      "factor": "Total Rev Usage > 90%",
+      "color": "green",
+      "src": "fb"
+    },
+    {
+      "factor": "Past Due Not Late",
+      "color": "green",
+      "src": "fb"
+    },
+    {
+      "factor": "Pay $13351 so Accts < 40%",
+      "color": "red",
+      "src": "fb"
+    },
+    {
+      "factor": "1 Rev Late in 0-3 mo",
+      "color": "red",
+      "src": "fb"
+    },
+    {
+      "factor": "1 Charged Off Accts",
+      "color": "red",
+      "src": "fb"
+    },
+    {
+      "factor": "Light Open Rev Depth",
+      "color": "red",
+      "src": "fb"
+    },
+    {
+      "factor": "17 RE Lates in 2-4 yrs",
+      "color": "red",
+      "src": "fb"
+    },
+    {
+      "factor": "No Closed Rev Depth",
+      "color": "red",
+      "src": "fb"
+    },
+    {
+      "factor": "1 Chrgd Off Rev Acct",
+      "color": "red",
+      "src": "fb"
+    },
+    {
+      "factor": "9 RE Lates in 4+ yrs",
+      "color": "red",
+      "src": "fb"
+    },
+    {
+      "factor": "Less than 5 yrs",
+      "color": "red",
+      "src": "fb"
+    },
+    {
+      "factor": "12k+ lines",
+      "color": "green",
+      "src": "fb"
+    },
+    {
+      "factor": "Existing Open Mortgage",
+      "color": "green",
+      "src": "fb"
+    },
+    {
+      "factor": "Closed Accnts Over 10k",
+      "color": "green",
+      "src": "fb"
+    },
+    {
+      "factor": "2+ Closed Rev Accnts",
+      "color": "green",
+      "src": "fb"
+    },
+    {
+      "factor": "Paid Off 200k+ RE/RE",
+      "color": "green",
+      "src": "fb"
+    },
+    {
+      "factor": "$109 Unpaid 1 Collection",
+      "color": "black",
+      "src": "fb"
+    },
+    {
+      "factor": "No Rev Acct Open 10K 2yr",
+      "color": "black",
+      "src": "fb"
+    }
+  ],
+  "inquiries_last_6_months": 0,
+  "credit_card_open_totals": {
+    "color": "black",
+    "balance": 22511,
+    "limit": 22900,
+    "Percent": null,
+    "Payment": null
+  },
+  "monthly_payments": 8424,
+  "real_estate_open_count": 1,
+  "real_estate_open_total": 696237,
+  "line_of_credit_accounts_open_count": 0,
+  "line_of_credit_accounts_open_total": 0,
+  "miscellaneous_accounts_open_count": 0,
+  "miscellaneous_accounts_open_total": 0,
+  "late_pays_2yr": 7,
+  "late_pays_gt2yr": 26,
+  "red_credit_factors_count": 9,
+  "green_credit_factors_count": 13,
+  "black_credit_factors_count": 2,
+  "credit_freeze": 0,
+  "fraud_alert": 0,
+  "deceased": 0
+}

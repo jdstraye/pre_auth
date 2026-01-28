@@ -1,0 +1,277 @@
+{
+  "filename": "user_603_credit_summary_2025-09-01_144810.pdf",
+  "source": "data/pdf_analysis/user_603_credit_summary_2025-09-01_144810.pdf",
+  "credit_score": 659,
+  "credit_score_color": "neutral",
+  "age": 33,
+  "address": [
+    "330 E Pierce St, Phoenix, AZ 85004",
+    "4460 Perkinshire Ln Apt 201, Orlando, FL 32822"
+  ],
+  "collections_open": 0,
+  "collections_closed": 0,
+  "public_records": 0,
+  "revolving_open_count": 6,
+  "revolving_open_total": 4293,
+  "installment_open_count": 2,
+  "installment_open_total": 9343,
+  "credit_factors": [
+    {
+      "factor": "No",
+      "color": "black"
+    },
+    {
+      "factor": "Credit Freeze",
+      "color": "black"
+    },
+    {
+      "factor": "Fraud Alert",
+      "color": "black"
+    },
+    {
+      "factor": "Deceased",
+      "color": "black"
+    },
+    {
+      "factor": "Credit Factors",
+      "color": "black"
+    },
+    {
+      "factor": "2 Over Limit Accnt",
+      "color": "green"
+    },
+    {
+      "factor": "Total Rev Usage > 90%",
+      "color": "green"
+    },
+    {
+      "factor": "Pay $1728 so Accts < 40%",
+      "color": "red"
+    },
+    {
+      "factor": "No 3k+ Lines",
+      "color": "red"
+    },
+    {
+      "factor": "4 Rev Lates in 2-4 yrs",
+      "color": "red"
+    },
+    {
+      "factor": "Light Open Rev Depth",
+      "color": "red"
+    },
+    {
+      "factor": "24 RE Lates in 4+ yrs",
+      "color": "red"
+    },
+    {
+      "factor": "Less than 5 yrs",
+      "color": "red"
+    },
+    {
+      "factor": "Good Closed Rev Depth",
+      "color": "green"
+    },
+    {
+      "factor": "3+ Closed Rev Accnts",
+      "color": "green"
+    },
+    {
+      "factor": "No Open Mortgage",
+      "color": "neutral"
+    },
+    {
+      "factor": "Seasoned Closed Accounts",
+      "color": "green"
+    },
+    {
+      "factor": "No Rev Acct Open 10K 2yr",
+      "color": "neutral"
+    },
+    {
+      "factor": "Account",
+      "color": "black"
+    },
+    {
+      "factor": "Status",
+      "color": "black"
+    },
+    {
+      "factor": "COMENITYCAPITAL/ULTA",
+      "color": "black"
+    },
+    {
+      "factor": "Open",
+      "color": "black"
+    },
+    {
+      "factor": "SYNOVUS/FIRST PROGRE",
+      "color": "black"
+    },
+    {
+      "factor": "MERCEDES-BENZ FINANC",
+      "color": "black"
+    },
+    {
+      "factor": "Balance",
+      "color": "black"
+    },
+    {
+      "factor": "Limit",
+      "color": "black"
+    },
+    {
+      "factor": "%",
+      "color": "black"
+    },
+    {
+      "factor": "Age",
+      "color": "black"
+    },
+    {
+      "factor": "32%",
+      "color": "black"
+    },
+    {
+      "factor": "$35 I",
+      "color": "black"
+    },
+    {
+      "factor": "5%",
+      "color": "black"
+    },
+    {
+      "factor": "$960 $900 107%",
+      "color": "red"
+    },
+    {
+      "factor": "$1,808 $1,700 106%",
+      "color": "red"
+    },
+    {
+      "factor": "$3,986 $2,600 153%",
+      "color": "black"
+    },
+    {
+      "factor": "2%",
+      "color": "black"
+    },
+    {
+      "factor": "$0 A",
+      "color": "black"
+    },
+    {
+      "factor": "Revolving Accounts (Open)",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "2 Over Limit Accnt",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Pay $1728 so Accts < 40%",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No 3k+ Lines",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "4 Rev Lates in 2-4 yrs",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Light Open Rev Depth",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "24 RE Lates in 4+ yrs",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Good Closed Rev Depth",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "3+ Closed Rev Accnts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "No Open Mortgage",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Seasoned Closed Accounts",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "No Rev Acct Open 10K 2yr",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Lates +2yr: 1/30",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Lates +2yr: 3/30",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Lates +2yr: 1/30, 1/60, 22/90+",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Revolving Accounts",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Revolving Accounts - Authorized User",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Revolving Accounts",
+      "color": "black",
+      "hex": "#374151"
+    }
+  ],
+  "inquiries_last_6_months": 0,
+  "credit_card_open_totals": {
+    "color": "black",
+    "balance": 3986,
+    "limit": 2600,
+    "Percent": 153,
+    "Payment": 196
+  },
+  "monthly_payments": 474,
+  "real_estate_open_count": 0,
+  "real_estate_open_total": 0,
+  "line_of_credit_accounts_open_count": 0,
+  "line_of_credit_accounts_open_total": 0,
+  "miscellaneous_accounts_open_count": 0,
+  "miscellaneous_accounts_open_total": 0,
+  "late_pays_2yr": 0,
+  "late_pays_gt2yr": 28,
+  "red_credit_factors_count": 13,
+  "green_credit_factors_count": 8,
+  "black_credit_factors_count": 31,
+  "credit_freeze": 0,
+  "fraud_alert": 0,
+  "deceased": 0
+}

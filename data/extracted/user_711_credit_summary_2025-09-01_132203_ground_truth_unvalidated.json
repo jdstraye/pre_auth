@@ -1,0 +1,340 @@
+{
+  "filename": "user_711_credit_summary_2025-09-01_132203.pdf",
+  "source": "data/pdf_analysis/user_711_credit_summary_2025-09-01_132203.pdf",
+  "credit_score": 534,
+  "credit_score_color": "red",
+  "age": 38,
+  "address": [
+    "7909 Elmwood Ln, Fredericksburg, VA 22407",
+    "7909 Elmwood Ln, Fredericksbrg, VA 22407"
+  ],
+  "collections_open": 2,
+  "collections_closed": 0,
+  "public_records": 0,
+  "revolving_open_count": 2,
+  "revolving_open_total": 10538,
+  "installment_open_count": 2,
+  "installment_open_total": 165896,
+  "credit_factors": [
+    {
+      "factor": "No",
+      "color": "black"
+    },
+    {
+      "factor": "Credit Freeze",
+      "color": "black"
+    },
+    {
+      "factor": "Fraud Alert",
+      "color": "black"
+    },
+    {
+      "factor": "Deceased",
+      "color": "black"
+    },
+    {
+      "factor": "Credit Factors",
+      "color": "black"
+    },
+    {
+      "factor": "$10538 Unpaid Collection(s)",
+      "color": "green"
+    },
+    {
+      "factor": "2 RE Lates in 0-3 mo",
+      "color": "green"
+    },
+    {
+      "factor": "2 Over Limit Accnt",
+      "color": "green"
+    },
+    {
+      "factor": "Current Lates (PENNYMAC LOAN SERVIC, an",
+      "color": "green"
+    },
+    {
+      "factor": "Total Rev Usage > 90%",
+      "color": "green"
+    },
+    {
+      "factor": "Past Due Not Late",
+      "color": "green"
+    },
+    {
+      "factor": "Pay $8638 so Accts < 40%",
+      "color": "red"
+    },
+    {
+      "factor": "1 Chrgd Off Rev Acct",
+      "color": "red"
+    },
+    {
+      "factor": "3 RE Lates in 12-24 mo",
+      "color": "red"
+    },
+    {
+      "factor": "2 RE Lates in 4-6 mo",
+      "color": "red"
+    },
+    {
+      "factor": "1 Charged Off Acct",
+      "color": "red"
+    },
+    {
+      "factor": "Too Few Open Rev Accounts",
+      "color": "red"
+    },
+    {
+      "factor": "5 RE Lates in 2-4 yrs",
+      "color": "red"
+    },
+    {
+      "factor": "No 5k+ Lines",
+      "color": "red"
+    },
+    {
+      "factor": "2 Rev Lates in 2-4 yrs",
+      "color": "red"
+    },
+    {
+      "factor": "Ok Open Rev Depth",
+      "color": "green"
+    },
+    {
+      "factor": "Good Closed Rev Depth",
+      "color": "green"
+    },
+    {
+      "factor": "Seasoned Closed Accounts",
+      "color": "green"
+    },
+    {
+      "factor": "1+ Closed Rev Accnts",
+      "color": "green"
+    },
+    {
+      "factor": "7+ Closed RE Accounts",
+      "color": "green"
+    },
+    {
+      "factor": "No Rev Acct Open 10K 2yr",
+      "color": "neutral"
+    },
+    {
+      "factor": "Status",
+      "color": "black"
+    },
+    {
+      "factor": "Age",
+      "color": "black"
+    },
+    {
+      "factor": "$0 Balance",
+      "color": "red"
+    },
+    {
+      "factor": "Open",
+      "color": "black"
+    },
+    {
+      "factor": "$5,343 Closed - 4/16/24",
+      "color": "black"
+    },
+    {
+      "factor": "$5,195 Account",
+      "color": "neutral"
+    },
+    {
+      "factor": "PENNYMAC LOAN SERVIC",
+      "color": "black"
+    },
+    {
+      "factor": "$5233 MOHELA/SERVICING",
+      "color": "black"
+    },
+    {
+      "factor": "$1505 SYNCB/AMAZON PLCC",
+      "color": "black"
+    },
+    {
+      "factor": "WESTLAKE SERVICE INC",
+      "color": "black"
+    },
+    {
+      "factor": "Limit",
+      "color": "black"
+    },
+    {
+      "factor": "%",
+      "color": "black"
+    },
+    {
+      "factor": "$5,343 $4,750 112%",
+      "color": "red"
+    },
+    {
+      "factor": "$0 I",
+      "color": "black"
+    },
+    {
+      "factor": "$5,195 $4,750 109%",
+      "color": "red"
+    },
+    {
+      "factor": "$10,538 $9,500 111%",
+      "color": "red"
+    },
+    {
+      "factor": "$376 J",
+      "color": "black"
+    },
+    {
+      "factor": "Revolving Accounts (Open)",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "2 RE Lates in 0-3 mo",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "2 Over Limit Accnt",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Current Lates (PENNYMAC LOAN SERVIC, an",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Pay $8638 so Accts < 40%",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "3 RE Lates in 12-24 mo",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "2 RE Lates in 4-6 mo",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "1 Charged Off Acct",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Too Few Open Rev Accounts",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "5 RE Lates in 2-4 yrs",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No 5k+ Lines",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "2 Rev Lates in 2-4 yrs",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Ok Open Rev Depth",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Good Closed Rev Depth",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Seasoned Closed Accounts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "1+ Closed Rev Accnts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "7+ Closed RE Accounts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "No Rev Acct Open 10K 2yr",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Charged off account. Account closed by credit grantor.",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Lates +2yr: 2/30",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Lates +2yr: 2/30",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Lates +2yr: 2/30, 1/60",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Revolving Accounts",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "PENNYMAC LOAN SERVIC (FHA Real Estate Mortgage)",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Revolving Accounts",
+      "color": "black",
+      "hex": "#374151"
+    }
+  ],
+  "inquiries_last_6_months": 0,
+  "credit_card_open_totals": {
+    "color": "red",
+    "balance": 10538,
+    "limit": 9500,
+    "Percent": 111,
+    "Payment": 0
+  },
+  "monthly_payments": 2120,
+  "real_estate_open_count": 1,
+  "real_estate_open_total": 224088,
+  "line_of_credit_accounts_open_count": 0,
+  "line_of_credit_accounts_open_total": 0,
+  "miscellaneous_accounts_open_count": 0,
+  "miscellaneous_accounts_open_total": 0,
+  "late_pays_2yr": 7,
+  "late_pays_gt2yr": 7,
+  "red_credit_factors_count": 21,
+  "green_credit_factors_count": 19,
+  "black_credit_factors_count": 26,
+  "credit_freeze": 0,
+  "fraud_alert": 0,
+  "deceased": 0
+}

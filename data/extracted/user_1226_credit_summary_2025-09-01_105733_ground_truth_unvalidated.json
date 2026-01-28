@@ -1,0 +1,117 @@
+{
+  "filename": "user_1226_credit_summary_2025-09-01_105733.pdf",
+  "source": "data/pdf_analysis/user_1226_credit_summary_2025-09-01_105733.pdf",
+  "credit_score": 691,
+  "credit_score_color": "neutral",
+  "age": 61,
+  "address": [
+    "309 N Main St, New Sharon, IA 50207"
+  ],
+  "collections_open": 1,
+  "collections_closed": 0,
+  "public_records": 0,
+  "revolving_open_count": 1,
+  "revolving_open_total": 10118,
+  "installment_open_count": 3,
+  "installment_open_total": 12107,
+  "credit_factors": [
+    {
+      "factor": "1 Unpaid Collection",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "1 Over Limit Accnt",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Total Rev Usage > 90%",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Pay $6118 so Accts < 40%",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Too Few Open Rev Accounts",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "2 Rev Lates in 2-4 yrs",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Less than 5 yrs",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "7k+ line for 4+yrs",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Seasoned Closed Accounts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Great Closed Rev Depth",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Ok Open Rev Depth",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "3+ Closed Rev Accnts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Closed Accnts Over 10k",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "$224 Unpaid 1 Collection",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "1 Rev Late in 4+ yrs",
+      "color": "black",
+      "hex": "#212529"
+    }
+  ],
+  "inquiries_last_6_months": 0,
+  "credit_card_open_totals": {
+    "color": "black",
+    "balance": 10118,
+    "limit": 10000,
+    "Percent": 101,
+    "Payment": 203
+  },
+  "monthly_payments": 2147,
+  "real_estate_open_count": 1,
+  "real_estate_open_total": 36102,
+  "line_of_credit_accounts_open_count": 0,
+  "line_of_credit_accounts_open_total": 0,
+  "miscellaneous_accounts_open_count": 0,
+  "miscellaneous_accounts_open_total": 0,
+  "late_pays_2yr": 0,
+  "late_pays_gt2yr": 3,
+  "red_credit_factors_count": 4,
+  "green_credit_factors_count": 9,
+  "black_credit_factors_count": 2,
+  "credit_freeze": 0,
+  "fraud_alert": 0,
+  "deceased": 0
+}

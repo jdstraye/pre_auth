@@ -1,0 +1,193 @@
+{
+  "filename": "user_1231_credit_summary_2025-09-01_092251.pdf",
+  "source": "data/pdf_analysis/user_1231_credit_summary_2025-09-01_092251.pdf",
+  "credit_score": 545,
+  "credit_score_color": "red",
+  "age": 42,
+  "address": [
+    "7101 Appaloosa Trl, San Angelo, TX 76901",
+    "4990 Walking Stick Rd Apt H, Ellicott City, MD 21043"
+  ],
+  "collections_open": 3,
+  "collections_closed": 2,
+  "public_records": 0,
+  "revolving_open_count": 4,
+  "revolving_open_total": 6851,
+  "installment_open_count": 5,
+  "installment_open_total": 26884,
+  "credit_factors": [
+    {
+      "factor": "$2401 Unpaid Collection(s)",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "2 RE Lates in 0-3 mo",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "5 RE Lates in 4-6 mo",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "5 Rev Lates in 4-6 mo",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Current Lates (Vive Financial LLC, CITICARDS",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "6 Rev Lates in 12-24 mo",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "4 Over Limit Accnt",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Current Lates (LEAD BANK, and CAPITAL ONE",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Total Rev Usage > 90%",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Past Due Not Late",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Pay $5621 so Accts < 40%",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "3 Chrgd Off Rev Accts",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "3 Rev Lates in 0-3 mo",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "1 Charged Off Accts",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "1 Charged Off Acct",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No 3k+ Lines",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Light Open Rev Depth",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "2 RE Lates in 6-12 mo",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "1 Rev Late in 6-12 mo",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No Closed Rev Depth",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "2 RE Late in 12-24 mo",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "1 Too Many Retail Accounts",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "1 RE Late in 2-4 yrs",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Less than 5 yrs",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "3+ Closed Rev Accnts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Seasoned Closed Accounts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "No Open Mortgage",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "No Rev Acct Open 10K 2yr",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "1 Inq Last 4-5 mo",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "1 Total Inqs 4-5 mo",
+      "color": "black",
+      "hex": "#212529"
+    }
+  ],
+  "inquiries_last_6_months": 1,
+  "credit_card_open_totals": {
+    "color": "red",
+    "balance": 6851,
+    "limit": 7459,
+    "Percent": null,
+    "Payment": null
+  },
+  "monthly_payments": 1300,
+  "real_estate_open_count": 0,
+  "real_estate_open_total": 0,
+  "line_of_credit_accounts_open_count": 1,
+  "line_of_credit_accounts_open_total": 0,
+  "miscellaneous_accounts_open_count": 0,
+  "miscellaneous_accounts_open_total": 0,
+  "late_pays_2yr": 26,
+  "late_pays_gt2yr": 1,
+  "red_credit_factors_count": 14,
+  "green_credit_factors_count": 12,
+  "black_credit_factors_count": 4,
+  "credit_freeze": 0,
+  "fraud_alert": 0,
+  "deceased": 0
+}

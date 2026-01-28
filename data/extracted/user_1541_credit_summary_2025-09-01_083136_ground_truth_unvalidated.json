@@ -1,0 +1,486 @@
+{
+  "filename": "user_1541_credit_summary_2025-09-01_083136.pdf",
+  "source": "data/pdf_analysis/user_1541_credit_summary_2025-09-01_083136.pdf",
+  "credit_score": 645,
+  "credit_score_color": "red",
+  "age": 62,
+  "address": [
+    "10709 Marine View Dr, Mukilteo, WA 98275"
+  ],
+  "collections_open": 0,
+  "collections_closed": 0,
+  "public_records": 0,
+  "revolving_open_count": 38,
+  "revolving_open_total": 76087,
+  "installment_open_count": 2,
+  "installment_open_total": 111800,
+  "credit_factors": [
+    {
+      "factor": "2 Over Limit Accnt",
+      "color": "green",
+      "hex": "#428f4e",
+      "bbox": [
+        382.67999267578125,
+        165.8050079345703,
+        472.5390319824219,
+        180.91900634765625
+      ],
+      "page": 0,
+      "spans": [
+        {
+          "text": "2 Over Limit Accnt",
+          "hex": "#428f4e",
+          "rgb": [
+            66,
+            143,
+            78
+          ],
+          "bbox": [
+            382.67999267578125,
+            165.8050079345703,
+            472.5390319824219,
+            180.91900634765625
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "Total Rev Usage > 55%",
+      "color": "green",
+      "hex": "#428f4e",
+      "bbox": [
+        382.67999267578125,
+        182.8150177001953,
+        499.14801025390625,
+        197.92901611328125
+      ],
+      "page": 0,
+      "spans": [
+        {
+          "text": "Total Rev Usage > 55%",
+          "hex": "#428f4e",
+          "rgb": [
+            66,
+            143,
+            78
+          ],
+          "bbox": [
+            382.67999267578125,
+            182.8150177001953,
+            499.14801025390625,
+            197.92901611328125
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "Pay $30848 so Accts < 40%",
+      "color": "red",
+      "hex": "#dc3545",
+      "bbox": [
+        382.67999267578125,
+        199.8250274658203,
+        520.5650634765625,
+        214.93902587890625
+      ],
+      "page": 0,
+      "spans": [
+        {
+          "text": "Pay $30848 so Accts < 40%",
+          "hex": "#dc3545",
+          "rgb": [
+            220,
+            53,
+            69
+          ],
+          "bbox": [
+            382.67999267578125,
+            199.8250274658203,
+            520.5650634765625,
+            214.93902587890625
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "12 RE Lates in 2-4 yrs",
+      "color": "red",
+      "hex": "#dc3545",
+      "bbox": [
+        382.67999267578125,
+        216.83497619628906,
+        491.5030212402344,
+        231.948974609375
+      ],
+      "page": 0,
+      "spans": [
+        {
+          "text": "12 RE Lates in 2-4 yrs",
+          "hex": "#dc3545",
+          "rgb": [
+            220,
+            53,
+            69
+          ],
+          "bbox": [
+            382.67999267578125,
+            216.83497619628906,
+            491.5030212402344,
+            231.948974609375
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "Rev Bal > $60,000",
+      "color": "red",
+      "hex": "#dc3545",
+      "bbox": [
+        382.67999267578125,
+        233.84498596191406,
+        473.4850158691406,
+        248.958984375
+      ],
+      "page": 0,
+      "spans": [
+        {
+          "text": "Rev Bal > $60,000",
+          "hex": "#dc3545",
+          "rgb": [
+            220,
+            53,
+            69
+          ],
+          "bbox": [
+            382.67999267578125,
+            233.84498596191406,
+            473.4850158691406,
+            248.958984375
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "Less than 5 yrs",
+      "color": "red",
+      "hex": "#dc3545",
+      "bbox": [
+        382.67999267578125,
+        250.84498596191406,
+        457.2710266113281,
+        265.958984375
+      ],
+      "page": 0,
+      "spans": [
+        {
+          "text": "Less than 5 yrs",
+          "hex": "#dc3545",
+          "rgb": [
+            220,
+            53,
+            69
+          ],
+          "bbox": [
+            382.67999267578125,
+            250.84498596191406,
+            457.2710266113281,
+            265.958984375
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "7k+ line for 4+yrs",
+      "color": "green",
+      "hex": "#428f4e",
+      "bbox": [
+        382.67999267578125,
+        267.85498046875,
+        467.0500183105469,
+        282.968994140625
+      ],
+      "page": 0,
+      "spans": [
+        {
+          "text": "7k+ line for 4+yrs",
+          "hex": "#428f4e",
+          "rgb": [
+            66,
+            143,
+            78
+          ],
+          "bbox": [
+            382.67999267578125,
+            267.85498046875,
+            467.0500183105469,
+            282.968994140625
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "Ok Open Rev Depth",
+      "color": "green",
+      "hex": "#428f4e",
+      "bbox": [
+        382.67999267578125,
+        284.864990234375,
+        481.7240295410156,
+        299.97900390625
+      ],
+      "page": 0,
+      "spans": [
+        {
+          "text": "Ok Open Rev Depth",
+          "hex": "#428f4e",
+          "rgb": [
+            66,
+            143,
+            78
+          ],
+          "bbox": [
+            382.67999267578125,
+            284.864990234375,
+            481.7240295410156,
+            299.97900390625
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "3+ Closed Rev Accnts",
+      "color": "green",
+      "hex": "#428f4e",
+      "bbox": [
+        382.67999267578125,
+        301.875,
+        491.19500732421875,
+        316.989013671875
+      ],
+      "page": 0,
+      "spans": [
+        {
+          "text": "3+ Closed Rev Accnts",
+          "hex": "#428f4e",
+          "rgb": [
+            66,
+            143,
+            78
+          ],
+          "bbox": [
+            382.67999267578125,
+            301.875,
+            491.19500732421875,
+            316.989013671875
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "Good Closed Rev Depth",
+      "color": "green",
+      "hex": "#428f4e",
+      "bbox": [
+        382.67999267578125,
+        318.8849792480469,
+        501.8979797363281,
+        333.9989929199219
+      ],
+      "page": 0,
+      "spans": [
+        {
+          "text": "Good Closed Rev Depth",
+          "hex": "#428f4e",
+          "rgb": [
+            66,
+            143,
+            78
+          ],
+          "bbox": [
+            382.67999267578125,
+            318.8849792480469,
+            501.8979797363281,
+            333.9989929199219
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "7+ Closed RE Accounts",
+      "color": "green",
+      "hex": "#428f4e",
+      "bbox": [
+        382.67999267578125,
+        335.8849792480469,
+        499.14801025390625,
+        350.9989929199219
+      ],
+      "page": 0,
+      "spans": [
+        {
+          "text": "7+ Closed RE Accounts",
+          "hex": "#428f4e",
+          "rgb": [
+            66,
+            143,
+            78
+          ],
+          "bbox": [
+            382.67999267578125,
+            335.8849792480469,
+            499.14801025390625,
+            350.9989929199219
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "8+ Rev Accnts with Balances",
+      "color": "black",
+      "hex": "#212529",
+      "bbox": [
+        382.67999267578125,
+        369.9049987792969,
+        524.8220825195312,
+        385.0190124511719
+      ],
+      "page": 0,
+      "spans": [
+        {
+          "text": "8+ Rev Accnts with Balances",
+          "hex": "#212529",
+          "rgb": [
+            33,
+            37,
+            41
+          ],
+          "bbox": [
+            382.67999267578125,
+            369.9049987792969,
+            524.8220825195312,
+            385.0190124511719
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "Seasoned Closed Accounts",
+      "color": "black",
+      "hex": "#212529",
+      "bbox": [
+        382.67999267578125,
+        386.91497802734375,
+        517.803955078125,
+        402.02899169921875
+      ],
+      "page": 0,
+      "spans": [
+        {
+          "text": "Seasoned Closed Accounts",
+          "hex": "#212529",
+          "rgb": [
+            33,
+            37,
+            41
+          ],
+          "bbox": [
+            382.67999267578125,
+            386.91497802734375,
+            517.803955078125,
+            402.02899169921875
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "Drop Bad Auth User (BARCLAYS BANK DELAW",
+      "color": "black",
+      "hex": "#212529",
+      "bbox": [
+        382.67999267578125,
+        403.91497802734375,
+        621.6988525390625,
+        419.02899169921875
+      ],
+      "page": 0,
+      "spans": [
+        {
+          "text": "Drop Bad Auth User (BARCLAYS BANK DELAW",
+          "hex": "#212529",
+          "rgb": [
+            33,
+            37,
+            41
+          ],
+          "bbox": [
+            382.67999267578125,
+            403.91497802734375,
+            621.6988525390625,
+            419.02899169921875
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "No Rev Acct Open 10K 2yr",
+      "color": "black",
+      "hex": "#212529",
+      "bbox": [
+        382.67999267578125,
+        420.92498779296875,
+        514.7350463867188,
+        436.03900146484375
+      ],
+      "page": 0,
+      "spans": [
+        {
+          "text": "No Rev Acct Open 10K 2yr",
+          "hex": "#212529",
+          "rgb": [
+            33,
+            37,
+            41
+          ],
+          "bbox": [
+            382.67999267578125,
+            420.92498779296875,
+            514.7350463867188,
+            436.03900146484375
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "Paid Off 200k+ RE/RE",
+      "hex": "#428f4e",
+      "color": "green"
+    }
+  ],
+  "inquiries_last_6_months": 0,
+  "credit_card_open_totals": {
+    "color": "red",
+    "hex": "#dc3545",
+    "balance": 60032,
+    "limit": 78480,
+    "Percent": null,
+    "Payment": null
+  },
+  "monthly_payments": 6333,
+  "monthly_payments_color": "black",
+  "real_estate_open_count": 1,
+  "real_estate_open_total": 299776,
+  "line_of_credit_accounts_open_count": 0,
+  "line_of_credit_accounts_open_total": 0,
+  "miscellaneous_accounts_open_count": 0,
+  "miscellaneous_accounts_open_total": 0,
+  "inquiries_last_6_months_color": "black",
+  "late_pays_color": "black",
+  "late_pays_2yr": 0,
+  "late_pays_gt2yr": 12,
+  "red_credit_factors_count": 4,
+  "green_credit_factors_count": 8,
+  "black_credit_factors_count": 4,
+  "credit_freeze": 0,
+  "fraud_alert": 0,
+  "deceased": 0
+}

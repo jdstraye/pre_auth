@@ -1,0 +1,376 @@
+{
+  "filename": "user_586_credit_summary_2025-09-01_100622.pdf",
+  "source": "data/pdf_analysis/user_586_credit_summary_2025-09-01_100622.pdf",
+  "credit_score": 572,
+  "credit_score_color": "red",
+  "age": 44,
+  "address": [
+    "6069 Newington Pl, Suffolk, VA 23435"
+  ],
+  "collections_open": 1,
+  "collections_closed": 0,
+  "public_records": 0,
+  "revolving_open_count": 13,
+  "revolving_open_total": 54777,
+  "installment_open_count": 1,
+  "installment_open_total": 8836,
+  "credit_factors": [
+    {
+      "factor": "No",
+      "color": "black"
+    },
+    {
+      "factor": "Credit Freeze",
+      "color": "black"
+    },
+    {
+      "factor": "Fraud Alert",
+      "color": "black"
+    },
+    {
+      "factor": "Deceased",
+      "color": "black"
+    },
+    {
+      "factor": "Credit Factors",
+      "color": "black"
+    },
+    {
+      "factor": "$5063 Unpaid Collection(s)",
+      "color": "green"
+    },
+    {
+      "factor": "4 Rev Lates in 4-6 mo",
+      "color": "red"
+    },
+    {
+      "factor": "Current Lates (Bank of America, and BARCLAY",
+      "color": "green"
+    },
+    {
+      "factor": "2 Over Limit Accnt",
+      "color": "green"
+    },
+    {
+      "factor": "Total Rev Usage > 40%",
+      "color": "green"
+    },
+    {
+      "factor": "Past Due Not Late",
+      "color": "green"
+    },
+    {
+      "factor": "Pay $34445 so Accts < 40%",
+      "color": "red"
+    },
+    {
+      "factor": "5 Rev Lates in 0-3 mo",
+      "color": "red"
+    },
+    {
+      "factor": "1 Chrgd Off Rev Acct",
+      "color": "red"
+    },
+    {
+      "factor": "2 RE Lates in 4-6 mo",
+      "color": "red"
+    },
+    {
+      "factor": "1 RE Late in 0-3 mo",
+      "color": "red"
+    },
+    {
+      "factor": "Rev Bal > $50,000",
+      "color": "red"
+    },
+    {
+      "factor": "Less than 5 yrs",
+      "color": "red"
+    },
+    {
+      "factor": "7k+ line for 4+yrs",
+      "color": "green"
+    },
+    {
+      "factor": "Great Closed Rev Depth",
+      "color": "green"
+    },
+    {
+      "factor": "Existing Open Mortgage",
+      "color": "green"
+    },
+    {
+      "factor": "Ok Open Rev Depth",
+      "color": "green"
+    },
+    {
+      "factor": "3+ Closed Rev Accnts",
+      "color": "green"
+    },
+    {
+      "factor": "Closed Accnts Over 10k",
+      "color": "green"
+    },
+    {
+      "factor": "Paid Off 200k+ RE/RE",
+      "color": "green"
+    },
+    {
+      "factor": "Seasoned Closed Accounts",
+      "color": "green"
+    },
+    {
+      "factor": "8+ Rev Accnts with Balances",
+      "color": "black"
+    },
+    {
+      "factor": "Status",
+      "color": "black"
+    },
+    {
+      "factor": "Age",
+      "color": "black"
+    },
+    {
+      "factor": "$1,640 Balance",
+      "color": "red"
+    },
+    {
+      "factor": "Open",
+      "color": "black"
+    },
+    {
+      "factor": "$5,063 Account",
+      "color": "neutral"
+    },
+    {
+      "factor": "PENTAGON - BANKCARD",
+      "color": "black"
+    },
+    {
+      "factor": "$352 CITICARDS CBNA",
+      "color": "black"
+    },
+    {
+      "factor": "$98 JPMCB CARD SERVICES",
+      "color": "black"
+    },
+    {
+      "factor": "$359 BEST EGG",
+      "color": "black"
+    },
+    {
+      "factor": "$1936 Bank of America",
+      "color": "black"
+    },
+    {
+      "factor": "BARCLAYS BANK DELAWA Closed - 8/7/25",
+      "color": "black"
+    },
+    {
+      "factor": "U.S. Bank",
+      "color": "black"
+    },
+    {
+      "factor": "Limit",
+      "color": "black"
+    },
+    {
+      "factor": "$9,969 $15,000",
+      "color": "red"
+    },
+    {
+      "factor": "15%",
+      "color": "black"
+    },
+    {
+      "factor": "$364 I",
+      "color": "black"
+    },
+    {
+      "factor": "0%",
+      "color": "black"
+    },
+    {
+      "factor": "99%",
+      "color": "red"
+    },
+    {
+      "factor": "90%",
+      "color": "red"
+    },
+    {
+      "factor": "$2,752 $2,730 101%",
+      "color": "red"
+    },
+    {
+      "factor": "88%",
+      "color": "red"
+    },
+    {
+      "factor": "92%",
+      "color": "red"
+    },
+    {
+      "factor": "14%",
+      "color": "black"
+    },
+    {
+      "factor": "3%",
+      "color": "black"
+    },
+    {
+      "factor": "23%",
+      "color": "black"
+    },
+    {
+      "factor": "66%",
+      "color": "red"
+    },
+    {
+      "factor": "$2,897 $2,600 111%",
+      "color": "red"
+    },
+    {
+      "factor": "91%",
+      "color": "red"
+    },
+    {
+      "factor": "44%",
+      "color": "red"
+    },
+    {
+      "factor": "Revolving Accounts (Open)",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "4 Rev Lates in 4-6 mo",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Current Lates (Bank of America, and BARCLAY",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "2 Over Limit Accnt",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Current Lates (PENTAGON - BANKCARD, and",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Pay $34445 so Accts < 40%",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "5 Rev Lates in 0-3 mo",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "2 RE Lates in 4-6 mo",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Great Closed Rev Depth",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Existing Open Mortgage",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Ok Open Rev Depth",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "3+ Closed Rev Accnts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Seasoned Closed Accounts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Charged off account.",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Revolving Accounts",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "SYNCB/PAYPAL (Credit Card)",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "SHELLPOINT MORTGAGE  (Home Equity Line of Credit)",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "FREEDOM MORTGAGE (FHA Real Estate Mortgage)",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Revolving Accounts",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "FREEDOM MORTGAGE (FHA Real Estate Mortgage)",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "FLAGSTAR BANK (FHA Real Estate Mortgage)",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "CENLAR FEDERAL SAVIN (FHA Real Estate Mortgage)",
+      "color": "black",
+      "hex": "#212529"
+    }
+  ],
+  "inquiries_last_6_months": 0,
+  "credit_card_open_totals": {
+    "color": "red",
+    "balance": 54777,
+    "limit": 124380,
+    "Percent": null,
+    "Payment": null
+  },
+  "monthly_payments": 3663,
+  "real_estate_open_count": 1,
+  "real_estate_open_total": 212712,
+  "line_of_credit_accounts_open_count": 1,
+  "line_of_credit_accounts_open_total": 24964,
+  "miscellaneous_accounts_open_count": 0,
+  "miscellaneous_accounts_open_total": 0,
+  "late_pays_2yr": 11,
+  "late_pays_gt2yr": 0,
+  "red_credit_factors_count": 22,
+  "green_credit_factors_count": 22,
+  "black_credit_factors_count": 33,
+  "credit_freeze": 0,
+  "fraud_alert": 0,
+  "deceased": 0
+}

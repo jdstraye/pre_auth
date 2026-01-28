@@ -1,0 +1,86 @@
+{
+  "filename": "user_1210_credit_summary_2025-09-01_092133.pdf",
+  "source": "data/pdf_analysis/user_1210_credit_summary_2025-09-01_092133.pdf",
+  "credit_score": 650,
+  "credit_score_color": "neutral",
+  "age": 38,
+  "address": [
+    "2625 Pleasant St Apt 10, Oakland, CA 94602"
+  ],
+  "collections_open": 0,
+  "collections_closed": 0,
+  "public_records": 0,
+  "revolving_open_count": 0,
+  "revolving_open_total": 0,
+  "installment_open_count": 1,
+  "installment_open_total": 16508,
+  "credit_factors": [
+    {
+      "factor": "No Open 1k+ Lines",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No Open Rev Credit Lines",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No Revolving Accounts",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Avg Age Open",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No Closed Rev Depth",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "1 Inq Last 4 Mo",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Accounts Too New",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No Open Mortgage",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "No Rev Acct Open 10K 2yr",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "1 Total Inq 0-2 Mo",
+      "color": "black",
+      "hex": "#212529"
+    }
+  ],
+  "inquiries_last_6_months": 1,
+  "credit_card_open_totals": null,
+  "monthly_payments": 511,
+  "real_estate_open_count": 0,
+  "real_estate_open_total": 0,
+  "line_of_credit_accounts_open_count": 0,
+  "line_of_credit_accounts_open_total": 0,
+  "miscellaneous_accounts_open_count": 0,
+  "miscellaneous_accounts_open_total": 0,
+  "late_pays_2yr": 0,
+  "late_pays_gt2yr": 0,
+  "red_credit_factors_count": 7,
+  "green_credit_factors_count": 0,
+  "black_credit_factors_count": 3,
+  "credit_freeze": 0,
+  "fraud_alert": 0,
+  "deceased": 0
+}

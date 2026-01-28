@@ -1,0 +1,123 @@
+{
+  "filename": "user_1193_credit_summary_2025-09-01_105644.pdf",
+  "source": "data/pdf_analysis/user_1193_credit_summary_2025-09-01_105644.pdf",
+  "credit_score": 634,
+  "credit_score_color": "red",
+  "age": 65,
+  "address": [
+    "924 George St, Novato, CA 94945",
+    "50 Clausing Ct, Novato, CA 94945"
+  ],
+  "collections_open": 0,
+  "collections_closed": 0,
+  "public_records": 0,
+  "revolving_open_count": 11,
+  "revolving_open_total": 10125,
+  "installment_open_count": 6,
+  "installment_open_total": 207809,
+  "credit_factors": [
+    {
+      "factor": "Total Rev Usage > 40%",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Pay $4233 so Accts < 40%",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "2 Inq Last 4 Mo",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "1 Rev Late in 6-12 mo",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No Closed Rev Depth",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "1 Rev Late in 12-24 mo",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No 5k+ Lines",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "1 Rev Late in 2-4 yrs",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Less than 5 yrs",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Ok Open Rev Depth",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "3+ Closed Rev Accnts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Seasoned Closed Accounts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "8+ Rev Accnts with Balances",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "No Open Mortgage",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "No Rev Acct Open 10K 2yr",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Account",
+      "color": "black",
+      "hex": "#374151"
+    }
+  ],
+  "inquiries_last_6_months": 4,
+  "credit_card_open_totals": {
+    "color": "black",
+    "balance": 10125,
+    "limit": 18250,
+    "Percent": null,
+    "Payment": null
+  },
+  "monthly_payments": 5145,
+  "real_estate_open_count": 0,
+  "real_estate_open_total": 0,
+  "line_of_credit_accounts_open_count": 0,
+  "line_of_credit_accounts_open_total": 0,
+  "miscellaneous_accounts_open_count": 0,
+  "miscellaneous_accounts_open_total": 0,
+  "late_pays_2yr": 3,
+  "late_pays_gt2yr": 1,
+  "red_credit_factors_count": 8,
+  "green_credit_factors_count": 4,
+  "black_credit_factors_count": 4,
+  "credit_freeze": 0,
+  "fraud_alert": 0,
+  "deceased": 0
+}

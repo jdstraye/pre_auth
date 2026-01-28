@@ -1,0 +1,102 @@
+{
+  "filename": "user_1238_credit_summary_2025-09-01_092325.pdf",
+  "source": "data/pdf_analysis/user_1238_credit_summary_2025-09-01_092325.pdf",
+  "credit_score": 652,
+  "credit_score_color": "neutral",
+  "age": 47,
+  "address": [
+    "286 Durling Dr, Wadsworth, OH 44281",
+    "9997 Rittman Rd, Wadsworth, OH 44281"
+  ],
+  "collections_open": 1,
+  "collections_closed": 1,
+  "public_records": 1,
+  "revolving_open_count": 0,
+  "revolving_open_total": 0,
+  "installment_open_count": 2,
+  "installment_open_total": 1619,
+  "credit_factors": [
+    {
+      "factor": "$991 Unpaid Collections",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No Open 1k+ Lines",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No Open Rev Credit Lines",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No Revolving Accounts",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "BK w/ Neg Credit",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Wait for 6yr C-13 BK to be 7 yrs",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Avg Age Open",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No Closed Rev Depth",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "1 Chrgd Off Rev Acct",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No Open Mortgage",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "No Rev Acct Open 10K 2yr",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Balance",
+      "color": "black",
+      "hex": "#374151"
+    }
+  ],
+  "inquiries_last_6_months": 0,
+  "credit_card_open_totals": null,
+  "monthly_payments": 0,
+  "real_estate_open_count": 0,
+  "real_estate_open_total": 0,
+  "line_of_credit_accounts_open_count": 0,
+  "line_of_credit_accounts_open_total": 0,
+  "miscellaneous_accounts_open_count": 0,
+  "miscellaneous_accounts_open_total": 0,
+  "late_pays_2yr": 0,
+  "late_pays_gt2yr": 0,
+  "public_records_details": {
+    "detail": "Bankruptcy DISMSD/CLSD CH13 DISMSD/CLSD CH13",
+    "date": "2019-07-01",
+    "color": "red"
+  },
+  "red_credit_factors_count": 9,
+  "green_credit_factors_count": 0,
+  "black_credit_factors_count": 3,
+  "credit_freeze": 0,
+  "fraud_alert": 0,
+  "deceased": 0
+}

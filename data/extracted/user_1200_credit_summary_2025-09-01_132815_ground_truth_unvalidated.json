@@ -1,0 +1,155 @@
+{
+  "filename": "user_1200_credit_summary_2025-09-01_132815.pdf",
+  "source": "data/pdf_analysis/user_1200_credit_summary_2025-09-01_132815.pdf",
+  "credit_score": 782,
+  "credit_score_color": "green",
+  "age": 59,
+  "address": [
+    "3615 Bleckely St Apt 210, Mather, CA 95655"
+  ],
+  "collections_open": 0,
+  "collections_closed": 0,
+  "public_records": 0,
+  "revolving_open_count": 3,
+  "revolving_open_total": 1474,
+  "installment_open_count": 0,
+  "installment_open_total": 0,
+  "credit_factors": [
+    {
+      "factor": "No",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Credit Freeze",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Fraud Alert",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Deceased",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Credit Factors",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "No Open 1k+ Lines",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Too Few Open Rev Accounts",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "1 Too Many Retail Accounts",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "7k+ line for 4+yrs",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Ok Open Rev Depth",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Closed Accnts Over 10k",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "2+ Closed Rev Accnts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "No Open Mortgage",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Light Closed Rev Depth",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "No Rev Acct Open 10K 2yr",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Balance",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Limit",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "%",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Age",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "6%",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$175 J",
+      "color": "black"
+    },
+    {
+      "factor": "0%",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$0 I",
+      "color": "black"
+    }
+  ],
+  "inquiries_last_6_months": 0,
+  "credit_card_open_totals": {
+    "color": "black",
+    "balance": 1474,
+    "limit": 0,
+    "Percent": null,
+    "Payment": 175
+  },
+  "monthly_payments": 175,
+  "real_estate_open_count": 0,
+  "real_estate_open_total": 0,
+  "line_of_credit_accounts_open_count": 0,
+  "line_of_credit_accounts_open_total": 0,
+  "miscellaneous_accounts_open_count": 0,
+  "miscellaneous_accounts_open_total": 0,
+  "late_pays_2yr": 0,
+  "late_pays_gt2yr": 0,
+  "red_credit_factors_count": 3,
+  "green_credit_factors_count": 4,
+  "black_credit_factors_count": 16,
+  "credit_freeze": 0,
+  "fraud_alert": 0,
+  "deceased": 0
+}

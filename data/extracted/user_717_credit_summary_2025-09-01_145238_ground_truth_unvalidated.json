@@ -1,0 +1,724 @@
+{
+  "filename": "user_717_credit_summary_2025-09-01_145238.pdf",
+  "source": "data/pdf_analysis/user_717_credit_summary_2025-09-01_145238.pdf",
+  "credit_score": 663,
+  "credit_score_color": "neutral",
+  "age": 47,
+  "address": [
+    "4160 W Walsh Pl, Denver, CO 80219",
+    "4160 W Walsh Pl, Denver, CO 80219"
+  ],
+  "collections_open": 0,
+  "collections_closed": 0,
+  "public_records": 0,
+  "revolving_open_count": 2,
+  "revolving_open_total": 11184,
+  "installment_open_count": 3,
+  "installment_open_total": 53015,
+  "credit_factors": [
+    {
+      "factor": "1 Over Limit Accnt",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Total Rev Usage > 90%",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Pay $1529 so Accts < 40%",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No 3k+ Lines",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No Closed Rev Depth",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Too Few Open Rev Accounts",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Less than 5 yrs",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Ok Open Rev Depth",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "No Open Mortgage",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Drop Bad Auth User (JPMCB CARD SERVICES",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "No Rev Acct Open 10K 2yr",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Open Accounts",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Revolving Accounts",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Balance",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Limit",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "%",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Payment Resp",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Age",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "SYNCB/PAYPAL (Credit Card)",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$2,529",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$2,500 101%",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "$73",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "I",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Credit Card Open Totals: (No Retail)",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$2,529",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$2,500 101%",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$73",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Revolving Accounts - Authorized User",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Balance",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Limit",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "%",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Payment Resp",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Age",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "JPMCB CARD SERVICES (Flexible Spending Credit Card)",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$8,655",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$9,000",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "96%",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "$237",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "A",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Totals",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$8,655",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$9,000",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "96%",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$237",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Line of Credit Accounts",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Balance",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Limit",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Payment Resp",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Age",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "No Line of Credit Accounts",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Real Estate Accounts",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Balance",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Limit",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Payment Resp",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Age",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "No Real Estate Accounts",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Installment Accounts",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Balance",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Limit",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Payment Resp",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Age",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "DEPT OF ED/AIDVANTAG (Education Loan)",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$30,150",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$30,269",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$248",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "I",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "WESTLAKE FINANCIAL (Unsecured)",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$17,502",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$18,000",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$527",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "I",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "GS LOAN SRVC/BMO HAR (Unsecured)",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$5,363",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$8,832",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$144",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "J",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Totals",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$53,015",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$57,101",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$919",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Miscellaneous Accounts",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Balance",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Limit",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Payment Resp",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Age",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "No Miscellaneous Accounts",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Closed Accounts",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Revolving Accounts",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Balance",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Limit",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "%",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Payment Resp",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Age",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "No Revolving Accounts",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Line of Credit Accounts",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Balance",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Limit",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Payment Resp",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Age",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "No Line of Credit Accounts",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Real Estate Accounts",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Balance",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Limit",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Payment Resp",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Age",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "No Real Estate Accounts",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Installment Accounts",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Balance",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Limit",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Payment Resp",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Age",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "DEPT OF ED/AIDVANTAG (Education Loan)",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$30,150",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$30,269",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$248",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "I",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "WESTLAKE FINANCIAL (Unsecured)",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$17,502",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$18,000",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$527",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "I",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "GS LOAN SRVC/BMO HAR (Unsecured)",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$5,363",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$8,832",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$144",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "J",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Totals",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$53,015",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$57,101",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$919",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Miscellaneous Accounts",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Balance",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Limit",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Payment Resp",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Age",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "No Miscellaneous Accounts",
+      "color": "black",
+      "hex": "#212529"
+    }
+  ],
+  "inquiries_last_6_months": 0,
+  "monthly_payments": 992,
+  "real_estate_open_count": 0,
+  "real_estate_open_total": 0,
+  "line_of_credit_accounts_open_count": 0,
+  "line_of_credit_accounts_open_total": 0,
+  "miscellaneous_accounts_open_count": 0,
+  "miscellaneous_accounts_open_total": 0,
+  "inquiries_6mo": 0,
+  "late_pays_2yr": 0,
+  "late_pays_gt2yr": 0,
+  "credit_card_open_totals": {
+    "color": "black",
+    "balance": 2529,
+    "limit": 2500,
+    "Percent": 101,
+    "Payment": 73
+  },
+  "red_credit_factors_count": 7,
+  "green_credit_factors_count": 3,
+  "black_credit_factors_count": 126,
+  "credit_freeze": 0,
+  "fraud_alert": 0,
+  "deceased": 0
+}

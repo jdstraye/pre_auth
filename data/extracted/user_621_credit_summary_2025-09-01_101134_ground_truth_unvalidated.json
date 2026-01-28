@@ -1,0 +1,247 @@
+{
+  "filename": "user_621_credit_summary_2025-09-01_101134.pdf",
+  "source": "data/pdf_analysis/user_621_credit_summary_2025-09-01_101134.pdf",
+  "credit_score": 678,
+  "credit_score_color": "neutral",
+  "age": 64,
+  "address": [],
+  "collections_open": 0,
+  "collections_closed": 1,
+  "public_records": 0,
+  "revolving_open_count": 4,
+  "revolving_open_total": 34442,
+  "installment_open_count": 1,
+  "installment_open_total": 10450,
+  "credit_factors": [
+    {
+      "factor": "No",
+      "color": "black"
+    },
+    {
+      "factor": "Credit Freeze",
+      "color": "black"
+    },
+    {
+      "factor": "Fraud Alert",
+      "color": "black"
+    },
+    {
+      "factor": "Deceased",
+      "color": "black"
+    },
+    {
+      "factor": "Credit Factors",
+      "color": "black"
+    },
+    {
+      "factor": "1 Over Limit Accnt",
+      "color": "green"
+    },
+    {
+      "factor": "Total Rev Usage > 90%",
+      "color": "green"
+    },
+    {
+      "factor": "Pay $20154 so Accts < 40%",
+      "color": "red"
+    },
+    {
+      "factor": "1 Chrgd Off Rev Acct",
+      "color": "red"
+    },
+    {
+      "factor": "2 Rev Lates in 2-4 yrs",
+      "color": "red"
+    },
+    {
+      "factor": "7k+ line for 12+yrs",
+      "color": "green"
+    },
+    {
+      "factor": "Great Closed Rev Depth",
+      "color": "green"
+    },
+    {
+      "factor": "Ok Open Rev Depth",
+      "color": "green"
+    },
+    {
+      "factor": "3+ Closed Rev Accnts",
+      "color": "green"
+    },
+    {
+      "factor": "Closed Accnts Over 10k",
+      "color": "green"
+    },
+    {
+      "factor": "Seasoned Closed Accounts",
+      "color": "green"
+    },
+    {
+      "factor": "No Open Mortgage",
+      "color": "neutral"
+    },
+    {
+      "factor": "1 Inqs Fall Off In 30 Days",
+      "color": "black"
+    },
+    {
+      "factor": "Status",
+      "color": "black"
+    },
+    {
+      "factor": "Age",
+      "color": "black"
+    },
+    {
+      "factor": "Balance",
+      "color": "black"
+    },
+    {
+      "factor": "$0 Account",
+      "color": "neutral"
+    },
+    {
+      "factor": "WARREN FEDERAL CU",
+      "color": "black"
+    },
+    {
+      "factor": "Open",
+      "color": "black"
+    },
+    {
+      "factor": "SYNCB/PAYPAL",
+      "color": "black"
+    },
+    {
+      "factor": "Limit",
+      "color": "black"
+    },
+    {
+      "factor": "%",
+      "color": "black"
+    },
+    {
+      "factor": "0%",
+      "color": "black"
+    },
+    {
+      "factor": "$0 I",
+      "color": "black"
+    },
+    {
+      "factor": "45%",
+      "color": "red"
+    },
+    {
+      "factor": "26%",
+      "color": "black"
+    },
+    {
+      "factor": "$9,971 $9,700 103%",
+      "color": "red"
+    },
+    {
+      "factor": "96%",
+      "color": "red"
+    },
+    {
+      "factor": "Revolving Accounts (Open)",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "1 Over Limit Accnt",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Pay $20154 so Accts < 40%",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "2 Rev Lates in 2-4 yrs",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Great Closed Rev Depth",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Ok Open Rev Depth",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "3+ Closed Rev Accnts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Seasoned Closed Accounts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "No Open Mortgage",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Lates +2yr: 1/30",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Lates +2yr: 1/30",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "SYNCB/PAYPAL",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Revolving Accounts",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Revolving Accounts",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "SYNCB/PAYPAL (Credit Card)",
+      "color": "black",
+      "hex": "#212529"
+    }
+  ],
+  "inquiries_last_6_months": 1,
+  "credit_card_open_totals": {
+    "color": "black",
+    "balance": 35349,
+    "limit": 36700,
+    "Percent": null,
+    "Payment": null
+  },
+  "monthly_payments": 1552,
+  "real_estate_open_count": 0,
+  "real_estate_open_total": 0,
+  "line_of_credit_accounts_open_count": 1,
+  "line_of_credit_accounts_open_total": 907,
+  "miscellaneous_accounts_open_count": 0,
+  "miscellaneous_accounts_open_total": 0,
+  "late_pays_2yr": 0,
+  "late_pays_gt2yr": 2,
+  "red_credit_factors_count": 8,
+  "green_credit_factors_count": 13,
+  "black_credit_factors_count": 25,
+  "credit_freeze": 0,
+  "fraud_alert": 0,
+  "deceased": 0
+}

@@ -1,0 +1,228 @@
+{
+  "filename": "user_737_credit_summary_2025-09-01_104248.pdf",
+  "source": "data/pdf_analysis/user_737_credit_summary_2025-09-01_104248.pdf",
+  "credit_score": 593,
+  "credit_score_color": "red",
+  "age": 58,
+  "address": [
+    "65 Rossini Rd, Westerly, RI 02891",
+    "38 Bayside Ave, Groton, CT 06340"
+  ],
+  "collections_open": 1,
+  "collections_closed": 1,
+  "public_records": 0,
+  "revolving_open_count": 6,
+  "revolving_open_total": 4667,
+  "installment_open_count": 1,
+  "installment_open_total": 4750,
+  "credit_factors": [
+    {
+      "factor": "No",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Credit Freeze",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Fraud Alert",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Deceased",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Credit Factors",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "1 Unpaid Collection",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "2 Over Limit Accnt",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Total Rev Usage > 75%",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Past Due Not Late",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Pay $2719 so Accts < 40%",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No Open Rev Credit Lines",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "1 Charged Off Accts",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No 3k+ Lines",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "1 Chrgd Off Rev Acct",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "1 Rev Late in 6-12 mo",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No Closed Rev Depth",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "3 Rev Lates in 2-4 yrs",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Less than 5 yrs",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "2+ Closed Rev Accnts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "$344 Unpaid 1 Collection",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "No Open Mortgage",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "No Rev Acct Open 10K 2yr",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Status",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Age",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Balance",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Open",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$344 Closed - 10/30/21",
+      "color": "black"
+    },
+    {
+      "factor": "$0 Account",
+      "color": "neutral"
+    },
+    {
+      "factor": "JPMCB CARD SERVICES",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "CREDIT ONE BANK",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Limit",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "%",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "$734 $700 105%",
+      "color": "red"
+    },
+    {
+      "factor": "$59 I",
+      "color": "black"
+    },
+    {
+      "factor": "91%",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "$1,173 $1,050 112%",
+      "color": "red"
+    },
+    {
+      "factor": "86%",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "1%",
+      "color": "black",
+      "hex": "#212529"
+    }
+  ],
+  "inquiries_last_6_months": 0,
+  "credit_card_open_totals": {
+    "color": "black",
+    "balance": 4667,
+    "limit": 5450,
+    "Percent": null,
+    "Payment": null
+  },
+  "monthly_payments": 354,
+  "real_estate_open_count": 0,
+  "real_estate_open_total": 0,
+  "line_of_credit_accounts_open_count": 0,
+  "line_of_credit_accounts_open_total": 0,
+  "miscellaneous_accounts_open_count": 0,
+  "miscellaneous_accounts_open_total": 0,
+  "late_pays_2yr": 1,
+  "late_pays_gt2yr": 3,
+  "red_credit_factors_count": 13,
+  "green_credit_factors_count": 5,
+  "black_credit_factors_count": 19,
+  "credit_freeze": 0,
+  "fraud_alert": 0,
+  "deceased": 0
+}

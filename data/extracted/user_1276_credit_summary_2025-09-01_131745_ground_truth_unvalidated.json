@@ -1,0 +1,177 @@
+{
+  "filename": "user_1276_credit_summary_2025-09-01_131745.pdf",
+  "source": "data/pdf_analysis/user_1276_credit_summary_2025-09-01_131745.pdf",
+  "credit_score": 760,
+  "credit_score_color": "green",
+  "age": 47,
+  "address": [
+    "1450 Kingswood Dr Apt 393, Roseville, CA 95678"
+  ],
+  "collections_open": 0,
+  "collections_closed": 0,
+  "public_records": 0,
+  "revolving_open_count": 6,
+  "revolving_open_total": 25800,
+  "installment_open_count": 0,
+  "installment_open_total": 0,
+  "credit_factors": [
+    {
+      "factor": "7k+ line for 12+yrs",
+      "color": "green",
+      "src": "fb"
+    },
+    {
+      "factor": "Seasoned Closed Accounts",
+      "color": "green",
+      "src": "fb"
+    },
+    {
+      "factor": "Great Closed Rev Depth",
+      "color": "green",
+      "src": "fb"
+    },
+    {
+      "factor": "Ok Open Rev Depth",
+      "color": "green",
+      "src": "fb"
+    },
+    {
+      "factor": "3+ Closed Rev Accnts",
+      "color": "green",
+      "src": "fb"
+    },
+    {
+      "factor": "Closed Accnts Over 7.5k",
+      "color": "green",
+      "src": "fb"
+    },
+    {
+      "factor": "8+ Closed RE Accounts",
+      "color": "green",
+      "src": "fb"
+    },
+    {
+      "factor": "Paid Off 200k+ RE/RE",
+      "color": "green",
+      "src": "fb"
+    },
+    {
+      "factor": "No Open Mortgage",
+      "color": "black",
+      "src": "fb"
+    },
+    {
+      "factor": "Revolving Accounts",
+      "color": "black",
+      "src": "fb"
+    },
+    {
+      "factor": "WELLS FARGO CARD SER (Credit Card)",
+      "color": "black",
+      "src": "fb"
+    },
+    {
+      "factor": "CAPITAL ONE BANK USA (Credit Card)",
+      "color": "black",
+      "src": "fb"
+    },
+    {
+      "factor": "APPLE CARD - GS BANK (Credit Card)",
+      "color": "black",
+      "src": "fb"
+    },
+    {
+      "factor": "JPMCB CARD SERVICES (Flexible Spending Credit Card)",
+      "color": "black",
+      "src": "fb"
+    },
+    {
+      "factor": "Bank of America (Credit Card)",
+      "color": "black",
+      "src": "fb"
+    },
+    {
+      "factor": "Credit Card Open Totals: (No Retail)",
+      "color": "black",
+      "src": "fb"
+    },
+    {
+      "factor": "No Line of Credit Accounts",
+      "color": "black",
+      "src": "fb"
+    },
+    {
+      "factor": "Real Estate Accounts",
+      "color": "black",
+      "src": "fb"
+    },
+    {
+      "factor": "No Real Estate Accounts",
+      "color": "black",
+      "src": "fb"
+    },
+    {
+      "factor": "Installment Accounts",
+      "color": "black",
+      "src": "fb"
+    },
+    {
+      "factor": "No Installment Accounts",
+      "color": "black",
+      "src": "fb"
+    },
+    {
+      "factor": "Miscellaneous Accounts",
+      "color": "black",
+      "src": "fb"
+    },
+    {
+      "factor": "No Miscellaneous Accounts",
+      "color": "black",
+      "src": "fb"
+    },
+    {
+      "factor": "Closed Accounts",
+      "color": "black",
+      "src": "fb"
+    },
+    {
+      "factor": "SAFE CREDIT UNION (Credit Card)",
+      "color": "black",
+      "src": "fb"
+    },
+    {
+      "factor": "JPMCB CARD SERVICES (Credit Card)",
+      "color": "black",
+      "src": "fb"
+    },
+    {
+      "factor": "ROCKET MORTGAGE (Conventional RE Mortgage)",
+      "color": "black",
+      "src": "fb"
+    }
+  ],
+  "inquiries_last_6_months": 0,
+  "credit_card_open_totals": {
+    "color": "black",
+    "balance": 25800,
+    "limit": 65500,
+    "Percent": null,
+    "Payment": null
+  },
+  "monthly_payments": 855,
+  "real_estate_open_count": 0,
+  "real_estate_open_total": 0,
+  "line_of_credit_accounts_open_count": 0,
+  "line_of_credit_accounts_open_total": 0,
+  "miscellaneous_accounts_open_count": 0,
+  "miscellaneous_accounts_open_total": 0,
+  "late_pays_2yr": 0,
+  "late_pays_gt2yr": 0,
+  "red_credit_factors_count": 0,
+  "green_credit_factors_count": 8,
+  "black_credit_factors_count": 19,
+  "credit_freeze": 0,
+  "fraud_alert": 0,
+  "deceased": 0
+}

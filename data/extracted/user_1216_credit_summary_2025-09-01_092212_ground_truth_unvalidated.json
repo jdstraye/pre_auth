@@ -1,0 +1,128 @@
+{
+  "filename": "user_1216_credit_summary_2025-09-01_092212.pdf",
+  "source": "data/pdf_analysis/user_1216_credit_summary_2025-09-01_092212.pdf",
+  "credit_score": 557,
+  "credit_score_color": "red",
+  "age": 56,
+  "address": [
+    "2413 W Algonquin Rd, Algonquin, IL 60102",
+    "816 W Chase Ln, Palatine, IL 60067"
+  ],
+  "collections_open": 0,
+  "collections_closed": 1,
+  "public_records": 0,
+  "revolving_open_count": 3,
+  "revolving_open_total": 2737,
+  "installment_open_count": 1,
+  "installment_open_total": 25522,
+  "credit_factors": [
+    {
+      "factor": "Current Lates (CREDIT ONE BANK)",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "3 Over Limit Accnt",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Total Rev Usage > 90%",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Past Due Not Late",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Pay $1451 so Accts < 40%",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "3 Rev Lates in 0-3 mo",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "3 Rev Lates in 6-12 mo",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No Open 1k+ Lines",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "3 Rev Lates in 12-24 mo",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "1 Charged Off Acct",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Light Open Rev Depth",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No Closed Rev Depth",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "2 RE Late in 12-24 mo",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Avg Age Open",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "2+ Closed Rev Accnts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "No Open Mortgage",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "No Rev Acct Open 10K 2yr",
+      "color": "black",
+      "hex": "#212529"
+    }
+  ],
+  "inquiries_last_6_months": 0,
+  "credit_card_open_totals": {
+    "color": "red",
+    "balance": 2737,
+    "limit": 1500,
+    "Percent": 182,
+    "Payment": 160
+  },
+  "monthly_payments": 825,
+  "real_estate_open_count": 0,
+  "real_estate_open_total": 0,
+  "line_of_credit_accounts_open_count": 0,
+  "line_of_credit_accounts_open_total": 0,
+  "miscellaneous_accounts_open_count": 0,
+  "miscellaneous_accounts_open_total": 0,
+  "late_pays_2yr": 9,
+  "late_pays_gt2yr": 0,
+  "red_credit_factors_count": 10,
+  "green_credit_factors_count": 5,
+  "black_credit_factors_count": 2,
+  "credit_freeze": 0,
+  "fraud_alert": 0,
+  "deceased": 0
+}

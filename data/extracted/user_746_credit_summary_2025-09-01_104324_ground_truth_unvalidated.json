@@ -1,0 +1,243 @@
+{
+  "filename": "user_746_credit_summary_2025-09-01_104324.pdf",
+  "source": "data/pdf_analysis/user_746_credit_summary_2025-09-01_104324.pdf",
+  "credit_score": 651,
+  "credit_score_color": "neutral",
+  "age": 36,
+  "address": [
+    "2812 Hermosa Ave Apt 107, LA Crescenta, CA 91214"
+  ],
+  "collections_open": 0,
+  "collections_closed": 2,
+  "public_records": 0,
+  "revolving_open_count": 8,
+  "revolving_open_total": 13487,
+  "installment_open_count": 2,
+  "installment_open_total": 19535,
+  "credit_factors": [
+    {
+      "factor": "No",
+      "color": "black"
+    },
+    {
+      "factor": "Credit Freeze",
+      "color": "black"
+    },
+    {
+      "factor": "Fraud Alert",
+      "color": "black"
+    },
+    {
+      "factor": "Deceased",
+      "color": "black"
+    },
+    {
+      "factor": "Credit Factors",
+      "color": "black"
+    },
+    {
+      "factor": "Total Rev Usage > 75%",
+      "color": "green"
+    },
+    {
+      "factor": "Pay $7552 so Accts < 40%",
+      "color": "red"
+    },
+    {
+      "factor": "2 Chrgd Off Rev Accts",
+      "color": "red"
+    },
+    {
+      "factor": "No 5k+ Lines",
+      "color": "red"
+    },
+    {
+      "factor": "1 Rev Late in 2-4 yrs",
+      "color": "red"
+    },
+    {
+      "factor": "Less than 5 yrs",
+      "color": "red"
+    },
+    {
+      "factor": "Ok Open Rev Depth",
+      "color": "green"
+    },
+    {
+      "factor": "3+ Closed Rev Accnts",
+      "color": "green"
+    },
+    {
+      "factor": "No Open Mortgage",
+      "color": "neutral"
+    },
+    {
+      "factor": "Seasoned Closed Accounts",
+      "color": "green"
+    },
+    {
+      "factor": "Light Closed Rev Depth",
+      "color": "black"
+    },
+    {
+      "factor": "No Rev Acct Open 10K 2yr",
+      "color": "neutral"
+    },
+    {
+      "factor": "Status",
+      "color": "black"
+    },
+    {
+      "factor": "Age",
+      "color": "black"
+    },
+    {
+      "factor": "$468 Balance",
+      "color": "red"
+    },
+    {
+      "factor": "$0 Closed - 9/23/21",
+      "color": "black"
+    },
+    {
+      "factor": "$0 Account",
+      "color": "neutral"
+    },
+    {
+      "factor": "CAPITAL ONE BANK USA",
+      "color": "black"
+    },
+    {
+      "factor": "Open",
+      "color": "black"
+    },
+    {
+      "factor": "Limit",
+      "color": "black"
+    },
+    {
+      "factor": "$688 $2,200",
+      "color": "red"
+    },
+    {
+      "factor": "89%",
+      "color": "red"
+    },
+    {
+      "factor": "$59 I",
+      "color": "black"
+    },
+    {
+      "factor": "35%",
+      "color": "black"
+    },
+    {
+      "factor": "92%",
+      "color": "red"
+    },
+    {
+      "factor": "81%",
+      "color": "red"
+    },
+    {
+      "factor": "99%",
+      "color": "red"
+    },
+    {
+      "factor": "31%",
+      "color": "black"
+    },
+    {
+      "factor": "$13,487 $13,200 102%",
+      "color": "red"
+    },
+    {
+      "factor": "Revolving Accounts (Open)",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Pay $7552 so Accts < 40%",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No 5k+ Lines",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Ok Open Rev Depth",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "3+ Closed Rev Accnts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "No Open Mortgage",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Seasoned Closed Accounts",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Light Closed Rev Depth",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "No Rev Acct Open 10K 2yr",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Lates +2yr: 1/30",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Revolving Accounts",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "SYNCB/PAYPAL (Credit Card)",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Revolving Accounts",
+      "color": "black",
+      "hex": "#374151"
+    }
+  ],
+  "inquiries_last_6_months": 0,
+  "credit_card_open_totals": {
+    "color": "red",
+    "balance": 13487,
+    "limit": 13200,
+    "Percent": 102,
+    "Payment": 468
+  },
+  "monthly_payments": 909,
+  "real_estate_open_count": 0,
+  "real_estate_open_total": 0,
+  "line_of_credit_accounts_open_count": 0,
+  "line_of_credit_accounts_open_total": 0,
+  "miscellaneous_accounts_open_count": 0,
+  "miscellaneous_accounts_open_total": 0,
+  "late_pays_2yr": 0,
+  "late_pays_gt2yr": 1,
+  "red_credit_factors_count": 14,
+  "green_credit_factors_count": 6,
+  "black_credit_factors_count": 24,
+  "credit_freeze": 0,
+  "fraud_alert": 0,
+  "deceased": 0
+}

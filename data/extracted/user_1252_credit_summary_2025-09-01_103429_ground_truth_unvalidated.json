@@ -1,0 +1,117 @@
+{
+  "filename": "user_1252_credit_summary_2025-09-01_103429.pdf",
+  "source": "data/pdf_analysis/user_1252_credit_summary_2025-09-01_103429.pdf",
+  "credit_score": 671,
+  "credit_score_color": "neutral",
+  "age": 47,
+  "address": [
+    "330 Zion Church Rd, Pacolet, SC 29372"
+  ],
+  "collections_open": 0,
+  "collections_closed": 0,
+  "public_records": 0,
+  "revolving_open_count": 8,
+  "revolving_open_total": 12160,
+  "installment_open_count": 6,
+  "installment_open_total": 220759,
+  "credit_factors": [
+    {
+      "factor": "1 Over Limit Accnt",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Total Rev Usage > 90%",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Pay $18205 so Accts < 40%",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "15 Rev Lates in 2-4 yrs",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No 5k+ Lines",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "2 Too Many Retail Accounts",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "20k+ lines",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Ok Open Rev Depth",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "3+ Closed Rev Accnts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Paid Off 200k+ RE/RE",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Seasoned Closed Accounts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "8+ Rev Accnts with Balances",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "No Open Mortgage",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Light Closed Rev Depth",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "No Rev Acct Open 10K 2yr",
+      "color": "black",
+      "hex": "#212529"
+    }
+  ],
+  "inquiries_last_6_months": 0,
+  "credit_card_open_totals": {
+    "color": "black",
+    "balance": 33103,
+    "limit": 8200,
+    "Percent": 404,
+    "Payment": 1110
+  },
+  "monthly_payments": 4057,
+  "real_estate_open_count": 0,
+  "real_estate_open_total": 0,
+  "line_of_credit_accounts_open_count": 1,
+  "line_of_credit_accounts_open_total": 19999,
+  "miscellaneous_accounts_open_count": 1,
+  "miscellaneous_accounts_open_total": 944,
+  "late_pays_2yr": 0,
+  "late_pays_gt2yr": 15,
+  "red_credit_factors_count": 4,
+  "green_credit_factors_count": 7,
+  "black_credit_factors_count": 4,
+  "credit_freeze": 0,
+  "fraud_alert": 0,
+  "deceased": 0
+}

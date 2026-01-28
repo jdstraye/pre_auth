@@ -1,0 +1,775 @@
+{
+  "source_gt": "data/extracted/user_1314_credit_summary_2025-09-01_092724_ground_truth.json",
+  "mapped": [
+    {
+      "input_file": "data/extracted/user_1314_credit_summary_2025-09-01_092724_ground_truth.json",
+      "filename": "",
+      "credit_score": {
+        "value": 527,
+        "color": "red"
+      },
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "6 Charged Off Accts",
+      "color": "green",
+      "canonical_key": "",
+      "page": null,
+      "bbox": null,
+      "spans": null,
+      "match_type": "none",
+      "match_score": 0.0,
+      "notes": "no_extracted_lines"
+    },
+    {
+      "input_file": "data/extracted/user_1314_credit_summary_2025-09-01_092724_ground_truth.json",
+      "filename": "",
+      "credit_score": {
+        "value": 527,
+        "color": "red"
+      },
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "3 Charged Off Accts",
+      "color": "green",
+      "canonical_key": "",
+      "page": null,
+      "bbox": null,
+      "spans": null,
+      "match_type": "none",
+      "match_score": 0.0,
+      "notes": "no_extracted_lines"
+    },
+    {
+      "input_file": "data/extracted/user_1314_credit_summary_2025-09-01_092724_ground_truth.json",
+      "filename": "",
+      "credit_score": {
+        "value": 527,
+        "color": "red"
+      },
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "4 Charged Off Accts",
+      "color": "green",
+      "canonical_key": "",
+      "page": null,
+      "bbox": null,
+      "spans": null,
+      "match_type": "none",
+      "match_score": 0.0,
+      "notes": "no_extracted_lines"
+    },
+    {
+      "input_file": "data/extracted/user_1314_credit_summary_2025-09-01_092724_ground_truth.json",
+      "filename": "",
+      "credit_score": {
+        "value": 527,
+        "color": "red"
+      },
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "4 Unpaid Collection(s)",
+      "color": "green",
+      "canonical_key": "",
+      "page": null,
+      "bbox": null,
+      "spans": null,
+      "match_type": "none",
+      "match_score": 0.0,
+      "notes": "no_extracted_lines"
+    },
+    {
+      "input_file": "data/extracted/user_1314_credit_summary_2025-09-01_092724_ground_truth.json",
+      "filename": "",
+      "credit_score": {
+        "value": 527,
+        "color": "red"
+      },
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "$16320 Unpaid Collection(s)",
+      "color": "green",
+      "canonical_key": "",
+      "page": null,
+      "bbox": null,
+      "spans": null,
+      "match_type": "none",
+      "match_score": 0.0,
+      "notes": "no_extracted_lines"
+    },
+    {
+      "input_file": "data/extracted/user_1314_credit_summary_2025-09-01_092724_ground_truth.json",
+      "filename": "",
+      "credit_score": {
+        "value": 527,
+        "color": "red"
+      },
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "7 Over Limit Accnt",
+      "color": "green",
+      "canonical_key": "",
+      "page": null,
+      "bbox": null,
+      "spans": null,
+      "match_type": "none",
+      "match_score": 0.0,
+      "notes": "no_extracted_lines"
+    },
+    {
+      "input_file": "data/extracted/user_1314_credit_summary_2025-09-01_092724_ground_truth.json",
+      "filename": "",
+      "credit_score": {
+        "value": 527,
+        "color": "red"
+      },
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "Total Rev Usage > 90%",
+      "color": "green",
+      "canonical_key": "",
+      "page": null,
+      "bbox": null,
+      "spans": null,
+      "match_type": "none",
+      "match_score": 0.0,
+      "notes": "no_extracted_lines"
+    },
+    {
+      "input_file": "data/extracted/user_1314_credit_summary_2025-09-01_092724_ground_truth.json",
+      "filename": "",
+      "credit_score": {
+        "value": 527,
+        "color": "red"
+      },
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "Past Due Not Late",
+      "color": "green",
+      "canonical_key": "",
+      "page": null,
+      "bbox": null,
+      "spans": null,
+      "match_type": "none",
+      "match_score": 0.0,
+      "notes": "no_extracted_lines"
+    },
+    {
+      "input_file": "data/extracted/user_1314_credit_summary_2025-09-01_092724_ground_truth.json",
+      "filename": "",
+      "credit_score": {
+        "value": 527,
+        "color": "red"
+      },
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "Pay $12355 so Accts < 40%",
+      "color": "red",
+      "canonical_key": "",
+      "page": null,
+      "bbox": null,
+      "spans": null,
+      "match_type": "none",
+      "match_score": 0.0,
+      "notes": "no_extracted_lines"
+    },
+    {
+      "input_file": "data/extracted/user_1314_credit_summary_2025-09-01_092724_ground_truth.json",
+      "filename": "",
+      "credit_score": {
+        "value": 527,
+        "color": "red"
+      },
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "8 Chrgd Off Rev Accts",
+      "color": "red",
+      "canonical_key": "",
+      "page": null,
+      "bbox": null,
+      "spans": null,
+      "match_type": "none",
+      "match_score": 0.0,
+      "notes": "no_extracted_lines"
+    },
+    {
+      "input_file": "data/extracted/user_1314_credit_summary_2025-09-01_092724_ground_truth.json",
+      "filename": "",
+      "credit_score": {
+        "value": 527,
+        "color": "red"
+      },
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "2 Rev Lates in 4-6 mo",
+      "color": "red",
+      "canonical_key": "",
+      "page": null,
+      "bbox": null,
+      "spans": null,
+      "match_type": "none",
+      "match_score": 0.0,
+      "notes": "no_extracted_lines"
+    },
+    {
+      "input_file": "data/extracted/user_1314_credit_summary_2025-09-01_092724_ground_truth.json",
+      "filename": "",
+      "credit_score": {
+        "value": 527,
+        "color": "red"
+      },
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "2 Rev Lates in 6-12 mo",
+      "color": "red",
+      "canonical_key": "",
+      "page": null,
+      "bbox": null,
+      "spans": null,
+      "match_type": "none",
+      "match_score": 0.0,
+      "notes": "no_extracted_lines"
+    },
+    {
+      "input_file": "data/extracted/user_1314_credit_summary_2025-09-01_092724_ground_truth.json",
+      "filename": "",
+      "credit_score": {
+        "value": 527,
+        "color": "red"
+      },
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "$3029 Unpaid Collections",
+      "color": "red",
+      "canonical_key": "",
+      "page": null,
+      "bbox": null,
+      "spans": null,
+      "match_type": "none",
+      "match_score": 0.0,
+      "notes": "no_extracted_lines"
+    },
+    {
+      "input_file": "data/extracted/user_1314_credit_summary_2025-09-01_092724_ground_truth.json",
+      "filename": "",
+      "credit_score": {
+        "value": 527,
+        "color": "red"
+      },
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "4 Rev Lates in 2-4 yrs",
+      "color": "red",
+      "canonical_key": "",
+      "page": null,
+      "bbox": null,
+      "spans": null,
+      "match_type": "none",
+      "match_score": 0.0,
+      "notes": "no_extracted_lines"
+    },
+    {
+      "input_file": "data/extracted/user_1314_credit_summary_2025-09-01_092724_ground_truth.json",
+      "filename": "",
+      "credit_score": {
+        "value": 527,
+        "color": "red"
+      },
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "1 RE Late in 4-6 mo",
+      "color": "red",
+      "canonical_key": "",
+      "page": null,
+      "bbox": null,
+      "spans": null,
+      "match_type": "none",
+      "match_score": 0.0,
+      "notes": "no_extracted_lines"
+    },
+    {
+      "input_file": "data/extracted/user_1314_credit_summary_2025-09-01_092724_ground_truth.json",
+      "filename": "",
+      "credit_score": {
+        "value": 527,
+        "color": "red"
+      },
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "No 5k+ Lines",
+      "color": "red",
+      "canonical_key": "",
+      "page": null,
+      "bbox": null,
+      "spans": null,
+      "match_type": "none",
+      "match_score": 0.0,
+      "notes": "no_extracted_lines"
+    },
+    {
+      "input_file": "data/extracted/user_1314_credit_summary_2025-09-01_092724_ground_truth.json",
+      "filename": "",
+      "credit_score": {
+        "value": 527,
+        "color": "red"
+      },
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "1 Chrgd Off RE Acct",
+      "color": "red",
+      "canonical_key": "",
+      "page": null,
+      "bbox": null,
+      "spans": null,
+      "match_type": "none",
+      "match_score": 0.0,
+      "notes": "no_extracted_lines"
+    },
+    {
+      "input_file": "data/extracted/user_1314_credit_summary_2025-09-01_092724_ground_truth.json",
+      "filename": "",
+      "credit_score": {
+        "value": 527,
+        "color": "red"
+      },
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "1 Inq Last 4 Mo",
+      "color": "red",
+      "canonical_key": "",
+      "page": null,
+      "bbox": null,
+      "spans": null,
+      "match_type": "none",
+      "match_score": 0.0,
+      "notes": "no_extracted_lines"
+    },
+    {
+      "input_file": "data/extracted/user_1314_credit_summary_2025-09-01_092724_ground_truth.json",
+      "filename": "",
+      "credit_score": {
+        "value": 527,
+        "color": "red"
+      },
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "Less than 5 yrs",
+      "color": "red",
+      "canonical_key": "",
+      "page": null,
+      "bbox": null,
+      "spans": null,
+      "match_type": "none",
+      "match_score": 0.0,
+      "notes": "no_extracted_lines"
+    },
+    {
+      "input_file": "data/extracted/user_1314_credit_summary_2025-09-01_092724_ground_truth.json",
+      "filename": "",
+      "credit_score": {
+        "value": 527,
+        "color": "red"
+      },
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "Great Closed Rev Depth",
+      "color": "green",
+      "canonical_key": "",
+      "page": null,
+      "bbox": null,
+      "spans": null,
+      "match_type": "none",
+      "match_score": 0.0,
+      "notes": "no_extracted_lines"
+    },
+    {
+      "input_file": "data/extracted/user_1314_credit_summary_2025-09-01_092724_ground_truth.json",
+      "filename": "",
+      "credit_score": {
+        "value": 527,
+        "color": "red"
+      },
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "Ok Open Rev Depth",
+      "color": "green",
+      "canonical_key": "",
+      "page": null,
+      "bbox": null,
+      "spans": null,
+      "match_type": "none",
+      "match_score": 0.0,
+      "notes": "no_extracted_lines"
+    },
+    {
+      "input_file": "data/extracted/user_1314_credit_summary_2025-09-01_092724_ground_truth.json",
+      "filename": "",
+      "credit_score": {
+        "value": 527,
+        "color": "red"
+      },
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "3+ Closed Rev Accnts",
+      "color": "green",
+      "canonical_key": "",
+      "page": null,
+      "bbox": null,
+      "spans": null,
+      "match_type": "none",
+      "match_score": 0.0,
+      "notes": "no_extracted_lines"
+    },
+    {
+      "input_file": "data/extracted/user_1314_credit_summary_2025-09-01_092724_ground_truth.json",
+      "filename": "",
+      "credit_score": {
+        "value": 527,
+        "color": "red"
+      },
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "Military Affiliated",
+      "color": "green",
+      "canonical_key": "",
+      "page": null,
+      "bbox": null,
+      "spans": null,
+      "match_type": "none",
+      "match_score": 0.0,
+      "notes": "no_extracted_lines"
+    },
+    {
+      "input_file": "data/extracted/user_1314_credit_summary_2025-09-01_092724_ground_truth.json",
+      "filename": "",
+      "credit_score": {
+        "value": 527,
+        "color": "red"
+      },
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "Seasoned Closed Accounts",
+      "color": "green",
+      "canonical_key": "",
+      "page": null,
+      "bbox": null,
+      "spans": null,
+      "match_type": "none",
+      "match_score": 0.0,
+      "notes": "no_extracted_lines"
+    },
+    {
+      "input_file": "data/extracted/user_1314_credit_summary_2025-09-01_092724_ground_truth.json",
+      "filename": "",
+      "credit_score": {
+        "value": 527,
+        "color": "red"
+      },
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "Closed Accnts Over 5k",
+      "color": "green",
+      "canonical_key": "",
+      "page": null,
+      "bbox": null,
+      "spans": null,
+      "match_type": "none",
+      "match_score": 0.0,
+      "notes": "no_extracted_lines"
+    },
+    {
+      "input_file": "data/extracted/user_1314_credit_summary_2025-09-01_092724_ground_truth.json",
+      "filename": "",
+      "credit_score": {
+        "value": 527,
+        "color": "red"
+      },
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "8+ Rev Accnts with Balances",
+      "color": "black",
+      "canonical_key": "",
+      "page": null,
+      "bbox": null,
+      "spans": null,
+      "match_type": "none",
+      "match_score": 0.0,
+      "notes": "no_extracted_lines"
+    },
+    {
+      "input_file": "data/extracted/user_1314_credit_summary_2025-09-01_092724_ground_truth.json",
+      "filename": "",
+      "credit_score": {
+        "value": 527,
+        "color": "red"
+      },
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "In Credit Counseling",
+      "color": "black",
+      "canonical_key": "",
+      "page": null,
+      "bbox": null,
+      "spans": null,
+      "match_type": "none",
+      "match_score": 0.0,
+      "notes": "no_extracted_lines"
+    },
+    {
+      "input_file": "data/extracted/user_1314_credit_summary_2025-09-01_092724_ground_truth.json",
+      "filename": "",
+      "credit_score": {
+        "value": 527,
+        "color": "red"
+      },
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "No Open Mortgage",
+      "color": "black",
+      "canonical_key": "",
+      "page": null,
+      "bbox": null,
+      "spans": null,
+      "match_type": "none",
+      "match_score": 0.0,
+      "notes": "no_extracted_lines"
+    },
+    {
+      "input_file": "data/extracted/user_1314_credit_summary_2025-09-01_092724_ground_truth.json",
+      "filename": "",
+      "credit_score": {
+        "value": 527,
+        "color": "red"
+      },
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "1 Rev Late in 4+ yrs",
+      "color": "black",
+      "canonical_key": "",
+      "page": null,
+      "bbox": null,
+      "spans": null,
+      "match_type": "none",
+      "match_score": 0.0,
+      "notes": "no_extracted_lines"
+    },
+    {
+      "input_file": "data/extracted/user_1314_credit_summary_2025-09-01_092724_ground_truth.json",
+      "filename": "",
+      "credit_score": {
+        "value": 527,
+        "color": "red"
+      },
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "Drop Bad Auth User (BEST BUY/CBNA, and CO",
+      "color": "black",
+      "canonical_key": "",
+      "page": null,
+      "bbox": null,
+      "spans": null,
+      "match_type": "none",
+      "match_score": 0.0,
+      "notes": "no_extracted_lines"
+    },
+    {
+      "input_file": "data/extracted/user_1314_credit_summary_2025-09-01_092724_ground_truth.json",
+      "filename": "",
+      "credit_score": {
+        "value": 527,
+        "color": "red"
+      },
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "No Rev Acct Open 10K 2yr",
+      "color": "black",
+      "canonical_key": "",
+      "page": null,
+      "bbox": null,
+      "spans": null,
+      "match_type": "none",
+      "match_score": 0.0,
+      "notes": "no_extracted_lines"
+    },
+    {
+      "input_file": "data/extracted/user_1314_credit_summary_2025-09-01_092724_ground_truth.json",
+      "filename": "",
+      "credit_score": {
+        "value": 527,
+        "color": "red"
+      },
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "1 Inq last 2-4 Mo",
+      "color": "black",
+      "canonical_key": "",
+      "page": null,
+      "bbox": null,
+      "spans": null,
+      "match_type": "none",
+      "match_score": 0.0,
+      "notes": "no_extracted_lines"
+    },
+    {
+      "input_file": "data/extracted/user_1314_credit_summary_2025-09-01_092724_ground_truth.json",
+      "filename": "",
+      "credit_score": {
+        "value": 527,
+        "color": "red"
+      },
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "1 Inq Last 4-5 mo",
+      "color": "black",
+      "canonical_key": "",
+      "page": null,
+      "bbox": null,
+      "spans": null,
+      "match_type": "none",
+      "match_score": 0.0,
+      "notes": "no_extracted_lines"
+    },
+    {
+      "input_file": "data/extracted/user_1314_credit_summary_2025-09-01_092724_ground_truth.json",
+      "filename": "",
+      "credit_score": {
+        "value": 527,
+        "color": "red"
+      },
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "1 Total Inq 2-4 Mo",
+      "color": "black",
+      "canonical_key": "",
+      "page": null,
+      "bbox": null,
+      "spans": null,
+      "match_type": "none",
+      "match_score": 0.0,
+      "notes": "no_extracted_lines"
+    },
+    {
+      "input_file": "data/extracted/user_1314_credit_summary_2025-09-01_092724_ground_truth.json",
+      "filename": "",
+      "credit_score": {
+        "value": 527,
+        "color": "red"
+      },
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "1 Total Inqs 4-5 Mo",
+      "color": "black",
+      "canonical_key": "",
+      "page": null,
+      "bbox": null,
+      "spans": null,
+      "match_type": "none",
+      "match_score": 0.0,
+      "notes": "no_extracted_lines"
+    }
+  ]
+}

@@ -1,0 +1,143 @@
+{
+  "filename": "user_1250_credit_summary_2025-09-01_095551.pdf",
+  "source": "data/pdf_analysis/user_1250_credit_summary_2025-09-01_095551.pdf",
+  "credit_score": 632,
+  "credit_score_color": "red",
+  "age": 74,
+  "address": [
+    "15888 Sw 95th Ave, Miami, FL 33157",
+    "15888 Sw 95th Ave Apt 203, Miami, FL 33157"
+  ],
+  "collections_open": 2,
+  "collections_closed": 1,
+  "public_records": 0,
+  "revolving_open_count": 12,
+  "revolving_open_total": 6980,
+  "installment_open_count": 1,
+  "installment_open_total": 4169,
+  "credit_factors": [
+    {
+      "factor": "2 Charged Off Accts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "2 Unpaid Collection(s)",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "$672 Unpaid Collection(s)",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "2 Over Limit Accnt",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Past Due Not Late",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "3 Rev Lates in 12-24 mo",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "12 Rev Lates in 2-4 yrs",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "1 Charged Off Acct",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "1 Rev Late in 6-12 mo",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No 7.5k+ Lines",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "$672 Unpaid Collections",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "2 Rev Lates in 4+ yrs",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "7k+ line for 4+yrs",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Ok Open Rev Depth",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Good Closed Rev Depth",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "3+ Closed Rev Accnts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "10+ Closed RE Accounts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "No Open Mortgage",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Seasoned Closed Accounts",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "No Rev Acct Open 10K 2yr",
+      "color": "black",
+      "hex": "#212529"
+    }
+  ],
+  "inquiries_last_6_months": 0,
+  "credit_card_open_totals": {
+    "color": "red",
+    "balance": 6980,
+    "limit": 18350,
+    "Percent": null,
+    "Payment": null
+  },
+  "monthly_payments": 710,
+  "real_estate_open_count": 0,
+  "real_estate_open_total": 0,
+  "line_of_credit_accounts_open_count": 0,
+  "line_of_credit_accounts_open_total": 0,
+  "miscellaneous_accounts_open_count": 0,
+  "miscellaneous_accounts_open_total": 0,
+  "late_pays_2yr": 5,
+  "late_pays_gt2yr": 14,
+  "red_credit_factors_count": 7,
+  "green_credit_factors_count": 10,
+  "black_credit_factors_count": 3,
+  "credit_freeze": 0,
+  "fraud_alert": 0,
+  "deceased": 0
+}

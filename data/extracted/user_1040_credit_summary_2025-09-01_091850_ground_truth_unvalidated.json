@@ -1,0 +1,158 @@
+{
+  "filename": "user_1040_credit_summary_2025-09-01_091850.pdf",
+  "source": "data/pdf_analysis/user_1040_credit_summary_2025-09-01_091850.pdf",
+  "credit_score": 545,
+  "credit_score_color": "red",
+  "age": 43,
+  "address": [
+    "15313 Cabrito Rd, Van Nuys, CA 91406",
+    "15313 Cabrito Rd Apt 206, Van Nuys, CA 91406"
+  ],
+  "collections_open": 5,
+  "collections_closed": 0,
+  "public_records": 0,
+  "revolving_open_count": 4,
+  "revolving_open_total": 6368,
+  "installment_open_count": 2,
+  "installment_open_total": 80702,
+  "credit_factors": [
+    {
+      "factor": "2 Charged Off Accts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "2 Unpaid Collection(s)",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "$9570 Unpaid Collection(s)",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "6 RE Lates in 6-12 mo",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "3 Over Limit Accnt",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Total Rev Usage > 90%",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Past Due Not Late",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Pay $4747 so Accts < 40%",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "3 Chrgd Off Rev Accts",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No Open Rev Credit Lines",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "11 RE Lates in 12-24 mo",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "2 RE Lates in 4-6 mo",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No 3k+ Lines",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "$3384 Unpaid Collections",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "25 RE Lates in 2-4 yrs",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No Closed Rev Depth",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Avg Age Open",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "2 Rev Lates in 2-4 yrs",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Seasoned Closed Accounts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "3+ Closed Rev Accnts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Military Affiliated",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "No Open Mortgage",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "No Rev Acct Open 10K 2yr",
+      "color": "black",
+      "hex": "#212529"
+    }
+  ],
+  "inquiries_last_6_months": 0,
+  "credit_card_open_totals": {
+    "color": "black",
+    "balance": 6747,
+    "limit": 5127,
+    "Percent": 132,
+    "Payment": 105
+  },
+  "monthly_payments": 885,
+  "real_estate_open_count": 0,
+  "real_estate_open_total": 0,
+  "line_of_credit_accounts_open_count": 1,
+  "line_of_credit_accounts_open_total": 379,
+  "miscellaneous_accounts_open_count": 1,
+  "miscellaneous_accounts_open_total": 0,
+  "late_pays_2yr": 19,
+  "late_pays_gt2yr": 27,
+  "red_credit_factors_count": 11,
+  "green_credit_factors_count": 10,
+  "black_credit_factors_count": 2,
+  "credit_freeze": 0,
+  "fraud_alert": 0,
+  "deceased": 0
+}

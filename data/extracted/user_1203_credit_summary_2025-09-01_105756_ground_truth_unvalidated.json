@@ -1,0 +1,98 @@
+{
+  "filename": "user_1203_credit_summary_2025-09-01_105756.pdf",
+  "source": "data/pdf_analysis/user_1203_credit_summary_2025-09-01_105756.pdf",
+  "credit_score": 622,
+  "credit_score_color": "red",
+  "age": 48,
+  "address": [
+    "1325 Royal St, Arvin, CA 93203",
+    "6744 Woodley Ave Apt 10, Van Nuys, CA 91406"
+  ],
+  "collections_open": 0,
+  "collections_closed": 0,
+  "public_records": 0,
+  "revolving_open_count": 3,
+  "revolving_open_total": 77,
+  "installment_open_count": 0,
+  "installment_open_total": 0,
+  "credit_factors": [
+    {
+      "factor": "Past Due Not Late",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "1 Rev Late in 0-3 mo",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No Open 1k+ Lines",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No Open Rev Credit Lines",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Too Few Open Rev Accounts",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "1 Too Many Retail Accounts",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "3+ Closed Rev Accnts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Seasoned Closed Accounts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Ok Closed Rev Depth",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "No Open Mortgage",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "No Rev Acct Open 10K 2yr",
+      "color": "black",
+      "hex": "#212529"
+    }
+  ],
+  "inquiries_last_6_months": 0,
+  "credit_card_open_totals": {
+    "color": "black",
+    "balance": 77,
+    "limit": 0,
+    "Percent": null,
+    "Payment": 32
+  },
+  "monthly_payments": 32,
+  "real_estate_open_count": 0,
+  "real_estate_open_total": 0,
+  "line_of_credit_accounts_open_count": 0,
+  "line_of_credit_accounts_open_total": 0,
+  "miscellaneous_accounts_open_count": 0,
+  "miscellaneous_accounts_open_total": 0,
+  "late_pays_2yr": 1,
+  "late_pays_gt2yr": 0,
+  "red_credit_factors_count": 5,
+  "green_credit_factors_count": 4,
+  "black_credit_factors_count": 2,
+  "credit_freeze": 0,
+  "fraud_alert": 0,
+  "deceased": 0
+}

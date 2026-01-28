@@ -1,0 +1,102 @@
+{
+  "filename": "user_573_credit_summary_2025-09-01_100658.pdf",
+  "source": "data/pdf_analysis/user_573_credit_summary_2025-09-01_100658.pdf",
+  "credit_score": 728,
+  "credit_score_color": "neutral",
+  "age": 50,
+  "address": [
+    "6351 S Patsburg Ct, Aurora, CO 80016"
+  ],
+  "collections_open": 0,
+  "collections_closed": 1,
+  "public_records": 0,
+  "revolving_open_count": 6,
+  "revolving_open_total": 37417,
+  "installment_open_count": 1,
+  "installment_open_total": 40150,
+  "credit_factors": [
+    {
+      "factor": "3 RE Lates in 12-24 mo",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "1 Paid Collection",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "7k+ line for 4+yrs",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Existing Open Mortgage",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Seasoned Closed Accounts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Ok Open Rev Depth",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "3+ Closed Rev Accnts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Closed Accnts Over 7.5k",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "6+ Closed RE Accounts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Light Closed Rev Depth",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Drop Bad Auth User (WELLS FARGO CARD S",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Balance",
+      "color": "black",
+      "hex": "#374151"
+    }
+  ],
+  "inquiries_last_6_months": 0,
+  "credit_card_open_totals": {
+    "color": "black",
+    "balance": 803,
+    "limit": 30000,
+    "Percent": null,
+    "Payment": null
+  },
+  "monthly_payments": 3834,
+  "real_estate_open_count": 1,
+  "real_estate_open_total": 368679,
+  "line_of_credit_accounts_open_count": 0,
+  "line_of_credit_accounts_open_total": 0,
+  "miscellaneous_accounts_open_count": 0,
+  "miscellaneous_accounts_open_total": 0,
+  "late_pays_2yr": 3,
+  "late_pays_gt2yr": 0,
+  "red_credit_factors_count": 2,
+  "green_credit_factors_count": 7,
+  "black_credit_factors_count": 3,
+  "credit_freeze": 0,
+  "fraud_alert": 0,
+  "deceased": 0
+}

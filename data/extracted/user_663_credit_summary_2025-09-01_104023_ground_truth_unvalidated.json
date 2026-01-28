@@ -1,0 +1,113 @@
+{
+  "filename": "user_663_credit_summary_2025-09-01_104023.pdf",
+  "source": "data/pdf_analysis/user_663_credit_summary_2025-09-01_104023.pdf",
+  "credit_score": 662,
+  "credit_score_color": "neutral",
+  "age": 34,
+  "address": [
+    "7410 W Selma Ave, Summit Argo, IL 60501",
+    "9405 Congress Park Ave, Brookfield, IL 60513"
+  ],
+  "collections_open": 0,
+  "collections_closed": 0,
+  "public_records": 0,
+  "revolving_open_count": 9,
+  "revolving_open_total": 9326,
+  "installment_open_count": 2,
+  "installment_open_total": 26047,
+  "credit_factors": [
+    {
+      "factor": "1 Over Limit Accnt",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Total Rev Usage > 75%",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Pay $4844 so Accts < 40%",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "2 Inq Last 4 Mo",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Light Open Rev Depth",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No Closed Rev Depth",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Avg Age Open",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No 5k+ Lines",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "2+ Closed Rev Accnts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "No Open Mortgage",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "No Rev Acct Open 10K 2yr",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "1 Inq last 2-4 Mo",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "1 Total Inq 0-2 Mo",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "1 Total Inq 2-4 Mo",
+      "color": "black",
+      "hex": "#212529"
+    }
+  ],
+  "inquiries_last_6_months": 2,
+  "credit_card_open_totals": {
+    "color": "red",
+    "balance": 9326,
+    "limit": 10750,
+    "Percent": null,
+    "Payment": null
+  },
+  "monthly_payments": 957,
+  "real_estate_open_count": 0,
+  "real_estate_open_total": 0,
+  "line_of_credit_accounts_open_count": 0,
+  "line_of_credit_accounts_open_total": 0,
+  "miscellaneous_accounts_open_count": 0,
+  "miscellaneous_accounts_open_total": 0,
+  "late_pays_2yr": 0,
+  "late_pays_gt2yr": 0,
+  "red_credit_factors_count": 6,
+  "green_credit_factors_count": 3,
+  "black_credit_factors_count": 5,
+  "credit_freeze": 0,
+  "fraud_alert": 0,
+  "deceased": 0
+}

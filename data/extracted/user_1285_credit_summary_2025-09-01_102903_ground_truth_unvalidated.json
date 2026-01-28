@@ -1,0 +1,141 @@
+{
+  "filename": "user_1285_credit_summary_2025-09-01_102903.pdf",
+  "source": "data/pdf_analysis/user_1285_credit_summary_2025-09-01_102903.pdf",
+  "credit_score": 674,
+  "credit_score_color": "neutral",
+  "age": 48,
+  "address": [
+    "6100 Lucente Ave, Suitland, MD 20746",
+    "3619 Atascocita Plum Ct, Suitland, MD 20746"
+  ],
+  "collections_open": 1,
+  "collections_closed": 1,
+  "public_records": 0,
+  "revolving_open_count": 5,
+  "revolving_open_total": 25817,
+  "installment_open_count": 2,
+  "installment_open_total": 23206,
+  "credit_factors": [
+    {
+      "factor": "$24246 Unpaid Collection(s)",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "3 RE Lates in 6-12 mo",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "1 Over Limit Accnt",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Total Rev Usage > 90%",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Past Due Not Late",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Pay $16542 so Accts < 40%",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "1 Chrgd Off Rev Acct",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "13 RE Lates in 12-24 mo",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "2 Inq Last 4 Mo",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "32 RE Lates in 2-4 yrs",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "1 Paid Collection",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "2 Inqs last 2-4 Mo",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Less than 5 yrs",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No Closed Rev Depth",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "2 Total Inq 2-4 Mo",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "7k+ line for 8+yrs",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Seasoned Closed Accounts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Ok Open Rev Depth",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "3+ Closed Rev Accnts",
+      "color": "green",
+      "hex": "#428f4e"
+    }
+  ],
+  "inquiries_last_6_months": 2,
+  "monthly_payments": 2553,
+  "real_estate_open_count": 1,
+  "real_estate_open_total": 201677,
+  "line_of_credit_accounts_open_count": 0,
+  "line_of_credit_accounts_open_total": 0,
+  "miscellaneous_accounts_open_count": 0,
+  "miscellaneous_accounts_open_total": 0,
+  "inquiries_6mo": 2,
+  "late_pays_2yr": 17,
+  "late_pays_gt2yr": 32,
+  "credit_card_open_totals": {
+    "color": "black",
+    "balance": 25817,
+    "limit": 27200,
+    "Percent": null,
+    "Payment": null
+  },
+  "red_credit_factors_count": 10,
+  "green_credit_factors_count": 9,
+  "black_credit_factors_count": 0,
+  "credit_freeze": 0,
+  "fraud_alert": 0,
+  "deceased": 0,
+  "collections_open_count": 1,
+  "collections_closed_count": 1
+}

@@ -1,0 +1,185 @@
+{
+  "filename": "user_707_credit_summary_2025-09-01_101634.pdf",
+  "source": "data/pdf_analysis/user_707_credit_summary_2025-09-01_101634.pdf",
+  "credit_score": 673,
+  "credit_score_color": "neutral",
+  "age": 25,
+  "address": [
+    "725 Burnside Dr, Bel Air, MD 21015",
+    "512 David Dr, Bel Air, MD 21015"
+  ],
+  "collections_open": 0,
+  "collections_closed": 0,
+  "public_records": 0,
+  "revolving_open_count": 2,
+  "revolving_open_total": 25611,
+  "installment_open_count": 1,
+  "installment_open_total": 8939,
+  "credit_factors": [
+    {
+      "factor": "No",
+      "color": "black"
+    },
+    {
+      "factor": "Credit Freeze",
+      "color": "black"
+    },
+    {
+      "factor": "Fraud Alert",
+      "color": "black"
+    },
+    {
+      "factor": "Deceased",
+      "color": "black"
+    },
+    {
+      "factor": "Credit Factors",
+      "color": "black"
+    },
+    {
+      "factor": "No Open 1k+ Lines",
+      "color": "red"
+    },
+    {
+      "factor": "No Open Rev Credit Lines",
+      "color": "red"
+    },
+    {
+      "factor": "Avg Age Open",
+      "color": "red"
+    },
+    {
+      "factor": "No Closed Rev Depth",
+      "color": "red"
+    },
+    {
+      "factor": "Too Few Open Rev Accounts",
+      "color": "red"
+    },
+    {
+      "factor": "No Open Mortgage",
+      "color": "neutral"
+    },
+    {
+      "factor": "Drop Bad Auth User (JPMCB CARD SERVICES",
+      "color": "black"
+    },
+    {
+      "factor": "No Rev Acct Open 10K 2yr",
+      "color": "neutral"
+    },
+    {
+      "factor": "Balance",
+      "color": "black"
+    },
+    {
+      "factor": "Limit",
+      "color": "black"
+    },
+    {
+      "factor": "%",
+      "color": "black"
+    },
+    {
+      "factor": "Age",
+      "color": "black"
+    },
+    {
+      "factor": "98%",
+      "color": "red"
+    },
+    {
+      "factor": "$609 A",
+      "color": "black"
+    },
+    {
+      "factor": "91%",
+      "color": "red"
+    },
+    {
+      "factor": "97%",
+      "color": "black"
+    },
+    {
+      "factor": "$270 I",
+      "color": "black"
+    },
+    {
+      "factor": "Revolving Accounts (Open)",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "No Open 1k+ Lines",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No Open Rev Credit Lines",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No Closed Rev Depth",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Too Few Open Rev Accounts",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No Open Mortgage",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "No Rev Acct Open 10K 2yr",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Revolving Accounts",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "No Revolving Accounts",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Revolving Accounts - Authorized User",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Revolving Accounts",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "No Revolving Accounts",
+      "color": "black",
+      "hex": "#212529"
+    }
+  ],
+  "inquiries_last_6_months": 0,
+  "credit_card_open_totals": null,
+  "monthly_payments": 270,
+  "real_estate_open_count": 0,
+  "real_estate_open_total": 0,
+  "line_of_credit_accounts_open_count": 0,
+  "line_of_credit_accounts_open_total": 0,
+  "miscellaneous_accounts_open_count": 0,
+  "miscellaneous_accounts_open_total": 0,
+  "late_pays_2yr": 0,
+  "late_pays_gt2yr": 0,
+  "red_credit_factors_count": 11,
+  "green_credit_factors_count": 0,
+  "black_credit_factors_count": 21,
+  "credit_freeze": 0,
+  "fraud_alert": 0,
+  "deceased": 0
+}

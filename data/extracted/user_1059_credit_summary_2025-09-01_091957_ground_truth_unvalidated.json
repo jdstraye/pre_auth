@@ -1,0 +1,198 @@
+{
+  "filename": "user_1059_credit_summary_2025-09-01_091957.pdf",
+  "source": "data/pdf_analysis/user_1059_credit_summary_2025-09-01_091957.pdf",
+  "credit_score": 539,
+  "credit_score_color": "red",
+  "age": 72,
+  "address": [
+    "13541 Union Hill Rd, Bowling Green, OH 43402",
+    "13541 Union Hill Rd #160b, Bowling Green, OH 43402"
+  ],
+  "collections_open": 3,
+  "collections_closed": 3,
+  "public_records": 0,
+  "revolving_open_count": 5,
+  "revolving_open_total": 2676,
+  "installment_open_count": 3,
+  "installment_open_total": 42181,
+  "credit_factors": [
+    {
+      "factor": "2 Charged Off Accts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "3 Unpaid Collection(s)",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "$507 Unpaid Collection(s)",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "6 Rev Lates in 4-6 mo",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Current Lates (SYNCB/PAYPAL)",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "2 Over Limit Accnt",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Current Lates (CAPITAL ONE BANK USA)",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Total Rev Usage > 90%",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Past Due Not Late",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Pay $3047 so Accts < 40%",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "4 Rev Lates in 0-3 mo",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "5 Rev Lates in 6-12 mo",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "1 Chrgd Off Rev Acct",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No Open 1k+ Lines",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "1 Charged Off Acct",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "7 Rev Lates in 2-4 yrs",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Light Open Rev Depth",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No Closed Rev Depth",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "$2610 Unpaid Collections",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "1 RE Late in 6-12 mo",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "1 Rev Late in 12-24 mo",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "1 RE Late in 12-24 mo",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "8 RE Lates in 4+ yrs",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Less than 5 yrs",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "3+ Closed Rev Accnts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Seasoned Closed Accounts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Paid Off 150k+ RE/RE",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "No Open Mortgage",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "No Rev Acct Open 10K 2yr",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "1 Inq Last 4-5 mo",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "1 Total Inqs 4-5 mo",
+      "color": "black",
+      "hex": "#212529"
+    }
+  ],
+  "inquiries_last_6_months": 1,
+  "credit_card_open_totals": {
+    "color": "red",
+    "balance": 4067,
+    "limit": 4000,
+    "Percent": 102,
+    "Payment": 271
+  },
+  "monthly_payments": 1571,
+  "real_estate_open_count": 0,
+  "real_estate_open_total": 0,
+  "line_of_credit_accounts_open_count": 1,
+  "line_of_credit_accounts_open_total": 0,
+  "miscellaneous_accounts_open_count": 3,
+  "miscellaneous_accounts_open_total": 1391,
+  "late_pays_2yr": 17,
+  "late_pays_gt2yr": 15,
+  "red_credit_factors_count": 15,
+  "green_credit_factors_count": 12,
+  "black_credit_factors_count": 4,
+  "credit_freeze": 0,
+  "fraud_alert": 0,
+  "deceased": 0
+}

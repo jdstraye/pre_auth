@@ -1,0 +1,103 @@
+{
+  "filename": "user_1110_credit_summary_2025-09-01_100425.pdf",
+  "source": "data/pdf_analysis/user_1110_credit_summary_2025-09-01_100425.pdf",
+  "credit_score": 601,
+  "credit_score_color": "red",
+  "age": 27,
+  "address": [
+    "2657 Lenox Rd Ne, Atlanta, GA 30324",
+    "1037 Abington Ct, Brookhaven, GA 30319"
+  ],
+  "collections_open": 0,
+  "collections_closed": 0,
+  "public_records": 0,
+  "revolving_open_count": 1,
+  "revolving_open_total": 5272,
+  "installment_open_count": 0,
+  "installment_open_total": 0,
+  "credit_factors": [
+    {
+      "factor": "1 Over Limit Accnt",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Total Rev Usage > 90%",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Pay $3272 so Accts < 40%",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Light Open Rev Depth",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Too Few Open Rev Accounts",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Avg Age Open",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No Closed Rev Depth",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "1 RE Late in 12-24 mo",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No 7.5k+ Lines",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "1 RE Late in 2-4 yrs",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Accounts Too New",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No Rev Acct Open 10K 2yr",
+      "color": "black",
+      "hex": "#212529"
+    }
+  ],
+  "inquiries_last_6_months": 0,
+  "credit_card_open_totals": {
+    "color": "black",
+    "balance": 5272,
+    "limit": 5000,
+    "Percent": 105,
+    "Payment": 213
+  },
+  "monthly_payments": 2111,
+  "real_estate_open_count": 1,
+  "real_estate_open_total": 175250,
+  "line_of_credit_accounts_open_count": 0,
+  "line_of_credit_accounts_open_total": 0,
+  "miscellaneous_accounts_open_count": 0,
+  "miscellaneous_accounts_open_total": 0,
+  "late_pays_2yr": 1,
+  "late_pays_gt2yr": 1,
+  "red_credit_factors_count": 9,
+  "green_credit_factors_count": 2,
+  "black_credit_factors_count": 1,
+  "credit_freeze": 0,
+  "fraud_alert": 0,
+  "deceased": 0
+}

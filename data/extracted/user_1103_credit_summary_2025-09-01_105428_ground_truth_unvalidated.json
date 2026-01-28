@@ -1,0 +1,102 @@
+{
+  "filename": "user_1103_credit_summary_2025-09-01_105428.pdf",
+  "source": "data/pdf_analysis/user_1103_credit_summary_2025-09-01_105428.pdf",
+  "credit_score": 731,
+  "credit_score_color": "neutral",
+  "age": 43,
+  "address": [
+    "5517 Albemarle Rd Apt M, Charlotte, NC 28212"
+  ],
+  "collections_open": 0,
+  "collections_closed": 0,
+  "public_records": 0,
+  "revolving_open_count": 1,
+  "revolving_open_total": 65,
+  "installment_open_count": 0,
+  "installment_open_total": 0,
+  "credit_factors": [
+    {
+      "factor": "No Open Rev Credit Lines",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No 3k+ Lines",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Too Few Open Rev Accounts",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No Closed Rev Depth",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Avg Age Open",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Accounts Too New",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No Open Mortgage",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "No Rev Acct Open 10K 2yr",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "1 Inq Last 4-5 mo",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "1 Inqs Fall Off In 30 Days",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "1 Total Inqs 4-5 mo",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "1 Total Inqs 5-6 mo",
+      "color": "black",
+      "hex": "#212529"
+    }
+  ],
+  "inquiries_last_6_months": 2,
+  "credit_card_open_totals": {
+    "color": "black",
+    "balance": 65,
+    "limit": 1500,
+    "Percent": null,
+    "Payment": null
+  },
+  "monthly_payments": 35,
+  "real_estate_open_count": 0,
+  "real_estate_open_total": 0,
+  "line_of_credit_accounts_open_count": 0,
+  "line_of_credit_accounts_open_total": 0,
+  "miscellaneous_accounts_open_count": 0,
+  "miscellaneous_accounts_open_total": 0,
+  "late_pays_2yr": 0,
+  "late_pays_gt2yr": 0,
+  "red_credit_factors_count": 6,
+  "green_credit_factors_count": 0,
+  "black_credit_factors_count": 6,
+  "credit_freeze": 0,
+  "fraud_alert": 0,
+  "deceased": 0
+}

@@ -1,0 +1,142 @@
+{
+  "filename": "user_1308_credit_summary_2025-09-01_132957.pdf",
+  "source": "data/pdf_analysis/user_1308_credit_summary_2025-09-01_132957.pdf",
+  "credit_score": 559,
+  "credit_score_color": "red",
+  "age": 65,
+  "address": [
+    "7240 Charlanda Blvd, Mobile, AL 36695"
+  ],
+  "collections_open": 11,
+  "collections_closed": 2,
+  "public_records": 0,
+  "revolving_open_count": 18,
+  "revolving_open_total": 128665,
+  "installment_open_count": 3,
+  "installment_open_total": 103779,
+  "credit_factors": [
+    {
+      "factor": "2 Charged Off Accts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "3 Unpaid Collection(s)",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "$144041 Unpaid Collection(s)",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Current Lates (SYNCB/AMAZON PLCC, and SY",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "7 Over Limit Accnt",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Total Rev Usage > 90%",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Past Due Not Late",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Rev Bal > $70,000",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Pay $70903 so Accts < 40%",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "9 Chrgd Off Rev Accts",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "2 Rev Lates in 0-3 mo",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "$42277 Unpaid Collections",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "7k+ line for 4+yrs",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Ok Open Rev Depth",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Good Closed Rev Depth",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "3+ Closed Rev Accnts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Seasoned Closed Accounts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Closed Accnts Over 10k",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "8+ Rev Accnts with Balances",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Drop Bad Auth User (CITICARDS CBNA, Bank",
+      "color": "black",
+      "hex": "#212529"
+    }
+  ],
+  "inquiries_last_6_months": 0,
+  "credit_card_open_totals": {
+    "color": "red",
+    "balance": 100442,
+    "limit": 96870,
+    "Percent": 104,
+    "Payment": 606
+  },
+  "monthly_payments": 2810,
+  "real_estate_open_count": 1,
+  "real_estate_open_total": 186980,
+  "line_of_credit_accounts_open_count": 0,
+  "line_of_credit_accounts_open_total": 0,
+  "miscellaneous_accounts_open_count": 0,
+  "miscellaneous_accounts_open_total": 0,
+  "late_pays_2yr": 2,
+  "late_pays_gt2yr": 0,
+  "red_credit_factors_count": 4,
+  "green_credit_factors_count": 14,
+  "black_credit_factors_count": 2,
+  "credit_freeze": 0,
+  "fraud_alert": 0,
+  "deceased": 0
+}

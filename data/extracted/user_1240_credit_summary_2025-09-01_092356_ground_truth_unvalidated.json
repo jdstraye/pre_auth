@@ -1,0 +1,147 @@
+{
+  "filename": "user_1240_credit_summary_2025-09-01_092356.pdf",
+  "source": "data/pdf_analysis/user_1240_credit_summary_2025-09-01_092356.pdf",
+  "credit_score": 577,
+  "credit_score_color": "red",
+  "age": 40,
+  "address": [
+    "3120 Jasper Trl, Aubrey, TX 76227"
+  ],
+  "collections_open": 4,
+  "collections_closed": 1,
+  "public_records": 0,
+  "revolving_open_count": 5,
+  "revolving_open_total": 40971,
+  "installment_open_count": 4,
+  "installment_open_total": 27315,
+  "credit_factors": [
+    {
+      "factor": "$54756 Unpaid Collection(s)",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "6 RE Lates in 4-6 mo",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "4 RE Lates in 6-12 mo",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "2 Over Limit Accnt",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Total Rev Usage > 90%",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Past Due Not Late",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Pay $32371 so Accts < 40%",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "4 Chrgd Off Rev Accts",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "1 Charged Off Accts",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "2 New Accnts Last 60 Days",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "1 Rev Late in 12-24 mo",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Less than 5 yrs",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "7k+ line for 4+yrs",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Ok Open Rev Depth",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "3+ Closed Rev Accnts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Good Closed Rev Depth",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Closed Accnts Over 10k",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Paid Off 200k+ RE/RE",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "No Open Mortgage",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Seasoned Closed Accounts",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Fraud Alert",
+      "color": "black",
+      "hex": "#212529"
+    }
+  ],
+  "inquiries_last_6_months": 0,
+  "credit_card_open_totals": {
+    "color": "red",
+    "balance": 40971,
+    "limit": 35200,
+    "Percent": 116,
+    "Payment": 0
+  },
+  "monthly_payments": 25,
+  "real_estate_open_count": 1,
+  "real_estate_open_total": 0,
+  "line_of_credit_accounts_open_count": 1,
+  "line_of_credit_accounts_open_total": 0,
+  "miscellaneous_accounts_open_count": 1,
+  "miscellaneous_accounts_open_total": 0,
+  "late_pays_2yr": 11,
+  "late_pays_gt2yr": 0,
+  "red_credit_factors_count": 6,
+  "green_credit_factors_count": 12,
+  "black_credit_factors_count": 3,
+  "credit_freeze": 0,
+  "fraud_alert": 0,
+  "deceased": 0
+}

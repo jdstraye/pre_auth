@@ -1,0 +1,230 @@
+{
+  "filename": "user_1297_credit_summary_2025-09-01_132935.pdf",
+  "source": "data/pdf_analysis/user_1297_credit_summary_2025-09-01_132935.pdf",
+  "credit_score": 675,
+  "credit_score_color": "neutral",
+  "age": 43,
+  "address": [
+    "3351 Poplar Ridge Dr, Rex, GA 30273"
+  ],
+  "collections_open": 0,
+  "collections_closed": 0,
+  "public_records": 0,
+  "revolving_open_count": 7,
+  "revolving_open_total": 10589,
+  "installment_open_count": 18,
+  "installment_open_total": 80266,
+  "credit_factors": [
+    {
+      "factor": "No",
+      "color": "black"
+    },
+    {
+      "factor": "Credit Freeze",
+      "color": "black"
+    },
+    {
+      "factor": "Fraud Alert",
+      "color": "black"
+    },
+    {
+      "factor": "Deceased",
+      "color": "black"
+    },
+    {
+      "factor": "Credit Factors",
+      "color": "black"
+    },
+    {
+      "factor": "Total Rev Usage > 40%",
+      "color": "green"
+    },
+    {
+      "factor": "Pay $2685 so Accts < 40%",
+      "color": "red"
+    },
+    {
+      "factor": "Avg Age Open",
+      "color": "red"
+    },
+    {
+      "factor": "No Closed Rev Depth",
+      "color": "red"
+    },
+    {
+      "factor": "1 RE Late in 2-4 yrs",
+      "color": "red"
+    },
+    {
+      "factor": "7k+ lines",
+      "color": "green"
+    },
+    {
+      "factor": "Ok Open Rev Depth",
+      "color": "green"
+    },
+    {
+      "factor": "3+ Closed Rev Accnts",
+      "color": "green"
+    },
+    {
+      "factor": "Seasoned Closed Accounts",
+      "color": "green"
+    },
+    {
+      "factor": "No Open Mortgage",
+      "color": "neutral"
+    },
+    {
+      "factor": "No Rev Acct Open 10K 2yr",
+      "color": "neutral"
+    },
+    {
+      "factor": "Account",
+      "color": "black"
+    },
+    {
+      "factor": "Status",
+      "color": "black"
+    },
+    {
+      "factor": "ALLY FINANCIAL",
+      "color": "black"
+    },
+    {
+      "factor": "Balance",
+      "color": "black"
+    },
+    {
+      "factor": "Limit",
+      "color": "black"
+    },
+    {
+      "factor": "%",
+      "color": "black"
+    },
+    {
+      "factor": "Age",
+      "color": "black"
+    },
+    {
+      "factor": "8%",
+      "color": "black"
+    },
+    {
+      "factor": "$30 I",
+      "color": "black"
+    },
+    {
+      "factor": "1%",
+      "color": "black"
+    },
+    {
+      "factor": "11%",
+      "color": "black"
+    },
+    {
+      "factor": "96%",
+      "color": "red"
+    },
+    {
+      "factor": "52%",
+      "color": "red"
+    },
+    {
+      "factor": "50%",
+      "color": "red"
+    },
+    {
+      "factor": "74%",
+      "color": "red"
+    },
+    {
+      "factor": "51%",
+      "color": "black"
+    },
+    {
+      "factor": "Revolving Accounts (Open)",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Pay $2685 so Accts < 40%",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No Closed Rev Depth",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "7k+ lines",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Ok Open Rev Depth",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "3+ Closed Rev Accnts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Seasoned Closed Accounts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "No Open Mortgage",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "No Rev Acct Open 10K 2yr",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Lates +2yr: 1/30",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Revolving Accounts",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Revolving Accounts",
+      "color": "black",
+      "hex": "#374151"
+    }
+  ],
+  "inquiries_last_6_months": 0,
+  "credit_card_open_totals": {
+    "color": "black",
+    "balance": 10589,
+    "limit": 20885,
+    "Percent": null,
+    "Payment": null
+  },
+  "monthly_payments": 1147,
+  "real_estate_open_count": 0,
+  "real_estate_open_total": 0,
+  "line_of_credit_accounts_open_count": 0,
+  "line_of_credit_accounts_open_total": 0,
+  "miscellaneous_accounts_open_count": 0,
+  "miscellaneous_accounts_open_total": 0,
+  "late_pays_2yr": 0,
+  "late_pays_gt2yr": 1,
+  "red_credit_factors_count": 10,
+  "green_credit_factors_count": 9,
+  "black_credit_factors_count": 23,
+  "credit_freeze": 0,
+  "fraud_alert": 0,
+  "deceased": 0
+}

@@ -1,0 +1,108 @@
+{
+  "filename": "user_1056_credit_summary_2025-09-01_104603.pdf",
+  "source": "data/pdf_analysis/user_1056_credit_summary_2025-09-01_104603.pdf",
+  "credit_score": 720,
+  "credit_score_color": "neutral",
+  "age": 67,
+  "address": [
+    "5683 Marshfield Dr, Westerville, OH 43081",
+    "424 Barrington Row Ave, Zebulon, NC 27597"
+  ],
+  "collections_open": 0,
+  "collections_closed": 0,
+  "public_records": 0,
+  "revolving_open_count": 3,
+  "revolving_open_total": 22373,
+  "installment_open_count": 18,
+  "installment_open_total": 202186,
+  "credit_factors": [
+    {
+      "factor": "Total Rev Usage > 75%",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Pay $12253 so Accts < 40%",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Too Few Open Rev Accounts",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "1 Rev Late in 2-4 yrs",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "7k+ line for 10+yrs",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Great Closed Rev Depth",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Existing Open Mortgage",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Ok Open Rev Depth",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "3+ Closed Rev Accnts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Military Affiliated",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Seasoned Closed Accounts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "6+ Closed RE Accounts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Paid Off 200k+ RE/RE",
+      "color": "green",
+      "hex": "#428f4e"
+    }
+  ],
+  "inquiries_last_6_months": 0,
+  "credit_card_open_totals": {
+    "color": "black",
+    "balance": 22373,
+    "limit": 25300,
+    "Percent": null,
+    "Payment": null
+  },
+  "monthly_payments": 3550,
+  "real_estate_open_count": 1,
+  "real_estate_open_total": 328253,
+  "line_of_credit_accounts_open_count": 0,
+  "line_of_credit_accounts_open_total": 0,
+  "miscellaneous_accounts_open_count": 0,
+  "miscellaneous_accounts_open_total": 0,
+  "late_pays_2yr": 0,
+  "late_pays_gt2yr": 1,
+  "red_credit_factors_count": 3,
+  "green_credit_factors_count": 10,
+  "black_credit_factors_count": 0,
+  "credit_freeze": 0,
+  "fraud_alert": 0,
+  "deceased": 0
+}

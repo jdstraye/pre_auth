@@ -1,0 +1,173 @@
+{
+  "filename": "user_1048_credit_summary_2025-09-01_091926.pdf",
+  "source": "data/pdf_analysis/user_1048_credit_summary_2025-09-01_091926.pdf",
+  "credit_score": 594,
+  "credit_score_color": "red",
+  "age": 51,
+  "address": [
+    "1761 Toccoa Hwy, Westminster, SC 29693",
+    "312 Westminster Hwy, Westminster, SC 29693"
+  ],
+  "collections_open": 1,
+  "collections_closed": 0,
+  "public_records": 0,
+  "revolving_open_count": 3,
+  "revolving_open_total": 516,
+  "installment_open_count": 1,
+  "installment_open_total": 6897,
+  "credit_factors": [
+    {
+      "factor": "1 Unpaid Collection",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Current Lates (PENNYMAC LOAN SERVIC)",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Total Rev Usage > 75%",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Pay $236 so Accts < 40%",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No Open 1k+ Lines",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No Open Rev Credit Lines",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "11 RE Lates in 12-24 mo",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "2 Inq Last 4 Mo",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "1 RE Late in 0-3 mo",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "13 RE Lates in 2-4 yrs",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Avg Age Open",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No Closed Rev Depth",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "1 RE Late in 6-12 mo",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "1 RE Late in 4-6 mo",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "1 Too Many Retail Accounts",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Seasoned Closed Accounts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "1+ Closed Rev Accnts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "$276 Unpaid 1 Collection",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "No Rev Acct Open 10K 2yr",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "1 Inq last 2-4 Mo",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "1 Inq Last 4-5 mo",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "1 Inqs Fall Off In 30 Days",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "1 Total Inq 0-2 Mo",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "1 Total Inq 2-4 Mo",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "1 Total Inqs 4-5 mo",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "1 Total Inqs 5-6 mo",
+      "color": "black",
+      "hex": "#212529"
+    }
+  ],
+  "inquiries_last_6_months": 4,
+  "credit_card_open_totals": {
+    "color": "black",
+    "balance": 516,
+    "limit": 600,
+    "Percent": null,
+    "Payment": null
+  },
+  "monthly_payments": 1198,
+  "real_estate_open_count": 1,
+  "real_estate_open_total": 79212,
+  "line_of_credit_accounts_open_count": 0,
+  "line_of_credit_accounts_open_total": 0,
+  "miscellaneous_accounts_open_count": 0,
+  "miscellaneous_accounts_open_total": 0,
+  "late_pays_2yr": 14,
+  "late_pays_gt2yr": 13,
+  "red_credit_factors_count": 12,
+  "green_credit_factors_count": 5,
+  "black_credit_factors_count": 9,
+  "credit_freeze": 0,
+  "fraud_alert": 0,
+  "deceased": 0
+}

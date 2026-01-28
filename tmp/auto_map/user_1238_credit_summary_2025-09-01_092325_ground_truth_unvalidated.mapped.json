@@ -1,0 +1,389 @@
+{
+  "source_gt": "data/extracted/user_1238_credit_summary_2025-09-01_092325_ground_truth_unvalidated.json",
+  "mapped": [
+    {
+      "input_file": "data/extracted/user_1238_credit_summary_2025-09-01_092325_ground_truth_unvalidated.json",
+      "factor": "$991 Unpaid Collections",
+      "color": "#dc3545",
+      "canonical_key": "991_unpaid_collections--a03566b48e",
+      "page": 0,
+      "bbox": [
+        382.67999267578125,
+        335.8849792480469,
+        501.8979187011719,
+        350.9989929199219
+      ],
+      "spans": [
+        {
+          "text": "$991 Unpaid Collections",
+          "bbox": [
+            382.67999267578125,
+            335.8849792480469,
+            501.8979187011719,
+            350.9989929199219
+          ],
+          "font_size": 11.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1238_credit_summary_2025-09-01_092325_ground_truth_unvalidated.json",
+      "factor": "No Open 1k+ Lines",
+      "color": "#dc3545",
+      "canonical_key": "no_open_1k_lines--2ec57c8e70",
+      "page": 0,
+      "bbox": [
+        382.67999267578125,
+        199.8250274658203,
+        477.14801025390625,
+        214.93902587890625
+      ],
+      "spans": [
+        {
+          "text": "No Open 1k+ Lines",
+          "bbox": [
+            382.67999267578125,
+            199.8250274658203,
+            477.14801025390625,
+            214.93902587890625
+          ],
+          "font_size": 11.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1238_credit_summary_2025-09-01_092325_ground_truth_unvalidated.json",
+      "factor": "No Open Rev Credit Lines",
+      "color": "#dc3545",
+      "canonical_key": "no_open_rev_credit_lines--2b0765cfbd",
+      "page": 0,
+      "bbox": [
+        382.67999267578125,
+        216.83497619628906,
+        511.06097412109375,
+        231.948974609375
+      ],
+      "spans": [
+        {
+          "text": "No Open Rev Credit Lines",
+          "bbox": [
+            382.67999267578125,
+            216.83497619628906,
+            511.06097412109375,
+            231.948974609375
+          ],
+          "font_size": 11.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1238_credit_summary_2025-09-01_092325_ground_truth_unvalidated.json",
+      "factor": "No Revolving Accounts",
+      "color": "#dc3545",
+      "canonical_key": "no_revolving_accounts--045de45d14",
+      "page": 0,
+      "bbox": [
+        382.67999267578125,
+        233.84498596191406,
+        496.386962890625,
+        248.958984375
+      ],
+      "spans": [
+        {
+          "text": "No Revolving Accounts",
+          "bbox": [
+            382.67999267578125,
+            233.84498596191406,
+            496.386962890625,
+            248.958984375
+          ],
+          "font_size": 11.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1238_credit_summary_2025-09-01_092325_ground_truth_unvalidated.json",
+      "factor": "BK w/ Neg Credit",
+      "color": "#dc3545",
+      "canonical_key": "bk_w_neg_credit--21be8b3580",
+      "page": 0,
+      "bbox": [
+        382.67999267578125,
+        250.84498596191406,
+        467.03900146484375,
+        265.958984375
+      ],
+      "spans": [
+        {
+          "text": "BK w/ Neg Credit",
+          "bbox": [
+            382.67999267578125,
+            250.84498596191406,
+            467.03900146484375,
+            265.958984375
+          ],
+          "font_size": 11.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1238_credit_summary_2025-09-01_092325_ground_truth_unvalidated.json",
+      "factor": "Wait for 6yr C-13 BK to be 7 yrs",
+      "color": "#dc3545",
+      "canonical_key": "wait_for_6yr_c_13_bk_to_be_7_yrs--4fee4c8b24",
+      "page": 0,
+      "bbox": [
+        382.67999267578125,
+        267.85498046875,
+        537.9561157226562,
+        282.968994140625
+      ],
+      "spans": [
+        {
+          "text": "Wait for 6yr C-13 BK to be 7 yrs",
+          "bbox": [
+            382.67999267578125,
+            267.85498046875,
+            537.9561157226562,
+            282.968994140625
+          ],
+          "font_size": 11.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1238_credit_summary_2025-09-01_092325_ground_truth_unvalidated.json",
+      "factor": "Avg Age Open",
+      "color": "#dc3545",
+      "canonical_key": "avg_age_open--8f2357d36a",
+      "page": 0,
+      "bbox": [
+        382.67999267578125,
+        284.864990234375,
+        454.2240295410156,
+        299.97900390625
+      ],
+      "spans": [
+        {
+          "text": "Avg Age Open",
+          "bbox": [
+            382.67999267578125,
+            284.864990234375,
+            454.2240295410156,
+            299.97900390625
+          ],
+          "font_size": 11.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1238_credit_summary_2025-09-01_092325_ground_truth_unvalidated.json",
+      "factor": "No Closed Rev Depth",
+      "color": "#dc3545",
+      "canonical_key": "no_closed_rev_depth--fd24789bc0",
+      "page": 0,
+      "bbox": [
+        382.67999267578125,
+        301.875,
+        489.0499572753906,
+        316.989013671875
+      ],
+      "spans": [
+        {
+          "text": "No Closed Rev Depth",
+          "bbox": [
+            382.67999267578125,
+            301.875,
+            489.0499572753906,
+            316.989013671875
+          ],
+          "font_size": 11.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1238_credit_summary_2025-09-01_092325_ground_truth_unvalidated.json",
+      "factor": "1 Chrgd Off Rev Acct",
+      "color": "#dc3545",
+      "canonical_key": "1_chrgd_off_rev_acct--b46e49323f",
+      "page": 0,
+      "bbox": [
+        382.67999267578125,
+        318.8849792480469,
+        486.6080627441406,
+        333.9989929199219
+      ],
+      "spans": [
+        {
+          "text": "1 Chrgd Off Rev Acct",
+          "bbox": [
+            382.67999267578125,
+            318.8849792480469,
+            486.6080627441406,
+            333.9989929199219
+          ],
+          "font_size": 11.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1238_credit_summary_2025-09-01_092325_ground_truth_unvalidated.json",
+      "factor": "No Open Mortgage",
+      "color": "#212529",
+      "canonical_key": "no_open_mortgage--ebe5b24987",
+      "page": 0,
+      "bbox": [
+        382.67999267578125,
+        352.8949890136719,
+        476.2239990234375,
+        368.0090026855469
+      ],
+      "spans": [
+        {
+          "text": "No Open Mortgage",
+          "bbox": [
+            382.67999267578125,
+            352.8949890136719,
+            476.2239990234375,
+            368.0090026855469
+          ],
+          "font_size": 11.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1238_credit_summary_2025-09-01_092325_ground_truth_unvalidated.json",
+      "factor": "No Rev Acct Open 10K 2yr",
+      "color": "#212529",
+      "canonical_key": "no_rev_acct_open_10k_2yr--52bc04a72c",
+      "page": 0,
+      "bbox": [
+        382.67999267578125,
+        369.9049987792969,
+        514.7350463867188,
+        385.0190124511719
+      ],
+      "spans": [
+        {
+          "text": "No Rev Acct Open 10K 2yr",
+          "bbox": [
+            382.67999267578125,
+            369.9049987792969,
+            514.7350463867188,
+            385.0190124511719
+          ],
+          "font_size": 11.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1238_credit_summary_2025-09-01_092325_ground_truth_unvalidated.json",
+      "factor": "Balance",
+      "color": "#374151",
+      "canonical_key": "balance--8dfa30e024",
+      "page": 1,
+      "bbox": [
+        526.739990234375,
+        160.32000732421875,
+        561.255126953125,
+        172.7130126953125
+      ],
+      "spans": [
+        {
+          "text": "Balance",
+          "bbox": [
+            526.739990234375,
+            160.32000732421875,
+            561.255126953125,
+            172.7130126953125
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    }
+  ]
+}

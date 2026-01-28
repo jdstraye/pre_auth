@@ -1,0 +1,170 @@
+{
+  "filename": "user_606_credit_summary_2025-09-01_101104.pdf",
+  "source": "data/pdf_analysis/user_606_credit_summary_2025-09-01_101104.pdf",
+  "credit_score": 723,
+  "credit_score_color": "neutral",
+  "age": 60,
+  "address": [
+    "7036 Martin Rd, Milton, FL 32570"
+  ],
+  "collections_open": 1,
+  "collections_closed": 0,
+  "public_records": 0,
+  "revolving_open_count": 2,
+  "revolving_open_total": 5084,
+  "installment_open_count": 3,
+  "installment_open_total": 30690,
+  "credit_factors": [
+    {
+      "factor": "No",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Credit Freeze",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Fraud Alert",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Deceased",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Credit Factors",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$14653 Unpaid Collection(s)",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "No Open Rev Credit Lines",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "1 Charged Off Accts",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No 3k+ Lines",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No Closed Rev Depth",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Too Few Open Rev Accounts",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Less than 5 yrs",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Seasoned Closed Accounts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "1+ Closed Rev Accnts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "14+ Closed RE Accounts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "No Open Mortgage",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Drop Bad Auth User (Bank of America)",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "No Rev Acct Open 10K 2yr",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Status",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Age",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Balance",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Open",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Limit",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "$15 I",
+      "color": "black"
+    },
+    {
+      "factor": "$137 A",
+      "color": "black"
+    },
+    {
+      "factor": "Inquires (Last 6 Months)",
+      "color": "black",
+      "hex": "#212529"
+    }
+  ],
+  "inquiries_last_6_months": 0,
+  "credit_card_open_totals": {
+    "color": "black",
+    "balance": 489,
+    "limit": 2000,
+    "Percent": null,
+    "Payment": null
+  },
+  "monthly_payments": 569,
+  "real_estate_open_count": 0,
+  "real_estate_open_total": 0,
+  "line_of_credit_accounts_open_count": 0,
+  "line_of_credit_accounts_open_total": 0,
+  "miscellaneous_accounts_open_count": 0,
+  "miscellaneous_accounts_open_total": 0,
+  "late_pays_2yr": 0,
+  "late_pays_gt2yr": 0,
+  "red_credit_factors_count": 6,
+  "green_credit_factors_count": 4,
+  "black_credit_factors_count": 16,
+  "credit_freeze": 0,
+  "fraud_alert": 0,
+  "deceased": 0
+}

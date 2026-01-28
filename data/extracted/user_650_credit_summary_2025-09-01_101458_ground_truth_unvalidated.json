@@ -1,0 +1,142 @@
+{
+  "filename": "user_650_credit_summary_2025-09-01_101458.pdf",
+  "source": "data/pdf_analysis/user_650_credit_summary_2025-09-01_101458.pdf",
+  "credit_score": 535,
+  "credit_score_color": "red",
+  "age": 56,
+  "address": [
+    "100 Hampton Rd, Clearwater, FL 33759",
+    "100 Hampton Rd Lot 281, Clearwater, FL 33759"
+  ],
+  "collections_open": 1,
+  "collections_closed": 2,
+  "public_records": 0,
+  "revolving_open_count": 7,
+  "revolving_open_total": 16665,
+  "installment_open_count": 6,
+  "installment_open_total": 85849,
+  "credit_factors": [
+    {
+      "factor": "1 Unpaid Collection",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "6 Over Limit Accnt",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Total Rev Usage > 90%",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Past Due Not Late",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Pay $12225 so Accts < 40%",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "5 Rev Lates in 0-3 mo",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No Open Rev Credit Lines",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "1 Charged Off Accts",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "13 Rev Lates in 4+ yrs",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "8 RE Lates in 2-4 yrs",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Avg Age Open",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No 5k+ Lines",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "1 Chrgd Off Rev Acct",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "1 Chrgd Off RE Acct",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "3+ Closed Rev Accnts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Good Closed Rev Depth",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Seasoned Closed Accounts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "No Open Mortgage",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "No Rev Acct Open 10K 2yr",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "$100 CREDIT CARD FB&T",
+      "color": "black"
+    }
+  ],
+  "inquiries_last_6_months": 0,
+  "credit_card_open_totals": {
+    "color": "red",
+    "balance": 16665,
+    "limit": 13900,
+    "Percent": 120,
+    "Payment": 888
+  },
+  "monthly_payments": 2986,
+  "real_estate_open_count": 0,
+  "real_estate_open_total": 0,
+  "line_of_credit_accounts_open_count": 0,
+  "line_of_credit_accounts_open_total": 0,
+  "miscellaneous_accounts_open_count": 0,
+  "miscellaneous_accounts_open_total": 0,
+  "late_pays_2yr": 7,
+  "late_pays_gt2yr": 21,
+  "red_credit_factors_count": 10,
+  "green_credit_factors_count": 7,
+  "black_credit_factors_count": 3,
+  "credit_freeze": 0,
+  "fraud_alert": 0,
+  "deceased": 0
+}

@@ -1,0 +1,97 @@
+{
+  "filename": "user_1044_credit_summary_2025-09-01_132336.pdf",
+  "source": "data/pdf_analysis/user_1044_credit_summary_2025-09-01_132336.pdf",
+  "credit_score": 753,
+  "credit_score_color": "green",
+  "age": 61,
+  "address": [
+    "7945 Via Latina, Burbank, CA 91504"
+  ],
+  "collections_open": 0,
+  "collections_closed": 0,
+  "public_records": 0,
+  "revolving_open_count": 5,
+  "revolving_open_total": 529,
+  "installment_open_count": 1,
+  "installment_open_total": 6076,
+  "credit_factors": [
+    {
+      "factor": "1 Rev Late in 6-12 mo",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "1 RE Late in 6-12 mo",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No 7.5k+ Lines",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Great Closed Rev Depth",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Existing Open Mortgage",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Ok Open Rev Depth",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "3+ Closed Rev Accnts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Closed Accnts Over 10k",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Paid Off 200k+ RE/RE",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Seasoned Closed Accounts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "No Rev Acct Open 10K 2yr",
+      "color": "black",
+      "hex": "#212529"
+    }
+  ],
+  "inquiries_last_6_months": 0,
+  "credit_card_open_totals": {
+    "color": "black",
+    "balance": 529,
+    "limit": 6724,
+    "Percent": null,
+    "Payment": null
+  },
+  "monthly_payments": 2570,
+  "real_estate_open_count": 1,
+  "real_estate_open_total": 311606,
+  "line_of_credit_accounts_open_count": 0,
+  "line_of_credit_accounts_open_total": 0,
+  "miscellaneous_accounts_open_count": 0,
+  "miscellaneous_accounts_open_total": 0,
+  "late_pays_2yr": 2,
+  "late_pays_gt2yr": 0,
+  "red_credit_factors_count": 3,
+  "green_credit_factors_count": 7,
+  "black_credit_factors_count": 1,
+  "credit_freeze": 0,
+  "fraud_alert": 0,
+  "deceased": 0
+}

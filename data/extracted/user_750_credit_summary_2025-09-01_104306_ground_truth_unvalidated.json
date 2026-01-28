@@ -1,0 +1,308 @@
+{
+  "filename": "user_750_credit_summary_2025-09-01_104306.pdf",
+  "source": "data/pdf_analysis/user_750_credit_summary_2025-09-01_104306.pdf",
+  "credit_score": 784,
+  "credit_score_color": "green",
+  "age": 43,
+  "address": [
+    "101 W Weddell Dr, Sunnyvale, CA 94089",
+    "101 W Weddell Dr Apt 239, Sunnyvale, CA 94089"
+  ],
+  "collections_open": 0,
+  "collections_closed": 0,
+  "public_records": 0,
+  "revolving_open_count": 8,
+  "revolving_open_total": 7439,
+  "installment_open_count": 12,
+  "installment_open_total": 238057,
+  "credit_factors": [
+    {
+      "factor": "1 Inq Last 4 Mo",
+      "color": "red",
+      "hex": "#dc3545",
+      "bbox": [
+        382.67999267578125,
+        165.8050079345703,
+        458.5030517578125,
+        180.91900634765625
+      ],
+      "page": 0,
+      "spans": [
+        {
+          "text": "1 Inq Last 4 Mo",
+          "hex": "#dc3545",
+          "rgb": [
+            220,
+            53,
+            69
+          ],
+          "bbox": [
+            382.67999267578125,
+            165.8050079345703,
+            458.5030517578125,
+            180.91900634765625
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "7k+ line for 12+yrs",
+      "color": "green",
+      "hex": "#428f4e",
+      "bbox": [
+        382.67999267578125,
+        182.8150177001953,
+        473.166015625,
+        197.92901611328125
+      ],
+      "page": 0,
+      "spans": [
+        {
+          "text": "7k+ line for 12+yrs",
+          "hex": "#428f4e",
+          "rgb": [
+            66,
+            143,
+            78
+          ],
+          "bbox": [
+            382.67999267578125,
+            182.8150177001953,
+            473.166015625,
+            197.92901611328125
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "Ok Open Rev Depth",
+      "color": "green",
+      "hex": "#428f4e",
+      "bbox": [
+        382.67999267578125,
+        199.8250274658203,
+        481.7240295410156,
+        214.93902587890625
+      ],
+      "page": 0,
+      "spans": [
+        {
+          "text": "Ok Open Rev Depth",
+          "hex": "#428f4e",
+          "rgb": [
+            66,
+            143,
+            78
+          ],
+          "bbox": [
+            382.67999267578125,
+            199.8250274658203,
+            481.7240295410156,
+            214.93902587890625
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "3+ Closed Rev Accnts",
+      "color": "green",
+      "hex": "#428f4e",
+      "bbox": [
+        382.67999267578125,
+        216.83497619628906,
+        491.19500732421875,
+        231.948974609375
+      ],
+      "page": 0,
+      "spans": [
+        {
+          "text": "3+ Closed Rev Accnts",
+          "hex": "#428f4e",
+          "rgb": [
+            66,
+            143,
+            78
+          ],
+          "bbox": [
+            382.67999267578125,
+            216.83497619628906,
+            491.19500732421875,
+            231.948974609375
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "Good Closed Rev Depth",
+      "color": "green",
+      "hex": "#428f4e",
+      "bbox": [
+        382.67999267578125,
+        233.84498596191406,
+        501.8979797363281,
+        248.958984375
+      ],
+      "page": 0,
+      "spans": [
+        {
+          "text": "Good Closed Rev Depth",
+          "hex": "#428f4e",
+          "rgb": [
+            66,
+            143,
+            78
+          ],
+          "bbox": [
+            382.67999267578125,
+            233.84498596191406,
+            501.8979797363281,
+            248.958984375
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "Seasoned Closed Accounts",
+      "color": "green",
+      "hex": "#428f4e",
+      "bbox": [
+        382.67999267578125,
+        250.84498596191406,
+        517.803955078125,
+        265.958984375
+      ],
+      "page": 0,
+      "spans": [
+        {
+          "text": "Seasoned Closed Accounts",
+          "hex": "#428f4e",
+          "rgb": [
+            66,
+            143,
+            78
+          ],
+          "bbox": [
+            382.67999267578125,
+            250.84498596191406,
+            517.803955078125,
+            265.958984375
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "Closed Accnts Over 5k",
+      "color": "green",
+      "hex": "#428f4e",
+      "bbox": [
+        382.67999267578125,
+        267.85498046875,
+        494.5500183105469,
+        282.968994140625
+      ],
+      "page": 0,
+      "spans": [
+        {
+          "text": "Closed Accnts Over 5k",
+          "hex": "#428f4e",
+          "rgb": [
+            66,
+            143,
+            78
+          ],
+          "bbox": [
+            382.67999267578125,
+            267.85498046875,
+            494.5500183105469,
+            282.968994140625
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "No Open Mortgage",
+      "color": "black",
+      "hex": "#212529",
+      "bbox": [
+        382.67999267578125,
+        284.864990234375,
+        476.2239990234375,
+        299.97900390625
+      ],
+      "page": 0,
+      "spans": [
+        {
+          "text": "No Open Mortgage",
+          "hex": "#212529",
+          "rgb": [
+            33,
+            37,
+            41
+          ],
+          "bbox": [
+            382.67999267578125,
+            284.864990234375,
+            476.2239990234375,
+            299.97900390625
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "1 Total Inq 0-2 Mo",
+      "color": "black",
+      "hex": "#212529",
+      "bbox": [
+        382.67999267578125,
+        301.875,
+        471.9450378417969,
+        316.989013671875
+      ],
+      "page": 0,
+      "spans": [
+        {
+          "text": "1 Total Inq 0-2 Mo",
+          "hex": "#212529",
+          "rgb": [
+            33,
+            37,
+            41
+          ],
+          "bbox": [
+            382.67999267578125,
+            301.875,
+            471.9450378417969,
+            316.989013671875
+          ]
+        }
+      ]
+    }
+  ],
+  "inquiries_last_6_months": 1,
+  "credit_card_open_totals": {
+    "color": "black",
+    "hex": "#212529",
+    "balance": 7439,
+    "limit": 62350,
+    "Percent": null,
+    "Payment": null
+  },
+  "monthly_payments": 1361,
+  "monthly_payments_color": "black",
+  "real_estate_open_count": 0,
+  "real_estate_open_total": 0,
+  "line_of_credit_accounts_open_count": 0,
+  "line_of_credit_accounts_open_total": 0,
+  "miscellaneous_accounts_open_count": 0,
+  "miscellaneous_accounts_open_total": 0,
+  "inquiries_last_6_months_color": "black",
+  "late_pays_color": "black",
+  "late_pays_2yr": 0,
+  "late_pays_gt2yr": 0,
+  "red_credit_factors_count": 1,
+  "green_credit_factors_count": 6,
+  "black_credit_factors_count": 2,
+  "credit_freeze": 0,
+  "fraud_alert": 0,
+  "deceased": 0
+}

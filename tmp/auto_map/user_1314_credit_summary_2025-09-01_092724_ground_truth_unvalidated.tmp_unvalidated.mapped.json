@@ -1,0 +1,1604 @@
+{
+  "source_gt": "/tmp/pytest-of-jdstraye/pytest-8/test_pdf_to_ground_truth_integ0/user_1314_credit_summary_2025-09-01_092724_ground_truth_unvalidated.tmp_unvalidated.json",
+  "mapped": [
+    {
+      "input_file": "/tmp/pytest-of-jdstraye/pytest-8/test_pdf_to_ground_truth_integ0/user_1314_credit_summary_2025-09-01_092724_ground_truth_unvalidated.tmp_unvalidated.json",
+      "filename": "user_1314_credit_summary_2025-09-01_092724.pdf",
+      "credit_score": 527,
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "6 Charged Off Accts",
+      "color": "#428f4e",
+      "canonical_key": "6_charged_off_accts--304731a805",
+      "page": 0,
+      "bbox": [
+        382.67999267578125,
+        165.8050079345703,
+        481.72406005859375,
+        180.91900634765625
+      ],
+      "spans": [
+        {
+          "text": "6 Charged Off Accts",
+          "hex": "#428f4e",
+          "rgb": [
+            66,
+            143,
+            78
+          ],
+          "bbox": [
+            382.67999267578125,
+            165.8050079345703,
+            481.72406005859375,
+            180.91900634765625
+          ]
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": true
+    },
+    {
+      "input_file": "/tmp/pytest-of-jdstraye/pytest-8/test_pdf_to_ground_truth_integ0/user_1314_credit_summary_2025-09-01_092724_ground_truth_unvalidated.tmp_unvalidated.json",
+      "filename": "user_1314_credit_summary_2025-09-01_092724.pdf",
+      "credit_score": 527,
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "3 Charged Off Accts",
+      "color": "#428f4e",
+      "canonical_key": "3_charged_off_accts--175b0b86d7",
+      "page": 0,
+      "bbox": [
+        382.67999267578125,
+        182.8150177001953,
+        481.72406005859375,
+        197.92901611328125
+      ],
+      "spans": [
+        {
+          "text": "3 Charged Off Accts",
+          "hex": "#428f4e",
+          "rgb": [
+            66,
+            143,
+            78
+          ],
+          "bbox": [
+            382.67999267578125,
+            182.8150177001953,
+            481.72406005859375,
+            197.92901611328125
+          ]
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": true
+    },
+    {
+      "input_file": "/tmp/pytest-of-jdstraye/pytest-8/test_pdf_to_ground_truth_integ0/user_1314_credit_summary_2025-09-01_092724_ground_truth_unvalidated.tmp_unvalidated.json",
+      "filename": "user_1314_credit_summary_2025-09-01_092724.pdf",
+      "credit_score": 527,
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "4 Charged Off Accts",
+      "color": "#428f4e",
+      "canonical_key": "4_charged_off_accts--256832eced",
+      "page": 0,
+      "bbox": [
+        382.67999267578125,
+        199.8250274658203,
+        481.72406005859375,
+        214.93902587890625
+      ],
+      "spans": [
+        {
+          "text": "4 Charged Off Accts",
+          "hex": "#428f4e",
+          "rgb": [
+            66,
+            143,
+            78
+          ],
+          "bbox": [
+            382.67999267578125,
+            199.8250274658203,
+            481.72406005859375,
+            214.93902587890625
+          ]
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": true
+    },
+    {
+      "input_file": "/tmp/pytest-of-jdstraye/pytest-8/test_pdf_to_ground_truth_integ0/user_1314_credit_summary_2025-09-01_092724_ground_truth_unvalidated.tmp_unvalidated.json",
+      "filename": "user_1314_credit_summary_2025-09-01_092724.pdf",
+      "credit_score": 527,
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "4 Unpaid Collection(s)",
+      "color": "#428f4e",
+      "canonical_key": "4_unpaid_collection_s--a4e587ed9c",
+      "page": 0,
+      "bbox": [
+        382.67999267578125,
+        216.83497619628906,
+        490.87591552734375,
+        231.948974609375
+      ],
+      "spans": [
+        {
+          "text": "4 Unpaid Collection(s)",
+          "hex": "#428f4e",
+          "rgb": [
+            66,
+            143,
+            78
+          ],
+          "bbox": [
+            382.67999267578125,
+            216.83497619628906,
+            490.87591552734375,
+            231.948974609375
+          ]
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": true
+    },
+    {
+      "input_file": "/tmp/pytest-of-jdstraye/pytest-8/test_pdf_to_ground_truth_integ0/user_1314_credit_summary_2025-09-01_092724_ground_truth_unvalidated.tmp_unvalidated.json",
+      "filename": "user_1314_credit_summary_2025-09-01_092724.pdf",
+      "credit_score": 527,
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "$16320 Unpaid Collection(s)",
+      "color": "#428f4e",
+      "canonical_key": "16320_unpaid_collection_s--5c8ae3eca0",
+      "page": 0,
+      "bbox": [
+        382.67999267578125,
+        233.84498596191406,
+        521.4559326171875,
+        248.958984375
+      ],
+      "spans": [
+        {
+          "text": "$16320 Unpaid Collection(s)",
+          "hex": "#428f4e",
+          "rgb": [
+            66,
+            143,
+            78
+          ],
+          "bbox": [
+            382.67999267578125,
+            233.84498596191406,
+            521.4559326171875,
+            248.958984375
+          ]
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": true
+    },
+    {
+      "input_file": "/tmp/pytest-of-jdstraye/pytest-8/test_pdf_to_ground_truth_integ0/user_1314_credit_summary_2025-09-01_092724_ground_truth_unvalidated.tmp_unvalidated.json",
+      "filename": "user_1314_credit_summary_2025-09-01_092724.pdf",
+      "credit_score": 527,
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "7 Over Limit Accnt",
+      "color": "#428f4e",
+      "canonical_key": "7_over_limit_accnt--a3e46596de",
+      "page": 0,
+      "bbox": [
+        382.67999267578125,
+        250.84498596191406,
+        472.5390319824219,
+        265.958984375
+      ],
+      "spans": [
+        {
+          "text": "7 Over Limit Accnt",
+          "hex": "#428f4e",
+          "rgb": [
+            66,
+            143,
+            78
+          ],
+          "bbox": [
+            382.67999267578125,
+            250.84498596191406,
+            472.5390319824219,
+            265.958984375
+          ]
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": true
+    },
+    {
+      "input_file": "/tmp/pytest-of-jdstraye/pytest-8/test_pdf_to_ground_truth_integ0/user_1314_credit_summary_2025-09-01_092724_ground_truth_unvalidated.tmp_unvalidated.json",
+      "filename": "user_1314_credit_summary_2025-09-01_092724.pdf",
+      "credit_score": 527,
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "Total Rev Usage > 90%",
+      "color": "#428f4e",
+      "canonical_key": "total_rev_usage_90--217ef38a5f",
+      "page": 0,
+      "bbox": [
+        382.67999267578125,
+        267.85498046875,
+        499.14801025390625,
+        282.968994140625
+      ],
+      "spans": [
+        {
+          "text": "Total Rev Usage > 90%",
+          "hex": "#428f4e",
+          "rgb": [
+            66,
+            143,
+            78
+          ],
+          "bbox": [
+            382.67999267578125,
+            267.85498046875,
+            499.14801025390625,
+            282.968994140625
+          ]
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": true
+    },
+    {
+      "input_file": "/tmp/pytest-of-jdstraye/pytest-8/test_pdf_to_ground_truth_integ0/user_1314_credit_summary_2025-09-01_092724_ground_truth_unvalidated.tmp_unvalidated.json",
+      "filename": "user_1314_credit_summary_2025-09-01_092724.pdf",
+      "credit_score": 527,
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "Past Due Not Late",
+      "color": "#428f4e",
+      "canonical_key": "past_due_not_late--30baf3a877",
+      "page": 0,
+      "bbox": [
+        382.67999267578125,
+        284.864990234375,
+        472.56103515625,
+        299.97900390625
+      ],
+      "spans": [
+        {
+          "text": "Past Due Not Late",
+          "hex": "#428f4e",
+          "rgb": [
+            66,
+            143,
+            78
+          ],
+          "bbox": [
+            382.67999267578125,
+            284.864990234375,
+            472.56103515625,
+            299.97900390625
+          ]
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": true
+    },
+    {
+      "input_file": "/tmp/pytest-of-jdstraye/pytest-8/test_pdf_to_ground_truth_integ0/user_1314_credit_summary_2025-09-01_092724_ground_truth_unvalidated.tmp_unvalidated.json",
+      "filename": "user_1314_credit_summary_2025-09-01_092724.pdf",
+      "credit_score": 527,
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "Pay $12355 so Accts < 40%",
+      "color": "#dc3545",
+      "canonical_key": "pay_12355_so_accts_40--e3249e55b8",
+      "page": 0,
+      "bbox": [
+        382.67999267578125,
+        301.875,
+        520.5650634765625,
+        316.989013671875
+      ],
+      "spans": [
+        {
+          "text": "Pay $12355 so Accts < 40%",
+          "hex": "#dc3545",
+          "rgb": [
+            220,
+            53,
+            69
+          ],
+          "bbox": [
+            382.67999267578125,
+            301.875,
+            520.5650634765625,
+            316.989013671875
+          ]
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": true
+    },
+    {
+      "input_file": "/tmp/pytest-of-jdstraye/pytest-8/test_pdf_to_ground_truth_integ0/user_1314_credit_summary_2025-09-01_092724_ground_truth_unvalidated.tmp_unvalidated.json",
+      "filename": "user_1314_credit_summary_2025-09-01_092724.pdf",
+      "credit_score": 527,
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "8 Chrgd Off Rev Accts",
+      "color": "#dc3545",
+      "canonical_key": "8_chrgd_off_rev_accts--dade25f48f",
+      "page": 0,
+      "bbox": [
+        382.67999267578125,
+        318.8849792480469,
+        492.1080627441406,
+        333.9989929199219
+      ],
+      "spans": [
+        {
+          "text": "8 Chrgd Off Rev Accts",
+          "hex": "#dc3545",
+          "rgb": [
+            220,
+            53,
+            69
+          ],
+          "bbox": [
+            382.67999267578125,
+            318.8849792480469,
+            492.1080627441406,
+            333.9989929199219
+          ]
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": true
+    },
+    {
+      "input_file": "/tmp/pytest-of-jdstraye/pytest-8/test_pdf_to_ground_truth_integ0/user_1314_credit_summary_2025-09-01_092724_ground_truth_unvalidated.tmp_unvalidated.json",
+      "filename": "user_1314_credit_summary_2025-09-01_092724.pdf",
+      "credit_score": 527,
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "2 Rev Lates in 4-6 mo",
+      "color": "#dc3545",
+      "canonical_key": "2_rev_lates_in_4_6_mo--9385806a86",
+      "page": 0,
+      "bbox": [
+        382.67999267578125,
+        335.8849792480469,
+        490.2820129394531,
+        350.9989929199219
+      ],
+      "spans": [
+        {
+          "text": "2 Rev Lates in 4-6 mo",
+          "hex": "#dc3545",
+          "rgb": [
+            220,
+            53,
+            69
+          ],
+          "bbox": [
+            382.67999267578125,
+            335.8849792480469,
+            490.2820129394531,
+            350.9989929199219
+          ]
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": true
+    },
+    {
+      "input_file": "/tmp/pytest-of-jdstraye/pytest-8/test_pdf_to_ground_truth_integ0/user_1314_credit_summary_2025-09-01_092724_ground_truth_unvalidated.tmp_unvalidated.json",
+      "filename": "user_1314_credit_summary_2025-09-01_092724.pdf",
+      "credit_score": 527,
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "2 Rev Lates in 6-12 mo",
+      "color": "#dc3545",
+      "canonical_key": "2_rev_lates_in_6_12_mo--0c318b8399",
+      "page": 0,
+      "bbox": [
+        382.67999267578125,
+        352.8949890136719,
+        496.39801025390625,
+        368.0090026855469
+      ],
+      "spans": [
+        {
+          "text": "2 Rev Lates in 6-12 mo",
+          "hex": "#dc3545",
+          "rgb": [
+            220,
+            53,
+            69
+          ],
+          "bbox": [
+            382.67999267578125,
+            352.8949890136719,
+            496.39801025390625,
+            368.0090026855469
+          ]
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": true
+    },
+    {
+      "input_file": "/tmp/pytest-of-jdstraye/pytest-8/test_pdf_to_ground_truth_integ0/user_1314_credit_summary_2025-09-01_092724_ground_truth_unvalidated.tmp_unvalidated.json",
+      "filename": "user_1314_credit_summary_2025-09-01_092724.pdf",
+      "credit_score": 527,
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "$3029 Unpaid Collections",
+      "color": "#dc3545",
+      "canonical_key": "3029_unpaid_collections--3485a1ebd0",
+      "page": 0,
+      "bbox": [
+        382.67999267578125,
+        369.9049987792969,
+        508.013916015625,
+        385.0190124511719
+      ],
+      "spans": [
+        {
+          "text": "$3029 Unpaid Collections",
+          "hex": "#dc3545",
+          "rgb": [
+            220,
+            53,
+            69
+          ],
+          "bbox": [
+            382.67999267578125,
+            369.9049987792969,
+            508.013916015625,
+            385.0190124511719
+          ]
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": true
+    },
+    {
+      "input_file": "/tmp/pytest-of-jdstraye/pytest-8/test_pdf_to_ground_truth_integ0/user_1314_credit_summary_2025-09-01_092724_ground_truth_unvalidated.tmp_unvalidated.json",
+      "filename": "user_1314_credit_summary_2025-09-01_092724.pdf",
+      "credit_score": 527,
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "4 Rev Lates in 2-4 yrs",
+      "color": "#dc3545",
+      "canonical_key": "4_rev_lates_in_2_4_yrs--6c146dddde",
+      "page": 0,
+      "bbox": [
+        382.67999267578125,
+        386.91497802734375,
+        489.666015625,
+        402.02899169921875
+      ],
+      "spans": [
+        {
+          "text": "4 Rev Lates in 2-4 yrs",
+          "hex": "#dc3545",
+          "rgb": [
+            220,
+            53,
+            69
+          ],
+          "bbox": [
+            382.67999267578125,
+            386.91497802734375,
+            489.666015625,
+            402.02899169921875
+          ]
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": true
+    },
+    {
+      "input_file": "/tmp/pytest-of-jdstraye/pytest-8/test_pdf_to_ground_truth_integ0/user_1314_credit_summary_2025-09-01_092724_ground_truth_unvalidated.tmp_unvalidated.json",
+      "filename": "user_1314_credit_summary_2025-09-01_092724.pdf",
+      "credit_score": 527,
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "1 RE Late in 4-6 mo",
+      "color": "#dc3545",
+      "canonical_key": "1_re_late_in_4_6_mo--d5b8360cc8",
+      "page": 0,
+      "bbox": [
+        382.67999267578125,
+        403.91497802734375,
+        480.5030212402344,
+        419.02899169921875
+      ],
+      "spans": [
+        {
+          "text": "1 RE Late in 4-6 mo",
+          "hex": "#dc3545",
+          "rgb": [
+            220,
+            53,
+            69
+          ],
+          "bbox": [
+            382.67999267578125,
+            403.91497802734375,
+            480.5030212402344,
+            419.02899169921875
+          ]
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": true
+    },
+    {
+      "input_file": "/tmp/pytest-of-jdstraye/pytest-8/test_pdf_to_ground_truth_integ0/user_1314_credit_summary_2025-09-01_092724_ground_truth_unvalidated.tmp_unvalidated.json",
+      "filename": "user_1314_credit_summary_2025-09-01_092724.pdf",
+      "credit_score": 527,
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "No 5k+ Lines",
+      "color": "#dc3545",
+      "canonical_key": "no_5k_lines--b5977f5b70",
+      "page": 0,
+      "bbox": [
+        382.67999267578125,
+        420.92498779296875,
+        447.1839904785156,
+        436.03900146484375
+      ],
+      "spans": [
+        {
+          "text": "No 5k+ Lines",
+          "hex": "#dc3545",
+          "rgb": [
+            220,
+            53,
+            69
+          ],
+          "bbox": [
+            382.67999267578125,
+            420.92498779296875,
+            447.1839904785156,
+            436.03900146484375
+          ]
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": true
+    },
+    {
+      "input_file": "/tmp/pytest-of-jdstraye/pytest-8/test_pdf_to_ground_truth_integ0/user_1314_credit_summary_2025-09-01_092724_ground_truth_unvalidated.tmp_unvalidated.json",
+      "filename": "user_1314_credit_summary_2025-09-01_092724.pdf",
+      "credit_score": 527,
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "1 Chrgd Off RE Acct",
+      "color": "#dc3545",
+      "canonical_key": "1_chrgd_off_re_acct--2f492781d4",
+      "page": 0,
+      "bbox": [
+        382.67999267578125,
+        437.93499755859375,
+        482.3290710449219,
+        453.04901123046875
+      ],
+      "spans": [
+        {
+          "text": "1 Chrgd Off RE Acct",
+          "hex": "#dc3545",
+          "rgb": [
+            220,
+            53,
+            69
+          ],
+          "bbox": [
+            382.67999267578125,
+            437.93499755859375,
+            482.3290710449219,
+            453.04901123046875
+          ]
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": true
+    },
+    {
+      "input_file": "/tmp/pytest-of-jdstraye/pytest-8/test_pdf_to_ground_truth_integ0/user_1314_credit_summary_2025-09-01_092724_ground_truth_unvalidated.tmp_unvalidated.json",
+      "filename": "user_1314_credit_summary_2025-09-01_092724.pdf",
+      "credit_score": 527,
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "1 Inq Last 4 Mo",
+      "color": "#dc3545",
+      "canonical_key": "1_inq_last_4_mo--d59a8bb4c9",
+      "page": 0,
+      "bbox": [
+        382.67999267578125,
+        454.9449768066406,
+        458.5030517578125,
+        470.0589904785156
+      ],
+      "spans": [
+        {
+          "text": "1 Inq Last 4 Mo",
+          "hex": "#dc3545",
+          "rgb": [
+            220,
+            53,
+            69
+          ],
+          "bbox": [
+            382.67999267578125,
+            454.9449768066406,
+            458.5030517578125,
+            470.0589904785156
+          ]
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": true
+    },
+    {
+      "input_file": "/tmp/pytest-of-jdstraye/pytest-8/test_pdf_to_ground_truth_integ0/user_1314_credit_summary_2025-09-01_092724_ground_truth_unvalidated.tmp_unvalidated.json",
+      "filename": "user_1314_credit_summary_2025-09-01_092724.pdf",
+      "credit_score": 527,
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "Less than 5 yrs",
+      "color": "#dc3545",
+      "canonical_key": "less_than_5_yrs--49d01eded4",
+      "page": 0,
+      "bbox": [
+        382.67999267578125,
+        471.9549865722656,
+        457.2710266113281,
+        487.0690002441406
+      ],
+      "spans": [
+        {
+          "text": "Less than 5 yrs",
+          "hex": "#dc3545",
+          "rgb": [
+            220,
+            53,
+            69
+          ],
+          "bbox": [
+            382.67999267578125,
+            471.9549865722656,
+            457.2710266113281,
+            487.0690002441406
+          ]
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": true
+    },
+    {
+      "input_file": "/tmp/pytest-of-jdstraye/pytest-8/test_pdf_to_ground_truth_integ0/user_1314_credit_summary_2025-09-01_092724_ground_truth_unvalidated.tmp_unvalidated.json",
+      "filename": "user_1314_credit_summary_2025-09-01_092724.pdf",
+      "credit_score": 527,
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "Great Closed Rev Depth",
+      "color": "#428f4e",
+      "canonical_key": "great_closed_rev_depth--01b74bb769",
+      "page": 0,
+      "bbox": [
+        382.67999267578125,
+        488.9549865722656,
+        502.50299072265625,
+        504.0690002441406
+      ],
+      "spans": [
+        {
+          "text": "Great Closed Rev Depth",
+          "hex": "#428f4e",
+          "rgb": [
+            66,
+            143,
+            78
+          ],
+          "bbox": [
+            382.67999267578125,
+            488.9549865722656,
+            502.50299072265625,
+            504.0690002441406
+          ]
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": true
+    },
+    {
+      "input_file": "/tmp/pytest-of-jdstraye/pytest-8/test_pdf_to_ground_truth_integ0/user_1314_credit_summary_2025-09-01_092724_ground_truth_unvalidated.tmp_unvalidated.json",
+      "filename": "user_1314_credit_summary_2025-09-01_092724.pdf",
+      "credit_score": 527,
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "Ok Open Rev Depth",
+      "color": "#428f4e",
+      "canonical_key": "ok_open_rev_depth--edf7078316",
+      "page": 0,
+      "bbox": [
+        382.67999267578125,
+        505.96502685546875,
+        481.7240295410156,
+        521.0790405273438
+      ],
+      "spans": [
+        {
+          "text": "Ok Open Rev Depth",
+          "hex": "#428f4e",
+          "rgb": [
+            66,
+            143,
+            78
+          ],
+          "bbox": [
+            382.67999267578125,
+            505.96502685546875,
+            481.7240295410156,
+            521.0790405273438
+          ]
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": true
+    },
+    {
+      "input_file": "/tmp/pytest-of-jdstraye/pytest-8/test_pdf_to_ground_truth_integ0/user_1314_credit_summary_2025-09-01_092724_ground_truth_unvalidated.tmp_unvalidated.json",
+      "filename": "user_1314_credit_summary_2025-09-01_092724.pdf",
+      "credit_score": 527,
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "3+ Closed Rev Accnts",
+      "color": "#428f4e",
+      "canonical_key": "3_closed_rev_accnts--b607705a41",
+      "page": 0,
+      "bbox": [
+        382.67999267578125,
+        522.9749755859375,
+        491.19500732421875,
+        538.0889892578125
+      ],
+      "spans": [
+        {
+          "text": "3+ Closed Rev Accnts",
+          "hex": "#428f4e",
+          "rgb": [
+            66,
+            143,
+            78
+          ],
+          "bbox": [
+            382.67999267578125,
+            522.9749755859375,
+            491.19500732421875,
+            538.0889892578125
+          ]
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": true
+    },
+    {
+      "input_file": "/tmp/pytest-of-jdstraye/pytest-8/test_pdf_to_ground_truth_integ0/user_1314_credit_summary_2025-09-01_092724_ground_truth_unvalidated.tmp_unvalidated.json",
+      "filename": "user_1314_credit_summary_2025-09-01_092724.pdf",
+      "credit_score": 527,
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "Military Affiliated",
+      "color": "#428f4e",
+      "canonical_key": "military_affiliated--06a26b528c",
+      "page": 0,
+      "bbox": [
+        382.67999267578125,
+        539.9849853515625,
+        462.74896240234375,
+        555.0989990234375
+      ],
+      "spans": [
+        {
+          "text": "Military Affiliated",
+          "hex": "#428f4e",
+          "rgb": [
+            66,
+            143,
+            78
+          ],
+          "bbox": [
+            382.67999267578125,
+            539.9849853515625,
+            462.74896240234375,
+            555.0989990234375
+          ]
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": true
+    },
+    {
+      "input_file": "/tmp/pytest-of-jdstraye/pytest-8/test_pdf_to_ground_truth_integ0/user_1314_credit_summary_2025-09-01_092724_ground_truth_unvalidated.tmp_unvalidated.json",
+      "filename": "user_1314_credit_summary_2025-09-01_092724.pdf",
+      "credit_score": 527,
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "Seasoned Closed Accounts",
+      "color": "#428f4e",
+      "canonical_key": "seasoned_closed_accounts--de9556a1be",
+      "page": 0,
+      "bbox": [
+        382.67999267578125,
+        556.9949951171875,
+        517.803955078125,
+        572.1090087890625
+      ],
+      "spans": [
+        {
+          "text": "Seasoned Closed Accounts",
+          "hex": "#428f4e",
+          "rgb": [
+            66,
+            143,
+            78
+          ],
+          "bbox": [
+            382.67999267578125,
+            556.9949951171875,
+            517.803955078125,
+            572.1090087890625
+          ]
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": true
+    },
+    {
+      "input_file": "/tmp/pytest-of-jdstraye/pytest-8/test_pdf_to_ground_truth_integ0/user_1314_credit_summary_2025-09-01_092724_ground_truth_unvalidated.tmp_unvalidated.json",
+      "filename": "user_1314_credit_summary_2025-09-01_092724.pdf",
+      "credit_score": 527,
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "Closed Accnts Over 5k",
+      "color": "#428f4e",
+      "canonical_key": "closed_accnts_over_5k--5947e6c9c2",
+      "page": 0,
+      "bbox": [
+        382.67999267578125,
+        573.9949951171875,
+        494.5500183105469,
+        589.1090087890625
+      ],
+      "spans": [
+        {
+          "text": "Closed Accnts Over 5k",
+          "hex": "#428f4e",
+          "rgb": [
+            66,
+            143,
+            78
+          ],
+          "bbox": [
+            382.67999267578125,
+            573.9949951171875,
+            494.5500183105469,
+            589.1090087890625
+          ]
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": true
+    },
+    {
+      "input_file": "/tmp/pytest-of-jdstraye/pytest-8/test_pdf_to_ground_truth_integ0/user_1314_credit_summary_2025-09-01_092724_ground_truth_unvalidated.tmp_unvalidated.json",
+      "filename": "user_1314_credit_summary_2025-09-01_092724.pdf",
+      "credit_score": 527,
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "8+ Rev Accnts with Balances",
+      "color": "#212529",
+      "canonical_key": "8_rev_accnts_with_balances--f42352413b",
+      "page": 0,
+      "bbox": [
+        382.67999267578125,
+        591.0050048828125,
+        524.8220825195312,
+        606.1190185546875
+      ],
+      "spans": [
+        {
+          "text": "8+ Rev Accnts with Balances",
+          "hex": "#212529",
+          "rgb": [
+            33,
+            37,
+            41
+          ],
+          "bbox": [
+            382.67999267578125,
+            591.0050048828125,
+            524.8220825195312,
+            606.1190185546875
+          ]
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": true
+    },
+    {
+      "input_file": "/tmp/pytest-of-jdstraye/pytest-8/test_pdf_to_ground_truth_integ0/user_1314_credit_summary_2025-09-01_092724_ground_truth_unvalidated.tmp_unvalidated.json",
+      "filename": "user_1314_credit_summary_2025-09-01_092724.pdf",
+      "credit_score": 527,
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "In Credit Counseling",
+      "color": "#212529",
+      "canonical_key": "in_credit_counseling--3b216212c2",
+      "page": 0,
+      "bbox": [
+        382.67999267578125,
+        608.0149536132812,
+        482.3289489746094,
+        623.1289672851562
+      ],
+      "spans": [
+        {
+          "text": "In Credit Counseling",
+          "hex": "#212529",
+          "rgb": [
+            33,
+            37,
+            41
+          ],
+          "bbox": [
+            382.67999267578125,
+            608.0149536132812,
+            482.3289489746094,
+            623.1289672851562
+          ]
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": true
+    },
+    {
+      "input_file": "/tmp/pytest-of-jdstraye/pytest-8/test_pdf_to_ground_truth_integ0/user_1314_credit_summary_2025-09-01_092724_ground_truth_unvalidated.tmp_unvalidated.json",
+      "filename": "user_1314_credit_summary_2025-09-01_092724.pdf",
+      "credit_score": 527,
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "No Open Mortgage",
+      "color": "#212529",
+      "canonical_key": "no_open_mortgage--ebe5b24987",
+      "page": 0,
+      "bbox": [
+        382.67999267578125,
+        625.0249633789062,
+        476.2239990234375,
+        640.1389770507812
+      ],
+      "spans": [
+        {
+          "text": "No Open Mortgage",
+          "hex": "#212529",
+          "rgb": [
+            33,
+            37,
+            41
+          ],
+          "bbox": [
+            382.67999267578125,
+            625.0249633789062,
+            476.2239990234375,
+            640.1389770507812
+          ]
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": true
+    },
+    {
+      "input_file": "/tmp/pytest-of-jdstraye/pytest-8/test_pdf_to_ground_truth_integ0/user_1314_credit_summary_2025-09-01_092724_ground_truth_unvalidated.tmp_unvalidated.json",
+      "filename": "user_1314_credit_summary_2025-09-01_092724.pdf",
+      "credit_score": 527,
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "1 Rev Late in 4+ yrs",
+      "color": "#212529",
+      "canonical_key": "1_rev_late_in_4_yrs--fc5aec41ce",
+      "page": 0,
+      "bbox": [
+        382.67999267578125,
+        642.0249633789062,
+        480.81103515625,
+        657.1389770507812
+      ],
+      "spans": [
+        {
+          "text": "1 Rev Late in 4+ yrs",
+          "hex": "#212529",
+          "rgb": [
+            33,
+            37,
+            41
+          ],
+          "bbox": [
+            382.67999267578125,
+            642.0249633789062,
+            480.81103515625,
+            657.1389770507812
+          ]
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": true
+    },
+    {
+      "input_file": "/tmp/pytest-of-jdstraye/pytest-8/test_pdf_to_ground_truth_integ0/user_1314_credit_summary_2025-09-01_092724_ground_truth_unvalidated.tmp_unvalidated.json",
+      "filename": "user_1314_credit_summary_2025-09-01_092724.pdf",
+      "credit_score": 527,
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "No Rev Acct Open 10K 2yr",
+      "color": "#212529",
+      "canonical_key": "no_rev_acct_open_10k_2yr--52bc04a72c",
+      "page": 0,
+      "bbox": [
+        382.67999267578125,
+        676.0449829101562,
+        514.7350463867188,
+        691.1589965820312
+      ],
+      "spans": [
+        {
+          "text": "No Rev Acct Open 10K 2yr",
+          "hex": "#212529",
+          "rgb": [
+            33,
+            37,
+            41
+          ],
+          "bbox": [
+            382.67999267578125,
+            676.0449829101562,
+            514.7350463867188,
+            691.1589965820312
+          ]
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": true
+    },
+    {
+      "input_file": "/tmp/pytest-of-jdstraye/pytest-8/test_pdf_to_ground_truth_integ0/user_1314_credit_summary_2025-09-01_092724_ground_truth_unvalidated.tmp_unvalidated.json",
+      "filename": "user_1314_credit_summary_2025-09-01_092724.pdf",
+      "credit_score": 527,
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "1 Inq last 2-4 Mo",
+      "color": "#212529",
+      "canonical_key": "1_inq_last_2_4_mo--dd71172d55",
+      "page": 0,
+      "bbox": [
+        382.67999267578125,
+        693.0549926757812,
+        464.6080322265625,
+        708.1690063476562
+      ],
+      "spans": [
+        {
+          "text": "1 Inq last 2-4 Mo",
+          "hex": "#212529",
+          "rgb": [
+            33,
+            37,
+            41
+          ],
+          "bbox": [
+            382.67999267578125,
+            693.0549926757812,
+            464.6080322265625,
+            708.1690063476562
+          ]
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": true
+    },
+    {
+      "input_file": "/tmp/pytest-of-jdstraye/pytest-8/test_pdf_to_ground_truth_integ0/user_1314_credit_summary_2025-09-01_092724_ground_truth_unvalidated.tmp_unvalidated.json",
+      "filename": "user_1314_credit_summary_2025-09-01_092724.pdf",
+      "credit_score": 527,
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "1 Inq Last 4-5 mo",
+      "color": "#212529",
+      "canonical_key": "1_inq_last_4_5_mo--c229100bb9",
+      "page": 0,
+      "bbox": [
+        382.67999267578125,
+        710.0650024414062,
+        468.28204345703125,
+        725.1790161132812
+      ],
+      "spans": [
+        {
+          "text": "1 Inq Last 4-5 mo",
+          "hex": "#212529",
+          "rgb": [
+            33,
+            37,
+            41
+          ],
+          "bbox": [
+            382.67999267578125,
+            710.0650024414062,
+            468.28204345703125,
+            725.1790161132812
+          ]
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": true
+    },
+    {
+      "input_file": "/tmp/pytest-of-jdstraye/pytest-8/test_pdf_to_ground_truth_integ0/user_1314_credit_summary_2025-09-01_092724_ground_truth_unvalidated.tmp_unvalidated.json",
+      "filename": "user_1314_credit_summary_2025-09-01_092724.pdf",
+      "credit_score": 527,
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "1 Total Inq 2-4 Mo",
+      "color": "#212529",
+      "canonical_key": "1_total_inq_2_4_mo--da7cb86507",
+      "page": 1,
+      "bbox": [
+        382.67999267578125,
+        29.745006561279297,
+        471.9450378417969,
+        44.8590087890625
+      ],
+      "spans": [
+        {
+          "text": "1 Total Inq 2-4 Mo",
+          "hex": "#212529",
+          "rgb": [
+            33,
+            37,
+            41
+          ],
+          "bbox": [
+            382.67999267578125,
+            29.745006561279297,
+            471.9450378417969,
+            44.8590087890625
+          ]
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": true
+    },
+    {
+      "input_file": "/tmp/pytest-of-jdstraye/pytest-8/test_pdf_to_ground_truth_integ0/user_1314_credit_summary_2025-09-01_092724_ground_truth_unvalidated.tmp_unvalidated.json",
+      "filename": "user_1314_credit_summary_2025-09-01_092724.pdf",
+      "credit_score": 527,
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "1 Total Inqs 4-5 mo",
+      "color": "#212529",
+      "canonical_key": "1_total_inqs_4_5_mo--176803dfab",
+      "page": 2,
+      "bbox": [
+        382.67999267578125,
+        29.745006561279297,
+        477.4450378417969,
+        44.8590087890625
+      ],
+      "spans": [
+        {
+          "text": "1 Total Inqs 4-5 mo",
+          "hex": "#212529",
+          "rgb": [
+            33,
+            37,
+            41
+          ],
+          "bbox": [
+            382.67999267578125,
+            29.745006561279297,
+            477.4450378417969,
+            44.8590087890625
+          ]
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": true
+    },
+    {
+      "input_file": "/tmp/pytest-of-jdstraye/pytest-8/test_pdf_to_ground_truth_integ0/user_1314_credit_summary_2025-09-01_092724_ground_truth_unvalidated.tmp_unvalidated.json",
+      "filename": "user_1314_credit_summary_2025-09-01_092724.pdf",
+      "credit_score": 527,
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "Account paid for less than full balance. Paid charge off.",
+      "color": "#212529",
+      "canonical_key": "account_paid_for_less_than_full_balance_paid_charge_off--61f7ca47bb",
+      "page": 3,
+      "bbox": [
+        206.92999267578125,
+        344.5250244140625,
+        429.05010986328125,
+        356.8910217285156
+      ],
+      "spans": [
+        {
+          "text": "Account paid for less than full balance. Paid charge off. ",
+          "hex": "#212529",
+          "rgb": [
+            33,
+            37,
+            41
+          ],
+          "bbox": [
+            206.92999267578125,
+            344.5250244140625,
+            429.05010986328125,
+            356.8910217285156
+          ]
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": true
+    },
+    {
+      "input_file": "/tmp/pytest-of-jdstraye/pytest-8/test_pdf_to_ground_truth_integ0/user_1314_credit_summary_2025-09-01_092724_ground_truth_unvalidated.tmp_unvalidated.json",
+      "filename": "user_1314_credit_summary_2025-09-01_092724.pdf",
+      "credit_score": 527,
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "Account paid for less than full balance. Fixed rate. Closed - 5/31/24",
+      "color": "#212529",
+      "canonical_key": "account_paid_for_less_than_full_balance_fixed_rate_closed_5_31_24--7fa7707641",
+      "page": 3,
+      "bbox": [
+        206.92999267578125,
+        457.9150085449219,
+        471.3830261230469,
+        470.281005859375
+      ],
+      "spans": [
+        {
+          "text": "Account paid for less than full balance. Fixed rate. Closed - 5/31/24",
+          "hex": "#212529",
+          "rgb": [
+            33,
+            37,
+            41
+          ],
+          "bbox": [
+            206.92999267578125,
+            457.9150085449219,
+            471.3830261230469,
+            470.281005859375
+          ]
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": true
+    },
+    {
+      "input_file": "/tmp/pytest-of-jdstraye/pytest-8/test_pdf_to_ground_truth_integ0/user_1314_credit_summary_2025-09-01_092724_ground_truth_unvalidated.tmp_unvalidated.json",
+      "filename": "user_1314_credit_summary_2025-09-01_092724.pdf",
+      "credit_score": 527,
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "Paid charge off. Fixed rate.",
+      "color": "#212529",
+      "canonical_key": "paid_charge_off_fixed_rate--de2d101563",
+      "page": 3,
+      "bbox": [
+        206.92999267578125,
+        480.58502197265625,
+        317.486083984375,
+        492.9510192871094
+      ],
+      "spans": [
+        {
+          "text": "Paid charge off. Fixed rate. ",
+          "hex": "#212529",
+          "rgb": [
+            33,
+            37,
+            41
+          ],
+          "bbox": [
+            206.92999267578125,
+            480.58502197265625,
+            317.486083984375,
+            492.9510192871094
+          ]
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": true
+    },
+    {
+      "input_file": "/tmp/pytest-of-jdstraye/pytest-8/test_pdf_to_ground_truth_integ0/user_1314_credit_summary_2025-09-01_092724_ground_truth_unvalidated.tmp_unvalidated.json",
+      "filename": "user_1314_credit_summary_2025-09-01_092724.pdf",
+      "credit_score": 527,
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "Account paid for less than full balance. Fixed rate. Closed - 4/14/21",
+      "color": "#212529",
+      "canonical_key": "account_paid_for_less_than_full_balance_fixed_rate_closed_4_14_21--270c630dec",
+      "page": 3,
+      "bbox": [
+        206.92999267578125,
+        571.2949829101562,
+        471.3830261230469,
+        583.6609497070312
+      ],
+      "spans": [
+        {
+          "text": "Account paid for less than full balance. Fixed rate. Closed - 4/14/21",
+          "hex": "#212529",
+          "rgb": [
+            33,
+            37,
+            41
+          ],
+          "bbox": [
+            206.92999267578125,
+            571.2949829101562,
+            471.3830261230469,
+            583.6609497070312
+          ]
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": true
+    },
+    {
+      "input_file": "/tmp/pytest-of-jdstraye/pytest-8/test_pdf_to_ground_truth_integ0/user_1314_credit_summary_2025-09-01_092724_ground_truth_unvalidated.tmp_unvalidated.json",
+      "filename": "user_1314_credit_summary_2025-09-01_092724.pdf",
+      "credit_score": 527,
+      "age": 49,
+      "address": [
+        "3070 Lakecrest Cir, Lexington, KY 40513",
+        "3070 Lakecrest Cir Ste 400, Lexington, KY 40513"
+      ],
+      "factor": "Drop Bad Auth User (BEST BUY/CBNA, and CO",
+      "color": "#212529",
+      "canonical_key": "drop_bad_auth_user_best_buy_cbna_and_co--0eece9a3e1",
+      "page": 0,
+      "bbox": [
+        382.67999267578125,
+        659.0349731445312,
+        619.8729858398438,
+        674.1489868164062
+      ],
+      "spans": [
+        {
+          "text": "Drop Bad Auth User (BEST BUY/CBNA, and CO",
+          "hex": "#212529",
+          "rgb": [
+            33,
+            37,
+            41
+          ],
+          "bbox": [
+            382.67999267578125,
+            659.0349731445312,
+            619.8729858398438,
+            674.1489868164062
+          ]
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": true
+    }
+  ]
+}

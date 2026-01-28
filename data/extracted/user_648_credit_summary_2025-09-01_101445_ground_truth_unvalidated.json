@@ -1,0 +1,223 @@
+{
+  "filename": "user_648_credit_summary_2025-09-01_101445.pdf",
+  "source": "data/pdf_analysis/user_648_credit_summary_2025-09-01_101445.pdf",
+  "credit_score": 702,
+  "credit_score_color": "neutral",
+  "age": 35,
+  "address": [
+    "524 Ne Hobson St, Lewistown, MT 59457",
+    "2501 Ne 259th Ave, Camas, WA 98607"
+  ],
+  "collections_open": 0,
+  "collections_closed": 0,
+  "public_records": 0,
+  "revolving_open_count": 4,
+  "revolving_open_total": 14936,
+  "installment_open_count": 1,
+  "installment_open_total": 9859,
+  "credit_factors": [
+    {
+      "factor": "No",
+      "color": "black"
+    },
+    {
+      "factor": "Credit Freeze",
+      "color": "black"
+    },
+    {
+      "factor": "Fraud Alert",
+      "color": "black"
+    },
+    {
+      "factor": "Deceased",
+      "color": "black"
+    },
+    {
+      "factor": "Credit Factors",
+      "color": "black"
+    },
+    {
+      "factor": "Total Rev Usage > 55%",
+      "color": "green"
+    },
+    {
+      "factor": "Pay $1716 so Accts < 40%",
+      "color": "red"
+    },
+    {
+      "factor": "Light Open Rev Depth",
+      "color": "red"
+    },
+    {
+      "factor": "Avg Age Open",
+      "color": "red"
+    },
+    {
+      "factor": "No Closed Rev Depth",
+      "color": "red"
+    },
+    {
+      "factor": "No 5k+ Lines",
+      "color": "red"
+    },
+    {
+      "factor": "1+ Closed Rev Accnts",
+      "color": "green"
+    },
+    {
+      "factor": "No Open Mortgage",
+      "color": "neutral"
+    },
+    {
+      "factor": "Drop Bad Auth User (CITICARDS CBNA, and C",
+      "color": "black"
+    },
+    {
+      "factor": "No Rev Acct Open 10K 2yr",
+      "color": "neutral"
+    },
+    {
+      "factor": "1 Inqs Fall Off In 30 Days",
+      "color": "black"
+    },
+    {
+      "factor": "Credit Alerts",
+      "color": "black"
+    },
+    {
+      "factor": "$120 Balance",
+      "color": "red"
+    },
+    {
+      "factor": "Limit",
+      "color": "black"
+    },
+    {
+      "factor": "$4 $850",
+      "color": "red"
+    },
+    {
+      "factor": "Age",
+      "color": "black"
+    },
+    {
+      "factor": "60%",
+      "color": "red"
+    },
+    {
+      "factor": "$30 I",
+      "color": "black"
+    },
+    {
+      "factor": "72%",
+      "color": "red"
+    },
+    {
+      "factor": "0%",
+      "color": "black"
+    },
+    {
+      "factor": "$4,156 $4,100 101%",
+      "color": "red"
+    },
+    {
+      "factor": "94%",
+      "color": "red"
+    },
+    {
+      "factor": "$78 A",
+      "color": "black"
+    },
+    {
+      "factor": "70%",
+      "color": "red"
+    },
+    {
+      "factor": "74%",
+      "color": "black"
+    },
+    {
+      "factor": "Revolving Accounts (Open)",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Pay $1716 so Accts < 40%",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Light Open Rev Depth",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No Closed Rev Depth",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No 5k+ Lines",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "1+ Closed Rev Accnts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "No Open Mortgage",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "No Rev Acct Open 10K 2yr",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Revolving Accounts",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "SYNCB/PAYPAL (Credit Card)",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Revolving Accounts - Authorized User",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "Revolving Accounts",
+      "color": "black",
+      "hex": "#374151"
+    }
+  ],
+  "inquiries_last_6_months": 1,
+  "credit_card_open_totals": {
+    "color": "red",
+    "balance": 4156,
+    "limit": 4100,
+    "Percent": 101,
+    "Payment": 120
+  },
+  "monthly_payments": 417,
+  "real_estate_open_count": 0,
+  "real_estate_open_total": 0,
+  "line_of_credit_accounts_open_count": 0,
+  "line_of_credit_accounts_open_total": 0,
+  "miscellaneous_accounts_open_count": 0,
+  "miscellaneous_accounts_open_total": 0,
+  "late_pays_2yr": 0,
+  "late_pays_gt2yr": 0,
+  "red_credit_factors_count": 16,
+  "green_credit_factors_count": 3,
+  "black_credit_factors_count": 21,
+  "credit_freeze": 0,
+  "fraud_alert": 0,
+  "deceased": 0
+}

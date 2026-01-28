@@ -1,0 +1,342 @@
+{
+  "filename": "user_1324_credit_summary_2025-09-01_095807.pdf",
+  "source": "data/pdf_analysis/user_1324_credit_summary_2025-09-01_095807.pdf",
+  "credit_score": 629,
+  "credit_score_color": "red",
+  "age": 69,
+  "address": [
+    "1120 Saint Johns Pl, Brooklyn, NY 11213",
+    "1120 Saint Johns Pl Apt 101, Brooklyn, NY 11213"
+  ],
+  "collections_open": 9,
+  "collections_closed": 3,
+  "public_records": 1,
+  "revolving_open_count": 14,
+  "revolving_open_total": 4998,
+  "installment_open_count": 3,
+  "installment_open_total": 236866,
+  "credit_factors": [
+    {
+      "factor": "No",
+      "color": "black"
+    },
+    {
+      "factor": "Credit Freeze",
+      "color": "black"
+    },
+    {
+      "factor": "Fraud Alert",
+      "color": "black"
+    },
+    {
+      "factor": "Deceased",
+      "color": "black"
+    },
+    {
+      "factor": "Credit Factors",
+      "color": "black"
+    },
+    {
+      "factor": "3 Charged Off Accts",
+      "color": "green"
+    },
+    {
+      "factor": "$9013 Unpaid Collections",
+      "color": "red"
+    },
+    {
+      "factor": "1 Over Limit Accnt",
+      "color": "green"
+    },
+    {
+      "factor": "Total Rev Usage > 40%",
+      "color": "green"
+    },
+    {
+      "factor": "Past Due Not Late",
+      "color": "green"
+    },
+    {
+      "factor": "Pay $3628 so Accts < 40%",
+      "color": "red"
+    },
+    {
+      "factor": "5 Chrgd Off Rev Accts",
+      "color": "red"
+    },
+    {
+      "factor": "1 Rev Late in 6-12 mo",
+      "color": "red"
+    },
+    {
+      "factor": "BK w/ Neg Credit",
+      "color": "red"
+    },
+    {
+      "factor": "1 Rev Late in 12-24 mo",
+      "color": "red"
+    },
+    {
+      "factor": "No 5k+ Lines",
+      "color": "red"
+    },
+    {
+      "factor": "1 Inq Last 4 Mo",
+      "color": "red"
+    },
+    {
+      "factor": "1 RE Late in 12-24 mo",
+      "color": "red"
+    },
+    {
+      "factor": "Less than 5 yrs",
+      "color": "red"
+    },
+    {
+      "factor": "Ok Open Rev Depth",
+      "color": "green"
+    },
+    {
+      "factor": "3+ Closed Rev Accnts",
+      "color": "green"
+    },
+    {
+      "factor": "Ok Closed Rev Depth",
+      "color": "green"
+    },
+    {
+      "factor": "Seasoned Closed Accounts",
+      "color": "green"
+    },
+    {
+      "factor": "No Open Mortgage",
+      "color": "neutral"
+    },
+    {
+      "factor": "No Rev Acct Open 10K 2yr",
+      "color": "neutral"
+    },
+    {
+      "factor": "Status",
+      "color": "black"
+    },
+    {
+      "factor": "Age",
+      "color": "black"
+    },
+    {
+      "factor": "$104 Balance",
+      "color": "red"
+    },
+    {
+      "factor": "Open",
+      "color": "black"
+    },
+    {
+      "factor": "$0 Closed - 10/15/24",
+      "color": "black"
+    },
+    {
+      "factor": "$0 Closed - 4/7/24",
+      "color": "black"
+    },
+    {
+      "factor": "$0 Closed - 2/29/24",
+      "color": "black"
+    },
+    {
+      "factor": "$0 Closed - 11/10/23",
+      "color": "black"
+    },
+    {
+      "factor": "$2,219 Account",
+      "color": "neutral"
+    },
+    {
+      "factor": "Austin Capital Bank",
+      "color": "black"
+    },
+    {
+      "factor": "CAPITAL ONE BANK USA",
+      "color": "black"
+    },
+    {
+      "factor": "Limit",
+      "color": "black"
+    },
+    {
+      "factor": "$4,998 $12,825",
+      "color": "red"
+    },
+    {
+      "factor": "0%",
+      "color": "black"
+    },
+    {
+      "factor": "$0 I",
+      "color": "black"
+    },
+    {
+      "factor": "61%",
+      "color": "red"
+    },
+    {
+      "factor": "73%",
+      "color": "red"
+    },
+    {
+      "factor": "88%",
+      "color": "red"
+    },
+    {
+      "factor": "89%",
+      "color": "red"
+    },
+    {
+      "factor": "$2,219 $2,000 111%",
+      "color": "red"
+    },
+    {
+      "factor": "39%",
+      "color": "red"
+    },
+    {
+      "factor": "Revolving Accounts (Open)",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "3 Charged Off Accts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "3 Charged Off Accts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "1 Over Limit Accnt",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Pay $3628 so Accts < 40%",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No 5k+ Lines",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Ok Open Rev Depth",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "3+ Closed Rev Accnts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Ok Closed Rev Depth",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Seasoned Closed Accounts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "No Open Mortgage",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "No Rev Acct Open 10K 2yr",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "SYNCB/PAYPAL CREDIT",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Charged off account. Payments managed by financial counseling program.",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "SYNCB/PAYPAL",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Charged off account. Account closed by credit grantor.",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Charged off account.",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Charged off account.",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Revolving Accounts",
+      "color": "black",
+      "hex": "#374151"
+    },
+    {
+      "factor": "SYNCB/PAYPAL CREDIT  (Credit Card)",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "SYNCB/PAYPAL (Credit Card)",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Revolving Accounts",
+      "color": "black",
+      "hex": "#374151"
+    }
+  ],
+  "inquiries_last_6_months": 1,
+  "credit_card_open_totals": {
+    "color": "red",
+    "balance": 4998,
+    "limit": 12825,
+    "Percent": null,
+    "Payment": null
+  },
+  "monthly_payments": 134,
+  "real_estate_open_count": 0,
+  "real_estate_open_total": 0,
+  "line_of_credit_accounts_open_count": 0,
+  "line_of_credit_accounts_open_total": 0,
+  "miscellaneous_accounts_open_count": 0,
+  "miscellaneous_accounts_open_total": 0,
+  "late_pays_2yr": 3,
+  "late_pays_gt2yr": 0,
+  "public_records_details": {
+    "detail": "Bankruptcy Discharged CH-7Discharged CH-7",
+    "date": "2019-05-16",
+    "color": "red"
+  },
+  "red_credit_factors_count": 20,
+  "green_credit_factors_count": 15,
+  "black_credit_factors_count": 30,
+  "credit_freeze": 0,
+  "fraud_alert": 0,
+  "deceased": 0
+}

@@ -1,0 +1,147 @@
+{
+  "filename": "user_1106_credit_summary_2025-09-01_105449.pdf",
+  "source": "data/pdf_analysis/user_1106_credit_summary_2025-09-01_105449.pdf",
+  "credit_score": 651,
+  "credit_score_color": "neutral",
+  "age": 42,
+  "address": [
+    "1162 Gammon Ln, Madison, WI 53719"
+  ],
+  "collections_open": 0,
+  "collections_closed": 0,
+  "public_records": 1,
+  "revolving_open_count": 10,
+  "revolving_open_total": 10761,
+  "installment_open_count": 1,
+  "installment_open_total": 49002,
+  "credit_factors": [
+    {
+      "factor": "5 Rev Lates in 12-24 mo",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "1 Over Limit Accnt",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Total Rev Usage > 75%",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "C-7/11 BK in Last 7 yrs",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Pay $5965 so Accts < 40%",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No Open 1k+ Lines",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "BK w/ Neg Credit",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Avg Age Open",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Light Open Rev Depth",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No Closed Rev Depth",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "1 Inq Last 4 Mo",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "2 Too Many Retail Accounts",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "2+ Closed Rev Accnts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "8+ Rev Accnts with Balances",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "No Open Mortgage",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "No Rev Acct Open 10K 2yr",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "1 Inq last 2-4 Mo",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "1 Inq Last 4-5 mo",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "1 Total Inq 2-4 Mo",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "1 Total Inqs 4-5 mo",
+      "color": "black",
+      "hex": "#212529"
+    }
+  ],
+  "inquiries_last_6_months": 2,
+  "credit_card_open_totals": {
+    "color": "red",
+    "balance": 11030,
+    "limit": 1500,
+    "Percent": 735,
+    "Payment": 461
+  },
+  "monthly_payments": 1326,
+  "real_estate_open_count": 0,
+  "real_estate_open_total": 0,
+  "line_of_credit_accounts_open_count": 0,
+  "line_of_credit_accounts_open_total": 269,
+  "miscellaneous_accounts_open_count": 0,
+  "miscellaneous_accounts_open_total": 0,
+  "late_pays_2yr": 5,
+  "late_pays_gt2yr": 0,
+  "public_records_details": {
+    "detail": "Bankruptcy Discharged CH-7Discharged CH-7",
+    "date": "2021-03-16",
+    "color": "red"
+  },
+  "red_credit_factors_count": 8,
+  "green_credit_factors_count": 5,
+  "black_credit_factors_count": 7,
+  "credit_freeze": 0,
+  "fraud_alert": 0,
+  "deceased": 0
+}

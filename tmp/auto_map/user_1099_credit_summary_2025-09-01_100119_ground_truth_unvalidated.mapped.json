@@ -1,0 +1,5093 @@
+{
+  "source_gt": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+  "mapped": [
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Avg Age Open",
+      "color": "#dc3545",
+      "canonical_key": "avg_age_open--8f2357d36a",
+      "page": 0,
+      "bbox": [
+        382.67999267578125,
+        165.8050079345703,
+        454.2240295410156,
+        180.91900634765625
+      ],
+      "spans": [
+        {
+          "text": "Avg Age Open",
+          "bbox": [
+            382.67999267578125,
+            165.8050079345703,
+            454.2240295410156,
+            180.91900634765625
+          ],
+          "font_size": 11.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "No Closed Rev Depth",
+      "color": "#dc3545",
+      "canonical_key": "no_closed_rev_depth--fd24789bc0",
+      "page": 0,
+      "bbox": [
+        382.67999267578125,
+        182.8150177001953,
+        489.0499572753906,
+        197.92901611328125
+      ],
+      "spans": [
+        {
+          "text": "No Closed Rev Depth",
+          "bbox": [
+            382.67999267578125,
+            182.8150177001953,
+            489.0499572753906,
+            197.92901611328125
+          ],
+          "font_size": 11.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Accounts Too New",
+      "color": "#dc3545",
+      "canonical_key": "accounts_too_new--7cd91ff6ba",
+      "page": 0,
+      "bbox": [
+        382.67999267578125,
+        199.8250274658203,
+        474.99200439453125,
+        214.93902587890625
+      ],
+      "spans": [
+        {
+          "text": "Accounts Too New",
+          "bbox": [
+            382.67999267578125,
+            199.8250274658203,
+            474.99200439453125,
+            214.93902587890625
+          ],
+          "font_size": 11.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "12k+ lines",
+      "color": "#428f4e",
+      "canonical_key": "12k_lines--13c36bff70",
+      "page": 0,
+      "bbox": [
+        382.67999267578125,
+        216.83497619628906,
+        432.5099792480469,
+        231.948974609375
+      ],
+      "spans": [
+        {
+          "text": "12k+ lines",
+          "bbox": [
+            382.67999267578125,
+            216.83497619628906,
+            432.5099792480469,
+            231.948974609375
+          ],
+          "font_size": 11.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Ok Open Rev Depth",
+      "color": "#428f4e",
+      "canonical_key": "ok_open_rev_depth--edf7078316",
+      "page": 0,
+      "bbox": [
+        382.67999267578125,
+        233.84498596191406,
+        481.7240295410156,
+        248.958984375
+      ],
+      "spans": [
+        {
+          "text": "Ok Open Rev Depth",
+          "bbox": [
+            382.67999267578125,
+            233.84498596191406,
+            481.7240295410156,
+            248.958984375
+          ],
+          "font_size": 11.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Paid Off 200k+ RE/RE",
+      "color": "#428f4e",
+      "canonical_key": "paid_off_200k_re_re--737322e983",
+      "page": 0,
+      "bbox": [
+        382.67999267578125,
+        250.84498596191406,
+        492.42706298828125,
+        265.958984375
+      ],
+      "spans": [
+        {
+          "text": "Paid Off 200k+ RE/RE",
+          "bbox": [
+            382.67999267578125,
+            250.84498596191406,
+            492.42706298828125,
+            265.958984375
+          ],
+          "font_size": 11.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "No Open Mortgage",
+      "color": "#212529",
+      "canonical_key": "no_open_mortgage--ebe5b24987",
+      "page": 0,
+      "bbox": [
+        382.67999267578125,
+        267.85498046875,
+        476.2239990234375,
+        282.968994140625
+      ],
+      "spans": [
+        {
+          "text": "No Open Mortgage",
+          "bbox": [
+            382.67999267578125,
+            267.85498046875,
+            476.2239990234375,
+            282.968994140625
+          ],
+          "font_size": 11.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "No Rev Acct Open 10K 2yr",
+      "color": "#212529",
+      "canonical_key": "no_rev_acct_open_10k_2yr--52bc04a72c",
+      "page": 0,
+      "bbox": [
+        382.67999267578125,
+        284.864990234375,
+        514.7350463867188,
+        299.97900390625
+      ],
+      "spans": [
+        {
+          "text": "No Rev Acct Open 10K 2yr",
+          "bbox": [
+            382.67999267578125,
+            284.864990234375,
+            514.7350463867188,
+            299.97900390625
+          ],
+          "font_size": 11.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Open Accounts",
+      "color": "#212529",
+      "canonical_key": "open_accounts--ece4d3767c",
+      "page": 1,
+      "bbox": [
+        56.689998626708984,
+        32.50998306274414,
+        152.75999450683594,
+        50.41098403930664
+      ],
+      "spans": [
+        {
+          "text": "Open Accounts",
+          "bbox": [
+            56.689998626708984,
+            32.50998306274414,
+            152.75999450683594,
+            50.41098403930664
+          ],
+          "font_size": 13.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Revolving Accounts",
+      "color": "#374151",
+      "canonical_key": "revolving_accounts--c091bf711c",
+      "page": 1,
+      "bbox": [
+        56.689998626708984,
+        72.44001007080078,
+        143.20697021484375,
+        84.8330078125
+      ],
+      "spans": [
+        {
+          "text": "Revolving Accounts",
+          "bbox": [
+            56.689998626708984,
+            72.44001007080078,
+            143.20697021484375,
+            84.8330078125
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Balance",
+      "color": "#374151",
+      "canonical_key": "balance--8dfa30e024",
+      "page": 1,
+      "bbox": [
+        333.989990234375,
+        72.44001007080078,
+        368.5049743652344,
+        84.8330078125
+      ],
+      "spans": [
+        {
+          "text": "Balance",
+          "bbox": [
+            333.989990234375,
+            72.44001007080078,
+            368.5049743652344,
+            84.8330078125
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Limit",
+      "color": "#374151",
+      "canonical_key": "limit--e4d68c5a97",
+      "page": 1,
+      "bbox": [
+        398.0299987792969,
+        72.44001007080078,
+        419.5310363769531,
+        84.8330078125
+      ],
+      "spans": [
+        {
+          "text": "Limit",
+          "bbox": [
+            398.0299987792969,
+            72.44001007080078,
+            419.5310363769531,
+            84.8330078125
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "%",
+      "color": "#374151",
+      "canonical_key": "--da39a3ee5e",
+      "page": 1,
+      "bbox": [
+        439.8699951171875,
+        72.44001007080078,
+        447.8710021972656,
+        84.8330078125
+      ],
+      "spans": [
+        {
+          "text": "%",
+          "bbox": [
+            439.8699951171875,
+            72.44001007080078,
+            447.8710021972656,
+            84.8330078125
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Payment Resp",
+      "color": "#374151",
+      "canonical_key": "payment_resp--bc5fc6bcd4",
+      "page": 1,
+      "bbox": [
+        461.3900146484375,
+        72.44001007080078,
+        527.2450561523438,
+        84.8330078125
+      ],
+      "spans": [
+        {
+          "text": "Payment Resp",
+          "bbox": [
+            461.3900146484375,
+            72.44001007080078,
+            527.2450561523438,
+            84.8330078125
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Age",
+      "color": "#374151",
+      "canonical_key": "age--5dc56b9aab",
+      "page": 1,
+      "bbox": [
+        544.260009765625,
+        72.44001007080078,
+        561.2610473632812,
+        84.8330078125
+      ],
+      "spans": [
+        {
+          "text": "Age",
+          "bbox": [
+            544.260009765625,
+            72.44001007080078,
+            561.2610473632812,
+            84.8330078125
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "JPMCB CARD SERVICES (Flexible Spending Credit Card)",
+      "color": "#212529",
+      "canonical_key": "jpmcb_card_services_flexible_spending_credit_card--7e00cd4235",
+      "page": 1,
+      "bbox": [
+        56.689998626708984,
+        95.07499694824219,
+        291.7430114746094,
+        107.44100189208984
+      ],
+      "spans": [
+        {
+          "text": "JPMCB CARD SERVICES (Flexible Spending Credit Card)",
+          "bbox": [
+            56.689998626708984,
+            95.07499694824219,
+            291.7430114746094,
+            107.44100189208984
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "$6,120",
+      "color": "#212529",
+      "canonical_key": "6_120--ab7edd0775",
+      "page": 1,
+      "bbox": [
+        340.9800109863281,
+        95.07499694824219,
+        368.50201416015625,
+        107.44100189208984
+      ],
+      "spans": [
+        {
+          "text": "$6,120",
+          "bbox": [
+            340.9800109863281,
+            95.07499694824219,
+            368.50201416015625,
+            107.44100189208984
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "$12,000",
+      "color": "#212529",
+      "canonical_key": "12_000--4208e29cfd",
+      "page": 1,
+      "bbox": [
+        387.0,
+        95.07499694824219,
+        419.5260009765625,
+        107.44100189208984
+      ],
+      "spans": [
+        {
+          "text": "$12,000",
+          "bbox": [
+            387.0,
+            95.07499694824219,
+            419.5260009765625,
+            107.44100189208984
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "51%",
+      "color": "#dc3545",
+      "canonical_key": "51--b7eb6c689c",
+      "page": 1,
+      "bbox": [
+        429.8699951171875,
+        95.07499694824219,
+        447.8789978027344,
+        107.44100189208984
+      ],
+      "spans": [
+        {
+          "text": "51%",
+          "bbox": [
+            429.8699951171875,
+            95.07499694824219,
+            447.8789978027344,
+            107.44100189208984
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "$176",
+      "color": "#212529",
+      "canonical_key": "176--5c8f5ac0b7",
+      "page": 1,
+      "bbox": [
+        478.8800048828125,
+        95.07499694824219,
+        498.89599609375,
+        107.44100189208984
+      ],
+      "spans": [
+        {
+          "text": "$176",
+          "bbox": [
+            478.8800048828125,
+            95.07499694824219,
+            498.89599609375,
+            107.44100189208984
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "I",
+      "color": "#212529",
+      "canonical_key": "i--042dc4512f",
+      "page": 1,
+      "bbox": [
+        524.739990234375,
+        95.07499694824219,
+        527.2420043945312,
+        107.44100189208984
+      ],
+      "spans": [
+        {
+          "text": "I",
+          "bbox": [
+            524.739990234375,
+            95.07499694824219,
+            527.2420043945312,
+            107.44100189208984
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "SYNCB/PAYPAL (Credit Card)",
+      "color": "#212529",
+      "canonical_key": "syncb_paypal_credit_card--50234505a5",
+      "page": 1,
+      "bbox": [
+        56.689998626708984,
+        117.75498962402344,
+        179.71995544433594,
+        130.12098693847656
+      ],
+      "spans": [
+        {
+          "text": "SYNCB/PAYPAL (Credit Card)",
+          "bbox": [
+            56.689998626708984,
+            117.75498962402344,
+            179.71995544433594,
+            130.12098693847656
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "$0",
+      "color": "#212529",
+      "canonical_key": "0--b6589fc6ab",
+      "page": 1,
+      "bbox": [
+        358.5,
+        117.75498962402344,
+        368.50799560546875,
+        130.12098693847656
+      ],
+      "spans": [
+        {
+          "text": "$0",
+          "bbox": [
+            358.5,
+            117.75498962402344,
+            368.50799560546875,
+            130.12098693847656
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "$4,300",
+      "color": "#212529",
+      "canonical_key": "4_300--58d5115163",
+      "page": 1,
+      "bbox": [
+        392.010009765625,
+        117.75498962402344,
+        419.5320129394531,
+        130.12098693847656
+      ],
+      "spans": [
+        {
+          "text": "$4,300",
+          "bbox": [
+            392.010009765625,
+            117.75498962402344,
+            419.5320129394531,
+            130.12098693847656
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "0%",
+      "color": "#212529",
+      "canonical_key": "0--b6589fc6ab",
+      "page": 1,
+      "bbox": [
+        434.8699951171875,
+        117.75498962402344,
+        447.875,
+        130.12098693847656
+      ],
+      "spans": [
+        {
+          "text": "0%",
+          "bbox": [
+            434.8699951171875,
+            117.75498962402344,
+            447.875,
+            130.12098693847656
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "$0",
+      "color": "#212529",
+      "canonical_key": "0--b6589fc6ab",
+      "page": 1,
+      "bbox": [
+        358.5,
+        117.75498962402344,
+        368.50799560546875,
+        130.12098693847656
+      ],
+      "spans": [
+        {
+          "text": "$0",
+          "bbox": [
+            358.5,
+            117.75498962402344,
+            368.50799560546875,
+            130.12098693847656
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "I",
+      "color": "#212529",
+      "canonical_key": "i--042dc4512f",
+      "page": 1,
+      "bbox": [
+        524.739990234375,
+        95.07499694824219,
+        527.2420043945312,
+        107.44100189208984
+      ],
+      "spans": [
+        {
+          "text": "I",
+          "bbox": [
+            524.739990234375,
+            95.07499694824219,
+            527.2420043945312,
+            107.44100189208984
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "AMERICAN EXPRESS (Credit Card)",
+      "color": "#212529",
+      "canonical_key": "american_express_credit_card--6b4296d53c",
+      "page": 1,
+      "bbox": [
+        56.689998626708984,
+        140.4349822998047,
+        203.71397399902344,
+        152.8009796142578
+      ],
+      "spans": [
+        {
+          "text": "AMERICAN EXPRESS (Credit Card)",
+          "bbox": [
+            56.689998626708984,
+            140.4349822998047,
+            203.71397399902344,
+            152.8009796142578
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "$606",
+      "color": "#212529",
+      "canonical_key": "606--a29e971b51",
+      "page": 1,
+      "bbox": [
+        348.489990234375,
+        140.4349822998047,
+        368.5059814453125,
+        152.8009796142578
+      ],
+      "spans": [
+        {
+          "text": "$606",
+          "bbox": [
+            348.489990234375,
+            140.4349822998047,
+            368.5059814453125,
+            152.8009796142578
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "$2,500",
+      "color": "#212529",
+      "canonical_key": "2_500--f298aa5df4",
+      "page": 1,
+      "bbox": [
+        392.010009765625,
+        140.4349822998047,
+        419.5320129394531,
+        152.8009796142578
+      ],
+      "spans": [
+        {
+          "text": "$2,500",
+          "bbox": [
+            392.010009765625,
+            140.4349822998047,
+            419.5320129394531,
+            152.8009796142578
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "24%",
+      "color": "#212529",
+      "canonical_key": "24--4d134bc072",
+      "page": 1,
+      "bbox": [
+        429.8699951171875,
+        140.4349822998047,
+        447.8789978027344,
+        152.8009796142578
+      ],
+      "spans": [
+        {
+          "text": "24%",
+          "bbox": [
+            429.8699951171875,
+            140.4349822998047,
+            447.8789978027344,
+            152.8009796142578
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "$40",
+      "color": "#212529",
+      "canonical_key": "40--af3e133428",
+      "page": 1,
+      "bbox": [
+        483.8900146484375,
+        140.4349822998047,
+        498.9020080566406,
+        152.8009796142578
+      ],
+      "spans": [
+        {
+          "text": "$40",
+          "bbox": [
+            483.8900146484375,
+            140.4349822998047,
+            498.9020080566406,
+            152.8009796142578
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "I",
+      "color": "#212529",
+      "canonical_key": "i--042dc4512f",
+      "page": 1,
+      "bbox": [
+        524.739990234375,
+        95.07499694824219,
+        527.2420043945312,
+        107.44100189208984
+      ],
+      "spans": [
+        {
+          "text": "I",
+          "bbox": [
+            524.739990234375,
+            95.07499694824219,
+            527.2420043945312,
+            107.44100189208984
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "JPMCB CARD SERVICES (Credit Card)",
+      "color": "#212529",
+      "canonical_key": "jpmcb_card_services_credit_card--a917d96c92",
+      "page": 1,
+      "bbox": [
+        56.689998626708984,
+        163.1050262451172,
+        217.708984375,
+        175.4710235595703
+      ],
+      "spans": [
+        {
+          "text": "JPMCB CARD SERVICES (Credit Card)",
+          "bbox": [
+            56.689998626708984,
+            163.1050262451172,
+            217.708984375,
+            175.4710235595703
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "$100",
+      "color": "#212529",
+      "canonical_key": "100--310b86e0b6",
+      "page": 1,
+      "bbox": [
+        348.489990234375,
+        163.1050262451172,
+        368.5059814453125,
+        175.4710235595703
+      ],
+      "spans": [
+        {
+          "text": "$100",
+          "bbox": [
+            348.489990234375,
+            163.1050262451172,
+            368.5059814453125,
+            175.4710235595703
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "$2,200",
+      "color": "#212529",
+      "canonical_key": "2_200--5b57846271",
+      "page": 1,
+      "bbox": [
+        392.010009765625,
+        163.1050262451172,
+        419.5320129394531,
+        175.4710235595703
+      ],
+      "spans": [
+        {
+          "text": "$2,200",
+          "bbox": [
+            392.010009765625,
+            163.1050262451172,
+            419.5320129394531,
+            175.4710235595703
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "5%",
+      "color": "#212529",
+      "canonical_key": "5--ac3478d69a",
+      "page": 1,
+      "bbox": [
+        434.8699951171875,
+        163.1050262451172,
+        447.875,
+        175.4710235595703
+      ],
+      "spans": [
+        {
+          "text": "5%",
+          "bbox": [
+            434.8699951171875,
+            163.1050262451172,
+            447.875,
+            175.4710235595703
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "$40",
+      "color": "#212529",
+      "canonical_key": "40--af3e133428",
+      "page": 1,
+      "bbox": [
+        483.8900146484375,
+        140.4349822998047,
+        498.9020080566406,
+        152.8009796142578
+      ],
+      "spans": [
+        {
+          "text": "$40",
+          "bbox": [
+            483.8900146484375,
+            140.4349822998047,
+            498.9020080566406,
+            152.8009796142578
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "I",
+      "color": "#212529",
+      "canonical_key": "i--042dc4512f",
+      "page": 1,
+      "bbox": [
+        524.739990234375,
+        95.07499694824219,
+        527.2420043945312,
+        107.44100189208984
+      ],
+      "spans": [
+        {
+          "text": "I",
+          "bbox": [
+            524.739990234375,
+            95.07499694824219,
+            527.2420043945312,
+            107.44100189208984
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Credit Card Open Totals: (No Retail)",
+      "color": "#212529",
+      "canonical_key": "credit_card_open_totals_no_retail--2260470af1",
+      "page": 1,
+      "bbox": [
+        56.689998626708984,
+        185.83001708984375,
+        210.70692443847656,
+        198.2230224609375
+      ],
+      "spans": [
+        {
+          "text": "Credit Card Open Totals: (No Retail)",
+          "bbox": [
+            56.689998626708984,
+            185.83001708984375,
+            210.70692443847656,
+            198.2230224609375
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "$6,826",
+      "color": "#212529",
+      "canonical_key": "6_826--d00482a4a9",
+      "page": 1,
+      "bbox": [
+        340.9800109863281,
+        185.83001708984375,
+        368.50201416015625,
+        198.2230224609375
+      ],
+      "spans": [
+        {
+          "text": "$6,826",
+          "bbox": [
+            340.9800109863281,
+            185.83001708984375,
+            368.50201416015625,
+            198.2230224609375
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "$21,000",
+      "color": "#212529",
+      "canonical_key": "21_000--91697e1943",
+      "page": 1,
+      "bbox": [
+        387.0,
+        185.83001708984375,
+        419.5260009765625,
+        198.2230224609375
+      ],
+      "spans": [
+        {
+          "text": "$21,000",
+          "bbox": [
+            387.0,
+            185.83001708984375,
+            419.5260009765625,
+            198.2230224609375
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "33%",
+      "color": "#212529",
+      "canonical_key": "33--b6692ea5df",
+      "page": 1,
+      "bbox": [
+        429.8699951171875,
+        185.83001708984375,
+        447.8789978027344,
+        198.2230224609375
+      ],
+      "spans": [
+        {
+          "text": "33%",
+          "bbox": [
+            429.8699951171875,
+            185.83001708984375,
+            447.8789978027344,
+            198.2230224609375
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "$256",
+      "color": "#212529",
+      "canonical_key": "256--dd7c1a3d9d",
+      "page": 1,
+      "bbox": [
+        478.8800048828125,
+        185.83001708984375,
+        498.89599609375,
+        198.2230224609375
+      ],
+      "spans": [
+        {
+          "text": "$256",
+          "bbox": [
+            478.8800048828125,
+            185.83001708984375,
+            498.89599609375,
+            198.2230224609375
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Revolving Accounts - Authorized User",
+      "color": "#374151",
+      "canonical_key": "revolving_accounts_authorized_user--5e6d1c92d8",
+      "page": 1,
+      "bbox": [
+        56.689998626708984,
+        228.3499755859375,
+        220.71493530273438,
+        240.74298095703125
+      ],
+      "spans": [
+        {
+          "text": "Revolving Accounts - Authorized User",
+          "bbox": [
+            56.689998626708984,
+            228.3499755859375,
+            220.71493530273438,
+            240.74298095703125
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Balance",
+      "color": "#374151",
+      "canonical_key": "balance--8dfa30e024",
+      "page": 1,
+      "bbox": [
+        333.989990234375,
+        72.44001007080078,
+        368.5049743652344,
+        84.8330078125
+      ],
+      "spans": [
+        {
+          "text": "Balance",
+          "bbox": [
+            333.989990234375,
+            72.44001007080078,
+            368.5049743652344,
+            84.8330078125
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Limit",
+      "color": "#374151",
+      "canonical_key": "limit--e4d68c5a97",
+      "page": 1,
+      "bbox": [
+        398.0299987792969,
+        72.44001007080078,
+        419.5310363769531,
+        84.8330078125
+      ],
+      "spans": [
+        {
+          "text": "Limit",
+          "bbox": [
+            398.0299987792969,
+            72.44001007080078,
+            419.5310363769531,
+            84.8330078125
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "%",
+      "color": "#374151",
+      "canonical_key": "--da39a3ee5e",
+      "page": 1,
+      "bbox": [
+        439.8699951171875,
+        72.44001007080078,
+        447.8710021972656,
+        84.8330078125
+      ],
+      "spans": [
+        {
+          "text": "%",
+          "bbox": [
+            439.8699951171875,
+            72.44001007080078,
+            447.8710021972656,
+            84.8330078125
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Payment Resp",
+      "color": "#374151",
+      "canonical_key": "payment_resp--bc5fc6bcd4",
+      "page": 1,
+      "bbox": [
+        461.3900146484375,
+        72.44001007080078,
+        527.2450561523438,
+        84.8330078125
+      ],
+      "spans": [
+        {
+          "text": "Payment Resp",
+          "bbox": [
+            461.3900146484375,
+            72.44001007080078,
+            527.2450561523438,
+            84.8330078125
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Age",
+      "color": "#374151",
+      "canonical_key": "age--5dc56b9aab",
+      "page": 1,
+      "bbox": [
+        544.260009765625,
+        72.44001007080078,
+        561.2610473632812,
+        84.8330078125
+      ],
+      "spans": [
+        {
+          "text": "Age",
+          "bbox": [
+            544.260009765625,
+            72.44001007080078,
+            561.2610473632812,
+            84.8330078125
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "AMERICAN EXPRESS (Credit Card)",
+      "color": "#212529",
+      "canonical_key": "american_express_credit_card--6b4296d53c",
+      "page": 1,
+      "bbox": [
+        56.689998626708984,
+        140.4349822998047,
+        203.71397399902344,
+        152.8009796142578
+      ],
+      "spans": [
+        {
+          "text": "AMERICAN EXPRESS (Credit Card)",
+          "bbox": [
+            56.689998626708984,
+            140.4349822998047,
+            203.71397399902344,
+            152.8009796142578
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "$11,414",
+      "color": "#212529",
+      "canonical_key": "11_414--9a8185856d",
+      "page": 1,
+      "bbox": [
+        335.9800109863281,
+        250.98497009277344,
+        368.5060119628906,
+        263.3509826660156
+      ],
+      "spans": [
+        {
+          "text": "$11,414",
+          "bbox": [
+            335.9800109863281,
+            250.98497009277344,
+            368.5060119628906,
+            263.3509826660156
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "$38,562",
+      "color": "#212529",
+      "canonical_key": "38_562--7db98ef821",
+      "page": 1,
+      "bbox": [
+        387.0,
+        250.98497009277344,
+        419.5260009765625,
+        263.3509826660156
+      ],
+      "spans": [
+        {
+          "text": "$38,562",
+          "bbox": [
+            387.0,
+            250.98497009277344,
+            419.5260009765625,
+            263.3509826660156
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "30%",
+      "color": "#212529",
+      "canonical_key": "30--22d200f867",
+      "page": 1,
+      "bbox": [
+        429.8699951171875,
+        250.98497009277344,
+        447.8789978027344,
+        263.3509826660156
+      ],
+      "spans": [
+        {
+          "text": "30%",
+          "bbox": [
+            429.8699951171875,
+            250.98497009277344,
+            447.8789978027344,
+            263.3509826660156
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "$0",
+      "color": "#212529",
+      "canonical_key": "0--b6589fc6ab",
+      "page": 1,
+      "bbox": [
+        358.5,
+        117.75498962402344,
+        368.50799560546875,
+        130.12098693847656
+      ],
+      "spans": [
+        {
+          "text": "$0",
+          "bbox": [
+            358.5,
+            117.75498962402344,
+            368.50799560546875,
+            130.12098693847656
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "A",
+      "color": "#212529",
+      "canonical_key": "a--86f7e437fa",
+      "page": 1,
+      "bbox": [
+        521.239990234375,
+        250.98497009277344,
+        527.2429809570312,
+        263.3509826660156
+      ],
+      "spans": [
+        {
+          "text": "A",
+          "bbox": [
+            521.239990234375,
+            250.98497009277344,
+            527.2429809570312,
+            263.3509826660156
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Totals",
+      "color": "#212529",
+      "canonical_key": "totals--8010e565bc",
+      "page": 1,
+      "bbox": [
+        56.689998626708984,
+        273.6999816894531,
+        83.19499206542969,
+        286.0929870605469
+      ],
+      "spans": [
+        {
+          "text": "Totals",
+          "bbox": [
+            56.689998626708984,
+            273.6999816894531,
+            83.19499206542969,
+            286.0929870605469
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "$11,414",
+      "color": "#212529",
+      "canonical_key": "11_414--9a8185856d",
+      "page": 1,
+      "bbox": [
+        335.9800109863281,
+        250.98497009277344,
+        368.5060119628906,
+        263.3509826660156
+      ],
+      "spans": [
+        {
+          "text": "$11,414",
+          "bbox": [
+            335.9800109863281,
+            250.98497009277344,
+            368.5060119628906,
+            263.3509826660156
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "$38,562",
+      "color": "#212529",
+      "canonical_key": "38_562--7db98ef821",
+      "page": 1,
+      "bbox": [
+        387.0,
+        250.98497009277344,
+        419.5260009765625,
+        263.3509826660156
+      ],
+      "spans": [
+        {
+          "text": "$38,562",
+          "bbox": [
+            387.0,
+            250.98497009277344,
+            419.5260009765625,
+            263.3509826660156
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "30%",
+      "color": "#212529",
+      "canonical_key": "30--22d200f867",
+      "page": 1,
+      "bbox": [
+        429.8699951171875,
+        250.98497009277344,
+        447.8789978027344,
+        263.3509826660156
+      ],
+      "spans": [
+        {
+          "text": "30%",
+          "bbox": [
+            429.8699951171875,
+            250.98497009277344,
+            447.8789978027344,
+            263.3509826660156
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "$0",
+      "color": "#212529",
+      "canonical_key": "0--b6589fc6ab",
+      "page": 1,
+      "bbox": [
+        358.5,
+        117.75498962402344,
+        368.50799560546875,
+        130.12098693847656
+      ],
+      "spans": [
+        {
+          "text": "$0",
+          "bbox": [
+            358.5,
+            117.75498962402344,
+            368.50799560546875,
+            130.12098693847656
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Line of Credit Accounts",
+      "color": "#374151",
+      "canonical_key": "line_of_credit_accounts--6af6c23227",
+      "page": 1,
+      "bbox": [
+        56.689998626708984,
+        316.2200012207031,
+        158.2009735107422,
+        328.6130065917969
+      ],
+      "spans": [
+        {
+          "text": "Line of Credit Accounts",
+          "bbox": [
+            56.689998626708984,
+            316.2200012207031,
+            158.2009735107422,
+            328.6130065917969
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Balance",
+      "color": "#374151",
+      "canonical_key": "balance--8dfa30e024",
+      "page": 1,
+      "bbox": [
+        333.989990234375,
+        72.44001007080078,
+        368.5049743652344,
+        84.8330078125
+      ],
+      "spans": [
+        {
+          "text": "Balance",
+          "bbox": [
+            333.989990234375,
+            72.44001007080078,
+            368.5049743652344,
+            84.8330078125
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Limit",
+      "color": "#374151",
+      "canonical_key": "limit--e4d68c5a97",
+      "page": 1,
+      "bbox": [
+        398.0299987792969,
+        72.44001007080078,
+        419.5310363769531,
+        84.8330078125
+      ],
+      "spans": [
+        {
+          "text": "Limit",
+          "bbox": [
+            398.0299987792969,
+            72.44001007080078,
+            419.5310363769531,
+            84.8330078125
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Payment Resp",
+      "color": "#374151",
+      "canonical_key": "payment_resp--bc5fc6bcd4",
+      "page": 1,
+      "bbox": [
+        461.3900146484375,
+        72.44001007080078,
+        527.2450561523438,
+        84.8330078125
+      ],
+      "spans": [
+        {
+          "text": "Payment Resp",
+          "bbox": [
+            461.3900146484375,
+            72.44001007080078,
+            527.2450561523438,
+            84.8330078125
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Age",
+      "color": "#374151",
+      "canonical_key": "age--5dc56b9aab",
+      "page": 1,
+      "bbox": [
+        544.260009765625,
+        72.44001007080078,
+        561.2610473632812,
+        84.8330078125
+      ],
+      "spans": [
+        {
+          "text": "Age",
+          "bbox": [
+            544.260009765625,
+            72.44001007080078,
+            561.2610473632812,
+            84.8330078125
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "No Line of Credit Accounts",
+      "color": "#212529",
+      "canonical_key": "no_line_of_credit_accounts--e5a73fa98e",
+      "page": 1,
+      "bbox": [
+        56.689998626708984,
+        338.8550109863281,
+        163.73597717285156,
+        351.22100830078125
+      ],
+      "spans": [
+        {
+          "text": "No Line of Credit Accounts",
+          "bbox": [
+            56.689998626708984,
+            338.8550109863281,
+            163.73597717285156,
+            351.22100830078125
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Real Estate Accounts",
+      "color": "#374151",
+      "canonical_key": "real_estate_accounts--503267a814",
+      "page": 1,
+      "bbox": [
+        56.689998626708984,
+        381.41998291015625,
+        148.7149658203125,
+        393.81298828125
+      ],
+      "spans": [
+        {
+          "text": "Real Estate Accounts",
+          "bbox": [
+            56.689998626708984,
+            381.41998291015625,
+            148.7149658203125,
+            393.81298828125
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Balance",
+      "color": "#374151",
+      "canonical_key": "balance--8dfa30e024",
+      "page": 1,
+      "bbox": [
+        333.989990234375,
+        72.44001007080078,
+        368.5049743652344,
+        84.8330078125
+      ],
+      "spans": [
+        {
+          "text": "Balance",
+          "bbox": [
+            333.989990234375,
+            72.44001007080078,
+            368.5049743652344,
+            84.8330078125
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Limit",
+      "color": "#374151",
+      "canonical_key": "limit--e4d68c5a97",
+      "page": 1,
+      "bbox": [
+        398.0299987792969,
+        72.44001007080078,
+        419.5310363769531,
+        84.8330078125
+      ],
+      "spans": [
+        {
+          "text": "Limit",
+          "bbox": [
+            398.0299987792969,
+            72.44001007080078,
+            419.5310363769531,
+            84.8330078125
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Payment Resp",
+      "color": "#374151",
+      "canonical_key": "payment_resp--bc5fc6bcd4",
+      "page": 1,
+      "bbox": [
+        461.3900146484375,
+        72.44001007080078,
+        527.2450561523438,
+        84.8330078125
+      ],
+      "spans": [
+        {
+          "text": "Payment Resp",
+          "bbox": [
+            461.3900146484375,
+            72.44001007080078,
+            527.2450561523438,
+            84.8330078125
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Age",
+      "color": "#374151",
+      "canonical_key": "age--5dc56b9aab",
+      "page": 1,
+      "bbox": [
+        544.260009765625,
+        72.44001007080078,
+        561.2610473632812,
+        84.8330078125
+      ],
+      "spans": [
+        {
+          "text": "Age",
+          "bbox": [
+            544.260009765625,
+            72.44001007080078,
+            561.2610473632812,
+            84.8330078125
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "No Real Estate Accounts",
+      "color": "#212529",
+      "canonical_key": "no_real_estate_accounts--7f5811db02",
+      "page": 1,
+      "bbox": [
+        56.689998626708984,
+        404.0550231933594,
+        156.73397827148438,
+        416.4210205078125
+      ],
+      "spans": [
+        {
+          "text": "No Real Estate Accounts",
+          "bbox": [
+            56.689998626708984,
+            404.0550231933594,
+            156.73397827148438,
+            416.4210205078125
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Installment Accounts",
+      "color": "#374151",
+      "canonical_key": "installment_accounts--0931ee901e",
+      "page": 1,
+      "bbox": [
+        56.689998626708984,
+        446.6199951171875,
+        147.7069549560547,
+        459.01300048828125
+      ],
+      "spans": [
+        {
+          "text": "Installment Accounts",
+          "bbox": [
+            56.689998626708984,
+            446.6199951171875,
+            147.7069549560547,
+            459.01300048828125
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Balance",
+      "color": "#374151",
+      "canonical_key": "balance--8dfa30e024",
+      "page": 1,
+      "bbox": [
+        333.989990234375,
+        72.44001007080078,
+        368.5049743652344,
+        84.8330078125
+      ],
+      "spans": [
+        {
+          "text": "Balance",
+          "bbox": [
+            333.989990234375,
+            72.44001007080078,
+            368.5049743652344,
+            84.8330078125
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Limit",
+      "color": "#374151",
+      "canonical_key": "limit--e4d68c5a97",
+      "page": 1,
+      "bbox": [
+        398.0299987792969,
+        72.44001007080078,
+        419.5310363769531,
+        84.8330078125
+      ],
+      "spans": [
+        {
+          "text": "Limit",
+          "bbox": [
+            398.0299987792969,
+            72.44001007080078,
+            419.5310363769531,
+            84.8330078125
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Payment Resp",
+      "color": "#374151",
+      "canonical_key": "payment_resp--bc5fc6bcd4",
+      "page": 1,
+      "bbox": [
+        461.3900146484375,
+        72.44001007080078,
+        527.2450561523438,
+        84.8330078125
+      ],
+      "spans": [
+        {
+          "text": "Payment Resp",
+          "bbox": [
+            461.3900146484375,
+            72.44001007080078,
+            527.2450561523438,
+            84.8330078125
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Age",
+      "color": "#374151",
+      "canonical_key": "age--5dc56b9aab",
+      "page": 1,
+      "bbox": [
+        544.260009765625,
+        72.44001007080078,
+        561.2610473632812,
+        84.8330078125
+      ],
+      "spans": [
+        {
+          "text": "Age",
+          "bbox": [
+            544.260009765625,
+            72.44001007080078,
+            561.2610473632812,
+            84.8330078125
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "MAZDA FINANCIAL SERV (Auto)",
+      "color": "#212529",
+      "canonical_key": "mazda_financial_serv_auto--01b22ffac2",
+      "page": 1,
+      "bbox": [
+        56.689998626708984,
+        469.2450256347656,
+        191.7169952392578,
+        481.61102294921875
+      ],
+      "spans": [
+        {
+          "text": "MAZDA FINANCIAL SERV (Auto)",
+          "bbox": [
+            56.689998626708984,
+            469.2450256347656,
+            191.7169952392578,
+            481.61102294921875
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "$20,485",
+      "color": "#212529",
+      "canonical_key": "20_485--605f1bebd0",
+      "page": 1,
+      "bbox": [
+        335.9800109863281,
+        469.2450256347656,
+        368.5060119628906,
+        481.61102294921875
+      ],
+      "spans": [
+        {
+          "text": "$20,485",
+          "bbox": [
+            335.9800109863281,
+            469.2450256347656,
+            368.5060119628906,
+            481.61102294921875
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "$30,221",
+      "color": "#212529",
+      "canonical_key": "30_221--23a48a6a57",
+      "page": 1,
+      "bbox": [
+        387.0,
+        469.2450256347656,
+        419.5260009765625,
+        481.61102294921875
+      ],
+      "spans": [
+        {
+          "text": "$30,221",
+          "bbox": [
+            387.0,
+            469.2450256347656,
+            419.5260009765625,
+            481.61102294921875
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "$491",
+      "color": "#212529",
+      "canonical_key": "491--014a1aa3f7",
+      "page": 1,
+      "bbox": [
+        478.8800048828125,
+        469.2450256347656,
+        498.89599609375,
+        481.61102294921875
+      ],
+      "spans": [
+        {
+          "text": "$491",
+          "bbox": [
+            478.8800048828125,
+            469.2450256347656,
+            498.89599609375,
+            481.61102294921875
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "J",
+      "color": "#212529",
+      "canonical_key": "j--5c2dd944dd",
+      "page": 1,
+      "bbox": [
+        522.739990234375,
+        469.2450256347656,
+        527.239990234375,
+        481.61102294921875
+      ],
+      "spans": [
+        {
+          "text": "J",
+          "bbox": [
+            522.739990234375,
+            469.2450256347656,
+            527.239990234375,
+            481.61102294921875
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Totals",
+      "color": "#212529",
+      "canonical_key": "totals--8010e565bc",
+      "page": 1,
+      "bbox": [
+        56.689998626708984,
+        273.6999816894531,
+        83.19499206542969,
+        286.0929870605469
+      ],
+      "spans": [
+        {
+          "text": "Totals",
+          "bbox": [
+            56.689998626708984,
+            273.6999816894531,
+            83.19499206542969,
+            286.0929870605469
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "$20,485",
+      "color": "#212529",
+      "canonical_key": "20_485--605f1bebd0",
+      "page": 1,
+      "bbox": [
+        335.9800109863281,
+        469.2450256347656,
+        368.5060119628906,
+        481.61102294921875
+      ],
+      "spans": [
+        {
+          "text": "$20,485",
+          "bbox": [
+            335.9800109863281,
+            469.2450256347656,
+            368.5060119628906,
+            481.61102294921875
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "$30,221",
+      "color": "#212529",
+      "canonical_key": "30_221--23a48a6a57",
+      "page": 1,
+      "bbox": [
+        387.0,
+        469.2450256347656,
+        419.5260009765625,
+        481.61102294921875
+      ],
+      "spans": [
+        {
+          "text": "$30,221",
+          "bbox": [
+            387.0,
+            469.2450256347656,
+            419.5260009765625,
+            481.61102294921875
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "$491",
+      "color": "#212529",
+      "canonical_key": "491--014a1aa3f7",
+      "page": 1,
+      "bbox": [
+        478.8800048828125,
+        469.2450256347656,
+        498.89599609375,
+        481.61102294921875
+      ],
+      "spans": [
+        {
+          "text": "$491",
+          "bbox": [
+            478.8800048828125,
+            469.2450256347656,
+            498.89599609375,
+            481.61102294921875
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Miscellaneous Accounts",
+      "color": "#374151",
+      "canonical_key": "miscellaneous_accounts--b08c550d7b",
+      "page": 1,
+      "bbox": [
+        56.689998626708984,
+        534.489990234375,
+        161.71995544433594,
+        546.8829956054688
+      ],
+      "spans": [
+        {
+          "text": "Miscellaneous Accounts",
+          "bbox": [
+            56.689998626708984,
+            534.489990234375,
+            161.71995544433594,
+            546.8829956054688
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Balance",
+      "color": "#374151",
+      "canonical_key": "balance--8dfa30e024",
+      "page": 1,
+      "bbox": [
+        333.989990234375,
+        72.44001007080078,
+        368.5049743652344,
+        84.8330078125
+      ],
+      "spans": [
+        {
+          "text": "Balance",
+          "bbox": [
+            333.989990234375,
+            72.44001007080078,
+            368.5049743652344,
+            84.8330078125
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Limit",
+      "color": "#374151",
+      "canonical_key": "limit--e4d68c5a97",
+      "page": 1,
+      "bbox": [
+        398.0299987792969,
+        72.44001007080078,
+        419.5310363769531,
+        84.8330078125
+      ],
+      "spans": [
+        {
+          "text": "Limit",
+          "bbox": [
+            398.0299987792969,
+            72.44001007080078,
+            419.5310363769531,
+            84.8330078125
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Payment Resp",
+      "color": "#374151",
+      "canonical_key": "payment_resp--bc5fc6bcd4",
+      "page": 1,
+      "bbox": [
+        461.3900146484375,
+        72.44001007080078,
+        527.2450561523438,
+        84.8330078125
+      ],
+      "spans": [
+        {
+          "text": "Payment Resp",
+          "bbox": [
+            461.3900146484375,
+            72.44001007080078,
+            527.2450561523438,
+            84.8330078125
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Age",
+      "color": "#374151",
+      "canonical_key": "age--5dc56b9aab",
+      "page": 1,
+      "bbox": [
+        544.260009765625,
+        72.44001007080078,
+        561.2610473632812,
+        84.8330078125
+      ],
+      "spans": [
+        {
+          "text": "Age",
+          "bbox": [
+            544.260009765625,
+            72.44001007080078,
+            561.2610473632812,
+            84.8330078125
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "AMERICAN EXPRESS (Credit Card)",
+      "color": "#212529",
+      "canonical_key": "american_express_credit_card--6b4296d53c",
+      "page": 1,
+      "bbox": [
+        56.689998626708984,
+        140.4349822998047,
+        203.71397399902344,
+        152.8009796142578
+      ],
+      "spans": [
+        {
+          "text": "AMERICAN EXPRESS (Credit Card)",
+          "bbox": [
+            56.689998626708984,
+            140.4349822998047,
+            203.71397399902344,
+            152.8009796142578
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "$11,414",
+      "color": "#212529",
+      "canonical_key": "11_414--9a8185856d",
+      "page": 1,
+      "bbox": [
+        335.9800109863281,
+        250.98497009277344,
+        368.5060119628906,
+        263.3509826660156
+      ],
+      "spans": [
+        {
+          "text": "$11,414",
+          "bbox": [
+            335.9800109863281,
+            250.98497009277344,
+            368.5060119628906,
+            263.3509826660156
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "$38,562",
+      "color": "#212529",
+      "canonical_key": "38_562--7db98ef821",
+      "page": 1,
+      "bbox": [
+        387.0,
+        250.98497009277344,
+        419.5260009765625,
+        263.3509826660156
+      ],
+      "spans": [
+        {
+          "text": "$38,562",
+          "bbox": [
+            387.0,
+            250.98497009277344,
+            419.5260009765625,
+            263.3509826660156
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "$0",
+      "color": "#212529",
+      "canonical_key": "0--b6589fc6ab",
+      "page": 1,
+      "bbox": [
+        358.5,
+        117.75498962402344,
+        368.50799560546875,
+        130.12098693847656
+      ],
+      "spans": [
+        {
+          "text": "$0",
+          "bbox": [
+            358.5,
+            117.75498962402344,
+            368.50799560546875,
+            130.12098693847656
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "A",
+      "color": "#212529",
+      "canonical_key": "a--86f7e437fa",
+      "page": 1,
+      "bbox": [
+        521.239990234375,
+        250.98497009277344,
+        527.2429809570312,
+        263.3509826660156
+      ],
+      "spans": [
+        {
+          "text": "A",
+          "bbox": [
+            521.239990234375,
+            250.98497009277344,
+            527.2429809570312,
+            263.3509826660156
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Totals",
+      "color": "#212529",
+      "canonical_key": "totals--8010e565bc",
+      "page": 1,
+      "bbox": [
+        56.689998626708984,
+        273.6999816894531,
+        83.19499206542969,
+        286.0929870605469
+      ],
+      "spans": [
+        {
+          "text": "Totals",
+          "bbox": [
+            56.689998626708984,
+            273.6999816894531,
+            83.19499206542969,
+            286.0929870605469
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "$11,414",
+      "color": "#212529",
+      "canonical_key": "11_414--9a8185856d",
+      "page": 1,
+      "bbox": [
+        335.9800109863281,
+        250.98497009277344,
+        368.5060119628906,
+        263.3509826660156
+      ],
+      "spans": [
+        {
+          "text": "$11,414",
+          "bbox": [
+            335.9800109863281,
+            250.98497009277344,
+            368.5060119628906,
+            263.3509826660156
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "$38,562",
+      "color": "#212529",
+      "canonical_key": "38_562--7db98ef821",
+      "page": 1,
+      "bbox": [
+        387.0,
+        250.98497009277344,
+        419.5260009765625,
+        263.3509826660156
+      ],
+      "spans": [
+        {
+          "text": "$38,562",
+          "bbox": [
+            387.0,
+            250.98497009277344,
+            419.5260009765625,
+            263.3509826660156
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "$0",
+      "color": "#212529",
+      "canonical_key": "0--b6589fc6ab",
+      "page": 1,
+      "bbox": [
+        358.5,
+        117.75498962402344,
+        368.50799560546875,
+        130.12098693847656
+      ],
+      "spans": [
+        {
+          "text": "$0",
+          "bbox": [
+            358.5,
+            117.75498962402344,
+            368.50799560546875,
+            130.12098693847656
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Closed Accounts",
+      "color": "#212529",
+      "canonical_key": "closed_accounts--0ed1aaf11c",
+      "page": 2,
+      "bbox": [
+        56.689998626708984,
+        32.50998306274414,
+        162.87396240234375,
+        50.41098403930664
+      ],
+      "spans": [
+        {
+          "text": "Closed Accounts",
+          "bbox": [
+            56.689998626708984,
+            32.50998306274414,
+            162.87396240234375,
+            50.41098403930664
+          ],
+          "font_size": 13.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Revolving Accounts",
+      "color": "#374151",
+      "canonical_key": "revolving_accounts--c091bf711c",
+      "page": 1,
+      "bbox": [
+        56.689998626708984,
+        72.44001007080078,
+        143.20697021484375,
+        84.8330078125
+      ],
+      "spans": [
+        {
+          "text": "Revolving Accounts",
+          "bbox": [
+            56.689998626708984,
+            72.44001007080078,
+            143.20697021484375,
+            84.8330078125
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Balance",
+      "color": "#374151",
+      "canonical_key": "balance--8dfa30e024",
+      "page": 1,
+      "bbox": [
+        333.989990234375,
+        72.44001007080078,
+        368.5049743652344,
+        84.8330078125
+      ],
+      "spans": [
+        {
+          "text": "Balance",
+          "bbox": [
+            333.989990234375,
+            72.44001007080078,
+            368.5049743652344,
+            84.8330078125
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Limit",
+      "color": "#374151",
+      "canonical_key": "limit--e4d68c5a97",
+      "page": 1,
+      "bbox": [
+        398.0299987792969,
+        72.44001007080078,
+        419.5310363769531,
+        84.8330078125
+      ],
+      "spans": [
+        {
+          "text": "Limit",
+          "bbox": [
+            398.0299987792969,
+            72.44001007080078,
+            419.5310363769531,
+            84.8330078125
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "%",
+      "color": "#374151",
+      "canonical_key": "--da39a3ee5e",
+      "page": 1,
+      "bbox": [
+        439.8699951171875,
+        72.44001007080078,
+        447.8710021972656,
+        84.8330078125
+      ],
+      "spans": [
+        {
+          "text": "%",
+          "bbox": [
+            439.8699951171875,
+            72.44001007080078,
+            447.8710021972656,
+            84.8330078125
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Payment Resp",
+      "color": "#374151",
+      "canonical_key": "payment_resp--bc5fc6bcd4",
+      "page": 1,
+      "bbox": [
+        461.3900146484375,
+        72.44001007080078,
+        527.2450561523438,
+        84.8330078125
+      ],
+      "spans": [
+        {
+          "text": "Payment Resp",
+          "bbox": [
+            461.3900146484375,
+            72.44001007080078,
+            527.2450561523438,
+            84.8330078125
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Age",
+      "color": "#374151",
+      "canonical_key": "age--5dc56b9aab",
+      "page": 1,
+      "bbox": [
+        544.260009765625,
+        72.44001007080078,
+        561.2610473632812,
+        84.8330078125
+      ],
+      "spans": [
+        {
+          "text": "Age",
+          "bbox": [
+            544.260009765625,
+            72.44001007080078,
+            561.2610473632812,
+            84.8330078125
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "SELF-HELP CREDIT UNI (Secured Credit Card)",
+      "color": "#212529",
+      "canonical_key": "self_help_credit_uni_secured_credit_card--7154bb14b3",
+      "page": 2,
+      "bbox": [
+        56.689998626708984,
+        95.07499694824219,
+        250.22593688964844,
+        107.44100189208984
+      ],
+      "spans": [
+        {
+          "text": "SELF-HELP CREDIT UNI (Secured Credit Card)",
+          "bbox": [
+            56.689998626708984,
+            95.07499694824219,
+            250.22593688964844,
+            107.44100189208984
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "$0",
+      "color": "#212529",
+      "canonical_key": "0--b6589fc6ab",
+      "page": 1,
+      "bbox": [
+        358.5,
+        117.75498962402344,
+        368.50799560546875,
+        130.12098693847656
+      ],
+      "spans": [
+        {
+          "text": "$0",
+          "bbox": [
+            358.5,
+            117.75498962402344,
+            368.50799560546875,
+            130.12098693847656
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "$500",
+      "color": "#212529",
+      "canonical_key": "500--f83a383c0f",
+      "page": 2,
+      "bbox": [
+        399.510009765625,
+        95.07499694824219,
+        419.5260009765625,
+        107.44100189208984
+      ],
+      "spans": [
+        {
+          "text": "$500",
+          "bbox": [
+            399.510009765625,
+            95.07499694824219,
+            419.5260009765625,
+            107.44100189208984
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "0%",
+      "color": "#212529",
+      "canonical_key": "0--b6589fc6ab",
+      "page": 1,
+      "bbox": [
+        434.8699951171875,
+        117.75498962402344,
+        447.875,
+        130.12098693847656
+      ],
+      "spans": [
+        {
+          "text": "0%",
+          "bbox": [
+            434.8699951171875,
+            117.75498962402344,
+            447.875,
+            130.12098693847656
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "$0",
+      "color": "#212529",
+      "canonical_key": "0--b6589fc6ab",
+      "page": 1,
+      "bbox": [
+        358.5,
+        117.75498962402344,
+        368.50799560546875,
+        130.12098693847656
+      ],
+      "spans": [
+        {
+          "text": "$0",
+          "bbox": [
+            358.5,
+            117.75498962402344,
+            368.50799560546875,
+            130.12098693847656
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "J",
+      "color": "#212529",
+      "canonical_key": "j--5c2dd944dd",
+      "page": 1,
+      "bbox": [
+        522.739990234375,
+        469.2450256347656,
+        527.239990234375,
+        481.61102294921875
+      ],
+      "spans": [
+        {
+          "text": "J",
+          "bbox": [
+            522.739990234375,
+            469.2450256347656,
+            527.239990234375,
+            481.61102294921875
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Totals",
+      "color": "#212529",
+      "canonical_key": "totals--8010e565bc",
+      "page": 1,
+      "bbox": [
+        56.689998626708984,
+        273.6999816894531,
+        83.19499206542969,
+        286.0929870605469
+      ],
+      "spans": [
+        {
+          "text": "Totals",
+          "bbox": [
+            56.689998626708984,
+            273.6999816894531,
+            83.19499206542969,
+            286.0929870605469
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "$0",
+      "color": "#212529",
+      "canonical_key": "0--b6589fc6ab",
+      "page": 1,
+      "bbox": [
+        358.5,
+        117.75498962402344,
+        368.50799560546875,
+        130.12098693847656
+      ],
+      "spans": [
+        {
+          "text": "$0",
+          "bbox": [
+            358.5,
+            117.75498962402344,
+            368.50799560546875,
+            130.12098693847656
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "$500",
+      "color": "#212529",
+      "canonical_key": "500--f83a383c0f",
+      "page": 2,
+      "bbox": [
+        399.510009765625,
+        95.07499694824219,
+        419.5260009765625,
+        107.44100189208984
+      ],
+      "spans": [
+        {
+          "text": "$500",
+          "bbox": [
+            399.510009765625,
+            95.07499694824219,
+            419.5260009765625,
+            107.44100189208984
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "0%",
+      "color": "#212529",
+      "canonical_key": "0--b6589fc6ab",
+      "page": 1,
+      "bbox": [
+        434.8699951171875,
+        117.75498962402344,
+        447.875,
+        130.12098693847656
+      ],
+      "spans": [
+        {
+          "text": "0%",
+          "bbox": [
+            434.8699951171875,
+            117.75498962402344,
+            447.875,
+            130.12098693847656
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "$0",
+      "color": "#212529",
+      "canonical_key": "0--b6589fc6ab",
+      "page": 1,
+      "bbox": [
+        358.5,
+        117.75498962402344,
+        368.50799560546875,
+        130.12098693847656
+      ],
+      "spans": [
+        {
+          "text": "$0",
+          "bbox": [
+            358.5,
+            117.75498962402344,
+            368.50799560546875,
+            130.12098693847656
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Line of Credit Accounts",
+      "color": "#374151",
+      "canonical_key": "line_of_credit_accounts--6af6c23227",
+      "page": 1,
+      "bbox": [
+        56.689998626708984,
+        316.2200012207031,
+        158.2009735107422,
+        328.6130065917969
+      ],
+      "spans": [
+        {
+          "text": "Line of Credit Accounts",
+          "bbox": [
+            56.689998626708984,
+            316.2200012207031,
+            158.2009735107422,
+            328.6130065917969
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Balance",
+      "color": "#374151",
+      "canonical_key": "balance--8dfa30e024",
+      "page": 1,
+      "bbox": [
+        333.989990234375,
+        72.44001007080078,
+        368.5049743652344,
+        84.8330078125
+      ],
+      "spans": [
+        {
+          "text": "Balance",
+          "bbox": [
+            333.989990234375,
+            72.44001007080078,
+            368.5049743652344,
+            84.8330078125
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Limit",
+      "color": "#374151",
+      "canonical_key": "limit--e4d68c5a97",
+      "page": 1,
+      "bbox": [
+        398.0299987792969,
+        72.44001007080078,
+        419.5310363769531,
+        84.8330078125
+      ],
+      "spans": [
+        {
+          "text": "Limit",
+          "bbox": [
+            398.0299987792969,
+            72.44001007080078,
+            419.5310363769531,
+            84.8330078125
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Payment Resp",
+      "color": "#374151",
+      "canonical_key": "payment_resp--bc5fc6bcd4",
+      "page": 1,
+      "bbox": [
+        461.3900146484375,
+        72.44001007080078,
+        527.2450561523438,
+        84.8330078125
+      ],
+      "spans": [
+        {
+          "text": "Payment Resp",
+          "bbox": [
+            461.3900146484375,
+            72.44001007080078,
+            527.2450561523438,
+            84.8330078125
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Age",
+      "color": "#374151",
+      "canonical_key": "age--5dc56b9aab",
+      "page": 1,
+      "bbox": [
+        544.260009765625,
+        72.44001007080078,
+        561.2610473632812,
+        84.8330078125
+      ],
+      "spans": [
+        {
+          "text": "Age",
+          "bbox": [
+            544.260009765625,
+            72.44001007080078,
+            561.2610473632812,
+            84.8330078125
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "No Line of Credit Accounts",
+      "color": "#212529",
+      "canonical_key": "no_line_of_credit_accounts--e5a73fa98e",
+      "page": 1,
+      "bbox": [
+        56.689998626708984,
+        338.8550109863281,
+        163.73597717285156,
+        351.22100830078125
+      ],
+      "spans": [
+        {
+          "text": "No Line of Credit Accounts",
+          "bbox": [
+            56.689998626708984,
+            338.8550109863281,
+            163.73597717285156,
+            351.22100830078125
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Real Estate Accounts",
+      "color": "#374151",
+      "canonical_key": "real_estate_accounts--503267a814",
+      "page": 1,
+      "bbox": [
+        56.689998626708984,
+        381.41998291015625,
+        148.7149658203125,
+        393.81298828125
+      ],
+      "spans": [
+        {
+          "text": "Real Estate Accounts",
+          "bbox": [
+            56.689998626708984,
+            381.41998291015625,
+            148.7149658203125,
+            393.81298828125
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Balance",
+      "color": "#374151",
+      "canonical_key": "balance--8dfa30e024",
+      "page": 1,
+      "bbox": [
+        333.989990234375,
+        72.44001007080078,
+        368.5049743652344,
+        84.8330078125
+      ],
+      "spans": [
+        {
+          "text": "Balance",
+          "bbox": [
+            333.989990234375,
+            72.44001007080078,
+            368.5049743652344,
+            84.8330078125
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Limit",
+      "color": "#374151",
+      "canonical_key": "limit--e4d68c5a97",
+      "page": 1,
+      "bbox": [
+        398.0299987792969,
+        72.44001007080078,
+        419.5310363769531,
+        84.8330078125
+      ],
+      "spans": [
+        {
+          "text": "Limit",
+          "bbox": [
+            398.0299987792969,
+            72.44001007080078,
+            419.5310363769531,
+            84.8330078125
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Payment Resp",
+      "color": "#374151",
+      "canonical_key": "payment_resp--bc5fc6bcd4",
+      "page": 1,
+      "bbox": [
+        461.3900146484375,
+        72.44001007080078,
+        527.2450561523438,
+        84.8330078125
+      ],
+      "spans": [
+        {
+          "text": "Payment Resp",
+          "bbox": [
+            461.3900146484375,
+            72.44001007080078,
+            527.2450561523438,
+            84.8330078125
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Age",
+      "color": "#374151",
+      "canonical_key": "age--5dc56b9aab",
+      "page": 1,
+      "bbox": [
+        544.260009765625,
+        72.44001007080078,
+        561.2610473632812,
+        84.8330078125
+      ],
+      "spans": [
+        {
+          "text": "Age",
+          "bbox": [
+            544.260009765625,
+            72.44001007080078,
+            561.2610473632812,
+            84.8330078125
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "UNITED WHOLESALE MOR (Conventional RE Mortgage)",
+      "color": "#212529",
+      "canonical_key": "united_wholesale_mor_conventional_re_mortgage--4d739a8f77",
+      "page": 2,
+      "bbox": [
+        56.689998626708984,
+        248.14500427246094,
+        288.7460021972656,
+        260.5110168457031
+      ],
+      "spans": [
+        {
+          "text": "UNITED WHOLESALE MOR (Conventional RE Mortgage)",
+          "bbox": [
+            56.689998626708984,
+            248.14500427246094,
+            288.7460021972656,
+            260.5110168457031
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "$0",
+      "color": "#212529",
+      "canonical_key": "0--b6589fc6ab",
+      "page": 1,
+      "bbox": [
+        358.5,
+        117.75498962402344,
+        368.50799560546875,
+        130.12098693847656
+      ],
+      "spans": [
+        {
+          "text": "$0",
+          "bbox": [
+            358.5,
+            117.75498962402344,
+            368.50799560546875,
+            130.12098693847656
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "$513,000",
+      "color": "#212529",
+      "canonical_key": "513_000--306c31ea80",
+      "page": 2,
+      "bbox": [
+        382.0,
+        248.14500427246094,
+        419.5299987792969,
+        260.5110168457031
+      ],
+      "spans": [
+        {
+          "text": "$513,000",
+          "bbox": [
+            382.0,
+            248.14500427246094,
+            419.5299987792969,
+            260.5110168457031
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "$0",
+      "color": "#212529",
+      "canonical_key": "0--b6589fc6ab",
+      "page": 1,
+      "bbox": [
+        358.5,
+        117.75498962402344,
+        368.50799560546875,
+        130.12098693847656
+      ],
+      "spans": [
+        {
+          "text": "$0",
+          "bbox": [
+            358.5,
+            117.75498962402344,
+            368.50799560546875,
+            130.12098693847656
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "J",
+      "color": "#212529",
+      "canonical_key": "j--5c2dd944dd",
+      "page": 1,
+      "bbox": [
+        522.739990234375,
+        469.2450256347656,
+        527.239990234375,
+        481.61102294921875
+      ],
+      "spans": [
+        {
+          "text": "J",
+          "bbox": [
+            522.739990234375,
+            469.2450256347656,
+            527.239990234375,
+            481.61102294921875
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Totals",
+      "color": "#212529",
+      "canonical_key": "totals--8010e565bc",
+      "page": 1,
+      "bbox": [
+        56.689998626708984,
+        273.6999816894531,
+        83.19499206542969,
+        286.0929870605469
+      ],
+      "spans": [
+        {
+          "text": "Totals",
+          "bbox": [
+            56.689998626708984,
+            273.6999816894531,
+            83.19499206542969,
+            286.0929870605469
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "$0",
+      "color": "#212529",
+      "canonical_key": "0--b6589fc6ab",
+      "page": 1,
+      "bbox": [
+        358.5,
+        117.75498962402344,
+        368.50799560546875,
+        130.12098693847656
+      ],
+      "spans": [
+        {
+          "text": "$0",
+          "bbox": [
+            358.5,
+            117.75498962402344,
+            368.50799560546875,
+            130.12098693847656
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "$513,000",
+      "color": "#212529",
+      "canonical_key": "513_000--306c31ea80",
+      "page": 2,
+      "bbox": [
+        382.0,
+        248.14500427246094,
+        419.5299987792969,
+        260.5110168457031
+      ],
+      "spans": [
+        {
+          "text": "$513,000",
+          "bbox": [
+            382.0,
+            248.14500427246094,
+            419.5299987792969,
+            260.5110168457031
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "$0",
+      "color": "#212529",
+      "canonical_key": "0--b6589fc6ab",
+      "page": 1,
+      "bbox": [
+        358.5,
+        117.75498962402344,
+        368.50799560546875,
+        130.12098693847656
+      ],
+      "spans": [
+        {
+          "text": "$0",
+          "bbox": [
+            358.5,
+            117.75498962402344,
+            368.50799560546875,
+            130.12098693847656
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Installment Accounts",
+      "color": "#374151",
+      "canonical_key": "installment_accounts--0931ee901e",
+      "page": 1,
+      "bbox": [
+        56.689998626708984,
+        446.6199951171875,
+        147.7069549560547,
+        459.01300048828125
+      ],
+      "spans": [
+        {
+          "text": "Installment Accounts",
+          "bbox": [
+            56.689998626708984,
+            446.6199951171875,
+            147.7069549560547,
+            459.01300048828125
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Balance",
+      "color": "#374151",
+      "canonical_key": "balance--8dfa30e024",
+      "page": 1,
+      "bbox": [
+        333.989990234375,
+        72.44001007080078,
+        368.5049743652344,
+        84.8330078125
+      ],
+      "spans": [
+        {
+          "text": "Balance",
+          "bbox": [
+            333.989990234375,
+            72.44001007080078,
+            368.5049743652344,
+            84.8330078125
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Limit",
+      "color": "#374151",
+      "canonical_key": "limit--e4d68c5a97",
+      "page": 1,
+      "bbox": [
+        398.0299987792969,
+        72.44001007080078,
+        419.5310363769531,
+        84.8330078125
+      ],
+      "spans": [
+        {
+          "text": "Limit",
+          "bbox": [
+            398.0299987792969,
+            72.44001007080078,
+            419.5310363769531,
+            84.8330078125
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Payment Resp",
+      "color": "#374151",
+      "canonical_key": "payment_resp--bc5fc6bcd4",
+      "page": 1,
+      "bbox": [
+        461.3900146484375,
+        72.44001007080078,
+        527.2450561523438,
+        84.8330078125
+      ],
+      "spans": [
+        {
+          "text": "Payment Resp",
+          "bbox": [
+            461.3900146484375,
+            72.44001007080078,
+            527.2450561523438,
+            84.8330078125
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Age",
+      "color": "#374151",
+      "canonical_key": "age--5dc56b9aab",
+      "page": 1,
+      "bbox": [
+        544.260009765625,
+        72.44001007080078,
+        561.2610473632812,
+        84.8330078125
+      ],
+      "spans": [
+        {
+          "text": "Age",
+          "bbox": [
+            544.260009765625,
+            72.44001007080078,
+            561.2610473632812,
+            84.8330078125
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "MAZDA FINANCIAL SERV (Auto)",
+      "color": "#212529",
+      "canonical_key": "mazda_financial_serv_auto--01b22ffac2",
+      "page": 1,
+      "bbox": [
+        56.689998626708984,
+        469.2450256347656,
+        191.7169952392578,
+        481.61102294921875
+      ],
+      "spans": [
+        {
+          "text": "MAZDA FINANCIAL SERV (Auto)",
+          "bbox": [
+            56.689998626708984,
+            469.2450256347656,
+            191.7169952392578,
+            481.61102294921875
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "$20,485",
+      "color": "#212529",
+      "canonical_key": "20_485--605f1bebd0",
+      "page": 1,
+      "bbox": [
+        335.9800109863281,
+        469.2450256347656,
+        368.5060119628906,
+        481.61102294921875
+      ],
+      "spans": [
+        {
+          "text": "$20,485",
+          "bbox": [
+            335.9800109863281,
+            469.2450256347656,
+            368.5060119628906,
+            481.61102294921875
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "$30,221",
+      "color": "#212529",
+      "canonical_key": "30_221--23a48a6a57",
+      "page": 1,
+      "bbox": [
+        387.0,
+        469.2450256347656,
+        419.5260009765625,
+        481.61102294921875
+      ],
+      "spans": [
+        {
+          "text": "$30,221",
+          "bbox": [
+            387.0,
+            469.2450256347656,
+            419.5260009765625,
+            481.61102294921875
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "$491",
+      "color": "#212529",
+      "canonical_key": "491--014a1aa3f7",
+      "page": 1,
+      "bbox": [
+        478.8800048828125,
+        469.2450256347656,
+        498.89599609375,
+        481.61102294921875
+      ],
+      "spans": [
+        {
+          "text": "$491",
+          "bbox": [
+            478.8800048828125,
+            469.2450256347656,
+            498.89599609375,
+            481.61102294921875
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "J",
+      "color": "#212529",
+      "canonical_key": "j--5c2dd944dd",
+      "page": 1,
+      "bbox": [
+        522.739990234375,
+        469.2450256347656,
+        527.239990234375,
+        481.61102294921875
+      ],
+      "spans": [
+        {
+          "text": "J",
+          "bbox": [
+            522.739990234375,
+            469.2450256347656,
+            527.239990234375,
+            481.61102294921875
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Totals",
+      "color": "#212529",
+      "canonical_key": "totals--8010e565bc",
+      "page": 1,
+      "bbox": [
+        56.689998626708984,
+        273.6999816894531,
+        83.19499206542969,
+        286.0929870605469
+      ],
+      "spans": [
+        {
+          "text": "Totals",
+          "bbox": [
+            56.689998626708984,
+            273.6999816894531,
+            83.19499206542969,
+            286.0929870605469
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "$20,485",
+      "color": "#212529",
+      "canonical_key": "20_485--605f1bebd0",
+      "page": 1,
+      "bbox": [
+        335.9800109863281,
+        469.2450256347656,
+        368.5060119628906,
+        481.61102294921875
+      ],
+      "spans": [
+        {
+          "text": "$20,485",
+          "bbox": [
+            335.9800109863281,
+            469.2450256347656,
+            368.5060119628906,
+            481.61102294921875
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "$30,221",
+      "color": "#212529",
+      "canonical_key": "30_221--23a48a6a57",
+      "page": 1,
+      "bbox": [
+        387.0,
+        469.2450256347656,
+        419.5260009765625,
+        481.61102294921875
+      ],
+      "spans": [
+        {
+          "text": "$30,221",
+          "bbox": [
+            387.0,
+            469.2450256347656,
+            419.5260009765625,
+            481.61102294921875
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "$491",
+      "color": "#212529",
+      "canonical_key": "491--014a1aa3f7",
+      "page": 1,
+      "bbox": [
+        478.8800048828125,
+        469.2450256347656,
+        498.89599609375,
+        481.61102294921875
+      ],
+      "spans": [
+        {
+          "text": "$491",
+          "bbox": [
+            478.8800048828125,
+            469.2450256347656,
+            498.89599609375,
+            481.61102294921875
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Miscellaneous Accounts",
+      "color": "#374151",
+      "canonical_key": "miscellaneous_accounts--b08c550d7b",
+      "page": 1,
+      "bbox": [
+        56.689998626708984,
+        534.489990234375,
+        161.71995544433594,
+        546.8829956054688
+      ],
+      "spans": [
+        {
+          "text": "Miscellaneous Accounts",
+          "bbox": [
+            56.689998626708984,
+            534.489990234375,
+            161.71995544433594,
+            546.8829956054688
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Balance",
+      "color": "#374151",
+      "canonical_key": "balance--8dfa30e024",
+      "page": 1,
+      "bbox": [
+        333.989990234375,
+        72.44001007080078,
+        368.5049743652344,
+        84.8330078125
+      ],
+      "spans": [
+        {
+          "text": "Balance",
+          "bbox": [
+            333.989990234375,
+            72.44001007080078,
+            368.5049743652344,
+            84.8330078125
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Limit",
+      "color": "#374151",
+      "canonical_key": "limit--e4d68c5a97",
+      "page": 1,
+      "bbox": [
+        398.0299987792969,
+        72.44001007080078,
+        419.5310363769531,
+        84.8330078125
+      ],
+      "spans": [
+        {
+          "text": "Limit",
+          "bbox": [
+            398.0299987792969,
+            72.44001007080078,
+            419.5310363769531,
+            84.8330078125
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Payment Resp",
+      "color": "#374151",
+      "canonical_key": "payment_resp--bc5fc6bcd4",
+      "page": 1,
+      "bbox": [
+        461.3900146484375,
+        72.44001007080078,
+        527.2450561523438,
+        84.8330078125
+      ],
+      "spans": [
+        {
+          "text": "Payment Resp",
+          "bbox": [
+            461.3900146484375,
+            72.44001007080078,
+            527.2450561523438,
+            84.8330078125
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "Age",
+      "color": "#374151",
+      "canonical_key": "age--5dc56b9aab",
+      "page": 1,
+      "bbox": [
+        544.260009765625,
+        72.44001007080078,
+        561.2610473632812,
+        84.8330078125
+      ],
+      "spans": [
+        {
+          "text": "Age",
+          "bbox": [
+            544.260009765625,
+            72.44001007080078,
+            561.2610473632812,
+            84.8330078125
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica-Bold",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1099_credit_summary_2025-09-01_100119_ground_truth_unvalidated.json",
+      "factor": "No Miscellaneous Accounts",
+      "color": "#212529",
+      "canonical_key": "no_miscellaneous_accounts--fc7591e5ec",
+      "page": 2,
+      "bbox": [
+        56.689998626708984,
+        423.89501953125,
+        167.22799682617188,
+        436.2610168457031
+      ],
+      "spans": [
+        {
+          "text": "No Miscellaneous Accounts",
+          "bbox": [
+            56.689998626708984,
+            423.89501953125,
+            167.22799682617188,
+            436.2610168457031
+          ],
+          "font_size": 9.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    }
+  ]
+}

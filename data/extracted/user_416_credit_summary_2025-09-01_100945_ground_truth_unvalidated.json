@@ -1,0 +1,143 @@
+{
+  "filename": "user_416_credit_summary_2025-09-01_100945.pdf",
+  "source": "data/pdf_analysis/user_416_credit_summary_2025-09-01_100945.pdf",
+  "credit_score": 545,
+  "credit_score_color": "red",
+  "age": 31,
+  "address": [
+    "511 Sw 23rd St, Seminole, TX 79360",
+    "4101 Mescalero Dr, Hobbs, NM 88240"
+  ],
+  "collections_open": 0,
+  "collections_closed": 1,
+  "public_records": 0,
+  "revolving_open_count": 6,
+  "revolving_open_total": 32942,
+  "installment_open_count": 3,
+  "installment_open_total": 206467,
+  "credit_factors": [
+    {
+      "factor": "Current Lates (SYNCB/VENMO)",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "5 Over Limit Accnt",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Current Lates (JPMCB CARD SERVICES, and",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Total Rev Usage > 90%",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Past Due Not Late",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Pay $21097 so Accts < 40%",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "3 Rev Lates in 0-3 mo",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "1 RE Late in 0-3 mo",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Avg Age Open",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Light Open Rev Depth",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No Closed Rev Depth",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "1 Chrgd Off RE Acct",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "1 Inq Last 4 Mo",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "2 Inqs Fall Off In 30 Days",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "2 Total Inqs 5-6 mo",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "12k+ lines",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Existing Open Mortgage",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "3+ Closed Rev Accnts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "No Rev Acct Open 10K 2yr",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "1 Total Inq 0-2 Mo",
+      "color": "black",
+      "hex": "#212529"
+    }
+  ],
+  "inquiries_last_6_months": 3,
+  "credit_card_open_totals": {
+    "color": "red",
+    "balance": 32942,
+    "limit": 30560,
+    "Percent": 108,
+    "Payment": 927
+  },
+  "monthly_payments": 7348,
+  "real_estate_open_count": 1,
+  "real_estate_open_total": 199549,
+  "line_of_credit_accounts_open_count": 0,
+  "line_of_credit_accounts_open_total": 0,
+  "miscellaneous_accounts_open_count": 0,
+  "miscellaneous_accounts_open_total": 0,
+  "late_pays_2yr": 5,
+  "late_pays_gt2yr": 0,
+  "red_credit_factors_count": 10,
+  "green_credit_factors_count": 8,
+  "black_credit_factors_count": 2,
+  "credit_freeze": 0,
+  "fraud_alert": 0,
+  "deceased": 0
+}

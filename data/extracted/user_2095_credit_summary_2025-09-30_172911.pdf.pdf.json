@@ -1,0 +1,244 @@
+{
+  "rec": {
+    "filename": "user_2095_credit_summary_2025-09-30_172911.pdf.pdf",
+    "source": "/home/jdstraye/proj/shifi/pre_auth.git/data/pdf_analysis/user_2095_credit_summary_2025-09-30_172911.pdf.pdf",
+    "credit_score": 680,
+    "credit_score_color": "neutral",
+    "age": 59,
+    "address": [
+      "610 S Carlin Springs Rd Apt, Arlington, VA 22204",
+      "610 S Carlin Springs Rd Apt 340, Arlington, VA 22204"
+    ],
+    "collections_open": 1,
+    "collections_closed": 0,
+    "public_records": 0,
+    "revolving_open_count": 8,
+    "revolving_open_total": 3702,
+    "installment_open_count": 1,
+    "installment_open_total": 23236,
+    "credit_factors": [
+      {
+        "factor": "No",
+        "color": "black"
+      },
+      {
+        "factor": "Credit Freeze",
+        "color": "black"
+      },
+      {
+        "factor": "Fraud Alert",
+        "color": "black"
+      },
+      {
+        "factor": "Deceased",
+        "color": "black"
+      },
+      {
+        "factor": "Credit Factors",
+        "color": "black"
+      },
+      {
+        "factor": "$23236 Unpaid Collection(s)",
+        "color": "green"
+      },
+      {
+        "factor": "Past Due Not Late",
+        "color": "green"
+      },
+      {
+        "factor": "1 Charged Off Accts",
+        "color": "red"
+      },
+      {
+        "factor": "Light Open Rev Depth",
+        "color": "red"
+      },
+      {
+        "factor": "Avg Age Open",
+        "color": "red"
+      },
+      {
+        "factor": "No Closed Rev Depth",
+        "color": "red"
+      },
+      {
+        "factor": "3 Inqs Fall Off In 30 Days",
+        "color": "red"
+      },
+      {
+        "factor": "No 7.5k+ Lines",
+        "color": "red"
+      },
+      {
+        "factor": "3+ Closed Rev Accnts",
+        "color": "green"
+      },
+      {
+        "factor": "No Open Mortgage",
+        "color": "neutral"
+      },
+      {
+        "factor": "Seasoned Closed Accounts",
+        "color": "green"
+      },
+      {
+        "factor": "No Rev Acct Open 10K 2yr",
+        "color": "neutral"
+      },
+      {
+        "factor": "Status",
+        "color": "black"
+      },
+      {
+        "factor": "Age",
+        "color": "black"
+      },
+      {
+        "factor": "Balance",
+        "color": "black"
+      },
+      {
+        "factor": "Open",
+        "color": "black"
+      },
+      {
+        "factor": "Limit",
+        "color": "black"
+      },
+      {
+        "factor": "%",
+        "color": "black"
+      },
+      {
+        "factor": "3%",
+        "color": "black"
+      },
+      {
+        "factor": "$5 I",
+        "color": "black"
+      },
+      {
+        "factor": "42%",
+        "color": "black"
+      },
+      {
+        "factor": "19%",
+        "color": "black"
+      },
+      {
+        "factor": "49%",
+        "color": "red"
+      },
+      {
+        "factor": "0%",
+        "color": "black"
+      },
+      {
+        "factor": "8%",
+        "color": "black"
+      },
+      {
+        "factor": "31%",
+        "color": "black"
+      },
+      {
+        "factor": "Revolving Accounts (Open)",
+        "color": "black",
+        "hex": "#212529"
+      },
+      {
+        "factor": "1 Charged Off Accts",
+        "color": "red",
+        "hex": "#dc3545"
+      },
+      {
+        "factor": "Light Open Rev Depth",
+        "color": "red",
+        "hex": "#dc3545"
+      },
+      {
+        "factor": "No Closed Rev Depth",
+        "color": "red",
+        "hex": "#dc3545"
+      },
+      {
+        "factor": "No 7.5k+ Lines",
+        "color": "red",
+        "hex": "#dc3545"
+      },
+      {
+        "factor": "3+ Closed Rev Accnts",
+        "color": "green",
+        "hex": "#428f4e"
+      },
+      {
+        "factor": "No Open Mortgage",
+        "color": "black",
+        "hex": "#212529"
+      },
+      {
+        "factor": "Seasoned Closed Accounts",
+        "color": "black",
+        "hex": "#212529"
+      },
+      {
+        "factor": "No Rev Acct Open 10K 2yr",
+        "color": "black",
+        "hex": "#212529"
+      },
+      {
+        "factor": "Charged off account. Fixed rate.",
+        "color": "black",
+        "hex": "#212529"
+      },
+      {
+        "factor": "Revolving Accounts",
+        "color": "black",
+        "hex": "#374151"
+      },
+      {
+        "factor": "SYNCB/PAYPAL CREDIT  (Credit Card - X0660)",
+        "color": "black",
+        "hex": "#212529"
+      },
+      {
+        "factor": "SYNCB/PAYPAL (Credit Card - X9101)",
+        "color": "black",
+        "hex": "#212529"
+      },
+      {
+        "factor": "Revolving Accounts",
+        "color": "black",
+        "hex": "#374151"
+      }
+    ],
+    "inquiries_last_6_months": 4,
+    "credit_card_open_totals": {
+      "color": "black",
+      "balance": 3702,
+      "limit": 12070,
+      "Percent": null,
+      "Payment": null
+    },
+    "monthly_payments": 186,
+    "real_estate_open_count": 0,
+    "real_estate_open_total": 0,
+    "line_of_credit_accounts_open_count": 0,
+    "line_of_credit_accounts_open_total": 0,
+    "miscellaneous_accounts_open_count": 0,
+    "miscellaneous_accounts_open_total": 0,
+    "late_pays_2yr": 0,
+    "late_pays_gt2yr": 0,
+    "red_credit_factors_count": 11,
+    "green_credit_factors_count": 5,
+    "black_credit_factors_count": 27,
+    "credit_freeze": 0,
+    "fraud_alert": 0,
+    "deceased": 0,
+    "public_record_note": ""
+  },
+  "wide_row": {
+    "installment_open_count": 1,
+    "installment_open_total": 23236
+  }
+}

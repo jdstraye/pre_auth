@@ -1,0 +1,511 @@
+{
+  "filename": "user_1149_credit_summary_2025-09-01_145345.pdf",
+  "source": "data/pdf_analysis/user_1149_credit_summary_2025-09-01_145345.pdf",
+  "credit_score": 658,
+  "credit_score_color": "neutral",
+  "age": 43,
+  "address": [
+    "436 Azores Cir, Pittsburg, CA 94565",
+    "560 Pacifica Ave, Bay Point, CA 94565"
+  ],
+  "collections_open": 2,
+  "collections_closed": 0,
+  "public_records": 0,
+  "revolving_open_count": 4,
+  "revolving_open_total": 16393,
+  "installment_open_count": 1,
+  "installment_open_total": 762,
+  "credit_factors": [
+    {
+      "factor": "1 Unpaid Collection",
+      "color": "green",
+      "hex": "#428f4e",
+      "bbox": [
+        382.67999267578125,
+        165.8050079345703,
+        478.0499267578125,
+        180.91900634765625
+      ],
+      "page": 0,
+      "spans": [
+        {
+          "text": "1 Unpaid Collection",
+          "hex": "#428f4e",
+          "rgb": [
+            66,
+            143,
+            78
+          ],
+          "bbox": [
+            382.67999267578125,
+            165.8050079345703,
+            478.0499267578125,
+            180.91900634765625
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "$762 Unpaid Collection(s)",
+      "color": "green",
+      "hex": "#428f4e",
+      "bbox": [
+        382.67999267578125,
+        182.8150177001953,
+        509.2239074707031,
+        197.92901611328125
+      ],
+      "page": 0,
+      "spans": [
+        {
+          "text": "$762 Unpaid Collection(s)",
+          "hex": "#428f4e",
+          "rgb": [
+            66,
+            143,
+            78
+          ],
+          "bbox": [
+            382.67999267578125,
+            182.8150177001953,
+            509.2239074707031,
+            197.92901611328125
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "No Open 1k+ Lines",
+      "color": "red",
+      "hex": "#dc3545",
+      "bbox": [
+        382.67999267578125,
+        199.8250274658203,
+        477.14801025390625,
+        214.93902587890625
+      ],
+      "page": 0,
+      "spans": [
+        {
+          "text": "No Open 1k+ Lines",
+          "hex": "#dc3545",
+          "rgb": [
+            220,
+            53,
+            69
+          ],
+          "bbox": [
+            382.67999267578125,
+            199.8250274658203,
+            477.14801025390625,
+            214.93902587890625
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "No Open Rev Credit Lines",
+      "color": "red",
+      "hex": "#dc3545",
+      "bbox": [
+        382.67999267578125,
+        216.83497619628906,
+        511.06097412109375,
+        231.948974609375
+      ],
+      "page": 0,
+      "spans": [
+        {
+          "text": "No Open Rev Credit Lines",
+          "hex": "#dc3545",
+          "rgb": [
+            220,
+            53,
+            69
+          ],
+          "bbox": [
+            382.67999267578125,
+            216.83497619628906,
+            511.06097412109375,
+            231.948974609375
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "1 Charged Off Accts",
+      "color": "red",
+      "hex": "#dc3545",
+      "bbox": [
+        382.67999267578125,
+        233.84498596191406,
+        481.72406005859375,
+        248.958984375
+      ],
+      "page": 0,
+      "spans": [
+        {
+          "text": "1 Charged Off Accts",
+          "hex": "#dc3545",
+          "rgb": [
+            220,
+            53,
+            69
+          ],
+          "bbox": [
+            382.67999267578125,
+            233.84498596191406,
+            481.72406005859375,
+            248.958984375
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "Avg Age Open",
+      "color": "red",
+      "hex": "#dc3545",
+      "bbox": [
+        382.67999267578125,
+        250.84498596191406,
+        454.2240295410156,
+        265.958984375
+      ],
+      "page": 0,
+      "spans": [
+        {
+          "text": "Avg Age Open",
+          "hex": "#dc3545",
+          "rgb": [
+            220,
+            53,
+            69
+          ],
+          "bbox": [
+            382.67999267578125,
+            250.84498596191406,
+            454.2240295410156,
+            265.958984375
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "2 Rev Lates in 2-4 yrs",
+      "color": "red",
+      "hex": "#dc3545",
+      "bbox": [
+        382.67999267578125,
+        267.85498046875,
+        489.666015625,
+        282.968994140625
+      ],
+      "page": 0,
+      "spans": [
+        {
+          "text": "2 Rev Lates in 2-4 yrs",
+          "hex": "#dc3545",
+          "rgb": [
+            220,
+            53,
+            69
+          ],
+          "bbox": [
+            382.67999267578125,
+            267.85498046875,
+            489.666015625,
+            282.968994140625
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "$510 Unpaid Collections",
+      "color": "red",
+      "hex": "#dc3545",
+      "bbox": [
+        382.67999267578125,
+        284.864990234375,
+        501.8979187011719,
+        299.97900390625
+      ],
+      "page": 0,
+      "spans": [
+        {
+          "text": "$510 Unpaid Collections",
+          "hex": "#dc3545",
+          "rgb": [
+            220,
+            53,
+            69
+          ],
+          "bbox": [
+            382.67999267578125,
+            284.864990234375,
+            501.8979187011719,
+            299.97900390625
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "3+ Closed Rev Accnts",
+      "color": "green",
+      "hex": "#428f4e",
+      "bbox": [
+        382.67999267578125,
+        301.875,
+        491.19500732421875,
+        316.989013671875
+      ],
+      "page": 0,
+      "spans": [
+        {
+          "text": "3+ Closed Rev Accnts",
+          "hex": "#428f4e",
+          "rgb": [
+            66,
+            143,
+            78
+          ],
+          "bbox": [
+            382.67999267578125,
+            301.875,
+            491.19500732421875,
+            316.989013671875
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "Seasoned Closed Accounts",
+      "color": "green",
+      "hex": "#428f4e",
+      "bbox": [
+        382.67999267578125,
+        318.8849792480469,
+        517.803955078125,
+        333.9989929199219
+      ],
+      "page": 0,
+      "spans": [
+        {
+          "text": "Seasoned Closed Accounts",
+          "hex": "#428f4e",
+          "rgb": [
+            66,
+            143,
+            78
+          ],
+          "bbox": [
+            382.67999267578125,
+            318.8849792480469,
+            517.803955078125,
+            333.9989929199219
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "Closed Accnts Over 7.5k",
+      "color": "green",
+      "hex": "#428f4e",
+      "bbox": [
+        382.67999267578125,
+        335.8849792480469,
+        503.7240295410156,
+        350.9989929199219
+      ],
+      "page": 0,
+      "spans": [
+        {
+          "text": "Closed Accnts Over 7.5k",
+          "hex": "#428f4e",
+          "rgb": [
+            66,
+            143,
+            78
+          ],
+          "bbox": [
+            382.67999267578125,
+            335.8849792480469,
+            503.7240295410156,
+            350.9989929199219
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "8+ Closed RE Accounts",
+      "color": "green",
+      "hex": "#428f4e",
+      "bbox": [
+        382.67999267578125,
+        352.8949890136719,
+        499.14801025390625,
+        368.0090026855469
+      ],
+      "page": 0,
+      "spans": [
+        {
+          "text": "8+ Closed RE Accounts",
+          "hex": "#428f4e",
+          "rgb": [
+            66,
+            143,
+            78
+          ],
+          "bbox": [
+            382.67999267578125,
+            352.8949890136719,
+            499.14801025390625,
+            368.0090026855469
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "No Open Mortgage",
+      "color": "black",
+      "hex": "#212529",
+      "bbox": [
+        382.67999267578125,
+        369.9049987792969,
+        476.2239990234375,
+        385.0190124511719
+      ],
+      "page": 0,
+      "spans": [
+        {
+          "text": "No Open Mortgage",
+          "hex": "#212529",
+          "rgb": [
+            33,
+            37,
+            41
+          ],
+          "bbox": [
+            382.67999267578125,
+            369.9049987792969,
+            476.2239990234375,
+            385.0190124511719
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "Light Closed RevDepth",
+      "color": "black",
+      "hex": "#212529",
+      "bbox": [
+        382.67999267578125,
+        386.91497802734375,
+        495.7819519042969,
+        402.02899169921875
+      ],
+      "page": 0,
+      "spans": [
+        {
+          "text": "Light Closed RevDepth",
+          "hex": "#212529",
+          "rgb": [
+            33,
+            37,
+            41
+          ],
+          "bbox": [
+            382.67999267578125,
+            386.91497802734375,
+            495.7819519042969,
+            402.02899169921875
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "Drop Bad Auth User (BARCLAYS BANK DELAW",
+      "color": "black",
+      "hex": "#212529",
+      "bbox": [
+        382.67999267578125,
+        403.91497802734375,
+        621.6988525390625,
+        419.02899169921875
+      ],
+      "page": 0,
+      "spans": [
+        {
+          "text": "Drop Bad Auth User (BARCLAYS BANK DELAW",
+          "hex": "#212529",
+          "rgb": [
+            33,
+            37,
+            41
+          ],
+          "bbox": [
+            382.67999267578125,
+            403.91497802734375,
+            621.6988525390625,
+            419.02899169921875
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "No Rev Acct Open 10K 2yr",
+      "color": "black",
+      "hex": "#212529",
+      "bbox": [
+        382.67999267578125,
+        420.92498779296875,
+        514.7350463867188,
+        436.03900146484375
+      ],
+      "page": 0,
+      "spans": [
+        {
+          "text": "No Rev Acct Open 10K 2yr",
+          "hex": "#212529",
+          "rgb": [
+            33,
+            37,
+            41
+          ],
+          "bbox": [
+            382.67999267578125,
+            420.92498779296875,
+            514.7350463867188,
+            436.03900146484375
+          ]
+        }
+      ]
+    }
+  ],
+  "inquiries_last_6_months": 0,
+  "credit_card_open_totals": {
+    "color": "red",
+    "hex": "#dc3545",
+    "balance": 133,
+    "limit": 0,
+    "Percent": null,
+    "Payment": 30
+  },
+  "monthly_payments": 0,
+  "monthly_payments_color": "black",
+  "real_estate_open_count": 0,
+  "real_estate_open_total": 0,
+  "line_of_credit_accounts_open_count": 0,
+  "line_of_credit_accounts_open_total": 0,
+  "miscellaneous_accounts_open_count": 0,
+  "miscellaneous_accounts_open_total": 0,
+  "inquiries_last_6_months_color": "black",
+  "late_pays_color": "black",
+  "late_pays_2yr": 0,
+  "late_pays_gt2yr": 2,
+  "red_credit_factors_count": 6,
+  "green_credit_factors_count": 6,
+  "black_credit_factors_count": 4,
+  "credit_freeze": 0,
+  "fraud_alert": 0,
+  "deceased": 0
+}

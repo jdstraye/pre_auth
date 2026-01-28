@@ -1,0 +1,421 @@
+{
+  "source_gt": "data/extracted/user_1221_credit_summary_2025-09-01_132852_ground_truth_unvalidated.json",
+  "mapped": [
+    {
+      "input_file": "data/extracted/user_1221_credit_summary_2025-09-01_132852_ground_truth_unvalidated.json",
+      "factor": "1 Over Limit Accnt",
+      "color": "#428f4e",
+      "canonical_key": "1_over_limit_accnt--f236d604ed",
+      "page": 0,
+      "bbox": [
+        382.67999267578125,
+        165.8050079345703,
+        472.5390319824219,
+        180.91900634765625
+      ],
+      "spans": [
+        {
+          "text": "1 Over Limit Accnt",
+          "bbox": [
+            382.67999267578125,
+            165.8050079345703,
+            472.5390319824219,
+            180.91900634765625
+          ],
+          "font_size": 11.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1221_credit_summary_2025-09-01_132852_ground_truth_unvalidated.json",
+      "factor": "Total Rev Usage > 75%",
+      "color": "#428f4e",
+      "canonical_key": "total_rev_usage_75--b8486f74de",
+      "page": 0,
+      "bbox": [
+        382.67999267578125,
+        182.8150177001953,
+        499.14801025390625,
+        197.92901611328125
+      ],
+      "spans": [
+        {
+          "text": "Total Rev Usage > 75%",
+          "bbox": [
+            382.67999267578125,
+            182.8150177001953,
+            499.14801025390625,
+            197.92901611328125
+          ],
+          "font_size": 11.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1221_credit_summary_2025-09-01_132852_ground_truth_unvalidated.json",
+      "factor": "Pay $24051 so Accts < 40%",
+      "color": "#dc3545",
+      "canonical_key": "pay_24051_so_accts_40--95b95de931",
+      "page": 0,
+      "bbox": [
+        382.67999267578125,
+        199.8250274658203,
+        520.5650634765625,
+        214.93902587890625
+      ],
+      "spans": [
+        {
+          "text": "Pay $24051 so Accts < 40%",
+          "bbox": [
+            382.67999267578125,
+            199.8250274658203,
+            520.5650634765625,
+            214.93902587890625
+          ],
+          "font_size": 11.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1221_credit_summary_2025-09-01_132852_ground_truth_unvalidated.json",
+      "factor": "2 Rev Lates in 2-4 yrs",
+      "color": "#dc3545",
+      "canonical_key": "2_rev_lates_in_2_4_yrs--64c0622ee6",
+      "page": 0,
+      "bbox": [
+        382.67999267578125,
+        216.83497619628906,
+        489.666015625,
+        231.948974609375
+      ],
+      "spans": [
+        {
+          "text": "2 Rev Lates in 2-4 yrs",
+          "bbox": [
+            382.67999267578125,
+            216.83497619628906,
+            489.666015625,
+            231.948974609375
+          ],
+          "font_size": 11.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1221_credit_summary_2025-09-01_132852_ground_truth_unvalidated.json",
+      "factor": "7k+ line for 4+yrs",
+      "color": "#428f4e",
+      "canonical_key": "7k_line_for_4_yrs--0876b651c2",
+      "page": 0,
+      "bbox": [
+        382.67999267578125,
+        233.84498596191406,
+        467.0500183105469,
+        248.958984375
+      ],
+      "spans": [
+        {
+          "text": "7k+ line for 4+yrs",
+          "bbox": [
+            382.67999267578125,
+            233.84498596191406,
+            467.0500183105469,
+            248.958984375
+          ],
+          "font_size": 11.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1221_credit_summary_2025-09-01_132852_ground_truth_unvalidated.json",
+      "factor": "Great Closed Rev Depth",
+      "color": "#428f4e",
+      "canonical_key": "great_closed_rev_depth--01b74bb769",
+      "page": 0,
+      "bbox": [
+        382.67999267578125,
+        250.84498596191406,
+        502.50299072265625,
+        265.958984375
+      ],
+      "spans": [
+        {
+          "text": "Great Closed Rev Depth",
+          "bbox": [
+            382.67999267578125,
+            250.84498596191406,
+            502.50299072265625,
+            265.958984375
+          ],
+          "font_size": 11.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1221_credit_summary_2025-09-01_132852_ground_truth_unvalidated.json",
+      "factor": "Ok Open Rev Depth",
+      "color": "#428f4e",
+      "canonical_key": "ok_open_rev_depth--edf7078316",
+      "page": 0,
+      "bbox": [
+        382.67999267578125,
+        267.85498046875,
+        481.7240295410156,
+        282.968994140625
+      ],
+      "spans": [
+        {
+          "text": "Ok Open Rev Depth",
+          "bbox": [
+            382.67999267578125,
+            267.85498046875,
+            481.7240295410156,
+            282.968994140625
+          ],
+          "font_size": 11.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1221_credit_summary_2025-09-01_132852_ground_truth_unvalidated.json",
+      "factor": "3+ Closed Rev Accnts",
+      "color": "#428f4e",
+      "canonical_key": "3_closed_rev_accnts--b607705a41",
+      "page": 0,
+      "bbox": [
+        382.67999267578125,
+        284.864990234375,
+        491.19500732421875,
+        299.97900390625
+      ],
+      "spans": [
+        {
+          "text": "3+ Closed Rev Accnts",
+          "bbox": [
+            382.67999267578125,
+            284.864990234375,
+            491.19500732421875,
+            299.97900390625
+          ],
+          "font_size": 11.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1221_credit_summary_2025-09-01_132852_ground_truth_unvalidated.json",
+      "factor": "Seasoned Closed Accounts",
+      "color": "#428f4e",
+      "canonical_key": "seasoned_closed_accounts--de9556a1be",
+      "page": 0,
+      "bbox": [
+        382.67999267578125,
+        301.875,
+        517.803955078125,
+        316.989013671875
+      ],
+      "spans": [
+        {
+          "text": "Seasoned Closed Accounts",
+          "bbox": [
+            382.67999267578125,
+            301.875,
+            517.803955078125,
+            316.989013671875
+          ],
+          "font_size": 11.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1221_credit_summary_2025-09-01_132852_ground_truth_unvalidated.json",
+      "factor": "8+ Rev Accnts with Balances",
+      "color": "#212529",
+      "canonical_key": "8_rev_accnts_with_balances--f42352413b",
+      "page": 0,
+      "bbox": [
+        382.67999267578125,
+        318.8849792480469,
+        524.8220825195312,
+        333.9989929199219
+      ],
+      "spans": [
+        {
+          "text": "8+ Rev Accnts with Balances",
+          "bbox": [
+            382.67999267578125,
+            318.8849792480469,
+            524.8220825195312,
+            333.9989929199219
+          ],
+          "font_size": 11.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1221_credit_summary_2025-09-01_132852_ground_truth_unvalidated.json",
+      "factor": "1 RE Late in 4+ yrs",
+      "color": "#212529",
+      "canonical_key": "1_re_late_in_4_yrs--bdfb2d5099",
+      "page": 0,
+      "bbox": [
+        382.67999267578125,
+        335.8849792480469,
+        476.53204345703125,
+        350.9989929199219
+      ],
+      "spans": [
+        {
+          "text": "1 RE Late in 4+ yrs",
+          "bbox": [
+            382.67999267578125,
+            335.8849792480469,
+            476.53204345703125,
+            350.9989929199219
+          ],
+          "font_size": 11.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1221_credit_summary_2025-09-01_132852_ground_truth_unvalidated.json",
+      "factor": "Drop Bad Auth User (JPMCB CARD SERVICES",
+      "color": "#212529",
+      "canonical_key": "drop_bad_auth_user_jpmcb_card_services--21e4bb2832",
+      "page": 0,
+      "bbox": [
+        382.67999267578125,
+        352.8949890136719,
+        618.0138549804688,
+        368.0090026855469
+      ],
+      "spans": [
+        {
+          "text": "Drop Bad Auth User (JPMCB CARD SERVICES",
+          "bbox": [
+            382.67999267578125,
+            352.8949890136719,
+            618.0138549804688,
+            368.0090026855469
+          ],
+          "font_size": 11.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    },
+    {
+      "input_file": "data/extracted/user_1221_credit_summary_2025-09-01_132852_ground_truth_unvalidated.json",
+      "factor": "No Rev Acct Open 10K 2yr",
+      "color": "#212529",
+      "canonical_key": "no_rev_acct_open_10k_2yr--52bc04a72c",
+      "page": 0,
+      "bbox": [
+        382.67999267578125,
+        369.9049987792969,
+        514.7350463867188,
+        385.0190124511719
+      ],
+      "spans": [
+        {
+          "text": "No Rev Acct Open 10K 2yr",
+          "bbox": [
+            382.67999267578125,
+            369.9049987792969,
+            514.7350463867188,
+            385.0190124511719
+          ],
+          "font_size": 11.0,
+          "font": "Helvetica",
+          "is_bold": false,
+          "hex": null
+        }
+      ],
+      "match_type": "exact",
+      "match_score": 1.0,
+      "notes": "",
+      "color_match": null
+    }
+  ]
+}

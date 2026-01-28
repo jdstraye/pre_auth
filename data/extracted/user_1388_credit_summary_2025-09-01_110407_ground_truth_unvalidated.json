@@ -1,0 +1,118 @@
+{
+  "filename": "user_1388_credit_summary_2025-09-01_110407.pdf",
+  "source": "data/pdf_analysis/user_1388_credit_summary_2025-09-01_110407.pdf",
+  "credit_score": 808,
+  "credit_score_color": "green",
+  "age": 64,
+  "address": [
+    "371 E Brewster Dr, Draper, UT 84020",
+    "122 E Manilla Dr, Draper, UT 84020"
+  ],
+  "collections_open": 1,
+  "collections_closed": 0,
+  "public_records": 0,
+  "revolving_open_count": 6,
+  "revolving_open_total": 7751,
+  "installment_open_count": 1,
+  "installment_open_total": 26565,
+  "credit_factors": [
+    {
+      "factor": "$2090 Unpaid Collection(s)",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "1 Over Limit Accnt",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "Past Due Not Late",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "1 Chrgd Off Rev Acct",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "2 Inq Last 4 Mo",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Light Open Rev Depth",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No Closed Rev Depth",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Avg Age Open",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "2 Inqs last 2 Months",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "2 Total Inq 0-2 Mo",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Seasoned Closed Accounts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "7k+ lines",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "1+ Closed Rev Accnts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "No Rev Acct Open 10K 2yr",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Drop Bad Auth User (NORDSTROM/TD BANK)",
+      "color": "black",
+      "hex": "#212529"
+    }
+  ],
+  "inquiries_last_6_months": 2,
+  "credit_card_open_totals": {
+    "color": "black",
+    "balance": 5661,
+    "limit": 14700,
+    "Percent": null,
+    "Payment": null
+  },
+  "monthly_payments": 2495,
+  "real_estate_open_count": 2,
+  "real_estate_open_total": 100611,
+  "line_of_credit_accounts_open_count": 0,
+  "line_of_credit_accounts_open_total": 0,
+  "miscellaneous_accounts_open_count": 0,
+  "miscellaneous_accounts_open_total": 0,
+  "late_pays_2yr": 0,
+  "late_pays_gt2yr": 0,
+  "red_credit_factors_count": 7,
+  "green_credit_factors_count": 6,
+  "black_credit_factors_count": 1,
+  "credit_freeze": 0,
+  "fraud_alert": 0,
+  "deceased": 0
+}

@@ -1,0 +1,127 @@
+{
+  "filename": "user_1197_credit_summary_2025-09-01_092107.pdf",
+  "source": "data/pdf_analysis/user_1197_credit_summary_2025-09-01_092107.pdf",
+  "credit_score": 592,
+  "credit_score_color": "red",
+  "age": 59,
+  "address": [
+    "1274 Lariat Ct, Minden, NV 89423"
+  ],
+  "collections_open": 1,
+  "collections_closed": 1,
+  "public_records": 1,
+  "revolving_open_count": 0,
+  "revolving_open_total": 0,
+  "installment_open_count": 2,
+  "installment_open_total": 10161,
+  "credit_factors": [
+    {
+      "factor": "1 Unpaid Collection",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "C-7/11 BK in Last 7 yrs",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "1 Chrgd Off Rev Acct",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No Open 1k+ Lines",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No Open Rev Credit Lines",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Too Few Open Rev Accounts",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "BK w/ Neg Credit",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Avg Age Open",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "No Closed Rev Depth",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "$1406 Unpaid Collections",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "1 Rev Late in 2-4 yrs",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "Accounts Too New",
+      "color": "red",
+      "hex": "#dc3545"
+    },
+    {
+      "factor": "1+ Closed Rev Accnts",
+      "color": "green",
+      "hex": "#428f4e"
+    },
+    {
+      "factor": "No Open Mortgage",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "Fraud Alert",
+      "color": "black",
+      "hex": "#212529"
+    },
+    {
+      "factor": "No Rev Acct Open 10K 2yr",
+      "color": "black",
+      "hex": "#212529"
+    }
+  ],
+  "inquiries_last_6_months": 0,
+  "credit_card_open_totals": {
+    "color": "black",
+    "balance": 0,
+    "limit": 0,
+    "Percent": null,
+    "Payment": 0
+  },
+  "monthly_payments": 150,
+  "real_estate_open_count": 0,
+  "real_estate_open_total": 0,
+  "line_of_credit_accounts_open_count": 0,
+  "line_of_credit_accounts_open_total": 0,
+  "miscellaneous_accounts_open_count": 1,
+  "miscellaneous_accounts_open_total": 0,
+  "late_pays_2yr": 0,
+  "late_pays_gt2yr": 1,
+  "public_records_details": {
+    "detail": "Bankruptcy Discharged CH-7Discharged CH-7",
+    "date": "2023-08-24",
+    "color": "red"
+  },
+  "red_credit_factors_count": 10,
+  "green_credit_factors_count": 3,
+  "black_credit_factors_count": 3,
+  "credit_freeze": 0,
+  "fraud_alert": 0,
+  "deceased": 0
+}

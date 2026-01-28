@@ -1,0 +1,149 @@
+{
+  "source_gt": "data/extracted/user_1110_credit_summary_2025-09-01_100425_ground_truth_unvalidated.json",
+  "mapped": [
+    {
+      "input_file": "data/extracted/user_1110_credit_summary_2025-09-01_100425_ground_truth_unvalidated.json",
+      "factor": "1 Over Limit Accnt",
+      "color": "#428f4e",
+      "canonical_key": "",
+      "page": null,
+      "bbox": null,
+      "spans": null,
+      "match_type": "none",
+      "match_score": 0.0,
+      "notes": "no_extracted_lines"
+    },
+    {
+      "input_file": "data/extracted/user_1110_credit_summary_2025-09-01_100425_ground_truth_unvalidated.json",
+      "factor": "Total Rev Usage > 90%",
+      "color": "#428f4e",
+      "canonical_key": "",
+      "page": null,
+      "bbox": null,
+      "spans": null,
+      "match_type": "none",
+      "match_score": 0.0,
+      "notes": "no_extracted_lines"
+    },
+    {
+      "input_file": "data/extracted/user_1110_credit_summary_2025-09-01_100425_ground_truth_unvalidated.json",
+      "factor": "Pay $3272 so Accts < 40%",
+      "color": "#dc3545",
+      "canonical_key": "",
+      "page": null,
+      "bbox": null,
+      "spans": null,
+      "match_type": "none",
+      "match_score": 0.0,
+      "notes": "no_extracted_lines"
+    },
+    {
+      "input_file": "data/extracted/user_1110_credit_summary_2025-09-01_100425_ground_truth_unvalidated.json",
+      "factor": "Light Open Rev Depth",
+      "color": "#dc3545",
+      "canonical_key": "",
+      "page": null,
+      "bbox": null,
+      "spans": null,
+      "match_type": "none",
+      "match_score": 0.0,
+      "notes": "no_extracted_lines"
+    },
+    {
+      "input_file": "data/extracted/user_1110_credit_summary_2025-09-01_100425_ground_truth_unvalidated.json",
+      "factor": "Too Few Open Rev Accounts",
+      "color": "#dc3545",
+      "canonical_key": "",
+      "page": null,
+      "bbox": null,
+      "spans": null,
+      "match_type": "none",
+      "match_score": 0.0,
+      "notes": "no_extracted_lines"
+    },
+    {
+      "input_file": "data/extracted/user_1110_credit_summary_2025-09-01_100425_ground_truth_unvalidated.json",
+      "factor": "Avg Age Open",
+      "color": "#dc3545",
+      "canonical_key": "",
+      "page": null,
+      "bbox": null,
+      "spans": null,
+      "match_type": "none",
+      "match_score": 0.0,
+      "notes": "no_extracted_lines"
+    },
+    {
+      "input_file": "data/extracted/user_1110_credit_summary_2025-09-01_100425_ground_truth_unvalidated.json",
+      "factor": "No Closed Rev Depth",
+      "color": "#dc3545",
+      "canonical_key": "",
+      "page": null,
+      "bbox": null,
+      "spans": null,
+      "match_type": "none",
+      "match_score": 0.0,
+      "notes": "no_extracted_lines"
+    },
+    {
+      "input_file": "data/extracted/user_1110_credit_summary_2025-09-01_100425_ground_truth_unvalidated.json",
+      "factor": "1 RE Late in 12-24 mo",
+      "color": "#dc3545",
+      "canonical_key": "",
+      "page": null,
+      "bbox": null,
+      "spans": null,
+      "match_type": "none",
+      "match_score": 0.0,
+      "notes": "no_extracted_lines"
+    },
+    {
+      "input_file": "data/extracted/user_1110_credit_summary_2025-09-01_100425_ground_truth_unvalidated.json",
+      "factor": "No 7.5k+ Lines",
+      "color": "#dc3545",
+      "canonical_key": "",
+      "page": null,
+      "bbox": null,
+      "spans": null,
+      "match_type": "none",
+      "match_score": 0.0,
+      "notes": "no_extracted_lines"
+    },
+    {
+      "input_file": "data/extracted/user_1110_credit_summary_2025-09-01_100425_ground_truth_unvalidated.json",
+      "factor": "1 RE Late in 2-4 yrs",
+      "color": "#dc3545",
+      "canonical_key": "",
+      "page": null,
+      "bbox": null,
+      "spans": null,
+      "match_type": "none",
+      "match_score": 0.0,
+      "notes": "no_extracted_lines"
+    },
+    {
+      "input_file": "data/extracted/user_1110_credit_summary_2025-09-01_100425_ground_truth_unvalidated.json",
+      "factor": "Accounts Too New",
+      "color": "#dc3545",
+      "canonical_key": "",
+      "page": null,
+      "bbox": null,
+      "spans": null,
+      "match_type": "none",
+      "match_score": 0.0,
+      "notes": "no_extracted_lines"
+    },
+    {
+      "input_file": "data/extracted/user_1110_credit_summary_2025-09-01_100425_ground_truth_unvalidated.json",
+      "factor": "No Rev Acct Open 10K 2yr",
+      "color": "#212529",
+      "canonical_key": "",
+      "page": null,
+      "bbox": null,
+      "spans": null,
+      "match_type": "none",
+      "match_score": 0.0,
+      "notes": "no_extracted_lines"
+    }
+  ]
+}
