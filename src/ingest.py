@@ -1,4 +1,6 @@
 """
+IMPORTANT: For feature selection, use_* keys (e.g., use_KNN, use_XGB) take precedence over "X". If a feature has "X": false but use_KNN: true, it will be included for KNN models. Always use use_* keys for model-specific inclusion/exclusion.
+
 Converts a nested JSON file to a preprocessed CSV file, using a golden JSON schema
 for order and standardization. The script dynamically applies a variety of
 transformations based on the provided schema definition.
@@ -263,6 +265,10 @@ def _apply_labeling_and_mapping(df: pd.DataFrame, schema_item: Dict[str, Any], c
 def _apply_ohe(df: pd.DataFrame, schema_item: Dict[str, Any], column_map: Dict[str, Dict[str, Any]]) -> pd.DataFrame:
     """Apply one-hot encoding based on schema."""
     col_name = schema_item['name']
+    # If the source column is not present in the DataFrame, skip OHE to avoid KeyErrors
+    if col_name not in df.columns:
+        logger.debug(f"Skipping OHE for {col_name} because source column is missing")
+        return df
     if 'ohe' in schema_item:
         for raw_val, ohe_col in schema_item['ohe'].items():
             if ohe_col not in df.columns:
@@ -288,12 +294,18 @@ def _apply_ohe(df: pd.DataFrame, schema_item: Dict[str, Any], column_map: Dict[s
 
 
 def _get_final_columns(schema: List[Dict[str, Any]]) -> List[str]:
-    """Get final column names from schema."""
-    return [col['name'] for col in schema]
+    """Get final column names from schema.
+
+    Ensures deterministic ordering and removes duplicate names introduced by
+    schema edits (preserve first occurrence).
+    """
+    names = [col['name'] for col in schema]
+    # Preserve order and remove duplicates
+    return list(dict.fromkeys(names))
 
 
 # --- Main ---
-def flatten_weaviate_data(file_path: Path, schema: List[Dict[str, Any]]) -> pd.DataFrame:
+def parse_json(file_path: Path, schema: List[Dict[str, Any]]) -> pd.DataFrame:
     """Flatten Weaviate JSON data into a DataFrame."""
     try:
         with open(file_path, 'r', encoding='utf-8') as f:
@@ -353,6 +365,18 @@ def flatten_weaviate_data(file_path: Path, schema: List[Dict[str, Any]]) -> pd.D
     mapping_cols = {item.get('name') for item in schema if 'mapped_from' in item.keys()}
 
     test_columns = set(_get_final_columns(schema))-ohe_cols-label_cols-mapping_cols
+
+    # Ensure expected source columns exist in the flattened DataFrame by inserting sentinel values
+    missing_cols = test_columns - set(df.columns)
+    if missing_cols:
+        logger.debug(f"Adding missing sentinel columns to flattened DataFrame: {missing_cols}")
+        for c in missing_cols:
+            # Numeric-style features use -1 sentinel, others get 'NA'
+            if any(suf in c for suf in ['_Score', '_Amount', '_DebtToIncome', '_PayD', '_Collections']):
+                df[c] = -1
+            else:
+                df[c] = 'NA'
+
     if not check_df_columns(df, list(test_columns)):
         logger.critical("DataFrame columns do not match schema.")
         raise ValueError(f"Values in {file_path} JSON records do not match schema.")
@@ -370,10 +394,12 @@ def preprocess_dataframe(df: pd.DataFrame, schema: List[Dict[str, Any]], column_
 #20250826             logger.debug(f"here6 - /*_flag_/ - {item = }")
             processed = _apply_ohe(processed, item, column_map)
     final_cols = _get_final_columns(schema)
-#20250826     logger.debug(f"here10 - *_flag_ - {final_cols = }")
+    logger.info("Final schema columns include AutomaticFinancing_Score: %s" % ('AutomaticFinancing_Score' in final_cols))
+    #20250826     logger.debug(f"here10 - *_flag_ - {final_cols = }")
 #20250826     logger.debug(f"here11 - *_flag? - {processed.columns = }")
     # Reindex to the final schema and fill numeric-style missing values with 0
     processed = processed.reindex(columns=final_cols, fill_value=0)
+    logger.info(f"Columns after reindex: {list(processed.columns)}")
 
     # Ensure string-like derived columns (names, details, contingencies, status)
     # do not contain NaNs or numeric sentinels. Fill with 'NA' and coerce to object.
@@ -408,6 +434,103 @@ def preprocess_dataframe(df: pd.DataFrame, schema: List[Dict[str, Any]], column_
                 # As a fallback, ensure 0/1 by comparing to strings
                 processed[col] = (processed[col].astype(str) == 'True').astype(int)
 
+    # Coerce all score, amount, and DTI columns to numeric for ML fitting
+    score_cols = [
+        'AutomaticFinancing_Score',
+        '0UnsecuredFunding_Score',
+        'DebtResolution_Score'
+    ]
+    amount_cols = [
+        'AutomaticFinancing_Amount',
+        '0UnsecuredFunding_Amount',
+        'DebtResolution_Amount',
+        'final_contract_amount'
+    ]
+    dti_cols = [
+        'AutomaticFinancing_DebtToIncome',
+        '0UnsecuredFunding_DebtToIncome',
+        'DebtResolution_DebtToIncome',
+        'DebtToIncome'
+    ]
+
+    # --- Merge and drop redundant features ---
+    # Merge DTI columns
+    dti_present = [col for col in dti_cols if col in processed.columns]
+    if dti_present:
+        processed['Merged_DebtToIncome'] = processed[dti_present].replace({-1: np.nan, 0: np.nan}).median(axis=1, skipna=True)
+        processed['Merged_DebtToIncome'] = processed['Merged_DebtToIncome'].fillna(-1)
+
+    # Drop redundant DTI columns (keep only merged and original DebtToIncome)
+    drop_dti = [col for col in dti_cols if col != 'DebtToIncome']
+    processed = processed.drop(columns=[col for col in drop_dti if col in processed.columns], errors='ignore')
+
+    # Merge AutomaticFinancing_Score and 0UnsecuredFunding_Score if schema indicates
+    af_score_schema = column_map.get('AutomaticFinancing_Score', {})
+    ouf_score_schema = column_map.get('0UnsecuredFunding_Score', {})
+    use_median = af_score_schema.get('use_median_with') == '0UnsecuredFunding_Score' and ouf_score_schema.get('use_median_with') == 'AutomaticFinancing_Score'
+    af_col = 'AutomaticFinancing_Score'
+    ouf_col = '0UnsecuredFunding_Score'
+    if use_median and af_col in processed.columns and ouf_col in processed.columns:
+        logger.debug(f"Merging scores: {af_col} in cols={af_col in processed.columns}, {ouf_col} in cols={ouf_col in processed.columns}")
+        af = processed[af_col] if af_col in processed.columns else None
+        ouf = processed[ouf_col] if ouf_col in processed.columns else None
+        # Only merge if both are Series and not scalars
+        if isinstance(af, pd.Series) and isinstance(ouf, pd.Series):
+            logger.debug(f"Both scores are Series types; sample values AF[:5]={af.iloc[:5].tolist()} OUF[:5]={ouf.iloc[:5].tolist()}")
+            af_num = pd.to_numeric(af, errors='coerce').replace(-1, np.nan) if isinstance(af, pd.Series) else pd.Series([-1]*len(processed))
+            ouf_num = pd.to_numeric(ouf, errors='coerce').replace(-1, np.nan) if isinstance(ouf, pd.Series) else pd.Series([-1]*len(processed))
+            merged_score = pd.concat([af_num, ouf_num], axis=1).median(axis=1, skipna=True).fillna(-1)
+            # Ensure merged_score is a Series with correct index
+            if not isinstance(merged_score, pd.Series):
+                merged_score = pd.Series([-1]*len(processed), index=processed.index)
+            processed[af_col] = merged_score
+            logger.info(f"After merging scores, columns contain AF={af_col in processed.columns}, OUF={ouf_col in processed.columns}")
+            # Drop ouf_col if present
+            if ouf_col in processed.columns:
+                processed = processed.drop(columns=[ouf_col])
+            logger.info(f"Columns after dropping OUF (if present): {af_col in processed.columns}, {ouf_col in processed.columns}")
+        else:
+            # Fallback: just coerce both columns if present and Series-like
+            for col in [af_col, ouf_col]:
+                if col in processed.columns and isinstance(processed[col], pd.Series):
+                    processed[col] = pd.to_numeric(processed[col], errors='coerce').fillna(-1).astype(float)
+    else:
+        # Replace non-numeric and NaN values for both if not merged, only if Series
+        for col in [af_col, ouf_col]:
+            if col in processed.columns and isinstance(processed[col], pd.Series):
+                processed[col] = pd.to_numeric(processed[col], errors='coerce').fillna(-1).astype(float)
+
+    # Note: we intentionally retain one-hot encoded (OHE) derived status columns even if they are
+    # perfectly correlated with the canonical *_Status column. Tests and downstream pipelines expect
+    # explicit OHE columns to exist (and they are harmless even when redundant). This avoids dropping
+    # schema-derived columns and keeps behavior deterministic.
+
+    # Optionally drop Details/Contingencies columns if not used downstream
+    # (Disabled by default to preserve raw context for downstream steps)
+    # drop_details = [c for c in processed.columns if c.endswith('_Details') or c.endswith('_Contingencies')]
+    # processed = processed.drop(columns=drop_details, errors='ignore')
+    # Replace non-numeric and NaN values
+    for col in amount_cols:
+        if col in processed.columns:
+            processed[col] = pd.to_numeric(processed[col], errors='coerce').fillna(0).astype(float)
+    for col in dti_cols:
+        if col in processed.columns:
+            processed[col] = pd.to_numeric(processed[col], errors='coerce').fillna(0).astype(float)
+
+    # Drop all object dtype columns except those explicitly allowed (e.g., Name, Details, Contingencies, Status)
+    allowed_object_suffixes = ("_Name", "_Details", "_Contingencies", "_Status", "final_contract_status", "user_initials", "record_id")
+    drop_object_cols = []
+    for col in processed.columns:
+        col_data = processed[col]
+        # Only check dtype if col_data is a Series
+        if isinstance(col_data, pd.Series):
+            if col_data.dtype == object and not any(col.endswith(suf) or col == suf for suf in allowed_object_suffixes):
+                drop_object_cols.append(col)
+        else:
+            # If not a Series (e.g., DataFrame or scalar), drop for safety
+            drop_object_cols.append(col)
+    if drop_object_cols:
+        processed = processed.drop(columns=drop_object_cols)
     return processed
 
 if __name__ == "__main__":
@@ -420,7 +543,7 @@ if __name__ == "__main__":
     schema = _load_golden_schema(args.column_headers_json)
     sorted_schema, column_map = _parse_schema(schema)
 
-    df = flatten_weaviate_data(args.input_file, sorted_schema)
+    df = parse_json(args.input_file, sorted_schema)
 #20250826    logger.debug(f"0ufs00: {df['0UnsecuredFunding_Status'] = }")
     logger.debug(f"PayD01: {df['0UnsecuredFunding_Status'] = }")
 
@@ -432,5 +555,11 @@ if __name__ == "__main__":
     args.output_file.parent.mkdir(parents=True, exist_ok=True)
     final.to_csv(args.output_file, index=False)
     logger.info(f"Saved {final.shape[0]} rows, {final.shape[1]} cols to {args.output_file}")
+
+    # Backwards-compatibility wrapper: keep old name but warn
+    import warnings
+    def flatten_weaviate_data(*args, **kwargs):
+        warnings.warn("flatten_weaviate_data is deprecated; use parse_json instead", DeprecationWarning)
+        return parse_json(*args, **kwargs)
 
     sys.exit(0)

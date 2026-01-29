@@ -105,7 +105,7 @@ class PreAuthPredictor:
     def _preprocess_single_record(self, json_path: Path) -> pd.DataFrame:
         """Preprocess a JSON file with a single record into a feature-ready DataFrame."""
         try:
-            df = ingest.flatten_weaviate_data(json_path, self.sorted_schema)
+            df = ingest.parse_json(json_path, self.sorted_schema)
             final_df = ingest.preprocess_dataframe(
                 df, self.sorted_schema, self.column_map
             )

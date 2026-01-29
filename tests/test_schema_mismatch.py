@@ -12,7 +12,7 @@ SRC = os.path.join(ROOT, "src")
 if SRC not in sys.path:
     sys.path.insert(0, SRC)
 
-from ingest import flatten_weaviate_data, preprocess_dataframe, _load_golden_schema, _parse_schema
+from ingest import parse_json, preprocess_dataframe, _load_golden_schema, _parse_schema
 from src.utils import load_column_headers
 
 

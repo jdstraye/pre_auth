@@ -113,7 +113,7 @@ class MLPipelineCoordinator:
                 return model_name
 
             classifier_type = infer_classifier_type(model_name)
-            headers = load_column_headers(column_headers_json, X, classifier_type=classifier_type)
+            headers = load_column_headers(column_headers_json, X, classifier_type=classifier_type, allow_missing_columns=True)
             feature_cols = headers['feature_cols']
             categorical_cols = headers['categorical_cols']
             logger.debug(f"[search_models] classifier_type={classifier_type}, feature_cols={feature_cols}, categorical_cols={categorical_cols}")

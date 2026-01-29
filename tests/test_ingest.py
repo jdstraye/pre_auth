@@ -12,7 +12,7 @@ SRC = os.path.join(ROOT, "src")
 if SRC not in sys.path:
     sys.path.insert(0, SRC)
 
-from ingest import flatten_weaviate_data, preprocess_dataframe, _load_golden_schema, _parse_schema
+from ingest import parse_json, preprocess_dataframe, _load_golden_schema, _parse_schema
 from src.utils import load_column_headers
 
 
@@ -41,7 +41,7 @@ def test_preprocess_has_no_nan_and_ohe_int(tmp_path):
     schema = _load_golden_schema(Path("src/column_headers.json"))
     sorted_schema, column_map = _parse_schema(schema)
 
-    df_flat = flatten_weaviate_data(json_file, sorted_schema)
+    df_flat = parse_json(json_file, sorted_schema)
     df_processed = preprocess_dataframe(df_flat, sorted_schema, column_map)
 
     headers = load_column_headers(Path("src/column_headers.json"), df_processed)

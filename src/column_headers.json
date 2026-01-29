@@ -10,8 +10,11 @@
     "categorical": "False",
     "X": "False",
     "Y": "False",
-    "labels":"auto-generated",
-    "generation_methods": ["grouped", "frequency"]
+    "labels": "auto-generated",
+    "generation_methods": [
+      "grouped",
+      "frequency"
+    ]
   },
   {
     "name": "user_initials_label",
@@ -23,7 +26,7 @@
   {
     "name": "DebtToIncome",
     "categorical": "False",
-    "X": "True",
+    "X": "False",
     "Y": "False"
   },
   {
@@ -31,7 +34,7 @@
     "categorical": "False",
     "X": "False",
     "Y": "False",
-    "labels":{
+    "labels": {
       "approved": 0,
       "declined": 1,
       "rejected": 0,
@@ -42,14 +45,14 @@
     "name": "final_contract_status_label",
     "X": "False",
     "Y": "True",
-    "labels_from":"final_contract_status"
+    "labels_from": "final_contract_status"
   },
   {
     "name": "final_contract_tier",
     "categorical": "False",
     "X": "False",
     "Y": "False",
-    "labels":{  
+    "labels": {
       "0.095": 0,
       "0.165": 0,
       "0.045": 0,
@@ -62,8 +65,13 @@
       "0.12": 0,
       "NA": -1
     },
-    "label_descriptions":["0-Tier1","1-Tier2","2-Tier3","3-Tier4"],
-    "mapping":{
+    "label_descriptions": [
+      "0-Tier1",
+      "1-Tier2",
+      "2-Tier3",
+      "3-Tier4"
+    ],
+    "mapping": {
       "0.095": "A - Tier 1",
       "0.165": "A - Tier 1 Low APR",
       "0.045": "A - Tier 1 VIP",
@@ -76,7 +84,6 @@
       "0.12": "B - Tier 1 Prime",
       "NA": "error/TBD/not approved"
     }
-
   },
   {
     "name": "final_contract_tier_name",
@@ -147,7 +154,7 @@
       "Declined": "Declined",
       "NA": "NA"
     },
-    "ohe":{
+    "ohe": {
       "Approved": "AutomaticFinancing_Status_Approved",
       "Declined": "AutomaticFinancing_Status_Declined",
       "NA": "AutomaticFinancing_Status_NA_"
@@ -156,7 +163,7 @@
   {
     "name": "AutomaticFinancing_Status_Approved",
     "categorical": "True",
-    "X": "True",
+    "X": "False",
     "Y": "False",
     "use_XGB": false,
     "use_Cat": false,
@@ -167,13 +174,13 @@
     "use_NB": true,
     "use_SVM": true,
     "use_KNN": true,
-    "ohe_from":"AutomaticFinancing_Status",
-    "ohe_key":"Approved"
+    "ohe_from": "AutomaticFinancing_Status",
+    "ohe_key": "Approved"
   },
   {
     "name": "AutomaticFinancing_Status_Declined",
     "categorical": "True",
-    "X": "True",
+    "X": "False",
     "Y": "False",
     "use_XGB": false,
     "use_Cat": false,
@@ -184,13 +191,13 @@
     "use_NB": true,
     "use_SVM": true,
     "use_KNN": true,
-    "ohe_from":"AutomaticFinancing_Status",
-    "ohe_key":"Declined"
+    "ohe_from": "AutomaticFinancing_Status",
+    "ohe_key": "Declined"
   },
   {
     "name": "AutomaticFinancing_Status_NA_",
     "categorical": "True",
-    "X": "True",
+    "X": "False",
     "Y": "False",
     "use_XGB": false,
     "use_Cat": false,
@@ -201,8 +208,8 @@
     "use_NB": true,
     "use_SVM": true,
     "use_KNN": true,
-    "ohe_from":"AutomaticFinancing_Status",
-    "ohe_key":"NA"
+    "ohe_from": "AutomaticFinancing_Status",
+    "ohe_key": "NA"
   },
   {
     "name": "AutomaticFinancing_Amount",
@@ -224,31 +231,31 @@
   {
     "name": "AutomaticFinancing_Details_in_the_wallet_",
     "categorical": "True",
-    "X": "True",
+    "X": "False",
     "Y": "False",
-    "ohe_from":"AutomaticFinancing_Details",
-    "ohe_key":"Financing Automatically and Instantly Available - Money in the Wallet"
+    "ohe_from": "AutomaticFinancing_Details",
+    "ohe_key": "Financing Automatically and Instantly Available - Money in the Wallet"
   },
   {
     "name": "AutomaticFinancing_Details_just_available_",
     "categorical": "True",
-    "X": "True",
+    "X": "False",
     "Y": "False",
-    "ohe_from":"AutomaticFinancing_Details",
-    "ohe_key":"Financing Automatically and Instantly Available"
+    "ohe_from": "AutomaticFinancing_Details",
+    "ohe_key": "Financing Automatically and Instantly Available"
   },
-{
+  {
     "name": "AutomaticFinancing_Details_NA_",
     "categorical": "True",
-    "X": "True",
+    "X": "False",
     "Y": "False",
-    "ohe_from":"AutomaticFinancing_Details",
-    "ohe_key":"NA"
+    "ohe_from": "AutomaticFinancing_Details",
+    "ohe_key": "NA"
   },
-    {
+  {
     "name": "AutomaticFinancing_DebtToIncome",
     "categorical": "False",
-    "X": "True",
+    "X": "False",
     "Y": "False"
   },
   {
@@ -309,10 +316,11 @@
       "NA": "0UnsecuredFunding_Status_NA_"
     }
   },
-  {"name": "0UnsecuredFunding_Status_As_Is",
+  {
+    "name": "0UnsecuredFunding_Status_As_Is",
     "categorical": "True",
-    "X":"True",
-    "Y":"False",
+    "X": "False",
+    "Y": "False",
     "use_XGB": false,
     "use_Cat": false,
     "use_LGBM": false,
@@ -322,13 +330,14 @@
     "use_NB": true,
     "use_SVM": true,
     "use_KNN": true,
-    "ohe_from":"0UnsecuredFunding_Status",
-    "ohe_key":"As Is"
+    "ohe_from": "0UnsecuredFunding_Status",
+    "ohe_key": "As Is"
   },
-  {"name": "0UnsecuredFunding_Status_If_Fixed",
+  {
+    "name": "0UnsecuredFunding_Status_If_Fixed",
     "categorical": "True",
-    "X":"True",
-    "Y":"False",
+    "X": "False",
+    "Y": "False",
     "use_XGB": false,
     "use_Cat": false,
     "use_LGBM": false,
@@ -338,13 +347,14 @@
     "use_NB": true,
     "use_SVM": true,
     "use_KNN": true,
-    "ohe_from":"0UnsecuredFunding_Status",
-    "ohe_key":"If Fixed"
+    "ohe_from": "0UnsecuredFunding_Status",
+    "ohe_key": "If Fixed"
   },
-  {"name": "0UnsecuredFunding_Status_Declined",
+  {
+    "name": "0UnsecuredFunding_Status_Declined",
     "categorical": "True",
-    "X":"True",
-    "Y":"False",
+    "X": "False",
+    "Y": "False",
     "use_XGB": false,
     "use_Cat": false,
     "use_LGBM": false,
@@ -354,13 +364,14 @@
     "use_NB": true,
     "use_SVM": true,
     "use_KNN": true,
-    "ohe_from":"0UnsecuredFunding_Status",
-    "ohe_key":"Declined"
+    "ohe_from": "0UnsecuredFunding_Status",
+    "ohe_key": "Declined"
   },
-  {"name": "0UnsecuredFunding_Status_NA_",
+  {
+    "name": "0UnsecuredFunding_Status_NA_",
     "categorical": "True",
-    "X":"True",
-    "Y":"False",
+    "X": "False",
+    "Y": "False",
     "use_XGB": false,
     "use_Cat": false,
     "use_LGBM": false,
@@ -370,8 +381,8 @@
     "use_NB": true,
     "use_SVM": true,
     "use_KNN": true,
-    "ohe_from":"0UnsecuredFunding_Status",
-    "ohe_key":"NA"
+    "ohe_from": "0UnsecuredFunding_Status",
+    "ohe_key": "NA"
   },
   {
     "name": "0UnsecuredFunding_Amount",
@@ -384,7 +395,7 @@
     "categorical": "False",
     "X": "False",
     "Y": "False",
-    "ohe":{
+    "ohe": {
       "Unsecured Revolving Credit Lines - 0% for 12-21 months - To book: [URL_REMOVED]": "0UnsecuredFunding_Details_To_book_",
       "Unsecured Revolving Credit Lines - 0% for 12-21 months": "0UnsecuredFunding_Details_just_CL_",
       "NA": "0UnsecuredFunding_Details_NA_"
@@ -393,26 +404,26 @@
   {
     "name": "0UnsecuredFunding_Details_To_book_",
     "categorical": "True",
-    "X": "True",
+    "X": "False",
     "Y": "False",
-    "ohe_from":"0UnsecuredFunding_Details",
-    "ohe_key":"Unsecured Revolving Credit Lines - 0% for 12-21 months - To book: [URL_REMOVED]"
-    },
+    "ohe_from": "0UnsecuredFunding_Details",
+    "ohe_key": "Unsecured Revolving Credit Lines - 0% for 12-21 months - To book: [URL_REMOVED]"
+  },
   {
     "name": "0UnsecuredFunding_Details_just_CL_",
     "categorical": "True",
-    "X": "True",
+    "X": "False",
     "Y": "False",
-    "ohe_from":"0UnsecuredFunding_Details",
-    "ohe_key":"Unsecured Revolving Credit Lines - 0% for 12-21 months"
+    "ohe_from": "0UnsecuredFunding_Details",
+    "ohe_key": "Unsecured Revolving Credit Lines - 0% for 12-21 months"
   },
   {
     "name": "0UnsecuredFunding_Details_NA_",
     "categorical": "True",
-    "X": "True",
+    "X": "False",
     "Y": "False",
-    "ohe_from":"0UnsecuredFunding_Details",
-    "ohe_key":"NA"
+    "ohe_from": "0UnsecuredFunding_Details",
+    "ohe_key": "NA"
   },
   {
     "name": "0UnsecuredFunding_PayD",
@@ -435,7 +446,7 @@
   {
     "name": "0UnsecuredFunding_DebtToIncome",
     "categorical": "False",
-    "X": "True",
+    "X": "False",
     "Y": "False"
   },
   {
@@ -493,16 +504,16 @@
       "Declined": "Declined",
       "NA": "NA"
     },
-    "ohe":{
+    "ohe": {
       "Approved": "DebtResolution_Status_Approved",
       "Declined": "DebtResolution_Status_Declined",
       "NA": "DebtResolution_Status_NA"
     }
   },
   {
-    "name":"DebtResolution_Status_Approved",
+    "name": "DebtResolution_Status_Approved",
     "categorical": "True",
-    "X": "True",
+    "X": "False",
     "Y": "False",
     "use_XGB": false,
     "use_Cat": false,
@@ -513,13 +524,13 @@
     "use_NB": true,
     "use_SVM": true,
     "use_KNN": true,
-    "ohe_from":"DebtResolution_Status",
-    "ohe_key":"Approved"
+    "ohe_from": "DebtResolution_Status",
+    "ohe_key": "Approved"
   },
   {
-    "name":"DebtResolution_Status_Declined",
+    "name": "DebtResolution_Status_Declined",
     "categorical": "True",
-    "X": "True",
+    "X": "False",
     "Y": "False",
     "use_XGB": false,
     "use_Cat": false,
@@ -530,13 +541,13 @@
     "use_NB": true,
     "use_SVM": true,
     "use_KNN": true,
-    "ohe_from":"DebtResolution_Status",
-    "ohe_key":"Declined"
+    "ohe_from": "DebtResolution_Status",
+    "ohe_key": "Declined"
   },
   {
-    "name":"DebtResolution_Status_NA",
+    "name": "DebtResolution_Status_NA",
     "categorical": "True",
-    "X": "True",
+    "X": "False",
     "Y": "False",
     "use_XGB": false,
     "use_Cat": false,
@@ -547,8 +558,8 @@
     "use_NB": true,
     "use_SVM": true,
     "use_KNN": true,
-    "ohe_from":"DebtResolution_Status",
-    "ohe_key":"NA"
+    "ohe_from": "DebtResolution_Status",
+    "ohe_key": "NA"
   },
   {
     "name": "DebtResolution_Amount",
@@ -559,7 +570,7 @@
   {
     "name": "DebtResolution_DebtToIncome",
     "categorical": "False",
-    "X": "True",
+    "X": "False",
     "Y": "False"
   },
   {
@@ -573,5 +584,25 @@
     "categorical": "False",
     "X": "False",
     "Y": "False"
+  },
+  {
+    "name": "Merged_DebtToIncome",
+    "categorical": "False",
+    "X": "True",
+    "Y": "False"
+  },
+  {
+    "name": "AutomaticFinancing_Score",
+    "categorical": "False",
+    "X": "True",
+    "Y": "False",
+    "use_median_with": "0UnsecuredFunding_Score"
+  },
+  {
+    "name": "0UnsecuredFunding_Score",
+    "categorical": "False",
+    "X": "False",
+    "Y": "False",
+    "use_median_with": "AutomaticFinancing_Score"
   }
 ]
