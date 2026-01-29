@@ -28,7 +28,7 @@ sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / 'src'))
 
 from src.utils import load_column_headers, gv, sanitize_column_name
-from src.ingest import _load_golden_schema, _parse_schema, preprocess_dataframe
+from src.ingest import _load_golden_schema, _parse_schema, preprocess_dataframe, parse_json
 from src.pipeline_coordinator import MLPipelineCoordinator
 from src.eval_algos import param_distributions as eval_param_distributions, models as eval_models
 
@@ -47,10 +47,14 @@ def param_random_samples(dist, n_samples, random_state):
 def run_search(args):
     gv.DEBUG_MODE = bool(args.debug)
 
-    df = pd.read_csv(args.data_csv)
-    df.columns = [sanitize_column_name(c) for c in df.columns]
     schema = _load_golden_schema(Path(args.column_headers))
     sorted_schema, column_map = _parse_schema(schema)
+    if getattr(args, 'input_json', None):
+        df = parse_json(args.input_json, sorted_schema)
+        df.columns = [sanitize_column_name(c) for c in df.columns]
+    else:
+        df = pd.read_csv(args.data_csv)
+        df.columns = [sanitize_column_name(c) for c in df.columns]
     df = preprocess_dataframe(df, sorted_schema, column_map)
 
     headers = load_column_headers(Path(args.column_headers), df)
@@ -164,6 +168,7 @@ def run_search(args):
 def main():
     parser = argparse.ArgumentParser(description='Robust exhaustive hyperparameter search')
     parser.add_argument('--data-csv', type=Path, default=ROOT / 'data' / 'prefi_weaviate_clean-1_flattened.csv')
+    parser.add_argument('--input-json', type=Path, help='Optional input JSON file; if provided, will be parsed directly')
     parser.add_argument('--column-headers', type=Path, default=ROOT / 'src' / 'column_headers.json')
     parser.add_argument('--output-dir', type=Path, default=ROOT / 'models' / 'exhaustive_search')
     parser.add_argument('--n-top', type=int, default=5)

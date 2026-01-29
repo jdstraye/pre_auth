@@ -18,6 +18,8 @@ def main():
     parser.add_argument('--limit', type=int, default=0)
     parser.add_argument('--exhaustive', action='store_true', help='Use exhaustive grid search instead of random sampling')
     parser.add_argument('--debug', action='store_true')
+    parser.add_argument('--reports-dir', type=Path, default=ROOT / 'output' / 'reports', help='Directory to persist search snapshots and run history')
+    parser.add_argument('--input-json', type=Path, help='Optional input JSON file; if provided, will be parsed directly')
     args = parser.parse_args()
 
     # Always use progress bar
