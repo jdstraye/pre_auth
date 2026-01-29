@@ -92,10 +92,39 @@ Purpose: give an AI coding agent the minimal, high-value knowledge to be product
 ### Chat history preservation:
 - After every chat interaction, save the entire chat history in a markdown file under the `.github/ai-conversations/` directory.
 - Name the file using the format `conversation_{timestamp}.md`, where `{timestamp}` is  the current date and time in `YYYYMMDD-HHMMSS` format.
-- At the top of the markdown file, include a brief summary of the conversation, highlighting the main topics discussed and any key decisions made.
+- At the top of the markdown file, include a brief summary of the conversation, highlighting the main topics discussed and any key decisions made. However, do not just summarize. Include the detailed chat conversation below the summary for full context.
 - Ensure that the markdown file is well-formatted, with clear headings and sections for easy navigation.
 - Commit and push the markdown file to the repository to maintain a record of all AI interactions related to the project.
-### GIT commit preservation:
-- After every significant code change, create a GIT commit with a descriptive message summarizing the changes made.
-- Use clear and concise language in the commit message to ensure that it accurately reflects the modifications.
-- Follow the project's commit message conventions.
+### GIT commit preservation (strict procedure) 🔧
+Commit code after every successful significant code change. Follow this exact workflow and report back every step:
+
+1. Forensics first
+  - Run git status --porcelain and git diff --name-only to discover all modified/untracked files.
+  - Filter out ignored/generated files (pyc, build outputs, .reports, large binaries). Do NOT commit these.
+
+2. Run tests & linters
+  - Activate the project venv and run pytest -q (and optionally linters).
+  - If tests fail, record failing tests and do NOT push to main; create a WIP branch named wip/<short-desc> and push it with a clear commit message including failing tests, then ask for direction.
+
+3. Group changes & stage intentionally
+  - Group related edits into logical commits (examples: fix(pdf): ..., test: ..., data: ..., chore(docs): ...).
+  - Use targeted git add <file> (no git add .) so commits remain focused and traceable.
+
+4. Commit message rules
+  - Use Conventional-style prefixes and a 50–72 char summary: <type>(scope): short summary (types: feat, fix, test, data, chore, docs).
+  - Add a brief body if needed explaining rationale and tests run.
+
+5. Branching & push
+  - For multi-commit work create a feature branch ai/<short-desc> from main, push it, and open a PR with a short description and list of files changed and test status.
+  - For single, well-tested fixes on an active task, push to main only if you have permission (otherwise create PR).
+
+6. Evidence & auditing
+  - After each commit, run git log -n 3 --name-status and include the output in your report.
+  - Save a full chat transcript to .github/ai-conversations/conversation_{YYYYMMDD-HHMMSS}.md and commit it as chore(ai): save convo {timestamp}.
+
+7. Safety rules (mandatory)
+  - Never commit large generated assets (images, model checkpoints); raise a flag instead.
+  - If any change modifies GT fixtures, add or update unit tests that justify the change and include the GT update in the commit message.
+
+8. Final report
+  - Provide a concise summary: staged files, commits made (with messages), tests run & results, branch created/pushed, PR URL if opened, and any remaining TODOs.
